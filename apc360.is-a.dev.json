@@ -1,0 +1,9 @@
+{
+  "owner": {
+    "username": "serviciosapcsoporte-create",
+    "email": "tucorreo@ejemplo.com"
+  },
+  "record": {
+    "CNAME": "serviciosapcsoporte-create.github.io"
+  }
+}
