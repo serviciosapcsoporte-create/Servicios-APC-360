@@ -5,156 +5,187 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="APC 360 — Inteligencia Visual para Gimnasios, Spas y Retail. Detecta fugas de dinero invisibles con IA y visión computacional.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="APC 360 — Tu Local Pierde Dinero Sin Que Lo Veas">
-<meta property="og:description" content="Detectamos fugas financieras invisibles con IA. Diagnóstico gratuito para Gymns, Spas y Retail en Colombia.">
+<meta property="og:title" content="APC 360 — No solo vigiles tu negocio. Analízalo.">
+<meta property="og:description" content="Inteligencia Artificial aplicada a tu CCTV. Detectamos fugas de capital, optimizamos flujo de clientes y blindamos tu operación.">
 <meta property="og:url" content="https://serviciosapc.site">
 <meta property="og:type" content="website">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-<title>APC 360 — Tu Local Pierde Dinero Sin Que Lo Veas</title>
+<title>APC Servicios Tecnológicos — No solo vigiles tu negocio. Analízalo.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --midnight: #0A192F;
+    --midnight: #080F1A;
+    --navy: #1B2A4A;
+    --navy2: #2D3F63;
     --cyan: #64FFDA;
+    --cyan-dim: rgba(100,255,218,0.15);
     --white: #E6F1FF;
     --white-muted: rgba(230,241,255,0.6);
-    --card-bg: rgba(255,255,255,0.04);
+    --white-faint: rgba(230,241,255,0.08);
+    --card-bg: rgba(27,42,74,0.4);
     --card-border: rgba(100,255,218,0.15);
     --danger: #FF6B6B;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body { background: var(--midnight); color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.7; overflow-x: hidden; }
-  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
-  .orb { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
-  .orb-1 { width: 500px; height: 500px; background: rgba(100,255,218,0.06); top: -100px; right: -100px; }
-  .orb-2 { width: 400px; height: 400px; background: rgba(100,255,218,0.04); bottom: 200px; left: -150px; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10,25,47,0.88); backdrop-filter: blur(14px); border-bottom: 0.5px solid var(--card-border); }
-  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--cyan); letter-spacing: -0.02em; }
+  /* NOISE */
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; }
+
+  /* ORBS */
+  .orb { position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
+  .orb-1 { width: 600px; height: 600px; background: rgba(100,255,218,0.05); top: -150px; right: -150px; }
+  .orb-2 { width: 500px; height: 500px; background: rgba(27,42,74,0.6); bottom: 100px; left: -200px; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(8,15,26,0.92); backdrop-filter: blur(16px); border-bottom: 0.5px solid var(--card-border); }
+  .nav-logo img { height: 48px; width: auto; display: block; }
   .nav-right { display: flex; gap: 1rem; align-items: center; }
-  .nav-badge { font-size: 11px; background: rgba(100,255,218,0.1); color: var(--cyan); border: 0.5px solid var(--cyan); padding: 4px 10px; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
-  .nav-cta { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; background: var(--cyan); color: var(--midnight); padding: 7px 16px; border-radius: 4px; text-decoration: none; display: none; }
+  .nav-badge { font-size: 10px; background: rgba(100,255,218,0.08); color: var(--cyan); border: 0.5px solid rgba(100,255,218,0.3); padding: 4px 10px; border-radius: 20px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .nav-cta { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; background: var(--cyan); color: var(--midnight); padding: 8px 18px; border-radius: 4px; text-decoration: none; transition: transform 0.15s; display: none; }
+  .nav-cta:hover { transform: translateY(-1px); }
   @media(min-width:680px){ .nav-cta { display: inline-block; } }
 
-  section { position: relative; z-index: 1; }
+  section, div.container-section { position: relative; z-index: 1; }
   .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
 
-  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 1.5rem 4rem; max-width: 960px; margin: 0 auto; }
-  .hero-tag { display: inline-block; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); background: rgba(100,255,218,0.08); border: 0.5px solid rgba(100,255,218,0.3); padding: 6px 14px; border-radius: 20px; margin-bottom: 2rem; }
-  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; }
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 9rem 1.5rem 5rem; max-width: 960px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-tag { display: inline-block; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); background: rgba(100,255,218,0.07); border: 0.5px solid rgba(100,255,218,0.25); padding: 6px 14px; border-radius: 20px; margin-bottom: 2rem; }
+  h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; }
   h1 .accent { color: var(--cyan); }
-  .hero-sub { font-size: 1.1rem; color: var(--white-muted); max-width: 580px; margin-bottom: 3rem; line-height: 1.8; }
+  h1 .block { display: block; }
+  .hero-sub { font-size: 1.05rem; color: var(--white-muted); max-width: 560px; margin-bottom: 3rem; line-height: 1.8; }
   .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-primary { background: var(--cyan); color: var(--midnight); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border: none; border-radius: 4px; cursor: pointer; letter-spacing: 0.02em; transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(100,255,218,0.25); }
+  .btn-primary { background: var(--cyan); color: var(--midnight); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; padding: 14px 28px; border: none; border-radius: 4px; cursor: pointer; letter-spacing: 0.02em; transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(100,255,218,0.3); }
   .btn-ghost { background: transparent; color: var(--white-muted); font-size: 0.9rem; padding: 14px 20px; border: 0.5px solid rgba(230,241,255,0.2); border-radius: 4px; cursor: pointer; text-decoration: none; transition: color 0.15s, border-color 0.15s; display: inline-block; }
   .btn-ghost:hover { color: var(--white); border-color: rgba(230,241,255,0.5); }
-  .btn-legal { background: rgba(100,255,218,0.06); color: var(--cyan); font-size: 12px; padding: 8px 16px; border: 0.5px solid rgba(100,255,218,0.3); border-radius: 4px; cursor: pointer; text-decoration: none; transition: background 0.15s; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-legal { background: rgba(100,255,218,0.06); color: var(--cyan); font-size: 11px; padding: 8px 14px; border: 0.5px solid rgba(100,255,218,0.25); border-radius: 4px; cursor: pointer; text-decoration: none; transition: background 0.15s; display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Sans', sans-serif; }
   .btn-legal:hover { background: rgba(100,255,218,0.12); }
-  .privacy-note { margin-top: 1.5rem; font-size: 12px; color: var(--white-muted); display: flex; align-items: center; gap: 6px; }
-  .privacy-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .privacy-note { margin-top: 1.5rem; font-size: 11px; color: var(--white-muted); display: flex; align-items: center; gap: 6px; }
+  .privacy-dot { width: 7px; height: 7px; background: var(--cyan); border-radius: 50%; display: inline-block; flex-shrink: 0; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-  .pain-bar { background: rgba(255,107,107,0.06); border-top: 0.5px solid rgba(255,107,107,0.2); border-bottom: 0.5px solid rgba(255,107,107,0.2); padding: 2.5rem 0; }
+  /* HERO BG IA — SVG ANIMADO */
+  .hero-bg-ia { position: fixed; top: 0; right: 0; width: 55vw; height: 100vh; pointer-events: none; z-index: 0; opacity: 0.18; }
+
+  /* PAIN BAR */
+  .pain-bar { background: rgba(255,107,107,0.05); border-top: 0.5px solid rgba(255,107,107,0.15); border-bottom: 0.5px solid rgba(255,107,107,0.15); padding: 2.5rem 0; position: relative; z-index: 1; }
   .pain-bar .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; }
   .stat-item { text-align: center; }
-  .stat-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--danger); display: block; }
-  .stat-label { font-size: 13px; color: var(--white-muted); }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--danger); display: block; }
+  .stat-label { font-size: 12px; color: var(--white-muted); line-height: 1.4; }
 
-  .section-tag { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; display: block; }
-  h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
-  .section-intro { color: var(--white-muted); max-width: 560px; margin-bottom: 3rem; }
+  /* SECTION TYPOGRAPHY */
+  .section-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1rem; display: block; }
+  h2 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+  .section-intro { color: var(--white-muted); max-width: 540px; margin-bottom: 3rem; font-size: 0.95rem; }
 
+  /* HOW */
   .how { padding: 6rem 0; }
-  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .step-card { background: var(--card-bg); border: 0.5px solid var(--card-border); border-radius: 8px; padding: 2rem; }
-  .step-num { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: rgba(100,255,218,0.12); line-height: 1; margin-bottom: 1rem; }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .step-card { background: var(--card-bg); border: 0.5px solid var(--card-border); border-radius: 8px; padding: 2rem; backdrop-filter: blur(8px); }
+  .step-num { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; color: rgba(100,255,218,0.1); line-height: 1; margin-bottom: 1rem; }
   .step-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600; color: var(--cyan); margin-bottom: 0.5rem; }
-  .step-desc { font-size: 14px; color: var(--white-muted); line-height: 1.6; }
+  .step-desc { font-size: 13px; color: var(--white-muted); line-height: 1.6; }
 
-  .pilares { padding: 6rem 0; background: rgba(100,255,218,0.02); }
-  .pilares-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-  .pilar-card { background: var(--card-bg); border: 0.5px solid var(--card-border); border-radius: 8px; padding: 2rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; gap: 1rem; }
-  .pilar-card:hover { border-color: rgba(100,255,218,0.35); transform: translateY(-3px); }
-  .pilar-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; color: var(--cyan); text-transform: uppercase; }
-  .pilar-icon { font-size: 2rem; line-height: 1; }
-  .pilar-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
-  .pilar-subtitle { font-size: 13px; color: var(--cyan); font-weight: 500; margin-top: -0.5rem; }
-  .pilar-desc { font-size: 14px; color: var(--white-muted); line-height: 1.6; flex: 1; }
-  .pilar-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-  .pilar-items li { font-size: 13px; color: var(--white-muted); display: flex; gap: 8px; align-items: flex-start; }
-  .pilar-items li::before { content: '→'; color: var(--cyan); flex-shrink: 0; font-size: 12px; margin-top: 2px; }
-  .pilar-badge { display: inline-block; font-size: 10px; background: rgba(100,255,218,0.08); color: var(--cyan); border: 0.5px solid rgba(100,255,218,0.25); padding: 4px 10px; border-radius: 20px; }
-  .pilar-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 1rem; border-top: 0.5px solid var(--card-border); }
-  .pilar-price { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--cyan); }
-  .pilar-price span { font-size: 11px; color: var(--white-muted); font-weight: 400; font-family: 'DM Sans', sans-serif; }
+  /* PILARES CON VIDEO */
+  .pilares { padding: 6rem 0; background: rgba(27,42,74,0.15); }
+  .pilares-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .pilar-card { border: 0.5px solid var(--card-border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; position: relative; background: var(--midnight); }
+  .pilar-card:hover { border-color: rgba(100,255,218,0.4); transform: translateY(-4px); }
+  .pilar-video-wrap { position: relative; height: 180px; overflow: hidden; background: var(--navy); }
+  .pilar-video-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.75; }
+  .pilar-video-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,15,26,0.1), rgba(8,15,26,0.7)); }
+  .pilar-video-badge { position: absolute; top: 12px; left: 12px; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(100,255,218,0.15); color: var(--cyan); border: 0.5px solid var(--cyan); padding: 4px 10px; border-radius: 20px; backdrop-filter: blur(4px); }
+  .pilar-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+  .pilar-num { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; color: var(--cyan); text-transform: uppercase; }
+  .pilar-title { font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--white); }
+  .pilar-subtitle { font-size: 12px; color: var(--cyan); margin-top: -0.3rem; }
+  .pilar-desc { font-size: 13px; color: var(--white-muted); line-height: 1.6; flex: 1; }
+  .pilar-items { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .pilar-items li { font-size: 12px; color: var(--white-muted); display: flex; gap: 7px; align-items: flex-start; }
+  .pilar-items li::before { content: '→'; color: var(--cyan); flex-shrink: 0; font-size: 11px; margin-top: 3px; }
+  .pilar-badge { display: inline-block; font-size: 9px; background: rgba(100,255,218,0.07); color: var(--cyan); border: 0.5px solid rgba(100,255,218,0.2); padding: 4px 10px; border-radius: 20px; }
+  .pilar-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 1rem; border-top: 0.5px solid var(--card-border); margin-top: auto; }
+  .pilar-price { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 800; color: var(--cyan); }
+  .pilar-price span { font-size: 10px; color: var(--white-muted); font-weight: 400; font-family: 'DM Sans', sans-serif; }
+
+  /* NOSOTROS */
+  .nosotros { padding: 6rem 0; position: relative; overflow: hidden; }
+  .nosotros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  @media(max-width:720px){ .nosotros-grid { grid-template-columns: 1fr; gap: 2rem; } }
+  .nosotros-video-wrap { position: relative; border-radius: 10px; overflow: hidden; border: 0.5px solid var(--card-border); aspect-ratio: 16/9; background: var(--navy); }
+  .nosotros-video-wrap iframe { width: 100%; height: 100%; display: block; border: none; }
+  .nosotros-content { display: flex; flex-direction: column; gap: 1.25rem; }
+  .nosotros-exp { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .exp-item { text-align: center; }
+  .exp-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--cyan); display: block; }
+  .exp-label { font-size: 11px; color: var(--white-muted); }
+  .nosotros-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
+  .nbadge { font-size: 10px; background: rgba(100,255,218,0.07); color: var(--cyan); border: 0.5px solid rgba(100,255,218,0.2); padding: 5px 12px; border-radius: 20px; }
 
   /* CALCULATOR */
-  .calculator { padding: 6rem 0; }
-  .calc-wrapper { background: rgba(100,255,218,0.03); border: 0.5px solid var(--card-border); border-radius: 8px; padding: 3rem; max-width: 700px; margin: 0 auto; }
+  .calculator { padding: 6rem 0; background: rgba(27,42,74,0.1); }
+  .calc-wrapper { background: rgba(27,42,74,0.3); border: 0.5px solid var(--card-border); border-radius: 10px; padding: 3rem; max-width: 700px; margin: 0 auto; backdrop-filter: blur(8px); }
   .calc-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
   @media(max-width:600px){ .calc-fields { grid-template-columns: 1fr; } }
-  .calc-field label { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 8px; }
-  .calc-field input, .calc-field select { width: 100%; background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.15); border-radius: 4px; color: var(--white); font-size: 1rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; outline: none; }
+  .calc-field label { display: block; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); margin-bottom: 8px; }
+  .calc-field input, .calc-field select { width: 100%; background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.12); border-radius: 4px; color: var(--white); font-size: 0.95rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; outline: none; }
   .calc-field select option { background: var(--midnight); }
   .calc-field input:focus, .calc-field select:focus { border-color: var(--cyan); }
   .calc-field.full { grid-column: 1 / -1; }
-
-  /* RESULTADO CALCULADORA */
   .calc-result { display: none; margin-top: 1.5rem; }
   .calc-result.show { display: block; }
-  .result-numbers { background: rgba(100,255,218,0.06); border: 0.5px solid var(--cyan); border-radius: 4px; padding: 1.5rem; margin-bottom: 1.5rem; }
-  .result-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.5rem; }
+  .result-numbers { background: rgba(100,255,218,0.05); border: 0.5px solid var(--cyan); border-radius: 6px; padding: 1.5rem; margin-bottom: 1.5rem; }
+  .result-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.5rem; }
   .result-total { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: var(--cyan); margin-bottom: 0.5rem; }
   .result-breakdown { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border-top: 0.5px solid rgba(100,255,218,0.2); padding-top: 1rem; margin-top: 0.75rem; }
   .result-item { text-align: center; }
   .result-item-val { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
-  .result-item-label { font-size: 11px; color: var(--white-muted); }
+  .result-item-label { font-size: 10px; color: var(--white-muted); }
 
   /* IA PROACTIVA */
-  .ai-response { background: rgba(10,25,47,0.8); border: 0.5px solid rgba(100,255,218,0.4); border-radius: 8px; padding: 1.5rem; position: relative; overflow: hidden; }
-  .ai-response::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); animation: scanLine 2s ease-in-out infinite; }
-  @keyframes scanLine { 0%,100%{opacity:0} 50%{opacity:1} }
+  .ai-response { background: rgba(8,15,26,0.9); border: 0.5px solid rgba(100,255,218,0.35); border-radius: 8px; padding: 1.5rem; position: relative; overflow: hidden; }
+  .ai-response::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); animation: scanLine 2.5s ease-in-out infinite; }
+  @keyframes scanLine { 0%,100%{opacity:0;transform:scaleX(0)} 50%{opacity:1;transform:scaleX(1)} }
   .ai-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
-  .ai-avatar { width: 32px; height: 32px; background: rgba(100,255,218,0.15); border: 0.5px solid var(--cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .ai-avatar { width: 34px; height: 34px; background: rgba(100,255,218,0.12); border: 0.5px solid var(--cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
   .ai-name { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--cyan); }
   .ai-status { font-size: 10px; color: var(--white-muted); display: flex; align-items: center; gap: 4px; }
   .ai-status::before { content: ''; width: 6px; height: 6px; background: #4ade80; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  .ai-text { font-size: 14px; color: var(--white-muted); line-height: 1.7; margin-bottom: 1.25rem; }
+  .ai-text { font-size: 13.5px; color: var(--white-muted); line-height: 1.75; margin-bottom: 1.25rem; }
   .ai-text strong { color: var(--white); }
   .ai-text .highlight { color: var(--cyan); font-weight: 600; }
-
-  /* CAPTURA EMAIL POST-CÁLCULO */
-  .ai-capture { background: rgba(100,255,218,0.04); border: 0.5px solid rgba(100,255,218,0.2); border-radius: 6px; padding: 1.25rem; }
-  .ai-capture-label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; display: block; }
+  .ai-capture { background: rgba(100,255,218,0.04); border: 0.5px solid rgba(100,255,218,0.18); border-radius: 6px; padding: 1.25rem; }
+  .ai-capture-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; display: block; }
   .ai-capture-row { display: flex; gap: 8px; }
-  .ai-capture-row input { flex: 1; background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.2); border-radius: 4px; color: var(--white); font-size: 0.9rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.15s; }
+  .ai-capture-row input { flex: 1; background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.15); border-radius: 4px; color: var(--white); font-size: 0.9rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.15s; }
   .ai-capture-row input:focus { border-color: var(--cyan); }
   .ai-capture-row button { background: var(--cyan); color: var(--midnight); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; padding: 10px 18px; border: none; border-radius: 4px; cursor: pointer; white-space: nowrap; transition: transform 0.15s; }
   .ai-capture-row button:hover { transform: translateY(-1px); }
   .ai-capture-success { display: none; font-size: 13px; color: var(--cyan); text-align: center; padding: 0.5rem; }
   .ai-capture-success.show { display: block; }
   .ai-privacy { font-size: 10px; color: var(--white-muted); margin-top: 0.5rem; }
-  .typing { display: inline-block; }
   .typing span { display: inline-block; width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; margin: 0 2px; animation: typingDot 1.2s infinite; }
-  .typing span:nth-child(2) { animation-delay: 0.2s; }
-  .typing span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes typingDot { 0%,60%,100%{transform:translateY(0);opacity:0.4} 30%{transform:translateY(-6px);opacity:1} }
+  .typing span:nth-child(2){animation-delay:.2s} .typing span:nth-child(3){animation-delay:.4s}
+  @keyframes typingDot { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-6px);opacity:1} }
 
   /* LEAD FORM */
-  .lead-section { padding: 6rem 0; background: rgba(100,255,218,0.02); }
-  .form-wrapper { background: var(--card-bg); border: 0.5px solid var(--card-border); border-radius: 8px; padding: 3rem; max-width: 640px; margin: 0 auto; }
+  .lead-section { padding: 6rem 0; }
+  .form-wrapper { background: var(--card-bg); border: 0.5px solid var(--card-border); border-radius: 10px; padding: 3rem; max-width: 640px; margin: 0 auto; backdrop-filter: blur(8px); }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
   @media(max-width:600px){ .form-grid { grid-template-columns: 1fr; } }
   .form-field { display: flex; flex-direction: column; gap: 6px; }
   .form-field.full { grid-column: 1 / -1; }
-  .form-field label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); }
-  .form-field input, .form-field select, .form-field textarea { background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.15); border-radius: 4px; color: var(--white); font-size: 0.95rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; outline: none; width: 100%; }
+  .form-field label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white-muted); }
+  .form-field input, .form-field select, .form-field textarea { background: rgba(230,241,255,0.05); border: 0.5px solid rgba(230,241,255,0.12); border-radius: 4px; color: var(--white); font-size: 0.95rem; padding: 10px 14px; font-family: 'DM Sans', sans-serif; transition: border-color 0.15s; outline: none; width: 100%; }
   .form-field select option { background: var(--midnight); }
   .form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--cyan); }
   .form-field textarea { resize: vertical; min-height: 90px; }
@@ -163,58 +194,57 @@
   .form-success { display: none; text-align: center; padding: 2rem; }
   .form-success.show { display: block; }
   .success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
-  .success-title { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.5rem; }
+  .success-title { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--cyan); margin-bottom: 0.5rem; }
 
   /* TRUST */
   .trust { padding: 4rem 0; border-top: 0.5px solid var(--card-border); }
   .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
-  .trust-item-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
-  .trust-item-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
-  .trust-item-desc { font-size: 13px; color: var(--white-muted); }
+  .trust-item-icon { font-size: 1.6rem; margin-bottom: 0.75rem; display: block; color: var(--cyan); }
+  .trust-item-title { font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+  .trust-item-desc { font-size: 12px; color: var(--white-muted); line-height: 1.5; }
 
-  /* DEMO VISUAL */
-  .demo-visual { position: relative; background: rgba(0,0,0,0.3); border: 0.5px solid var(--card-border); border-radius: 8px; overflow: hidden; margin: 3rem 0; height: 200px; display: flex; align-items: center; justify-content: center; }
-  .demo-label-center { font-family: 'Syne', sans-serif; font-size: 0.95rem; color: var(--white-muted); }
-  .bbox { position: absolute; border: 2px solid var(--cyan); border-radius: 2px; animation: bboxPulse 3s ease-in-out infinite; }
-  .bbox-label { position: absolute; top: -22px; left: 0; background: var(--cyan); color: var(--midnight); font-size: 10px; font-weight: 700; padding: 2px 6px; white-space: nowrap; }
-  @keyframes bboxPulse { 0%,100%{opacity:.3} 50%{opacity:1;box-shadow:0 0 12px rgba(100,255,218,.4)} }
-  .bbox-1 { width: 120px; height: 80px; top: 28%; left: 12%; animation-delay: 0s; }
-  .bbox-2 { width: 90px; height: 100px; top: 18%; left: 54%; animation-delay: 1s; }
-  .bbox-3 { width: 70px; height: 55px; top: 52%; left: 36%; animation-delay: 2s; }
+  /* FOOTER */
+  footer { background: rgba(0,0,0,0.4); border-top: 0.5px solid var(--card-border); padding: 3rem 1.5rem 2rem; position: relative; z-index: 1; }
+  .footer-inner { max-width: 960px; margin: 0 auto; }
+  .footer-logo { margin-bottom: 1.5rem; }
+  .footer-logo img { height: 44px; width: auto; opacity: 0.85; }
+  .footer-legal { font-size: 11px; color: var(--white-muted); line-height: 1.8; border: 0.5px solid rgba(100,255,218,0.08); border-radius: 6px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; background: rgba(100,255,218,0.02); }
+  .footer-legal strong { color: var(--cyan); }
+  .footer-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; }
+  .footer-contact-item { font-size: 12px; color: var(--white-muted); }
+  .footer-contact-item a { color: var(--cyan); text-decoration: none; }
+  .footer-contact-item a:hover { text-decoration: underline; }
+  .footer-bottom { font-size: 10px; color: rgba(230,241,255,0.25); text-align: center; border-top: 0.5px solid var(--card-border); padding-top: 1.25rem; }
+  .footer-bottom strong { color: var(--cyan); }
 
-  /* MODAL LEGAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(10,25,47,0.92); z-index: 200; backdrop-filter: blur(10px); align-items: center; justify-content: center; padding: 1rem; }
+  /* WHATSAPP FLOTANTE */
+  .wa-float { position: fixed; bottom: 28px; right: 24px; z-index: 999; display: flex; align-items: center; gap: 10px; background: #25D366; color: #fff; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; padding: 12px 20px 12px 14px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: transform 0.2s, box-shadow 0.2s; }
+  .wa-float:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+  .wa-icon { width: 22px; height: 22px; flex-shrink: 0; }
+  @media(max-width:500px){ .wa-float span { display: none; } .wa-float { padding: 14px; border-radius: 50%; } }
+
+  /* MODALES LEGALES */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(8,15,26,0.93); z-index: 200; backdrop-filter: blur(12px); align-items: center; justify-content: center; padding: 1rem; }
   .modal-overlay.open { display: flex; }
-  .modal { background: #0d2137; border: 0.5px solid var(--cyan); border-radius: 8px; padding: 2.5rem; max-width: 580px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto; }
-  .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--white-muted); font-size: 1.5rem; cursor: pointer; line-height: 1; }
+  .modal { background: #0d1f35; border: 0.5px solid var(--cyan); border-radius: 10px; padding: 2.5rem; max-width: 580px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto; }
+  .modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--white-muted); font-size: 1.5rem; cursor: pointer; }
   .modal-close:hover { color: var(--white); }
   .modal-tag { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.75rem; display: block; }
-  .modal h3 { font-family: 'Syne', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; }
-  .modal-clause { background: rgba(100,255,218,0.04); border: 0.5px solid rgba(100,255,218,0.15); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
-  .modal-clause-title { font-size: 12px; font-weight: 600; color: var(--cyan); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .modal h3 { font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem; }
+  .modal-clause { background: rgba(100,255,218,0.03); border: 0.5px solid rgba(100,255,218,0.12); border-radius: 6px; padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .modal-clause-title { font-size: 11px; font-weight: 600; color: var(--cyan); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
   .modal-clause-text { font-size: 13px; color: var(--white-muted); line-height: 1.6; }
   .modal-note { font-size: 11px; color: var(--white-muted); margin-top: 1.25rem; padding-top: 1rem; border-top: 0.5px solid var(--card-border); }
   .modal-note strong { color: var(--cyan); }
   .modal-cta { margin-top: 1.5rem; text-align: center; }
 
-  /* FOOTER */
-  footer { background: rgba(0,0,0,0.3); border-top: 0.5px solid var(--card-border); padding: 3rem 1.5rem 2rem; position: relative; z-index: 1; }
-  .footer-inner { max-width: 960px; margin: 0 auto; }
-  .footer-legal { font-size: 12px; color: var(--white-muted); line-height: 1.8; border: 0.5px solid rgba(100,255,218,0.1); border-radius: 6px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; background: rgba(100,255,218,0.02); }
-  .footer-legal strong { color: var(--cyan); }
-  .footer-contact { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; }
-  .footer-contact-item { font-size: 13px; color: var(--white-muted); }
-  .footer-contact-item a { color: var(--cyan); text-decoration: none; }
-  .footer-contact-item a:hover { text-decoration: underline; }
-  .footer-bottom { font-size: 11px; color: rgba(230,241,255,0.3); text-align: center; border-top: 0.5px solid var(--card-border); padding-top: 1.25rem; }
-  .footer-bottom strong { color: var(--cyan); }
-
-  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
-  .fade-up { animation: fadeUp 0.7s ease both; }
-  .delay-1{animation-delay:.1s} .delay-2{animation-delay:.2s} .delay-3{animation-delay:.35s} .delay-4{animation-delay:.5s}
+  /* ANIMATIONS */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 0.8s ease both; }
+  .delay-1{animation-delay:.1s} .delay-2{animation-delay:.22s} .delay-3{animation-delay:.38s} .delay-4{animation-delay:.55s}
 
   @media(max-width:680px){
-    nav { padding: 1rem; }
+    nav { padding: 0.75rem 1rem; }
     .nav-badge { display: none; }
     .hero { padding: 7rem 1rem 3rem; }
     .form-wrapper, .calc-wrapper { padding: 1.5rem; }
@@ -222,6 +252,7 @@
     .pilar-footer { flex-direction: column; align-items: flex-start; }
     .ai-capture-row { flex-direction: column; }
     .modal { padding: 1.5rem; }
+    .nosotros-exp { gap: 1.5rem; }
   }
 </style>
 </head>
@@ -230,47 +261,102 @@
 <div class="orb orb-1"></div>
 <div class="orb orb-2"></div>
 
+<!-- FONDO IA ANIMADO -->
+<svg class="hero-bg-ia" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#64FFDA" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#64FFDA" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>
+  <!-- Circulos concéntricos -->
+  <circle cx="500" cy="400" r="280" fill="none" stroke="#64FFDA" stroke-width="0.5" opacity="0.3">
+    <animate attributeName="r" values="260;290;260" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.1;0.3" dur="6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="400" r="200" fill="none" stroke="#64FFDA" stroke-width="0.5" opacity="0.2">
+    <animate attributeName="r" values="190;215;190" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="400" r="120" fill="none" stroke="#64FFDA" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="115;130;115" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Ojo central IA -->
+  <ellipse cx="500" cy="400" rx="80" ry="50" fill="none" stroke="#64FFDA" stroke-width="1.5" opacity="0.6">
+    <animate attributeName="ry" values="50;54;50" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+  <circle cx="500" cy="400" r="28" fill="url(#eyeGlow)" opacity="0.9">
+    <animate attributeName="r" values="26;30;26" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="500" cy="400" r="14" fill="#64FFDA" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Líneas de escaneo -->
+  <line x1="220" y1="400" x2="420" y2="400" stroke="#64FFDA" stroke-width="0.5" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <line x1="580" y1="400" x2="780" y2="400" stroke="#64FFDA" stroke-width="0.5" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <!-- Nodos conectados -->
+  <circle cx="300" cy="220" r="4" fill="#64FFDA" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/></circle>
+  <circle cx="700" cy="250" r="3" fill="#64FFDA" opacity="0.4"><animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite"/></circle>
+  <circle cx="650" cy="580" r="5" fill="#64FFDA" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/></circle>
+  <circle cx="330" cy="600" r="3" fill="#64FFDA" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite"/></circle>
+  <line x1="300" y1="220" x2="500" y2="400" stroke="#64FFDA" stroke-width="0.3" opacity="0.2"/>
+  <line x1="700" y1="250" x2="500" y2="400" stroke="#64FFDA" stroke-width="0.3" opacity="0.2"/>
+  <line x1="650" y1="580" x2="500" y2="400" stroke="#64FFDA" stroke-width="0.3" opacity="0.2"/>
+  <line x1="330" y1="600" x2="500" y2="400" stroke="#64FFDA" stroke-width="0.3" opacity="0.2"/>
+  <!-- Bounding boxes animados -->
+  <rect x="260" y="160" width="90" height="60" fill="none" stroke="#64FFDA" stroke-width="1" opacity="0.25" rx="2">
+    <animate attributeName="opacity" values="0.25;0.6;0.25" dur="4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="264" y="153" font-size="9" fill="#64FFDA" opacity="0.5" font-family="monospace">Zona fría</text>
+  <rect x="650" y="530" width="80" height="55" fill="none" stroke="#64FFDA" stroke-width="1" opacity="0.2" rx="2">
+    <animate attributeName="opacity" values="0.2;0.55;0.2" dur="5s" repeatCount="indefinite"/>
+  </rect>
+  <text x="654" y="524" font-size="9" fill="#64FFDA" opacity="0.4" font-family="monospace">Cola &gt;5</text>
+</svg>
+
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">APC 360</span>
+  <div class="nav-logo">
+    <img src="assets/Logo_sin_fondo.png" alt="APC Servicios Tecnológicos">
+  </div>
   <div class="nav-right">
     <span class="nav-badge">🔒 Ley 1581 · Metadatos, no rostros</span>
-    <a href="#leads" class="nav-cta">Diagnóstico gratis</a>
+    <a href="#leads" class="nav-cta">Auditoría Gratuita</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section>
 <div class="hero">
-  <span class="hero-tag fade-up">Visión Computacional · IA · Colombia</span>
-  <h1 class="fade-up delay-1">Tu local pierde dinero<br><span class="accent">sin que lo veas.</span></h1>
-  <p class="hero-sub fade-up delay-2">Detectamos fugas financieras invisibles con cámaras e inteligencia artificial. Sin instalar nada costoso. Sin violar la privacidad de tus clientes. Solo datos que te hacen ganar más.</p>
+  <span class="hero-tag fade-up">Visión Artificial · IA · Colombia</span>
+  <h1 class="fade-up delay-1">
+    <span class="block">No solo vigiles</span>
+    <span class="block">tu negocio.</span>
+    <span class="accent">Analízalo.</span>
+  </h1>
+  <p class="hero-sub fade-up delay-2">
+    Inteligencia Artificial aplicada a tu CCTV para detectar fugas de capital, optimizar el flujo de clientes y blindar tu operación. Sin reemplazar tus cámaras. Sin exponer identidades.
+  </p>
   <div class="hero-cta-group fade-up delay-3">
-    <a href="#leads" class="btn-primary">Quiero mi diagnóstico gratis →</a>
+    <a href="#leads" class="btn-primary">Solicitar Auditoría Gratuita →</a>
     <a href="#calculadora" class="btn-ghost">Calcular mi fuga de dinero</a>
   </div>
   <p class="privacy-note fade-up delay-4">
     <span class="privacy-dot"></span>
-    Procesamos metadatos de comportamiento — nunca rostros ni datos personales. Cumplimiento total Ley 1581.
+    Procesamos metadatos de comportamiento — nunca rostros ni identidades. Cumplimiento total Ley 1581.
   </p>
 </div>
 </section>
-
-<!-- DEMO VISUAL -->
-<div class="container">
-  <div class="demo-visual">
-    <span class="demo-label-center">Visión en tiempo real</span>
-    <div class="bbox bbox-1"><span class="bbox-label">Zona fría 0%</span></div>
-    <div class="bbox bbox-2"><span class="bbox-label">Cola &gt;5 personas</span></div>
-    <div class="bbox bbox-3"><span class="bbox-label">Exhibición vacía</span></div>
-  </div>
-</div>
 
 <!-- PAIN BAR -->
 <div class="pain-bar">
   <div class="container">
     <div class="stat-item"><span class="stat-num">25%</span><span class="stat-label">de pauta digital desperdiciada en horas sin tráfico</span></div>
-    <div class="stat-item"><span class="stat-num">1 de 5</span><span class="stat-label">clientes se va por espera larga sin comprar</span></div>
+    <div class="stat-item"><span class="stat-num">1 de 5</span><span class="stat-label">clientes se va sin comprar por espera no detectada</span></div>
     <div class="stat-item"><span class="stat-num">40%</span><span class="stat-label">de equipos en gym usados menos del 10% del día</span></div>
   </div>
 </div>
@@ -280,77 +366,145 @@
 <div class="container">
   <span class="section-tag">El proceso</span>
   <h2>Cómo detectamos<br>lo que nadie ve</h2>
-  <p class="section-intro">Conectamos tus cámaras existentes a nuestra IA en 3 pasos. Sin obras. Sin equipos costosos.</p>
+  <p class="section-intro">Conectamos tus cámaras existentes a nuestra IA. Sin obras. Sin equipos nuevos. En 3 pasos.</p>
   <div class="steps-grid">
-    <div class="step-card"><div class="step-num">01</div><div class="step-title">Conexión remota</div><p class="step-desc">Acceso seguro a tus cámaras. Analizamos sin almacenar video ni identidades.</p></div>
-    <div class="step-card"><div class="step-num">02</div><div class="step-title">48h de análisis</div><p class="step-desc">IA que procesa ciclos completos día/noche: tráfico, zonas frías y colas.</p></div>
-    <div class="step-card"><div class="step-num">03</div><div class="step-title">Reporte + Acción</div><p class="step-desc">Fugas detectadas con recomendaciones específicas. Implementamos en conjunto.</p></div>
+    <div class="step-card"><div class="step-num">01</div><div class="step-title">Conexión remota segura</div><p class="step-desc">Acceso a tus cámaras actuales mediante protocolo cifrado. Sin almacenar video ni identidades.</p></div>
+    <div class="step-card"><div class="step-num">02</div><div class="step-title">48h de análisis profundo</div><p class="step-desc">Nuestra IA procesa ciclos completos de día y noche. Detecta patrones de tráfico, zonas frías y colas.</p></div>
+    <div class="step-card"><div class="step-num">03</div><div class="step-title">Reporte + Implementación</div><p class="step-desc">Recibes el reporte de fugas con recomendaciones accionables. Implementamos contigo desde el día 1.</p></div>
   </div>
 </div>
 </section>
 
-<!-- 3 PILARES -->
+<!-- 3 PILARES CON VIDEO -->
 <section class="pilares" id="servicios">
 <div class="container">
   <span class="section-tag">Nuestros servicios</span>
   <h2>Tres pilares.<br>Un solo resultado: más ingresos.</h2>
-  <p class="section-intro">Cada pilar resuelve una capa distinta del problema. Puedes entrar por cualquiera.</p>
+  <p class="section-intro">Cada pilar resuelve una capa distinta. Puedes entrar por cualquiera.</p>
   <div class="pilares-grid">
 
+    <!-- PILAR 1 — GYM -->
     <div class="pilar-card">
-      <div class="pilar-num">Pilar 01</div>
-      <div class="pilar-icon">🏗️</div>
-      <div><div class="pilar-title">Cimientos Tecnológicos</div><div class="pilar-subtitle">Infraestructura física que no falla</div></div>
-      <p class="pilar-desc">Instalamos la base técnica de tu local: CCTV, racks, redes estructuradas y energía regulada.</p>
-      <ul class="pilar-items">
-        <li>Instalación y configuración de CCTV</li>
-        <li>Racks, redes y cableado estructurado</li>
-        <li>Regulación de energía y UPS</li>
-        <li>Anexo formal de Entrega de Obra</li>
-      </ul>
-      <span class="pilar-badge">✓ Garantía de instalación incluida</span>
-      <div class="pilar-footer">
-        <div class="pilar-price">$450.000 <span>COP / entrada</span></div>
-        <button class="btn-legal" onclick="openModal('p1')">📄 Ver acuerdo técnico</button>
+      <div class="pilar-video-wrap">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/GYM_Pagina_1.mp4" type="video/mp4">
+        </video>
+        <div class="pilar-video-overlay"></div>
+        <span class="pilar-video-badge">Gymns · Fitness</span>
+      </div>
+      <div class="pilar-body">
+        <div class="pilar-num">Pilar 01</div>
+        <div><div class="pilar-title">Cimientos Tecnológicos</div><div class="pilar-subtitle">Infraestructura física que no falla</div></div>
+        <p class="pilar-desc">Instalamos la base técnica de tu local: CCTV, racks, redes y energía. Sin infraestructura sólida, ningún análisis es confiable.</p>
+        <ul class="pilar-items">
+          <li>Instalación y configuración de CCTV</li>
+          <li>Racks, redes y cableado estructurado</li>
+          <li>Regulación de energía y UPS</li>
+          <li>Anexo formal de Entrega de Obra</li>
+        </ul>
+        <span class="pilar-badge">✓ Garantía de instalación incluida</span>
+        <div class="pilar-footer">
+          <div class="pilar-price">$450.000 <span>COP / entrada</span></div>
+          <button class="btn-legal" onclick="openModal('P1')">📄 Ver acuerdo</button>
+        </div>
       </div>
     </div>
 
-    <div class="pilar-card" style="border-color: rgba(100,255,218,0.3);">
-      <div class="pilar-num">Pilar 02</div>
-      <div class="pilar-icon">🧠</div>
-      <div><div class="pilar-title">Inteligencia Visual 360</div><div class="pilar-subtitle">El cerebro que analiza lo que tus cámaras ya ven</div></div>
-      <p class="pilar-desc">Procesamos el video de tu local para detectar mermas, patrones y métricas de comportamiento.</p>
-      <ul class="pilar-items">
-        <li>Procesamiento de video y detección de mermas</li>
-        <li>Mapas de calor y zonas frías</li>
-        <li>Métricas de dwell time y tasa de captura</li>
-        <li>Protocolo de Manejo de Evidencia Digital</li>
-      </ul>
-      <span class="pilar-badge">🔒 NDA · Ley 1581 incluido</span>
-      <div class="pilar-footer">
-        <div class="pilar-price">$1.200.000 <span>COP / mes</span></div>
-        <button class="btn-legal" onclick="openModal('p2')">📄 Ver protocolo</button>
+    <!-- PILAR 2 — SPA -->
+    <div class="pilar-card" style="border-color:rgba(100,255,218,0.25)">
+      <div class="pilar-video-wrap">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/Video_Espa.mp4" type="video/mp4">
+        </video>
+        <div class="pilar-video-overlay"></div>
+        <span class="pilar-video-badge">Spas · Estética</span>
+      </div>
+      <div class="pilar-body">
+        <div class="pilar-num">Pilar 02</div>
+        <div><div class="pilar-title">Inteligencia Visual 360</div><div class="pilar-subtitle">El cerebro que analiza lo que tus cámaras ya ven</div></div>
+        <p class="pilar-desc">Procesamos el video de tu local para detectar mermas, patrones de comportamiento y métricas de flujo. Todo bajo NDA y Ley 1581.</p>
+        <ul class="pilar-items">
+          <li>Detección de mermas y zonas frías</li>
+          <li>Mapas de calor en tiempo real</li>
+          <li>Métricas de dwell time y tasa de captura</li>
+          <li>Protocolo de Evidencia Digital</li>
+        </ul>
+        <span class="pilar-badge">🔒 NDA · Ley 1581 incluido</span>
+        <div class="pilar-footer">
+          <div class="pilar-price">$1.200.000 <span>COP / mes</span></div>
+          <button class="btn-legal" onclick="openModal('P2')">📄 Ver protocolo</button>
+        </div>
       </div>
     </div>
 
+    <!-- PILAR 3 — RETAIL -->
     <div class="pilar-card">
-      <div class="pilar-num">Pilar 03</div>
-      <div class="pilar-icon">📈</div>
-      <div><div class="pilar-title">Optimización de Ventas</div><div class="pilar-subtitle">El resultado que impacta tu facturación</div></div>
-      <p class="pilar-desc">Convertimos los datos en acciones: sincronización de pauta, layout y estrategia de conversión.</p>
-      <ul class="pilar-items">
-        <li>Sincronización de pauta con tráfico real</li>
-        <li>Recomendaciones de layout y exhibición</li>
-        <li>Reportes consultivos certificados</li>
-        <li>Acuerdo de Alianza Estratégica incluido</li>
-      </ul>
-      <span class="pilar-badge">📊 Reportes consultivos certificados</span>
-      <div class="pilar-footer">
-        <div class="pilar-price">$2.500.000 <span>COP / mes</span></div>
-        <button class="btn-legal" onclick="openModal('p3')">📄 Ver alianza</button>
+      <div class="pilar-video-wrap">
+        <video autoplay muted loop playsinline preload="auto">
+          <source src="assets/Video_Retal.mp4" type="video/mp4">
+        </video>
+        <div class="pilar-video-overlay"></div>
+        <span class="pilar-video-badge">Retail · Tiendas</span>
+      </div>
+      <div class="pilar-body">
+        <div class="pilar-num">Pilar 03</div>
+        <div><div class="pilar-title">Optimización de Ventas</div><div class="pilar-subtitle">El resultado que impacta tu facturación</div></div>
+        <p class="pilar-desc">Convertimos los datos en acciones: sincronización de pauta, layout y estrategia de conversión basada en comportamiento real.</p>
+        <ul class="pilar-items">
+          <li>Sincronización de pauta con tráfico real</li>
+          <li>Recomendaciones de layout y exhibición</li>
+          <li>Reportes consultivos certificados</li>
+          <li>Acuerdo de Alianza Estratégica</li>
+        </ul>
+        <span class="pilar-badge">📊 Reportes consultivos certificados</span>
+        <div class="pilar-footer">
+          <div class="pilar-price">$2.500.000 <span>COP / mes</span></div>
+          <button class="btn-legal" onclick="openModal('P3')">📄 Ver alianza</button>
+        </div>
       </div>
     </div>
 
+  </div>
+  <p style="margin-top:1.5rem;font-size:12px;color:var(--white-muted);text-align:center">
+    Entrada desde <strong style="color:var(--cyan)">$450.000 COP</strong> — te mostramos la primera anomalía antes de cualquier compromiso.
+  </p>
+</div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros" id="nosotros">
+<div class="container">
+  <div class="nosotros-grid">
+    <div class="nosotros-video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/spfxh8OMCBI?autoplay=1&mute=1&loop=1&playlist=spfxh8OMCBI&controls=0&showinfo=0&rel=0&modestbranding=1"
+        allow="autoplay; encrypted-media"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+    <div class="nosotros-content">
+      <span class="section-tag">Quiénes somos</span>
+      <h2>La Visión<br>de Halcón</h2>
+      <p style="font-size:14px;color:var(--white-muted);line-height:1.8">
+        Nacemos de la combinación entre <strong style="color:var(--white)">experiencia táctica en centrales de monitoreo de alto impacto</strong> — Ex-Telesentinel y Prosegur — y la innovación en Visión Artificial.
+      </p>
+      <p style="font-size:14px;color:var(--white-muted);line-height:1.8">
+        Con más de <strong style="color:var(--cyan)">8 años custodiando infraestructuras críticas</strong> y centros comerciales, entendemos que la seguridad sin datos es solo una grabación. Hemos evolucionado para ofrecer tecnología que no solo mira, sino que <strong style="color:var(--white)">entiende tu negocio</strong>.
+      </p>
+      <div class="nosotros-exp">
+        <div class="exp-item"><span class="exp-num">8+</span><span class="exp-label">años de experiencia</span></div>
+        <div class="exp-item"><span class="exp-num">48h</span><span class="exp-label">primer reporte</span></div>
+        <div class="exp-item"><span class="exp-num">3</span><span class="exp-label">sectores activos</span></div>
+      </div>
+      <div class="nosotros-badges">
+        <span class="nbadge">Ex-Telesentinel</span>
+        <span class="nbadge">Ex-Prosegur</span>
+        <span class="nbadge">Visión Artificial</span>
+        <span class="nbadge">Ley 1581</span>
+      </div>
+      <a href="#leads" class="btn-primary" style="align-self:flex-start;margin-top:0.5rem">Habla con un especialista →</a>
+    </div>
   </div>
 </div>
 </section>
@@ -360,23 +514,13 @@
 <div class="container">
   <span class="section-tag">Calculadora</span>
   <h2>¿Cuánto estás perdiendo<br>cada mes?</h2>
-  <p class="section-intro">Ingresa los datos de tu negocio. El resultado es tuyo en segundos.</p>
+  <p class="section-intro">Ingresa los datos de tu negocio. El resultado en segundos — en pesos colombianos.</p>
   <div class="calc-wrapper">
     <div class="calc-fields">
-      <div class="calc-field">
-        <label>Pauta mensual en ads (COP)</label>
-        <input type="number" id="ads_spend" placeholder="500000" min="0">
-      </div>
-      <div class="calc-field">
-        <label>Ticket promedio de venta (COP)</label>
-        <input type="number" id="avg_ticket" placeholder="80000" min="0">
-      </div>
-      <div class="calc-field">
-        <label>Visitantes estimados / mes</label>
-        <input type="number" id="visitors" placeholder="600" min="0">
-      </div>
-      <div class="calc-field full">
-        <label>Tipo de negocio</label>
+      <div class="calc-field"><label>Pauta mensual en ads (COP)</label><input type="number" id="ads_spend" placeholder="500000" min="0"></div>
+      <div class="calc-field"><label>Ticket promedio de venta (COP)</label><input type="number" id="avg_ticket" placeholder="80000" min="0"></div>
+      <div class="calc-field"><label>Visitantes estimados / mes</label><input type="number" id="visitors" placeholder="600" min="0"></div>
+      <div class="calc-field full"><label>Tipo de negocio</label>
         <select id="calc_sector">
           <option value="" disabled selected>Selecciona tu sector...</option>
           <option value="gym">Gym / Centro Fitness</option>
@@ -386,49 +530,37 @@
         </select>
       </div>
     </div>
-    <button class="btn-primary" onclick="calcularFugaAPC()" style="width:100%;">Calcular mi fuga ahora</button>
+    <button class="btn-primary" onclick="calcularFugaAPC()" style="width:100%">Calcular mi fuga ahora</button>
 
-    <!-- RESULTADO + IA PROACTIVA -->
     <div class="calc-result" id="calcResult">
-
-      <!-- Números -->
       <div class="result-numbers">
-        <div class="result-label">Fuga mensual estimada que APC 360 puede recuperar</div>
+        <div class="result-label">Fuga mensual estimada recuperable</div>
         <div class="result-total" id="result_total_display">$0</div>
         <div class="result-breakdown">
           <div class="result-item"><div class="result-item-val" id="res_ads">$0</div><div class="result-item-label">Ahorro en pauta</div></div>
           <div class="result-item"><div class="result-item-val" id="res_ventas">$0</div><div class="result-item-label">Ventas recuperables</div></div>
         </div>
       </div>
-
-      <!-- Respuesta IA -->
       <div class="ai-response">
         <div class="ai-header">
-          <div class="ai-avatar">🤖</div>
+          <div class="ai-avatar">🦅</div>
           <div>
             <div class="ai-name">APC Intelligence</div>
             <div class="ai-status">Analizando tu negocio</div>
           </div>
         </div>
-        <div class="ai-text" id="aiMessage">
-          <div class="typing"><span></span><span></span><span></span></div>
-        </div>
-
-        <!-- Captura de email -->
+        <div class="ai-text" id="aiMessage"><div class="typing"><span></span><span></span><span></span></div></div>
         <div class="ai-capture" id="aiCapture">
           <span class="ai-capture-label">Recibe tu análisis completo por correo</span>
           <div class="ai-capture-row">
             <input type="email" id="captureEmail" placeholder="tu@correo.com">
-            <button onclick="submitCapture()">Enviar análisis →</button>
+            <button onclick="submitCapture()">Enviar →</button>
           </div>
-          <div class="ai-capture-success" id="captureSuccess">
-            ✅ ¡Listo! Te contactamos antes de 24 horas. Revisa también tu WhatsApp.
-          </div>
-          <p class="ai-privacy">🔒 Solo para enviarte el análisis. Sin spam. Ley 1581.</p>
+          <div class="ai-capture-success" id="captureSuccess">✅ Listo. Te contactamos en menos de 24 horas.</div>
+          <p class="ai-privacy">🔒 Sin spam. Solo tu análisis. Ley 1581.</p>
         </div>
       </div>
-
-    </div><!-- fin calc-result -->
+    </div>
   </div>
 </div>
 </section>
@@ -436,20 +568,20 @@
 <!-- FORMULARIO PRINCIPAL -->
 <section class="lead-section" id="leads">
 <div class="container">
-  <span class="section-tag">Diagnóstico gratuito</span>
-  <h2>Agenda tu análisis<br>de 48 horas</h2>
-  <p class="section-intro">Sin costo, sin compromiso. En 48 horas te decimos exactamente qué está fallando en tu local.</p>
+  <span class="section-tag">Auditoría gratuita</span>
+  <h2>Solicita tu análisis<br>de 48 horas</h2>
+  <p class="section-intro">Sin costo, sin compromiso. En 48 horas sabes exactamente qué está fallando en tu local.</p>
   <div class="form-wrapper">
     <div id="formBody">
       <form id="leadForm" name="apc360-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="apc360-leads">
         <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
         <div class="form-grid">
-          <div class="form-field"><label for="fname">Nombre *</label><input type="text" id="fname" name="nombre" required placeholder="Tu nombre"></div>
-          <div class="form-field"><label for="phone">WhatsApp *</label><input type="tel" id="phone" name="telefono" required placeholder="+57 300..."></div>
-          <div class="form-field"><label for="email">Correo *</label><input type="email" id="email" name="email" required placeholder="tu@correo.com"></div>
-          <div class="form-field"><label for="sector">Tipo de negocio *</label>
-            <select id="sector" name="sector" required>
+          <div class="form-field"><label>Nombre *</label><input type="text" name="nombre" required placeholder="Tu nombre"></div>
+          <div class="form-field"><label>WhatsApp *</label><input type="tel" name="telefono" required placeholder="+57 300..."></div>
+          <div class="form-field"><label>Correo *</label><input type="email" name="email" required placeholder="tu@correo.com"></div>
+          <div class="form-field"><label>Tipo de negocio *</label>
+            <select name="sector" required>
               <option value="" disabled selected>Selecciona...</option>
               <option value="gym">Gym / Centro Fitness</option>
               <option value="spa">Spa / Estética</option>
@@ -457,21 +589,21 @@
               <option value="otro">Otro</option>
             </select>
           </div>
-          <div class="form-field full"><label for="negocio">Nombre del negocio</label><input type="text" id="negocio" name="negocio" placeholder="Ej: GymFit Centro"></div>
-          <div class="form-field full"><label for="ciudad">Ciudad</label><input type="text" id="ciudad" name="ciudad" placeholder="Bogotá, Medellín, Cali..."></div>
-          <div class="form-field full"><label for="dolor">¿Cuál es tu mayor problema hoy? (opcional)</label><textarea id="dolor" name="problema" placeholder="Ej: Gasto mucho en ads y no sé si está funcionando..."></textarea></div>
+          <div class="form-field full"><label>Nombre del negocio</label><input type="text" name="negocio" placeholder="Ej: GymFit Centro"></div>
+          <div class="form-field full"><label>Ciudad</label><input type="text" name="ciudad" placeholder="Bogotá, Medellín, Cali..."></div>
+          <div class="form-field full"><label>¿Cuál es tu mayor problema hoy?</label><textarea name="problema" placeholder="Ej: Gasto en ads pero no veo retorno claro..."></textarea></div>
         </div>
         <div class="privacy-disclaimer">
           <span class="privacy-check">✓</span>
           <span>Datos confidenciales. Cumplimos Ley 1581. No vendemos ni compartimos tu información.</span>
         </div>
-        <button type="submit" class="btn-primary" style="width:100%; margin-top:0.5rem;">Quiero mi diagnóstico gratuito →</button>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem">Solicitar Auditoría Gratuita →</button>
       </form>
     </div>
     <div class="form-success" id="formSuccess">
       <span class="success-icon">✅</span>
-      <div class="success-title">¡Listo! Nos ponemos en contacto hoy.</div>
-      <p style="color:var(--white-muted); font-size:14px; margin-top:0.5rem;">Revisa tu WhatsApp y correo. Un especialista de APC 360 te escribe en menos de 24 horas.</p>
+      <div class="success-title">¡Listo! Te contactamos hoy.</div>
+      <p style="color:var(--white-muted);font-size:14px;margin-top:0.5rem">Un especialista de APC te escribe en menos de 24 horas. Revisa también tu WhatsApp.</p>
     </div>
   </div>
 </div>
@@ -482,9 +614,9 @@
 <div class="container">
   <div class="trust-grid">
     <div class="trust-item"><span class="trust-item-icon">🔐</span><div class="trust-item-title">Privacidad garantizada</div><p class="trust-item-desc">Metadatos de movimiento. Nunca identidades. NDA + Ley 1581 en cada contrato.</p></div>
-    <div class="trust-item"><span class="trust-item-icon">📊</span><div class="trust-item-title">48h para resultados</div><p class="trust-item-desc">Ciclos día y noche antes de emitir reporte. Datos estadísticamente válidos.</p></div>
+    <div class="trust-item"><span class="trust-item-icon">📊</span><div class="trust-item-title">48h para resultados</div><p class="trust-item-desc">Ciclos día y noche. Datos estadísticamente válidos antes del primer reporte.</p></div>
     <div class="trust-item"><span class="trust-item-icon">🚀</span><div class="trust-item-title">Sin instalación costosa</div><p class="trust-item-desc">Usamos tus cámaras actuales. Acceso remoto. Sin obras ni contratos largos.</p></div>
-    <div class="trust-item"><span class="trust-item-icon">🇨🇴</span><div class="trust-item-title">100% colombiano</div><p class="trust-item-desc">Soporte en español, precios en pesos, entendemos el mercado local.</p></div>
+    <div class="trust-item"><span class="trust-item-icon">🇨🇴</span><div class="trust-item-title">100% colombiano</div><p class="trust-item-desc">Soporte en español, precios en pesos, conocemos el mercado local.</p></div>
   </div>
 </div>
 </section>
@@ -492,17 +624,26 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
+    <div class="footer-logo"><img src="assets/Logo_sin_fondo.png" alt="APC Servicios Tecnológicos"></div>
     <div class="footer-legal">
-      <strong>Cumplimiento Legal — Ley 1581 de 2012:</strong> Servicios APC 360 cumple estrictamente con la Ley 1581 de 2012 (Protección de Datos Personales en Colombia). Nuestro sistema procesa metadatos de comportamiento y patrones de movimiento de forma anónima. <strong>NO almacenamos identidades faciales en servidores externos.</strong> El tratamiento de datos se realiza conforme al Decreto 1377 de 2013. Los reportes tienen carácter consultivo; la ejecución de estrategias comerciales es responsabilidad exclusiva del cliente.
+      <strong>Cumplimiento Legal — Ley 1581 de 2012:</strong> APC Servicios Tecnológicos cumple estrictamente con la Ley 1581 de 2012. Procesamos metadatos de comportamiento de forma anónima. <strong>NO almacenamos identidades faciales.</strong> Decreto 1377 de 2013. Los reportes son consultivos; la ejecución de estrategias es responsabilidad del cliente.
     </div>
     <div class="footer-contact">
       <div class="footer-contact-item">📞 <a href="tel:+573337450634">+57 333 745 0634</a></div>
-      <div class="footer-contact-item">📍 Operaciones Remotas desde Bogotá para toda Colombia</div>
+      <div class="footer-contact-item">📍 Operaciones Remotas · Bogotá · Colombia</div>
       <div class="footer-contact-item">✉️ <a href="mailto:contacto@serviciosapc.site">contacto@serviciosapc.site</a></div>
     </div>
-    <div class="footer-bottom">© 2026 <strong>APC 360</strong> — Servicios de Inteligencia Visual · Colombia · <a href="https://serviciosapc.site" style="color:var(--cyan);">serviciosapc.site</a></div>
+    <div class="footer-bottom">© 2026 <strong>APC Servicios Tecnológicos</strong> — By Alejandro Piraquive · <a href="https://serviciosapc.site" style="color:var(--cyan)">serviciosapc.site</a></div>
   </div>
 </footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-float" href="https://wa.me/573337450634?text=Hola%2C%20quiero%20información%20sobre%20la%20auditoría%20gratuita%20de%20APC%20360" target="_blank" rel="noopener">
+  <svg class="wa-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span>Habla con un Especialista</span>
+</a>
 
 <!-- MODALES LEGALES -->
 <div class="modal-overlay" id="modalP1">
@@ -510,10 +651,10 @@
     <button class="modal-close" onclick="closeModal('modalP1')">×</button>
     <span class="modal-tag">Pilar 01 — Cimientos Tecnológicos</span>
     <h3>Acuerdo Técnico de Instalación</h3>
-    <div class="modal-clause"><div class="modal-clause-title">Garantía de Instalación</div><div class="modal-clause-text">APC 360 garantiza que todos los equipos instalados (CCTV, redes, racks) quedan operativos al momento de la entrega. Se emite un Anexo de Entrega de Obra Técnica firmado por ambas partes como constancia formal del trabajo realizado.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Exoneración por Equipos Preexistentes</div><div class="modal-clause-text">APC 360 no se responsabiliza por daños en equipos preexistentes del cliente cuyo estado no pueda verificarse antes de la intervención, ni por fallas derivadas de manipulación del sistema por parte del cliente o terceros después de la entrega formal.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Alcance del Servicio</div><div class="modal-clause-text">El servicio cubre instalación, configuración y prueba de funcionamiento. El mantenimiento correctivo posterior a la entrega se factura por separado según tarifas vigentes.</div></div>
-    <div class="modal-note"><strong>Nota:</strong> Este es un resumen de las cláusulas principales. El documento completo se entrega al momento de formalizar el servicio y puede solicitarse por correo a <strong>contacto@serviciosapc.site</strong></div>
+    <div class="modal-clause"><div class="modal-clause-title">Garantía de Instalación</div><div class="modal-clause-text">APC garantiza que todos los equipos instalados quedan operativos al momento de la entrega. Se emite un Anexo de Entrega de Obra Técnica firmado por ambas partes como constancia formal.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Exoneración por Equipos Preexistentes</div><div class="modal-clause-text">APC no se responsabiliza por daños en equipos preexistentes cuyo estado no pueda verificarse antes de la intervención, ni por fallas derivadas de manipulación posterior del cliente o terceros.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Alcance del Servicio</div><div class="modal-clause-text">Cubre instalación, configuración y prueba. El mantenimiento correctivo posterior se factura según tarifas vigentes.</div></div>
+    <div class="modal-note"><strong>Documento completo</strong> disponible al formalizar. Solicítalo en <strong>contacto@serviciosapc.site</strong></div>
     <div class="modal-cta"><a href="#leads" class="btn-primary" onclick="closeModal('modalP1')">Solicitar este servicio →</a></div>
   </div>
 </div>
@@ -523,10 +664,10 @@
     <button class="modal-close" onclick="closeModal('modalP2')">×</button>
     <span class="modal-tag">Pilar 02 — Inteligencia Visual 360</span>
     <h3>Protocolo de Manejo de Evidencia Digital</h3>
-    <div class="modal-clause"><div class="modal-clause-title">Acuerdo de Confidencialidad (NDA)</div><div class="modal-clause-text">Toda la información obtenida durante el análisis — incluyendo patrones de tráfico, mermas y métricas — es de uso exclusivo del cliente. APC 360 se compromete a no divulgar, compartir ni usar esta información para fines distintos a la prestación del servicio contratado.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Cumplimiento Ley 1581 de 2012</div><div class="modal-clause-text">APC 360 procesa únicamente metadatos de comportamiento y patrones de movimiento de forma anónima. No se almacenan identidades faciales en servidores externos. El cliente, como responsable legal del espacio físico, declara haber cumplido con las obligaciones de información a sus usuarios sobre el uso de cámaras.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Responsabilidad sobre Captación de Imagen</div><div class="modal-clause-text">La captación de imágenes en el local es responsabilidad legal del cliente. APC 360 actúa como encargado del tratamiento de datos, según lo dispuesto en el artículo 3 de la Ley 1581.</div></div>
-    <div class="modal-note"><strong>Nota:</strong> Documento completo disponible al formalizar el servicio. Solicítalo en <strong>contacto@serviciosapc.site</strong></div>
+    <div class="modal-clause"><div class="modal-clause-title">Acuerdo de Confidencialidad (NDA)</div><div class="modal-clause-text">Toda información obtenida — patrones de tráfico, mermas, métricas — es de uso exclusivo del cliente. APC no divulga ni usa esta información para fines distintos al servicio contratado.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Cumplimiento Ley 1581 de 2012</div><div class="modal-clause-text">APC procesa únicamente metadatos de comportamiento de forma anónima. No se almacenan identidades faciales. El cliente declara haber informado a sus usuarios sobre el uso de cámaras en el local.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Responsabilidad sobre Captación</div><div class="modal-clause-text">La captación de imágenes en el local es responsabilidad legal del cliente. APC actúa como encargado del tratamiento según el artículo 3 de la Ley 1581.</div></div>
+    <div class="modal-note"><strong>Documento completo</strong> disponible al formalizar. Solicítalo en <strong>contacto@serviciosapc.site</strong></div>
     <div class="modal-cta"><a href="#leads" class="btn-primary" onclick="closeModal('modalP2')">Solicitar este servicio →</a></div>
   </div>
 </div>
@@ -536,10 +677,10 @@
     <button class="modal-close" onclick="closeModal('modalP3')">×</button>
     <span class="modal-tag">Pilar 03 — Optimización de Ventas</span>
     <h3>Acuerdo de Alianza y Consultoría Estratégica</h3>
-    <div class="modal-clause"><div class="modal-clause-title">Naturaleza Consultiva de los Reportes</div><div class="modal-clause-text">Los reportes, análisis y recomendaciones entregados por APC 360 tienen carácter estrictamente consultivo. APC 360 entrega el dato preciso y la recomendación fundamentada; la decisión de implementar cualquier estrategia de mercadeo, layout o pauta es responsabilidad exclusiva del cliente.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Alcance de la Responsabilidad</div><div class="modal-clause-text">La responsabilidad de APC 360 se limita a la exactitud y fundamentación del análisis entregado. Los resultados comerciales derivados de la aplicación de las recomendaciones dependen de factores externos no controlables por APC 360.</div></div>
-    <div class="modal-clause"><div class="modal-clause-title">Entregables Incluidos</div><div class="modal-clause-text">Reporte de tasa de captura, mapa de calor por zonas, análisis de dwell time, recomendaciones de sincronización de pauta y propuesta de redistribución de layout. Entrega en formato digital dentro de las 72 horas posteriores al cierre del período de análisis.</div></div>
-    <div class="modal-note"><strong>Nota:</strong> Documento completo disponible al formalizar. Solicítalo en <strong>contacto@serviciosapc.site</strong></div>
+    <div class="modal-clause"><div class="modal-clause-title">Naturaleza Consultiva</div><div class="modal-clause-text">Los reportes y recomendaciones tienen carácter estrictamente consultivo. APC entrega el dato preciso; la decisión de implementar cualquier estrategia es responsabilidad exclusiva del cliente.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Alcance de Responsabilidad</div><div class="modal-clause-text">La responsabilidad de APC se limita a la exactitud del análisis. Los resultados comerciales dependen de factores externos no controlables.</div></div>
+    <div class="modal-clause"><div class="modal-clause-title">Entregables Incluidos</div><div class="modal-clause-text">Reporte de tasa de captura, mapa de calor, análisis de dwell time, recomendaciones de pauta y layout. Entrega digital dentro de las 72h posteriores al análisis.</div></div>
+    <div class="modal-note"><strong>Documento completo</strong> disponible al formalizar. Solicítalo en <strong>contacto@serviciosapc.site</strong></div>
     <div class="modal-cta"><a href="#leads" class="btn-primary" onclick="closeModal('modalP3')">Solicitar este servicio →</a></div>
   </div>
 </div>
@@ -557,117 +698,77 @@
 </form>
 
 <script>
-/* ══ MENSAJES IA POR SECTOR ══ */
 const aiMessages = {
-  gym: (ads, ticket, visitors, total) => `
-    Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong> y <strong>$${ads.toLocaleString('es-CO')} en pauta mensual</strong>, tu mayor fuga está en los <span class="highlight">horarios muertos</span>: equipos sin uso que ocupan espacio premium y pauta activa cuando el local está vacío.<br><br>
-    Nuestro análisis detecta exactamente en qué horas del día tu inversión se convierte en desperdicio. Con sincronización de pauta en tiempo real, el <span class="highlight">ahorro promedio es del 25%</span> desde el primer mes. Tu potencial de recuperación: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.
-  `,
-  spa: (ads, ticket, visitors, total) => `
-    La fuga de recepción es la más silenciosa en spas. Con <strong>${visitors.toLocaleString('es-CO')} visitantes mensuales</strong> y un ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong>, cada minuto de espera no detectada te cuesta clientes que ya están dentro.<br><br>
-    Detectamos en tiempo real cuándo la recepción genera abandono y disparamos alertas antes de que el cliente decida irse. <span class="highlight">1 de cada 5 clientes</span> que se va por espera, no vuelve. Tu potencial de recuperación: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.
-  `,
-  retail: (ads, ticket, visitors, total) => `
-    Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong> y ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong>, tu mayor pérdida es invisible: el cliente entró, no encontró el producto en exhibición y se fue sin que nadie lo supiera.<br><br>
-    Detectamos huecos de exhibición en tiempo real y los cruzamos con tu pauta activa. Si estás pagando ads para traer clientes que se van por <span class="highlight">stockout visual</span>, cada peso de pauta se multiplica como pérdida. Tu potencial: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.
-  `,
-  otro: (ads, ticket, visitors, total) => `
-    Con los datos que ingresaste — <strong>${visitors.toLocaleString('es-CO')} visitantes</strong>, ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong> y <strong>$${ads.toLocaleString('es-CO')} en pauta</strong> — identificamos tres fugas activas en tu negocio: desperdicio en pauta, abandono por espera y ventas perdidas por exhibición.<br><br>
-    El análisis de 48 horas nos permite precisar cuál de estas tres fugas es la más costosa en tu caso específico. Tu potencial de recuperación estimado: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.
-  `
+  gym: (ads,ticket,visitors,total) => `Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong> y <strong>$${ads.toLocaleString('es-CO')} en pauta mensual</strong>, tu mayor fuga está en los <span class="highlight">horarios muertos</span>: equipos sin uso que ocupan espacio y pauta activa cuando el local está vacío.<br><br>Detectamos en qué horas exactas tu inversión se convierte en desperdicio. Con sincronización en tiempo real, el ahorro promedio es del <span class="highlight">25% desde el primer mes</span>. Tu potencial: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.`,
+  spa: (ads,ticket,visitors,total) => `La fuga de recepción es la más silenciosa en spas. Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong> y ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong>, cada minuto de espera no detectada te cuesta clientes que ya están dentro.<br><br><span class="highlight">1 de cada 5 clientes</span> que se va por espera no vuelve. Tu potencial de recuperación: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.`,
+  retail: (ads,ticket,visitors,total) => `Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong> y ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong>, tu mayor pérdida es invisible: el cliente entró, no encontró el producto en exhibición y se fue sin que nadie lo supiera.<br><br>Si estás pagando ads para traer clientes que se van por <span class="highlight">stockout visual</span>, cada peso de pauta se multiplica como pérdida. Tu potencial: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.`,
+  otro: (ads,ticket,visitors,total) => `Con <strong>${visitors.toLocaleString('es-CO')} visitantes</strong>, ticket de <strong>$${ticket.toLocaleString('es-CO')} COP</strong> y <strong>$${ads.toLocaleString('es-CO')} en pauta</strong>, identificamos tres fugas activas: desperdicio en ads, abandono por espera y ventas perdidas por exhibición.<br><br>El análisis de 48h precisa cuál es la más costosa en tu caso. Potencial estimado: <strong style="color:var(--cyan)">$${total.toLocaleString('es-CO')} COP/mes</strong>.`
 };
 
-/* ══ CALCULADORA ══ */
 function calcularFugaAPC() {
-  const ads = parseFloat(document.getElementById('ads_spend').value) || 0;
-  const ticket = parseFloat(document.getElementById('avg_ticket').value) || 0;
-  const visitors = parseInt(document.getElementById('visitors').value) || 0;
-  const sector = document.getElementById('calc_sector').value || 'otro';
-
-  const ahorroPauta = ads * 0.25;
-  const recuperacionVentas = (visitors * 0.05) * ticket;
-  const optimizacionFilas = (visitors * 0.12) * ticket;
-  const total = ahorroPauta + recuperacionVentas + optimizacionFilas;
-  const ventas = recuperacionVentas + optimizacionFilas;
-
-  document.getElementById('result_total_display').textContent = '$' + Math.round(total).toLocaleString('es-CO');
-  document.getElementById('res_ads').textContent = '$' + Math.round(ahorroPauta).toLocaleString('es-CO');
-  document.getElementById('res_ventas').textContent = '$' + Math.round(ventas).toLocaleString('es-CO');
+  const ads = parseFloat(document.getElementById('ads_spend').value)||0;
+  const ticket = parseFloat(document.getElementById('avg_ticket').value)||0;
+  const visitors = parseInt(document.getElementById('visitors').value)||0;
+  const sector = document.getElementById('calc_sector').value||'otro';
+  const ahorroPauta = ads*0.25;
+  const ventas = (visitors*0.05*ticket)+(visitors*0.12*ticket);
+  const total = ahorroPauta+ventas;
+  document.getElementById('result_total_display').textContent='$'+Math.round(total).toLocaleString('es-CO');
+  document.getElementById('res_ads').textContent='$'+Math.round(ahorroPauta).toLocaleString('es-CO');
+  document.getElementById('res_ventas').textContent='$'+Math.round(ventas).toLocaleString('es-CO');
   document.getElementById('calcResult').classList.add('show');
-
-  /* Mostrar typing luego mensaje IA */
-  const aiMsg = document.getElementById('aiMessage');
-  aiMsg.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
-  
-  setTimeout(() => {
-    const msgFn = aiMessages[sector] || aiMessages['otro'];
-    aiMsg.innerHTML = msgFn(ads, ticket, visitors, Math.round(total));
-  }, 1800);
-
-  /* Registro silencioso tracker */
+  const aiMsg=document.getElementById('aiMessage');
+  aiMsg.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  setTimeout(()=>{ const fn=aiMessages[sector]||aiMessages['otro']; aiMsg.innerHTML=fn(ads,ticket,visitors,Math.round(total)); },1800);
   try {
-    const fd = new FormData();
-    fd.append('form-name', 'apc360-calc-tracker');
-    fd.append('sector', sector);
-    fd.append('ads_spend', ads);
-    fd.append('avg_ticket', ticket);
-    fd.append('visitors', visitors);
-    fd.append('total', Math.round(total));
-    fd.append('ahorro', Math.round(ahorroPauta));
-    fd.append('ventas', Math.round(ventas));
-    fd.append('fecha', new Date().toLocaleString('es-CO', {timeZone:'America/Bogota'}));
-    fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(fd).toString() });
+    const fd=new FormData();
+    fd.append('form-name','apc360-calc-tracker');
+    fd.append('sector',sector); fd.append('ads_spend',ads); fd.append('avg_ticket',ticket);
+    fd.append('visitors',visitors); fd.append('total',Math.round(total));
+    fd.append('ahorro',Math.round(ahorroPauta)); fd.append('ventas',Math.round(ventas));
+    fd.append('fecha',new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}));
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
   } catch(e){}
 }
 
-/* ══ CAPTURA EMAIL POST-CÁLCULO ══ */
 function submitCapture() {
-  const emailVal = document.getElementById('captureEmail').value.trim();
-  if (!emailVal || !emailVal.includes('@')) {
-    document.getElementById('captureEmail').focus();
-    return;
-  }
-  const sector = document.getElementById('calc_sector').value || 'no especificado';
-  const total = document.getElementById('result_total_display').textContent;
+  const email=document.getElementById('captureEmail').value.trim();
+  if(!email||!email.includes('@')){document.getElementById('captureEmail').focus();return;}
   try {
-    const fd = new FormData();
-    fd.append('form-name', 'apc360-calc-capture');
-    fd.append('email_captura', emailVal);
-    fd.append('sector', sector);
-    fd.append('total_fuga', total);
-    fd.append('ads_spend', document.getElementById('ads_spend').value || '0');
-    fd.append('avg_ticket', document.getElementById('avg_ticket').value || '0');
-    fd.append('visitors', document.getElementById('visitors').value || '0');
-    fd.append('fecha', new Date().toLocaleString('es-CO', {timeZone:'America/Bogota'}));
-    fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(fd).toString() });
+    const fd=new FormData();
+    fd.append('form-name','apc360-calc-capture');
+    fd.append('email_captura',email);
+    fd.append('sector',document.getElementById('calc_sector').value||'no especificado');
+    fd.append('total_fuga',document.getElementById('result_total_display').textContent);
+    fd.append('ads_spend',document.getElementById('ads_spend').value||'0');
+    fd.append('avg_ticket',document.getElementById('avg_ticket').value||'0');
+    fd.append('visitors',document.getElementById('visitors').value||'0');
+    fd.append('fecha',new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}));
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()});
   } catch(e){}
-  document.getElementById('captureEmail').style.display = 'none';
-  document.querySelector('.ai-capture-row button').style.display = 'none';
+  document.getElementById('captureEmail').style.display='none';
+  document.querySelector('.ai-capture-row button').style.display='none';
   document.getElementById('captureSuccess').classList.add('show');
 }
 
-/* ══ LEAD FORM — Netlify AJAX ══ */
-document.getElementById('leadForm').addEventListener('submit', async function(e) {
+document.getElementById('leadForm').addEventListener('submit',async function(e){
   e.preventDefault();
-  const btn = this.querySelector('button[type=submit]');
-  btn.textContent = 'Enviando...';
-  btn.disabled = true;
+  const btn=this.querySelector('button[type=submit]');
+  btn.textContent='Enviando...'; btn.disabled=true;
   try {
-    const res = await fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(this)).toString() });
-    if (res.ok) { document.getElementById('formBody').style.display='none'; document.getElementById('formSuccess').classList.add('show'); }
-    else { btn.textContent = 'Error — intenta de nuevo'; btn.disabled = false; }
-  } catch(e) { btn.textContent = 'Error de conexión'; btn.disabled = false; }
+    const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(this)).toString()});
+    if(res.ok){document.getElementById('formBody').style.display='none';document.getElementById('formSuccess').classList.add('show');}
+    else{btn.textContent='Error — intenta de nuevo';btn.disabled=false;}
+  } catch(e){btn.textContent='Error de conexión';btn.disabled=false;}
 });
 
-/* ══ MODALES LEGALES ══ */
-function openModal(id) { document.getElementById('modal' + id.charAt(0).toUpperCase() + id.slice(1)).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.modal-overlay').forEach(m => { m.addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); }); });
-document.addEventListener('keydown', e => { if(e.key==='Escape') document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open')); });
+function openModal(id){document.getElementById('modal'+id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(m=>{m.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));});
 
-/* ══ SCROLL ANIMATIONS ══ */
-const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';} }), { threshold: 0.08 });
-document.querySelectorAll('.step-card, .pilar-card, .trust-item').forEach(el => { el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.5s ease, transform 0.5s ease'; obs.observe(el); });
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}},{threshold:0.08}));
+document.querySelectorAll('.step-card,.pilar-card,.trust-item,.nosotros-grid').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.5s ease,transform 0.5s ease';obs.observe(el);});
 </script>
 </body>
 </html>
