@@ -1,0 +1,19 @@
+ahora, con estas pagians, completamos todo el ecosistema, ahora si podemos entrar analisar lo que seria serviciosapc.site 🏢 HOLDING APC — Índice de líneas de negocio y servicios				
+				
+Línea	Enfoque principal	# Servicios	Rango de precios	Público principal
+APC Core	Pymes, clínicas, flotas, nómina, automatización	20	$60.000 – $1.800.000	Pymes, clínicas, flotas, nómina, automatización
+APC Vision AI	Retail, gimnasios, restaurantes, showrooms	4	$200.000 – $1.500.000	Retail, gimnasios, restaurantes, showrooms
+DogWeb	Marcas con redes, negocios en crecimiento digital	9	$120.000 – $3.000.000	Marcas con redes, negocios en crecimiento digital
+APC Intelligence	Empresas medianas, gerencias, operaciones	5	$400.000 – $2.500.000	Empresas medianas, gerencias, operaciones
+				
+💡 Ver hoja "Soluciones_por_Industria" para combinaciones de servicios entre líneas → 10 casos de uso con precio desde/hasta				Industria / Caso de uso	Problema que resuelve	Servicios combinados	Precio desde	Precio hasta	Por qué funciona esta combinación
+🏋️ Gimnasios	Saber cuántos entran, cuándo y si la gente renueva	Vision (conteo) + Core (WhatsApp recordatorios)	$550.00	$850.000/mes	El conteo dice cuándo hay pico de visitas. El bot de WhatsApp envía recordatorios de renovación automáticos. Juntos reducen deserción.
+🛍️ Retail y tiendas	No saben qué zonas venden más ni por qué	Vision (zonas de calor) + DogWeb (pauta según tráfico)	$1.900.000	$2.400.000/mes	Vision mide qué zona del local atrae más. DogWeb lanza pauta digital en los días y horas de mayor tráfico real. Decisiones basadas en datos, no intuición.
+🍽️ Restaurantes	No controlan tiempos de espera ni mesas ocupadas	Vision (ocupación) + Core (WhatsApp turnos)	$550.00	$800.000/mes	Vision mide ocupación en tiempo real. El bot de WhatsApp gestiona la lista de espera y notifica cuando hay mesa disponible.
+🏥 Clínicas y consultorios	Pacientes que no llegan, agenda desordenada, sin seguimiento	Core (IA WhatsApp agenda) + Intelligence (dashboard)	$1.300.000	$2.200.000	El bot agenda, recuerda citas y hace seguimiento post-consulta. El dashboard muestra métricas: asistencia, cancelaciones, diagnósticos frecuentes.
+🚛 Empresas con flotas	No saben dónde están los vehículos ni cuánto gastan en combustible	Core (GPS) + Intelligence (dashboard ejecutivo)	$1.100.000	$1.600.000 + mensual	GPS extrae horas motor y alertas en tiempo real. El dashboard consolida todo en un reporte ejecutivo mensual automático para gerencia.
+👥 Pymes con empleados	Control de asistencia manual, nómina con errores	Core (biométrico) + Intelligence (dashboard nómina)	$2.000.000	$2.500.000 + mensual	El biométrico registra entradas y salidas. El dashboard procesa automáticamente las horas para nómina, elimina errores manuales.
+🚀 Marcas que arrancan	Sin web, sin redes, sin sistema de captación	DogWeb (web + contenido) + Core (WhatsApp IA)	$1.400.000	$2.000.000	La web y el contenido atraen. El bot de WhatsApp captura y califica los leads 24/7. Sistema completo de entrada de clientes desde cero.
+🏢 Empresas medianas	Datos en silos, herramientas desconectadas, sin visión global	Intelligence (integración) + Core (automatización interna)	$2.100.000	$4.000.000	Intelligence conecta todos los sistemas. Core automatiza los procesos internos. La gerencia ve todo en un solo dashboard.
+🖼️ Showrooms y centros de experiencia	No saben qué productos atraen más ni cuánto tiempo los clientes los ven	Vision (zonas + tiempo) + DogWeb (retargeting)	$1.750.000	$2.400.000/mes	Vision mide qué producto o zona retiene más atención. DogWeb lanza retargeting a quienes visitaron pero no compraron.
+🔧 Talleres automotrices	Órdenes de trabajo en papel, sin seguimiento al cliente	Core (IA WhatsApp + flujos) + Intelligence (dashboard OTs)	$1.500.000	$2.200.000	El bot recibe OTs, notifica al cliente el estado del vehículo y solicita calificación al retirar. El dashboard muestra productividad por técnico.
