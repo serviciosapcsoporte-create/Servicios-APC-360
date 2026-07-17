@@ -914,7 +914,7 @@ export default function App() {
                 </a>
 
                 <a
-                  href="mailto:info@apccore.co"
+                  href="mailto:serviciosapcsoporte@gmail.com"
                   className="flex items-start gap-4 group"
                 >
                   <div className="w-10 h-10 border border-border flex items-center justify-center flex-shrink-0 group-hover:border-accent/40 transition-colors">
@@ -925,7 +925,7 @@ export default function App() {
                       Correo electrónico
                     </p>
                     <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
-                      info@apccore.co
+                      serviciosapcsoporte@gmail.com
                     </p>
                   </div>
                 </a>
@@ -1137,11 +1137,11 @@ export default function App() {
                 </li>
                 <li>
                   <a
-                    href="mailto:info@apccore.co"
+                    href="mailto:serviciosapcsoporte@gmail.com"
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     <Mail size={13} className="text-accent flex-shrink-0" />
-                    info@apccore.co
+                    serviciosapcsoporte@gmail.com
                   </a>
                 </li>
                 <li>
