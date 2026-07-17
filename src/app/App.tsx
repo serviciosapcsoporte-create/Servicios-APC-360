@@ -808,19 +808,27 @@ export default function App() {
             {ecosystem.map((e) => {
               const Icon = e.icon;
               return (
-                <div
+                <a
                   key={e.domain}
-                  className="bg-secondary p-8 hover:bg-background transition-colors duration-200"
+                  href={`https://${e.domain}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-secondary p-8 hover:bg-background transition-colors duration-200 block"
                 >
                   <Icon size={24} className="text-accent mb-5" />
-                  <h3 className="font-serif text-lg font-bold mb-1">{e.name}</h3>
+                  <h3 className="font-serif text-lg font-bold mb-1 group-hover:text-accent transition-colors">
+                    {e.name}
+                  </h3>
                   <p className="font-mono text-xs text-accent mb-3 flex items-center gap-1">
                     <ExternalLink size={11} /> {e.domain}
                   </p>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {e.description}
                   </p>
-                </div>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                    Visitar sitio <ArrowRight size={12} />
+                  </span>
+                </a>
               );
             })}
           </div>
