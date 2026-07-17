@@ -44,7 +44,7 @@ const services = [
       "Se integra a su CCTV actual sin comprar hardware nuevo",
     ],
     image:
-      "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Analítica de video con IA sobre cámaras de seguridad",
   },
   {
@@ -63,7 +63,7 @@ const services = [
       "Soporte técnico remoto y presencial",
     ],
     image:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Instalación profesional de cámaras CCTV",
   },
   {
@@ -82,7 +82,7 @@ const services = [
       "Transferencia a agente humano cuando se necesita",
     ],
     image:
-      "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Bot de WhatsApp para atención automática de clientes",
   },
   {
@@ -101,7 +101,7 @@ const services = [
       "Notificaciones y alertas automáticas",
     ],
     image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Automatización de procesos empresariales",
   },
   {
@@ -120,7 +120,7 @@ const services = [
       "Control de acceso a la información",
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Dashboard ejecutivo con métricas del negocio",
   },
   {
@@ -139,7 +139,7 @@ const services = [
       "Soporte y mantenimiento mensual",
     ],
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=560&fit=crop&auto=format",
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
     imageAlt: "Desarrollo web y posicionamiento local",
   },
 ];
@@ -223,6 +223,25 @@ const cases = [
   },
 ];
 
+const faqs = [
+  {
+    q: "¿Tengo que cambiar todas las cámaras de mi negocio para tener Inteligencia Artificial?",
+    a: "No. Si sus cámaras CCTV actuales admiten los protocolos estándar de la industria (RTSP u ONVIF), las reprogramamos para inyectarles nuestros módulos de IA (YOLO) sin que gaste de más en hardware nuevo.",
+  },
+  {
+    q: "¿Qué pasa si en el local se corta el internet o la luz?",
+    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento se realiza de forma local en el negocio. Si el internet se va por horas, el sistema sigue registrando todo y sincroniza automáticamente en cuanto la señal regresa. Nada se pierde.",
+  },
+  {
+    q: "¿La Inteligencia Artificial escucha conversaciones privadas?",
+    a: "No. La IA se activa solo bajo un disparador específico. Por ejemplo, en la caja registradora únicamente analiza el audio durante los segundos posteriores al sonido del cajón al abrirse, para documentar el monto. El resto de la jornada se protege la privacidad del equipo.",
+  },
+  {
+    q: "¿Ustedes administran el negocio?",
+    a: "No. Diseñamos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular.",
+  },
+];
+
 const benefits = [
   {
     icon: TrendingUp,
@@ -277,6 +296,7 @@ export default function App() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [activeService, setActiveService] = useState(0);
+  const [openFaq, setOpenFaq] = useState(-1);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -360,6 +380,7 @@ export default function App() {
               ["Servicios", "servicios"],
               ["Ecosistema", "ecosistema"],
               ["Casos", "casos"],
+              ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
@@ -398,6 +419,7 @@ export default function App() {
               ["Servicios", "servicios"],
               ["Ecosistema", "ecosistema"],
               ["Casos", "casos"],
+              ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
@@ -421,9 +443,14 @@ export default function App() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1600&h=900&fit=crop&auto=format"
-            alt="Ciudad moderna iluminada representando tecnología e innovación"
+            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1600&h=900&fit=crop&auto=format&fm=webp&q=70"
+            alt="Ciudad moderna iluminada representando tecnología e innovación en Bogotá"
             className="w-full h-full object-cover opacity-25"
+            width={1600}
+            height={900}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
         </div>
@@ -616,6 +643,10 @@ export default function App() {
                           src={s.image}
                           alt={s.imageAlt}
                           className="w-full aspect-[4/3] object-cover"
+                          width={800}
+                          height={560}
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     </div>
@@ -679,8 +710,10 @@ export default function App() {
               />
               <img
                 src="/servicios-apc.jpeg"
-                alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Colombia"
+                alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
                 className="w-full object-cover aspect-[3/4] relative z-10"
+                loading="lazy"
+                decoding="async"
               />
               {/* Accent strip */}
               <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
@@ -876,8 +909,60 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── FAQ ──────────────────────────────────────────── */}
+      <section id="faq" className="py-24 bg-secondary border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3">
+              <p className="font-mono text-xs text-accent tracking-widest uppercase">
+                Preguntas frecuentes
+              </p>
+            </div>
+            <div className="lg:col-span-9">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+                Preguntas frecuentes
+              </h2>
+              <p className="text-muted-foreground max-w-xl leading-relaxed">
+                Resolvemos las dudas más comunes sobre nuestra infraestructura,
+                privacidad y funcionamiento sin tecnicismos.
+              </p>
+            </div>
+          </div>
+
+          <div className="max-w-3xl mx-auto border-t border-border">
+            {faqs.map((f, i) => {
+              const open = openFaq === i;
+              return (
+                <div key={i} className="border-b border-border">
+                  <button
+                    onClick={() => setOpenFaq(open ? -1 : i)}
+                    aria-expanded={open}
+                    className="w-full flex items-center justify-between gap-4 py-6 text-left group"
+                  >
+                    <span className="font-serif text-lg font-bold group-hover:text-accent transition-colors">
+                      {f.q}
+                    </span>
+                    <ChevronRight
+                      size={20}
+                      className={`text-muted-foreground flex-shrink-0 transition-transform duration-300 ${
+                        open ? "rotate-90" : ""
+                      }`}
+                    />
+                  </button>
+                  {open && (
+                    <p className="text-muted-foreground leading-relaxed pb-6 -mt-1">
+                      {f.a}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── CONTACT ──────────────────────────────────────── */}
-      <section id="contacto" className="py-24 bg-secondary border-b border-border">
+      <section id="contacto" className="py-24 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-12">
             {/* Left info */}
@@ -1088,7 +1173,7 @@ export default function App() {
       {/* ── FOOTER ───────────────────────────────────────── */}
       <footer className="py-10 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-3 gap-8 mb-10 pb-10 border-b border-border">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 pb-10 border-b border-border">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2.5 mb-4">
@@ -1120,6 +1205,31 @@ export default function App() {
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
                     >
                       <ChevronRight size={12} /> {s.title}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Internal navigation */}
+            <div>
+              <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
+                Navegación
+              </p>
+              <ul className="space-y-2">
+                {[
+                  ["Ecosistema APC", "ecosistema"],
+                  ["Casos de éxito", "casos"],
+                  ["Preguntas frecuentes", "faq"],
+                  ["Quiénes somos", "nosotros"],
+                  ["Contacto", "contacto"],
+                ].map(([label, id]) => (
+                  <li key={id}>
+                    <button
+                      onClick={() => scrollTo(id)}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                    >
+                      <ChevronRight size={12} /> {label}
                     </button>
                   </li>
                 ))}
