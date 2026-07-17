@@ -23,6 +23,9 @@ import {
   WifiOff,
   Quote,
   ExternalLink,
+  Facebook,
+  Instagram,
+  Linkedin,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────── */
@@ -1267,6 +1270,35 @@ export default function App() {
                   </a>
                 </li>
               </ul>
+              <div className="flex items-center gap-3 mt-4">
+                <a
+                  href="https://www.facebook.com/alejandropiraquiveapc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
+                >
+                  <Facebook size={15} />
+                </a>
+                <a
+                  href="https://www.instagram.com/serviciosapc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
+                >
+                  <Instagram size={15} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/alejandropiraquive/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
+                >
+                  <Linkedin size={15} />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -1300,6 +1332,37 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Social float (left, does not overlap WhatsApp float) */}
+      <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+        <a
+          href="https://www.facebook.com/alejandropiraquiveapc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          className="w-11 h-11 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors shadow-lg"
+        >
+          <Facebook size={18} />
+        </a>
+        <a
+          href="https://www.instagram.com/serviciosapc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="w-11 h-11 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors shadow-lg"
+        >
+          <Instagram size={18} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/alejandropiraquive/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="w-11 h-11 rounded-full bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors shadow-lg"
+        >
+          <Linkedin size={18} />
+        </a>
+      </div>
     </div>
   );
 }
