@@ -711,13 +711,18 @@ export default function App() {
                 className="absolute -top-4 -left-4 w-full h-full border border-accent/30"
                 aria-hidden="true"
               />
-              <img
-                src="/servicios-apc.jpeg"
-                alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
-                className="w-full object-cover aspect-[3/4] relative z-10"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source srcSet="/servicios-apc.webp" type="image/webp" />
+                <img
+                  src="/servicios-apc.jpeg"
+                  alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
+                  width={900}
+                  height={1200}
+                  className="w-full object-cover aspect-[3/4] relative z-10"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               {/* Accent strip */}
               <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
                 <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
