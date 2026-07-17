@@ -274,6 +274,8 @@ export default function App() {
     mensaje: "",
   });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [activeService, setActiveService] = useState(0);
 
   useEffect(() => {
@@ -287,10 +289,43 @@ export default function App() {
     setMobileOpen(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "c5cdb094-a9cd-4e68-9041-2fafe475fff6",
+          subject: "Nuevo mensaje desde serviciosapc.site",
+          from_name: "Servicios APC Website",
+          nombre: form.nombre,
+          email: form.email,
+          telefono: form.telefono,
+          mensaje: form.mensaje,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSent(true);
+        setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
+      } else {
+        setError(
+          "No pudimos enviar tu mensaje. Escríbenos por WhatsApp o inténtalo de nuevo."
+        );
+      }
+    } catch {
+      setError(
+        "Error de conexión. Escríbenos por WhatsApp o inténtalo de nuevo."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -1012,12 +1047,17 @@ export default function App() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-sm text-red-500 text-center">{error}</p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-accent text-accent-foreground py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2"
+                    disabled={sending}
+                    className="w-full bg-accent text-accent-foreground py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     <Send size={15} />
-                    Enviar mensaje
+                    {sending ? "Enviando..." : "Enviar mensaje"}
                   </button>
 
                   <p className="text-xs text-muted-foreground text-center font-mono">
