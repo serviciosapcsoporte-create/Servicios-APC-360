@@ -344,11 +344,13 @@ export default function App() {
             onClick={() => scrollTo("inicio")}
             className="flex items-center gap-2.5"
           >
-            <span className="bg-accent text-accent-foreground font-serif font-bold text-sm px-2.5 py-1 tracking-wider">
-              APC
-            </span>
+            <img
+              src="/logo.png"
+              alt="Servicios APC"
+              className="h-9 w-auto"
+            />
             <span className="text-foreground font-semibold text-sm tracking-wide hidden sm:block">
-              Servicios
+              Servicios APC
             </span>
           </button>
 
@@ -1077,11 +1079,9 @@ export default function App() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <span className="bg-accent text-accent-foreground font-serif font-bold text-sm px-2.5 py-1 tracking-wider">
-                  APC
-                </span>
+                <img src="/logo.png" alt="Servicios APC" className="h-9 w-auto" />
                 <span className="text-foreground font-semibold text-sm">
-                  Servicios
+                  Servicios APC
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
