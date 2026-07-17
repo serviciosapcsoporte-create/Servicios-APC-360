@@ -16,6 +16,13 @@ import {
   ChevronRight,
   CheckCircle2,
   Send,
+  Video,
+  Globe,
+  LayoutDashboard,
+  Server,
+  WifiOff,
+  Quote,
+  ExternalLink,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────── */
@@ -26,33 +33,52 @@ const services = [
     icon: Camera,
     color: "#c94a0a",
     title: "Analítica de Video con IA",
-    tagline: "Tus cámaras inteligentes, trabajando para ti.",
+    tagline: "Sus cámaras dejan de vigilar y empiezan a auditar.",
     description:
-      "Instalamos y configuramos sistemas de videovigilancia con inteligencia artificial que van más allá de la seguridad: conteo de personas, zonas de calor, análisis de flujo y reportes automáticos.",
+      "Convertimos cámaras comunes en auditores inteligentes de tiempo completo. Con algoritmos de visión artificial (YOLO) analizamos el comportamiento, aseguramos el dinero y registramos transacciones sin que usted deba vigilar pantallas todo el día.",
     bullets: [
-      "Conteo de personas en tiempo real",
-      "Mapas de calor por zonas",
-      "Control de aforo y ocupación",
+      "Conteo de personas y control de aforo",
+      "Mapas de calor y ocupación por zonas",
+      "Arqueo de caja asistido por IA",
       "Reportes automáticos de tráfico",
-      "Integración con tu sistema actual",
+      "Se integra a su CCTV actual sin comprar hardware nuevo",
     ],
     image:
       "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=800&h=560&fit=crop&auto=format",
-    imageAlt: "Ciudad inteligente con analítica de video y cámaras IA",
+    imageAlt: "Analítica de video con IA sobre cámaras de seguridad",
+  },
+  {
+    id: "cctv",
+    icon: Video,
+    color: "#0ea5e9",
+    title: "Instalación de CCTV Inteligente",
+    tagline: "Cobertura total, sin puntos ciegos.",
+    description:
+      "Planificamos y desplegamos la infraestructura física de videovigilancia lista para inyectarle inteligencia artificial. Reutilizamos su equipo actual siempre que cumpla los estándares de la industria (RTSP / ONVIF).",
+    bullets: [
+      "Planificación y tendido de cableado profesional",
+      "Cámaras compatibles con IA (RTSP / ONVIF)",
+      "Reprogramación de hardware existente",
+      "Cobertura del 100% de puntos ciegos",
+      "Soporte técnico remoto y presencial",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=560&fit=crop&auto=format",
+    imageAlt: "Instalación profesional de cámaras CCTV",
   },
   {
     id: "bots",
     icon: MessageCircle,
     color: "#25d366",
-    title: "Bots de WhatsApp para Empresas",
-    tagline: "Atiende a tus clientes 24/7, sin contratar más personal.",
+    title: "Bots de WhatsApp con IA",
+    tagline: "Atienda a sus clientes 24/7, sin contratar más personal.",
     description:
-      "Desarrollamos bots de WhatsApp personalizados que responden preguntas, agenden citas, procesan pedidos y cualifican leads de forma automática, con tu tono de voz y sin código.",
+      "Desarrollamos bots de WhatsApp con identidad propia que responden, agendan citas, procesan pedidos y califican leads de forma automática. Desde un menú interactivo básico hasta ecosistemas con APIs, pagos y agendamiento.",
     bullets: [
       "Atención automática 24 horas",
+      "Menú interactivo, catálogos y respuestas con IA",
       "Agendamiento de citas y pedidos",
       "Calificación y seguimiento de leads",
-      "Integración con tu CRM",
       "Transferencia a agente humano cuando se necesita",
     ],
     image:
@@ -66,17 +92,134 @@ const services = [
     title: "Automatización de Procesos",
     tagline: "Menos trabajo manual, más resultados.",
     description:
-      "Diseñamos flujos de trabajo inteligentes que conectan tus herramientas, eliminan tareas repetitivas y le devuelven tiempo a tu equipo para lo que realmente importa.",
+      "Diseñamos flujos de trabajo indestructibles que conectan sus herramientas, eliminan tareas repetitivas y entregan reportes programados. Menos errores humanos, menos tiempo perdido, más control.",
     bullets: [
-      "Automatización de tareas administrativas",
-      "Integración entre sistemas y aplicaciones",
-      "Flujos de aprobación y notificaciones",
-      "Generación automática de informes",
-      "CRM con seguimiento automatizado",
+      "Flujos automáticos e integraciones API",
+      "Onboarding digital de clientes",
+      "CRM con seguimiento post-venta",
+      "Reportes programados 24 horas",
+      "Notificaciones y alertas automáticas",
     ],
     image:
       "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=560&fit=crop&auto=format",
-    imageAlt: "Equipo trabajando con automatización de procesos empresariales",
+    imageAlt: "Automatización de procesos empresariales",
+  },
+  {
+    id: "dashboards",
+    icon: LayoutDashboard,
+    color: "#f59e0b",
+    title: "Dashboards e Integración",
+    tagline: "Todos sus datos, en una sola pantalla.",
+    description:
+      "Centralizamos la información dispersa de su operación en tableros ejecutivos claros. Integramos su software contable, CRM y herramientas para que la gerencia tome decisiones con datos, no con corazonadas.",
+    bullets: [
+      "Dashboards ejecutivos en tiempo real",
+      "Integración entre sistemas y aplicaciones",
+      "Bases de datos operativas centralizadas",
+      "Reportería automatizada (Looker / PDF)",
+      "Control de acceso a la información",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop&auto=format",
+    imageAlt: "Dashboard ejecutivo con métricas del negocio",
+  },
+  {
+    id: "web",
+    icon: Globe,
+    color: "#10b981",
+    title: "Desarrollo Web y SEO Local",
+    tagline: "Presencia digital que atrae clientes reales.",
+    description:
+      "Creamos sitios web resilientes y los posicionamos donde sus clientes buscan: Google Maps y búsquedas locales. Desde landings hasta portales corporativos con bases de datos y SEO técnico.",
+    bullets: [
+      "Sitios web corporativos y landings",
+      "Posicionamiento en Google Maps / SEO local",
+      "Infraestructura web resiliente",
+      "Formularios y bases de datos",
+      "Soporte y mantenimiento mensual",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=560&fit=crop&auto=format",
+    imageAlt: "Desarrollo web y posicionamiento local",
+  },
+];
+
+const ecosystem = [
+  {
+    domain: "apccore.site",
+    name: "APC Core",
+    description:
+      "Sistemas de control, bases de datos operativas y tableros centralizados.",
+    icon: Server,
+  },
+  {
+    domain: "apcautomatizacion.site",
+    name: "APC Automatización",
+    description:
+      "Flujos de trabajo automáticos, integraciones API y reportes programados.",
+    icon: Zap,
+  },
+  {
+    domain: "apcvisionai.site",
+    name: "APC Visión AI",
+    description:
+      "Análisis de video inteligente con YOLO e IA sobre cámaras CCTV.",
+    icon: Camera,
+  },
+  {
+    domain: "dogweb.lat",
+    name: "DogWeb",
+    description:
+      "Desarrollo web, SEO local / Google Maps y resiliencia de red local.",
+    icon: Globe,
+  },
+];
+
+const differentiators = [
+  {
+    icon: WifiOff,
+    title: "Arquitectura resiliente (Offline-First)",
+    description:
+      "Si se corta el internet, el sistema sigue registrando cajas, audios e imágenes en local y sincroniza en cuanto vuelve la red. Nada se pierde.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Cero tecnicismos, solo datos",
+    description:
+      "Reportes diarios limpios vía Email o Telegram. No necesita saber de IA; solo leer un informe claro.",
+  },
+  {
+    icon: Shield,
+    title: "Hardware reutilizable",
+    description:
+      "No lo obligamos a comprar equipos costosos: reprogramamos su CCTV actual si cumple los estándares RTSP / ONVIF.",
+  },
+];
+
+const cases = [
+  {
+    client: "Excelencia Automotriz JAS",
+    sector: "Taller automotriz",
+    implementation:
+      "Panel de control centralizado y base de datos operativa para el taller.",
+    result:
+      "Control total de órdenes de servicio en tiempo real, eliminando el desorden de hojas físicas y generando cuentas de cobro con dos clics.",
+  },
+  {
+    client: "VALDIESEL S.A.S.",
+    sector: "Comercial",
+    implementation:
+      "Inteligencia artificial personalizada para control operativo y mensajería comercial.",
+    result:
+      "Menú interactivo, respuestas automáticas y catálogos con IA que agilizan la atención comercial.",
+  },
+  {
+    client: "Distribuidora Jone",
+    sector: "Distribución",
+    implementation:
+      "Analítica YOLO sobre cámaras, instalación de CCTV, SEO local en Google Maps y embudos de conversión.",
+    result:
+      "Visibilidad del 100% de los puntos ciegos y aumento drástico de cotizaciones orgánicas gracias al posicionamiento local.",
   },
 ];
 
@@ -178,7 +321,8 @@ export default function App() {
           <div className="hidden md:flex items-center gap-7">
             {[
               ["Servicios", "servicios"],
-              ["Beneficios", "beneficios"],
+              ["Ecosistema", "ecosistema"],
+              ["Casos", "casos"],
               ["Quiénes somos", "nosotros"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
@@ -215,7 +359,8 @@ export default function App() {
           <div className="md:hidden bg-background border-b border-border px-6 py-5 space-y-3">
             {[
               ["Servicios", "servicios"],
-              ["Beneficios", "beneficios"],
+              ["Ecosistema", "ecosistema"],
+              ["Casos", "casos"],
               ["Quiénes somos", "nosotros"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
@@ -249,15 +394,16 @@ export default function App() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
-              Bogotá, Colombia
+              Servicios APC · Bogotá, Colombia
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-              Soluciones Tecnológicas Innovadoras para Empresas en Colombia
+              Infraestructura digital indestructible y control automatizado para su negocio.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
-              Instalamos cámaras con analítica IA, desarrollamos bots de
-              WhatsApp y automatizamos tus procesos para que tu empresa opere
-              mejor, más rápido y con menos costos.
+              Eliminamos la pérdida silenciosa de dinero y el desorden
+              operativo. Convertimos sus cámaras en auditores inteligentes,
+              automatizamos sus procesos y blindamos su operación — sin que
+              tenga que vigilar pantallas todo el día.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -277,9 +423,9 @@ export default function App() {
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-border">
               {[
-                ["Analítica IA", "Cámaras inteligentes"],
-                ["Bots WhatsApp", "Atención 24/7"],
-                ["Automatización", "Procesos eficientes"],
+                ["Control del dinero", "Auditoría con IA"],
+                ["Offline-First", "Nunca se pierde nada"],
+                ["Sin tecnicismos", "Reportes claros"],
               ].map(([label, sub]) => (
                 <div key={label} className="flex items-center gap-2">
                   <CheckCircle2 size={14} className="text-accent flex-shrink-0" />
@@ -526,37 +672,156 @@ export default function App() {
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
                   En <strong className="text-foreground">Servicios APC</strong>{" "}
-                  llevamos tecnología de punta a empresas colombianas que
-                  necesitan resultados concretos, no promesas. Somos
-                  especialistas en analítica de video con inteligencia
-                  artificial, bots de WhatsApp y automatización de procesos.
+                  no vendemos tecnología por moda. Diseñamos, instalamos y
+                  mantenemos la infraestructura digital que le devuelve el
+                  control de su dinero, su productividad y su operación.
                 </p>
                 <p>
-                  Trabajamos directamente con cada cliente para entender su
-                  operación, sus cuellos de botella y sus metas. El resultado es
-                  siempre una solución hecha a medida — no un producto genérico.
-                </p>
-                <p>
-                  Nuestro modelo es simple: acompañamiento cercano, tecnología
-                  de alta calidad y soporte real. Desde Bogotá, atendemos
-                  empresas en todo el país.
+                  No administramos su negocio ni supervisamos a su personal. Le
+                  entregamos las herramientas exactas para que usted administre
+                  su empresa en minutos desde su celular, con datos claros y
+                  decisiones respaldadas.
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 mt-10 pt-10 border-t border-border">
-                {[
-                  ["Analítica IA", "Cámaras con inteligencia artificial que generan datos de valor."],
-                  ["Bots WhatsApp", "Automatización de atención al cliente en el canal preferido."],
-                  ["Automatización", "Flujos de trabajo que liberan tiempo y reducen errores."],
-                  ["Soporte local", "Equipo en Bogotá con respuesta rápida y acompañamiento directo."],
-                ].map(([title, desc]) => (
-                  <div key={title}>
-                    <p className="font-semibold text-foreground text-sm mb-1">{title}</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
-                  </div>
-                ))}
+              <div className="grid sm:grid-cols-2 gap-6 mt-8">
+                <div className="border border-border p-6">
+                  <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
+                    Misión
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Blindar la operación de cada negocio con infraestructura
+                    digital resiliente y control automatizado, eliminando la
+                    pérdida de dinero y el desorden — sin exigir conocimientos
+                    técnicos al empresario.
+                  </p>
+                </div>
+                <div className="border border-border p-6">
+                  <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
+                    Visión
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Ser el estándar de infraestructura digital indestructible en
+                    Colombia y la región, donde cada cámara, cada flujo y cada
+                    dato trabajan para proteger y hacer crecer el negocio.
+                  </p>
+                </div>
               </div>
+
+              {/* Diferenciadores */}
+              <div className="mt-10 pt-10 border-t border-border space-y-6">
+                {differentiators.map((d) => {
+                  const Icon = d.icon;
+                  return (
+                    <div key={d.title} className="flex items-start gap-4">
+                      <div className="w-10 h-10 border border-border flex items-center justify-center flex-shrink-0">
+                        <Icon size={16} className="text-accent" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground text-sm mb-1">
+                          {d.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {d.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ECOSISTEMA ───────────────────────────────────── */}
+      <section id="ecosistema" className="py-24 bg-secondary border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3">
+              <p className="font-mono text-xs text-accent tracking-widest uppercase">
+                Ecosistema APC
+              </p>
+            </div>
+            <div className="lg:col-span-9">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+                Un ecosistema, todo bajo control
+              </h2>
+              <p className="text-muted-foreground max-w-xl leading-relaxed">
+                Servicios APC integra cuatro líneas especializadas que se
+                conectan entre sí para blindar cada frente de su operación.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+            {ecosystem.map((e) => {
+              const Icon = e.icon;
+              return (
+                <div
+                  key={e.domain}
+                  className="bg-secondary p-8 hover:bg-background transition-colors duration-200"
+                >
+                  <Icon size={24} className="text-accent mb-5" />
+                  <h3 className="font-serif text-lg font-bold mb-1">{e.name}</h3>
+                  <p className="font-mono text-xs text-accent mb-3 flex items-center gap-1">
+                    <ExternalLink size={11} /> {e.domain}
+                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {e.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASOS DE ÉXITO ───────────────────────────────── */}
+      <section id="casos" className="py-24 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-12 gap-8 mb-16">
+            <div className="lg:col-span-3">
+              <p className="font-mono text-xs text-accent tracking-widest uppercase">
+                Casos de éxito
+              </p>
+            </div>
+            <div className="lg:col-span-9">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
+                Resultados, no promesas
+              </h2>
+              <p className="text-muted-foreground max-w-xl leading-relaxed">
+                Empresas colombianas que ya operan con más control y menos
+                pérdidas gracias a la infraestructura de Servicios APC.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-px bg-border">
+            {cases.map((c) => (
+              <div key={c.client} className="bg-background p-8">
+                <Quote size={24} className="text-accent mb-5" />
+                <h3 className="font-serif text-lg font-bold mb-1">
+                  {c.client}
+                </h3>
+                <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-5">
+                  {c.sector}
+                </p>
+                <p className="text-xs font-semibold text-foreground mb-1">
+                  Implementación
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {c.implementation}
+                </p>
+                <p className="text-xs font-semibold text-foreground mb-1">
+                  Resultado
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {c.result}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -780,8 +1045,8 @@ export default function App() {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Soluciones tecnológicas innovadoras para empresas en Colombia.
-                Analítica IA, bots de WhatsApp y automatización de procesos.
+                Infraestructura digital indestructible y control automatizado
+                para su negocio. Desde Bogotá, para toda Colombia.
               </p>
             </div>
 
@@ -842,9 +1107,29 @@ export default function App() {
             </div>
           </div>
 
+          {/* Legal */}
+          <div className="mb-8 pb-8 border-b border-border space-y-3">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Aviso de privacidad y tratamiento de datos.</strong>{" "}
+              En cumplimiento de la Ley 1581 de 2012 (Habeas Data), Servicios
+              APC declara que todo flujo de video y audio capturado en las sedes
+              de sus clientes tiene como única finalidad la auditoría
+              transaccional de seguridad empresarial, excluyendo la difusión
+              pública de material visual de terceros sin consentimiento.
+            </p>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Términos del servicio.</strong>{" "}
+              Los módulos lógicos e integraciones en la nube operan bajo el
+              marco de Arrendamiento de Software e Infraestructura Tecnológica
+              como Servicio (SaaS). El control patrimonial, claves de seguridad
+              y marcas pertenecen exclusivamente a Servicios APC y al titular de
+              la infraestructura.
+            </p>
+          </div>
+
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground font-mono">
-              © 2024 Servicios APC — Todos los derechos reservados
+              © 2026 Servicios APC — Todos los derechos reservados
             </p>
             <p className="text-xs text-muted-foreground font-mono">
               serviciosapc.site · Bogotá, Colombia
