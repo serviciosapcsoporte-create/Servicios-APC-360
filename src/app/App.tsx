@@ -540,96 +540,89 @@ export default function App() {
             </div>
           </div>
 
-          {/* Tab selector */}
-          <div className="flex border-b border-border mb-12 overflow-x-auto">
+          {/* Accordion (lista desplegable) */}
+          <div className="border-t border-border">
             {services.map((s, i) => {
               const Icon = s.icon;
+              const open = activeService === i;
               return (
-                <button
-                  key={s.id}
-                  onClick={() => setActiveService(i)}
-                  className={`flex items-center gap-2 px-6 py-4 text-sm font-medium whitespace-nowrap transition-all border-b-2 -mb-px ${
-                    activeService === i
-                      ? "border-accent text-foreground"
-                      : "border-transparent text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Icon size={15} style={{ color: activeService === i ? s.color : undefined }} />
-                  {s.title}
-                </button>
+                <div key={s.id} className="border-b border-border">
+                  {/* Header / toggle */}
+                  <button
+                    onClick={() => setActiveService(open ? -1 : i)}
+                    aria-expanded={open}
+                    className="w-full flex items-center gap-4 py-6 text-left group"
+                  >
+                    <Icon
+                      size={22}
+                      style={{ color: s.color }}
+                      className="flex-shrink-0"
+                    />
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-serif text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">
+                        {s.title}
+                      </h3>
+                      <p
+                        className="font-mono text-xs tracking-widest uppercase mt-1"
+                        style={{ color: s.color }}
+                      >
+                        {s.tagline}
+                      </p>
+                    </div>
+                    <ChevronRight
+                      size={22}
+                      className={`text-muted-foreground flex-shrink-0 transition-transform duration-300 ${
+                        open ? "rotate-90" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Panel */}
+                  {open && (
+                    <div className="pb-10 grid lg:grid-cols-2 gap-10 items-center">
+                      <div>
+                        <p className="text-muted-foreground leading-relaxed mb-6">
+                          {s.description}
+                        </p>
+                        <ul className="space-y-3 mb-8">
+                          {s.bullets.map((b) => (
+                            <li
+                              key={b}
+                              className="flex items-start gap-3 text-sm"
+                            >
+                              <CheckCircle2
+                                size={15}
+                                className="mt-0.5 flex-shrink-0"
+                                style={{ color: s.color }}
+                              />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <button
+                          onClick={() => scrollTo("contacto")}
+                          className="flex items-center gap-2 font-medium text-sm px-6 py-3 border transition-colors hover:opacity-80"
+                          style={{ borderColor: s.color, color: s.color }}
+                        >
+                          Solicitar información <ArrowRight size={14} />
+                        </button>
+                      </div>
+                      <div className="relative order-first lg:order-last">
+                        <div
+                          className="bg-secondary h-2 w-full absolute -top-2 left-0"
+                          style={{ backgroundColor: s.color, opacity: 0.3 }}
+                        />
+                        <img
+                          src={s.image}
+                          alt={s.imageAlt}
+                          className="w-full aspect-[4/3] object-cover"
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
               );
             })}
-          </div>
-
-          {/* Active service content */}
-          {services.map((s, i) => {
-            if (i !== activeService) return null;
-            const Icon = s.icon;
-            return (
-              <div key={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <Icon size={24} style={{ color: s.color }} />
-                    <h3 className="font-serif text-3xl font-bold">{s.title}</h3>
-                  </div>
-                  <p
-                    className="font-mono text-xs tracking-widest uppercase mb-4"
-                    style={{ color: s.color }}
-                  >
-                    {s.tagline}
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-8">
-                    {s.description}
-                  </p>
-                  <ul className="space-y-3 mb-10">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm">
-                        <CheckCircle2
-                          size={15}
-                          className="mt-0.5 flex-shrink-0"
-                          style={{ color: s.color }}
-                        />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <button
-                    onClick={() => scrollTo("contacto")}
-                    className="flex items-center gap-2 font-medium text-sm px-6 py-3 border transition-colors hover:opacity-80"
-                    style={{ borderColor: s.color, color: s.color }}
-                  >
-                    Solicitar información <ArrowRight size={14} />
-                  </button>
-                </div>
-                <div className="relative">
-                  <div className="bg-secondary h-2 w-full absolute -top-2 left-0" style={{ backgroundColor: s.color, opacity: 0.3 }} />
-                  <img
-                    src={s.image}
-                    alt={s.imageAlt}
-                    className="w-full aspect-[4/3] object-cover"
-                  />
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Service navigation dots */}
-          <div className="flex items-center justify-center gap-3 mt-12">
-            {services.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveService(i)}
-                className="w-2 h-2 transition-all duration-200"
-                style={{
-                  backgroundColor: i === activeService ? "#c94a0a" : undefined,
-                }}
-                aria-label={`Ver servicio ${i + 1}`}
-              >
-                <span
-                  className={`block w-2 h-2 ${i === activeService ? "" : "bg-border"}`}
-                />
-              </button>
-            ))}
           </div>
         </div>
       </section>
