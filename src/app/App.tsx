@@ -529,11 +529,12 @@ export default function App() {
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-                Nuestros Servicios
+                Servicios de tecnología y automatización para empresas
               </h2>
               <p className="text-muted-foreground max-w-xl leading-relaxed">
-                Tres soluciones tecnológicas diseñadas para empresas
-                colombianas que quieren operar mejor y crecer con inteligencia.
+                Soluciones tecnológicas diseñadas para empresas en Bogotá y toda
+                Colombia que quieren operar mejor, reducir pérdidas y crecer con
+                inteligencia.
               </p>
             </div>
           </div>
@@ -643,10 +644,10 @@ export default function App() {
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-                ¿Por qué elegirnos?
+                Beneficios de automatizar su empresa con Servicios APC
               </h2>
               <p className="text-muted-foreground max-w-xl leading-relaxed">
-                Mejora la eficiencia y competitividad de tu empresa con
+                Mejore la eficiencia y competitividad de su empresa con
                 soluciones tecnológicas hechas para la realidad colombiana.
               </p>
             </div>
@@ -873,7 +874,7 @@ export default function App() {
                 Contacto
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                ¡Contáctanos para saber más sobre nuestras soluciones tecnológicas!
+                Contacte a Servicios APC en Bogotá
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-10">
                 Cuéntanos tu necesidad. Te respondemos en menos de 24 horas
