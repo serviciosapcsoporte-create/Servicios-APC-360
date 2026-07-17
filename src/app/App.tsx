@@ -51,10 +51,10 @@ const services = [
     id: "cctv",
     icon: Video,
     color: "#0ea5e9",
-    title: "Instalación de CCTV Inteligente",
+    title: "Instalación de CCTV Inteligente en Bogotá",
     tagline: "Cobertura total, sin puntos ciegos.",
     description:
-      "Planificamos y desplegamos la infraestructura física de videovigilancia lista para inyectarle inteligencia artificial. Reutilizamos su equipo actual siempre que cumpla los estándares de la industria (RTSP / ONVIF).",
+      "Planificamos y desplegamos la infraestructura física de videovigilancia en su local o empresa en Bogotá, lista para inyectarle inteligencia artificial. Instalación presencial en la ciudad y reutilización de su equipo actual siempre que cumpla los estándares de la industria (RTSP / ONVIF).",
     bullets: [
       "Planificación y tendido de cableado profesional",
       "Cámaras compatibles con IA (RTSP / ONVIF)",
@@ -127,10 +127,10 @@ const services = [
     id: "web",
     icon: Globe,
     color: "#10b981",
-    title: "Desarrollo Web y SEO Local",
+    title: "Desarrollo Web y SEO Local en Bogotá",
     tagline: "Presencia digital que atrae clientes reales.",
     description:
-      "Creamos sitios web resilientes y los posicionamos donde sus clientes buscan: Google Maps y búsquedas locales. Desde landings hasta portales corporativos con bases de datos y SEO técnico.",
+      "Creamos sitios web resilientes y posicionamos su negocio donde sus clientes en Bogotá lo buscan: Google Maps y búsquedas locales de la ciudad. Desde landings hasta portales corporativos con bases de datos y SEO técnico.",
     bullets: [
       "Sitios web corporativos y landings",
       "Posicionamiento en Google Maps / SEO local",
@@ -199,7 +199,7 @@ const differentiators = [
 const cases = [
   {
     client: "Excelencia Automotriz JAS",
-    sector: "Taller automotriz",
+    sector: "Taller automotriz · Bogotá",
     implementation:
       "Panel de control centralizado y base de datos operativa para el taller.",
     result:
@@ -207,7 +207,7 @@ const cases = [
   },
   {
     client: "VALDIESEL S.A.S.",
-    sector: "Comercial",
+    sector: "Comercial · Bogotá",
     implementation:
       "Inteligencia artificial personalizada para control operativo y mensajería comercial.",
     result:
@@ -215,11 +215,11 @@ const cases = [
   },
   {
     client: "Distribuidora Jone",
-    sector: "Distribución",
+    sector: "Distribución · Bogotá",
     implementation:
       "Analítica YOLO sobre cámaras, instalación de CCTV, SEO local en Google Maps y embudos de conversión.",
     result:
-      "Visibilidad del 100% de los puntos ciegos y aumento drástico de cotizaciones orgánicas gracias al posicionamiento local.",
+      "Visibilidad del 100% de los puntos ciegos y aumento drástico de cotizaciones orgánicas gracias al posicionamiento local en Bogotá.",
   },
 ];
 
@@ -437,10 +437,11 @@ export default function App() {
               Infraestructura digital indestructible y control automatizado para su negocio.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
-              Eliminamos la pérdida silenciosa de dinero y el desorden
-              operativo. Convertimos sus cámaras en auditores inteligentes,
-              automatizamos sus procesos y blindamos su operación — sin que
-              tenga que vigilar pantallas todo el día.
+              Desde Bogotá, eliminamos la pérdida silenciosa de dinero y el
+              desorden operativo de empresas colombianas. Convertimos sus
+              cámaras en auditores inteligentes, automatizamos sus procesos y
+              blindamos su operación — con soporte técnico presencial en la
+              ciudad y despliegue remoto en todo el país.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -705,14 +706,24 @@ export default function App() {
                 Quiénes somos
               </p>
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Tecnología real, para negocios reales en Colombia.
+                Empresa de tecnología con base en Bogotá.
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  En <strong className="text-foreground">Servicios APC</strong>{" "}
-                  no vendemos tecnología por moda. Diseñamos, instalamos y
-                  mantenemos la infraestructura digital que le devuelve el
-                  control de su dinero, su productividad y su operación.
+                  <strong className="text-foreground">Servicios APC</strong> es
+                  una empresa de tecnología con sede en Bogotá (Cra. 52c
+                  #39b-22). No vendemos tecnología por moda: diseñamos,
+                  instalamos y mantenemos la infraestructura digital que le
+                  devuelve el control de su dinero, su productividad y su
+                  operación.
+                </p>
+                <p>
+                  Nuestra presencia local nos permite ofrecer{" "}
+                  <strong className="text-foreground">
+                    soporte técnico presencial en Bogotá
+                  </strong>{" "}
+                  con respuesta rápida, y desplegar arquitectura y desarrollo
+                  de forma remota para clientes en el resto de Colombia.
                 </p>
                 <p>
                   No administramos su negocio ni supervisamos a su personal. Le
@@ -827,10 +838,10 @@ export default function App() {
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-                Resultados, no promesas
+                Casos de éxito de clientes en Bogotá
               </h2>
               <p className="text-muted-foreground max-w-xl leading-relaxed">
-                Empresas colombianas que ya operan con más control y menos
+                Empresas de Bogotá que ya operan con más control y menos
                 pérdidas gracias a la infraestructura de Servicios APC.
               </p>
             </div>
