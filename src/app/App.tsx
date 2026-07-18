@@ -1325,6 +1325,14 @@ export default function App() {
               y marcas pertenecen exclusivamente a Servicios APC y al titular de
               la infraestructura.
             </p>
+            <a
+              href="/documentos/Politica_Tratamiento_Datos_serviciosapc.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-accent hover:underline mt-1"
+            >
+              Descargar Política de Tratamiento de Datos Personales (PDF)
+            </a>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
