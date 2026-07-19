@@ -1347,8 +1347,8 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Social float (left, above Cristal bot) */}
-      <div className="fixed bottom-24 left-6 z-50 flex flex-col gap-3">
+      {/* Social float (right, para no tapar el boton Cristal a la izquierda) */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
           href="https://www.facebook.com/alejandropiraquiveapc"
           target="_blank"
