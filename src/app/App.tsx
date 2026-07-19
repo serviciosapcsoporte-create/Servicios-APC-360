@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CristalChat from "./components/CristalChat";
 import {
   Menu,
   X,
@@ -1375,7 +1376,18 @@ export default function App() {
         >
           <Linkedin size={18} />
         </a>
+        <a
+          href="https://wa.me/573337450634"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="w-11 h-11 rounded-full bg-[#25d366] text-white flex items-center justify-center hover:bg-[#22c55e] transition-colors shadow-lg"
+        >
+          <MessageCircle size={18} />
+        </a>
       </div>
+
+      <CristalChat />
     </div>
   );
 }
