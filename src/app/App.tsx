@@ -1131,7 +1131,7 @@ export default function App() {
                       onChange={(e) =>
                         setForm({ ...form, telefono: e.target.value })
                       }
-                      placeholder="+57 300 000 0000"
+                      placeholder="+57 333 745 0634"
                       className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
                     />
                   </div>
