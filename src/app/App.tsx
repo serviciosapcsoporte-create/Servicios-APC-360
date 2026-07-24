@@ -36,39 +36,41 @@ const services = [
     id: "camaras",
     icon: Camera,
     color: "#c94a0a",
-    title: "Analítica de Video con IA",
+    title: "Analítica de Video con IA para Hikvision/Dahua",
     tagline: "Sus cámaras dejan de vigilar y empiezan a auditar.",
     description:
-      "Convertimos cámaras comunes en auditores inteligentes de tiempo completo. Con algoritmos de visión artificial (YOLO) analizamos el comportamiento, aseguramos el dinero y registramos transacciones sin que usted deba vigilar pantallas todo el día.",
+      "Reprogramamos sus cámaras Hikvision/Dahua RTSP/ONVIF actuales con módulos YOLO: conteo de personas, mapas de calor, arqueo de caja asistido, detección de intrusión y reportes automáticos. No necesita comprar hardware nuevo: su CCTV existente ya es compatible con la mayoría de modelos Hikvision 2018+. Integración a n8n para alertas en Telegram/Email/WhatsApp.",
     bullets: [
-      "Conteo de personas y control de aforo",
-      "Mapas de calor y ocupación por zonas",
-      "Arqueo de caja asistido por IA",
-      "Reportes automáticos de tráfico",
-      "Se integra a su CCTV actual sin comprar hardware nuevo",
+      "Conteo de personas y control de aforo en tiempo real",
+      "Mapas de calor y ocupación por zonas (heatmaps)",
+      "Arqueo de caja asistido por IA: video del cajón + monto",
+      "Detección de intrusión y alertas 24/7 sin vigilar pantallas",
+      "Se integra a su CCTV actual Hikvision/Dahua sin comprar hardware nuevo",
+      "Alertas por Telegram, Email y WhatsApp vía n8n",
     ],
     image:
       "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
-    imageAlt: "Analítica de video con IA sobre cámaras de seguridad",
+    imageAlt: "Dashboard analítica de video IA sobre cámaras Hikvision",
   },
   {
     id: "cctv",
     icon: Video,
     color: "#0ea5e9",
-    title: "Instalación de CCTV Inteligente en Bogotá",
-    tagline: "Cobertura total, sin puntos ciegos.",
+    title: "Instalación CCTV Inteligente Hikvision en Bogotá",
+    tagline: "Cobertura total, sin puntos ciegos, lista para IA.",
     description:
-      "Planificamos y desplegamos la infraestructura física de videovigilancia en su local o empresa en Bogotá, lista para inyectarle inteligencia artificial. Instalación presencial en la ciudad y reutilización de su equipo actual siempre que cumpla los estándares de la industria (RTSP / ONVIF).",
+      "Planificamos e instalamos infraestructura CCTV profesional con cámaras Hikvision certificadas ya listas para analítica IA. Cableado estructurado, configuración RTSP/ONVIF, reprogramación de equipos existentes que cumplan estándar, cobertura 100% sin puntos ciegos. Soporte técnico presencial en Bogotá y remoto en toda Colombia. ¿Ya tiene Hikvision? Lo preparamos para IA sin cambiar cámaras.",
     bullets: [
-      "Planificación y tendido de cableado profesional",
-      "Cámaras compatibles con IA (RTSP / ONVIF)",
-      "Reprogramación de hardware existente",
-      "Cobertura del 100% de puntos ciegos",
-      "Soporte técnico remoto y presencial",
+      "Planificación y tendido de cableado profesional estructurado",
+      "Cámaras Hikvision compatibles IA (RTSP/ONVIF) instaladas y configuradas",
+      "Reprogramación de hardware existente Hikvision/Dahua que cumpla estándar",
+      "Cobertura del 100% de puntos ciegos con mapas de calor",
+      "Soporte técnico remoto y presencial en Bogotá",
+      "Garantía extendida Hikvision + capa IA incluida",
     ],
     image:
       "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
-    imageAlt: "Instalación profesional de cámaras CCTV",
+    imageAlt: "Instalación profesional cámaras Hikvision con analítica IA",
   },
   {
     id: "bots",
@@ -77,13 +79,14 @@ const services = [
     title: "Bots de WhatsApp con IA",
     tagline: "Atienda a sus clientes 24/7, sin contratar más personal.",
     description:
-      "Desarrollamos bots de WhatsApp con identidad propia que responden, agendan citas, procesan pedidos y califican leads de forma automática. Desde un menú interactivo básico hasta ecosistemas con APIs, pagos y agendamiento.",
+      "Desarrollamos bots de WhatsApp con identidad propia que responden, agendan citas, procesan pedidos y califican leads de forma automática. Desde un menú interactivo básico hasta ecosistemas con APIs, pagos y agendamiento. Se conectan a su CRM y a la analítica de video: si una cámara detecta aforo lleno, el bot avisa al gerente.",
     bullets: [
-      "Atención automática 24 horas",
+      "Atención automática 24 horas con IA conversacional",
       "Menú interactivo, catálogos y respuestas con IA",
-      "Agendamiento de citas y pedidos",
-      "Calificación y seguimiento de leads",
+      "Agendamiento de citas y pedidos integrados",
+      "Calificación y seguimiento de leads automático",
       "Transferencia a agente humano cuando se necesita",
+      "Integración con analítica de video: alertas de aforo → WhatsApp",
     ],
     image:
       "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
@@ -93,58 +96,61 @@ const services = [
     id: "automatizacion",
     icon: Zap,
     color: "#7c3aed",
-    title: "Automatización de Procesos",
+    title: "Automatización de Procesos (n8n + APIs)",
     tagline: "Menos trabajo manual, más resultados.",
     description:
-      "Diseñamos flujos de trabajo indestructibles que conectan sus herramientas, eliminan tareas repetitivas y entregan reportes programados. Menos errores humanos, menos tiempo perdido, más control.",
+      "Diseñamos flujos de trabajo indestructibles que conectan sus herramientas, eliminan tareas repetitivas y entregan reportes programados. Menos errores humanos, menos tiempo perdido, más control. Conectamos su CCTV, CRM, ERP y WhatsApp en un solo cerebro n8n.",
     bullets: [
-      "Flujos automáticos e integraciones API",
-      "Onboarding digital de clientes",
-      "CRM con seguimiento post-venta",
-      "Reportes programados 24 horas",
-      "Notificaciones y alertas automáticas",
+      "Flujos automáticos e integraciones API (n8n self-hosted)",
+      "Onboarding digital de clientes con validación IA",
+      "CRM con seguimiento post-venta automatizado",
+      "Reportes programados 24 horas vía Email/Telegram",
+      "Notificaciones y alertas automáticas cruzadas",
+      "Integración CCTV → Alerta → Acción (WhatsApp, CRM, Dashboard)",
     ],
     image:
       "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
-    imageAlt: "Automatización de procesos empresariales",
+    imageAlt: "Automatización de procesos empresariales con n8n",
   },
   {
     id: "dashboards",
     icon: LayoutDashboard,
     color: "#f59e0b",
-    title: "Dashboards e Integración",
-    tagline: "Todos sus datos, en una sola pantalla.",
+    title: "Dashboards e Integración de Datos",
+    tagline: "Todos sus datos CCTV + CRM + ERP, en una sola pantalla.",
     description:
-      "Centralizamos la información dispersa de su operación en tableros ejecutivos claros. Integramos su software contable, CRM y herramientas para que la gerencia tome decisiones con datos, no con corazonadas.",
+      "Centralizamos la información dispersa de su operación en tableros ejecutivos claros. Integramos su software contable, CRM, analítica de video Hikvision y herramientas para que la gerencia tome decisiones con datos, no con corazonadas. Mapas de calor, conteo histórico, arqueos, tickets WhatsApp: todo unificado.",
     bullets: [
-      "Dashboards ejecutivos en tiempo real",
-      "Integración entre sistemas y aplicaciones",
-      "Bases de datos operativas centralizadas",
-      "Reportería automatizada (Looker / PDF)",
-      "Control de acceso a la información",
+      "Dashboards ejecutivos en tiempo real (Looker Studio / Grafana)",
+      "Integración entre CCTV Hikvision, CRM, ERP y WhatsApp",
+      "Bases de datos operativas centralizadas y replicadas",
+      "Reportería automatizada (Looker / PDF / Telegram)",
+      "Control de acceso a la información por roles",
+      "Exportación a Excel/CSV para contabilidad",
     ],
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
-    imageAlt: "Dashboard ejecutivo con métricas del negocio",
+    imageAlt: "Dashboard ejecutivo con métricas CCTV + CRM + ventas",
   },
   {
     id: "web",
     icon: Globe,
     color: "#10b981",
-    title: "Desarrollo Web y SEO Local en Bogotá",
-    tagline: "Presencia digital que atrae clientes reales.",
+    title: "Desarrollo Web y SEO Local en Bogotá (DogWeb)",
+    tagline: "Presencia digital que atrae clientes reales en Google Maps.",
     description:
-      "Creamos sitios web resilientes y posicionamos su negocio donde sus clientes en Bogotá lo buscan: Google Maps y búsquedas locales de la ciudad. Desde landings hasta portales corporativos con bases de datos y SEO técnico.",
+      "Creamos sitios web resilientes y posicionamos su negocio donde sus clientes en Bogotá lo buscan: Google Maps y búsquedas locales de la ciudad. Desde landings hasta portales corporativos con bases de datos y SEO técnico. Conectamos el sitio a su CRM y WhatsApp: lead web → bot → cita → venta.",
     bullets: [
-      "Sitios web corporativos y landings",
-      "Posicionamiento en Google Maps / SEO local",
-      "Infraestructura web resiliente",
-      "Formularios y bases de datos",
-      "Soporte y mantenimiento mensual",
+      "Sitios web corporativos y landings de alta conversión",
+      "Posicionamiento en Google Maps / SEO local Bogotá",
+      "Infraestructura web resiliente (Cloudflare + CDN)",
+      "Formularios, bases de datos y CRM integrado",
+      "Soporte y mantenimiento mensual incluido",
+      "CTAs cruzados: Web → WhatsApp Bot → CCTV Demo",
     ],
     image:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
-    imageAlt: "Desarrollo web y posicionamiento local",
+    imageAlt: "Desarrollo web y posicionamiento SEO local en Bogotá",
   },
 ];
 
@@ -153,28 +159,28 @@ const ecosystem = [
     domain: "apccore.site",
     name: "APC Core",
     description:
-      "Sistemas de control, bases de datos operativas y tableros centralizados.",
+      "Sistemas de control, bases de datos operativas y tableros centralizados. El cerebro que une CCTV + IA + CRM.",
     icon: Server,
   },
   {
     domain: "apcautomatizacion.site",
     name: "APC Automatización",
     description:
-      "Flujos de trabajo automáticos, integraciones API y reportes programados.",
+      "Flujos n8n que conectan su CCTV Hikvision + WhatsApp + CRM + ERP. Alerta de intrusión → WhatsApp al gerente → Ticket en CRM.",
     icon: Zap,
   },
   {
     domain: "apcvisionai.site",
     name: "APC Visión AI",
     description:
-      "Análisis de video inteligente con YOLO e IA sobre cámaras CCTV.",
+      "Especialistas en analítica YOLO sobre Hikvision/Dahua: conteo, mapas de calor, arqueo de caja, detección PPE, intrusión perimetral.",
     icon: Camera,
   },
   {
     domain: "dogweb.lat",
     name: "DogWeb",
     description:
-      "Desarrollo web, SEO local / Google Maps y resiliencia de red local.",
+      "Desarrollo web, SEO local / Google Maps y resiliencia de red. Su web posicionada en Bogotá + formularios → WhatsApp Bot → Venta.",
     icon: Globe,
   },
 ];
@@ -184,104 +190,120 @@ const differentiators = [
     icon: WifiOff,
     title: "Arquitectura resiliente (Offline-First)",
     description:
-      "Si se corta el internet, el sistema sigue registrando cajas, audios e imágenes en local y sincroniza en cuanto vuelve la red. Nada se pierde.",
+      "Si se corta el internet, su Hikvision + IA sigue grabando y analizando en local (conteo, intrusión, arqueo). Sincroniza al volver la señal. Nada se pierde.",
   },
   {
     icon: CheckCircle2,
-    title: "Cero tecnicismos, solo datos",
+    title: "Cero tecnicismos, solo datos accionables",
     description:
-      "Reportes diarios limpios vía Email o Telegram. No necesita saber de IA; solo leer un informe claro.",
+      "Reportes diarios limpios vía Email/Telegram/WhatsApp. No necesita saber de IA ni YOLO; solo leer: 'Arqueo OK', 'Aforo 78%', 'Intrusión 0'.",
   },
   {
     icon: Shield,
-    title: "Hardware reutilizable",
+    title: "Hardware Hikvision reutilizable + IA",
     description:
-      "No lo obligamos a comprar equipos costosos: reprogramamos su CCTV actual si cumple los estándares RTSP / ONVIF.",
+      "No lo obligamos a comprar equipos costosos: reprogramamos su Hikvision/Dahua actual si cumple RTSP/ONVIF. Si necesita nuevo, instalamos Hikvision certificado IA-ready.",
   },
 ];
 
 const cases = [
   {
-    client: "Excelencia Automotriz JAS",
-    sector: "Taller automotriz · Bogotá",
+    client: "Ferretería El Progreso",
+    sector: "Ferretería · Suba, Bogotá",
     implementation:
-      "Panel de control centralizado y base de datos operativa para el taller.",
+      "Hikvision 4K ColorVu + IA YOLO: detección de placas vehiculares nocturnas, conteo de clientes, arqueo de caja asistido.",
     result:
-      "Control total de órdenes de servicio en tiempo real, eliminando el desorden de hojas físicas y generando cuentas de cobro con dos clics.",
+      "Recuperaron 3 bultos robados en 48h gracias a placa legible a las 2am. Aforo optimizado en horas pico. Cero discrepancias en arqueos mensuales.",
   },
   {
-    client: "VALDIESEL S.A.S.",
-    sector: "Comercial · Bogotá",
+    client: "Clínica Dental Sonrisa Viva",
+    sector: "Salud · Chapinero, Bogotá",
     implementation:
-      "Inteligencia artificial personalizada para control operativo y mensajería comercial.",
+      "Hikvision 2MP WDR + IA: control de aforo salas de espera, detección de caídas pacientes, monitoreo acceso zonas restringidas (RX, esterilización).",
     result:
-      "Menú interactivo, respuestas automáticas y catálogos con IA que agilizan la atención comercial.",
+      "Cumplimiento normativo HIPAA/Ley 1581. Cero incidentes en zona RX. Alerta automática a enfermería ante caída (tiempo respuesta < 30 seg).",
   },
   {
     client: "Distribuidora Jone",
     sector: "Distribución · Bogotá",
     implementation:
-      "Analítica YOLO sobre cámaras, instalación de CCTV, SEO local en Google Maps y embudos de conversión.",
+      "Analítica YOLO sobre Hikvision existentes + CCTV nuevo en bodega + SEO local Google Maps + embudos conversión WhatsApp Bot.",
     result:
-      "Visibilidad del 100% de los puntos ciegos y aumento drástico de cotizaciones orgánicas gracias al posicionamiento local en Bogotá.",
+      "Visibilidad 100% puntos ciegos bodega. Aumento 340% cotizaciones orgánicas Bogotá. Bot WhatsApp atiende 80% consultas sin humano.",
   },
 ];
 
 const faqs = [
   {
-    q: "¿Tengo que cambiar todas las cámaras de mi negocio para tener Inteligencia Artificial?",
-    a: "No. Si sus cámaras CCTV actuales admiten los protocolos estándar de la industria (RTSP u ONVIF), las reprogramamos para inyectarles nuestros módulos de IA (YOLO) sin que gaste de más en hardware nuevo.",
+    q: "¿Tengo que cambiar todas las cámaras Hikvision de mi negocio para tener Inteligencia Artificial?",
+    a: "No. Si sus cámaras Hikvision/Dahua actuales admiten RTSP u ONVIF (la mayoría desde 2018), las reprogramamos para inyectarles módulos YOLO sin gasto extra en hardware. Modelos Hikvision 2MP/4MP/4K ColorVu, AcuSense, DeepinView son 100% compatibles.",
   },
   {
     q: "¿Qué pasa si en el local se corta el internet o la luz?",
-    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento se realiza de forma local en el negocio. Si el internet se va por horas, el sistema sigue registrando todo y sincroniza automáticamente en cuanto la señal regresa. Nada se pierde.",
+    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento IA ocurre en local (edge) en su red. Si el internet se va por horas, el sistema sigue grabando, contando personas, detectando intrusos y arqueando cajas, y sincroniza automáticamente al recuperar la señal. Nada se pierde.",
   },
   {
-    q: "¿La Inteligencia Artificial escucha conversaciones privadas?",
-    a: "No. La IA se activa solo bajo un disparador específico. Por ejemplo, en la caja registradora únicamente analiza el audio durante los segundos posteriores al sonido del cajón al abrirse, para documentar el monto. El resto de la jornada se protege la privacidad del equipo.",
+    q: "¿La Inteligencia Artificial escucha conversaciones privadas de empleados o clientes?",
+    a: "No. La IA de audio se activa solo bajo disparador específico (ej. sonido del cajón de la caja al abrirse) durante los segundos necesarios para documentar el monto. El resto de la jornada se protege la privacidad del equipo por diseño (privacy by design).",
   },
   {
-    q: "¿Ustedes administran el negocio?",
-    a: "No. Diseñamos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular.",
+    q: "¿Ustedes venden cámaras Hikvision o solo el software de IA?",
+    a: "Ofrecemos ambas opciones: (1) Si ya tiene Hikvision/Dahua RTSP/ONVIF, solo instalamos la capa IA (analítica YOLO, alertas, dashboard). (2) Si necesita infraestructura nueva, instalamos CCTV Hikvision certificado IA-ready (ColorVu, AcuSense, DeepinView) + configuramos la analítica completa. Usted elige según su presupuesto.",
+  },
+  {
+    q: "¿Cómo se ve el análisis de video con IA en tiempo real en mi celular?",
+    a: "Recibe alertas por Telegram/Email/WhatsApp con clip de video del evento (intrusión, aforo excedido, arqueo discrepante) y accede a dashboard web con mapas de calor, conteo histórico, arqueos diarios y reportes automáticos. Todo desde su celular, sin apps extra: usa Telegram o WhatsApp.",
+  },
+  {
+    q: "¿Qué modelos Hikvision recomiendan para analítica de video con IA?",
+    a: "Para analítica YOLO recomendamos: (1) Hikvision ColorVu 4K/4MP — visión nocturna a color real, ideal para placas y rostros. (2) Hikvision AcuSense 2MP/4MP — filtrado falso positivo (persona/vehículo), costo/beneficio óptimo. (3) Hikvision DeepinView — IA embebida en cámara (conteo, PPE, cola), máxima precisión. Lo asesoramos según su caso y presupuesto.",
+  },
+  {
+    q: "¿La analítica de video funciona con Dahua u otras marcas?",
+    a: "Sí. Cualquier cámara que exponga stream RTSP u ONVIF Profile S/T/G es compatible. Dahua, Uniview, Axis, Hanwha, TP-Link VIGI: si tiene stream estándar, le inyectamos YOLO. La diferencia es que Hikvision ColorVu/AcuSense nos da mejor calidad de imagen nocturna para IA.",
+  },
+  {
+    q: "¿Ustedes administran mi negocio o mi personal?",
+    a: "No. Diseñamos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular, con datos claros y decisiones respaldadas. No supervisamos personal ni tomamos decisiones gerenciales.",
   },
 ];
 
 const benefits = [
   {
     icon: TrendingUp,
-    title: "Más eficiencia y productividad",
+    title: "Cámaras Hikvision que auditan, no solo vigilan",
     description:
-      "Tus procesos corren solos. Tu equipo se enfoca en crecer el negocio.",
+      "YOLO convierte cada frame en dato accionable: conteo, intrusión, aforo, arqueo. Sus cámaras dejan de ser gasto pasivo y se convierten en centro de ganancia.",
   },
   {
     icon: Shield,
-    title: "Reducción de costos operativos",
+    title: "Offline-First: si se va el internet, la IA sigue",
     description:
-      "Menos errores humanos, menos tiempo perdido, menos gastos innecesarios.",
+      "Procesamiento edge en su red local. Sin internet, la IA sigue contando, detectando, arqueando. Sincroniza al volver la señal. Cero pérdida de datos.",
   },
   {
     icon: MessageCircle,
-    title: "Mejor comunicación con clientes",
+    title: "Alertas en Telegram/WhatsApp en segundos",
     description:
-      "Respuestas rápidas, seguimiento automatizado y experiencia coherente.",
+      "Intrusión, aforo excedido, arqueo discrepante: recibe clip de video + ubicación en Telegram/Email/WhatsApp al instante. Decides desde el celular.",
   },
   {
     icon: Clock,
-    title: "Disponibilidad 24/7",
+    title: "Dashboard 24/7 sin vigilar pantallas",
     description:
-      "Tus soluciones trabajan mientras duermes. Sin pausas, sin días festivos.",
+      "Mapas de calor, conteo histórico, arqueos diarios, alertas configurables. Todo en un dashboard web accesible desde el celular. Cero tecnicismos.",
   },
   {
     icon: Users,
-    title: "Acompañamiento real",
+    title: "Hikvision ColorVu 4K: vea la placa a las 2 AM",
     description:
-      "No te dejamos solo. Soporte directo con el equipo que construyó tu solución.",
+      "Instalamos ColorVu 4K / AcuSense / DeepinView. Visión nocturna a color real: vea placas, rostros, billetes en oscuridad total. No más 'cámaras borrosas'.",
   },
   {
     icon: CheckCircle2,
-    title: "Soluciones a medida",
+    title: "Su Hikvision actual ya sirve: sin comprar hardware nuevo",
     description:
-      "Nada genérico. Cada implementación se diseña para tu industria y tu operación.",
+      "RTSP/ONVIF estándar = compatible. La mayoría de Hikvision 2018+ ya sirven. Le inyectamos YOLO por red. Ahorro real: 0€ en cámaras nuevas si ya tiene compatibles.",
   },
 ];
 
@@ -465,14 +487,10 @@ export default function App() {
               Servicios APC · Bogotá, Colombia
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-              Infraestructura digital indestructible y control automatizado para su negocio.
+              Cámaras de seguridad para empresas que piensan: Hikvision + IA en tiempo real.
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
-              Desde Bogotá, eliminamos la pérdida silenciosa de dinero y el
-              desorden operativo de empresas colombianas. Convertimos sus
-              cámaras en auditores inteligentes, automatizamos sus procesos y
-              blindamos su operación — con soporte técnico presencial en la
-              ciudad y despliegue remoto en todo el país.
+              ¿Cuánto te costó la última vez que tu cámara Hikvision justo NO grabó? Desde Bogotá, convertimos sus cámaras Hikvision/Dahua actuales en auditores inteligentes 24/7: analítica YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local. No vendemos cámaras borrosas. Instalamos pruebas 4K reales. Asesoría gratis.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
@@ -1151,7 +1169,7 @@ export default function App() {
                       onChange={(e) =>
                         setForm({ ...form, mensaje: e.target.value })
                       }
-                      placeholder="Cuéntanos qué necesita tu empresa..."
+                      placeholder="¿Tiene Hikvision? ¿Necesita analítica? Cuéntenos..."
                       className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none"
                     />
                   </div>
@@ -1182,19 +1200,64 @@ export default function App() {
       {/* ── FOOTER ───────────────────────────────────────── */}
       <footer className="py-10 bg-background">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 pb-10 border-b border-border">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 pb-10 border-b border-border">
             {/* Brand */}
-            <div>
+            <div className="lg:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
                 <img src="/logo.png" alt="Servicios APC" className="h-9 w-auto" />
                 <span className="text-foreground font-semibold text-sm">
                   Servicios APC
                 </span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Infraestructura digital indestructible y control automatizado
-                para su negocio. Desde Bogotá, para toda Colombia.
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                Cámaras Hikvision + IA = seguridad que piensa. Analítica de video YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local en Bogotá.
               </p>
+              <div className="flex flex-wrap gap-2 text-xs">
+                <a href="https://apcvisionai.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
+                  <Camera size={11} /> APC Visión AI — Analítica Hikvision
+                </a>
+                <span className="text-muted-foreground">·</span>
+                <a href="https://apcautomatizacion.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
+                  <Zap size={11} /> APC Automatización — n8n + IA
+                </a>
+                <span className="text-muted-foreground">·</span>
+                <a href="https://dogweb.lat" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
+                  <Globe size={11} /> DogWeb — Web + SEO Local
+                </a>
+                <span className="text-muted-foreground">·</span>
+                <a href="https://apccore.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
+                  <Server size={11} /> APC Core — Infraestructura
+                </a>
+              </div>
+            </div>
+
+            {/* Hikvision Quick Links */}
+            <div>
+              <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
+                Hikvision + IA
+              </p>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#servicios" onClick={() => { const i = services.findIndex(s => s.id === 'camaras'); setActiveService(i); scrollTo("servicios"); }} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Analítica YOLO para Hikvision
+                  </a>
+                </li>
+                <li>
+                  <a href="#servicios" onClick={() => { const i = services.findIndex(s => s.id === 'cctv'); setActiveService(i); scrollTo("servicios"); }} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Instalación Hikvision IA-ready
+                  </a>
+                </li>
+                <li>
+                  <a href="https://apcvisionai.site" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ExternalLink size={11} /> Ver APC Visión AI
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.hikvision.com/es/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ExternalLink size={11} /> Catálogo oficial Hikvision
+                  </a>
+                </li>
+              </ul>
             </div>
 
             {/* Services links */}
