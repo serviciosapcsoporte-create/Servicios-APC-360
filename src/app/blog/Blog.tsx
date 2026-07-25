@@ -18,6 +18,7 @@ export interface BlogPost {
   cta?: {
     primary: { label: string; href: string };
     secondary?: { label: string; href: string };
+    tertiary?: { label: string; href: string };
   };
 }
 
@@ -246,7 +247,7 @@ export function BlogPost({ slug }: { slug: string }) {
         {/* CTA */}
         {post.cta && (
           <div className="mt-16 p-8 bg-secondary/50 border border-border rounded-xl space-y-4">
-            <h3 className="font-serif text-2xl font-bold">¿Quieres aplicar esto en tu negocio?</h3>
+            <h3 className="font-serif text-2xl font-bold">¿Qué problema necesita resolver hoy?</h3>
             <div className="flex flex-wrap gap-3">
               <a
                 href={post.cta.primary.href}
@@ -265,6 +266,17 @@ export function BlogPost({ slug }: { slug: string }) {
                   className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 font-medium rounded-lg hover:bg-secondary transition-colors"
                 >
                   {post.cta.secondary.label}
+                  <ExternalLink size={14} />
+                </a>
+              )}
+              {post.cta.tertiary && (
+                <a
+                  href={post.cta.tertiary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 font-medium rounded-lg hover:bg-secondary/80 transition-colors"
+                >
+                  {post.cta.tertiary.label}
                   <ExternalLink size={14} />
                 </a>
               )}
