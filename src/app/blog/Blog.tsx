@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
+import { marked } from "marked";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
 export interface BlogPost {
@@ -75,7 +76,7 @@ function getAllPosts(): BlogPost[] {
         tags: fm.tags ? fm.tags.split(",").map((t) => t.trim()) : [],
         readTime: fm.readTime || "5 min",
         coverImage: fm.coverImage,
-        content,
+        content: marked.parse(content) as string,
         cta: fm.cta ? JSON.parse(fm.cta) : undefined,
       } as BlogPost;
     })
@@ -174,15 +175,7 @@ function ArticleView({
 
           {/* Content */}
           <div
-            className="prose prose-lg max-w-none
-              prose-headings:font-serif prose-headings:text-[var(--color-foreground)]
-              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
-              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-              prose-p:text-[1.15rem] prose-p:leading-[1.8] prose-p:text-[var(--color-foreground)]
-              prose-a:text-[var(--color-accent)] prose-a:underline prose-a:decoration-[var(--color-accent)]/30
-              prose-strong:text-[var(--color-foreground)]
-              prose-li:text-[1.15rem] prose-li:leading-[1.8]
-              prose-blockquote:border-l-[var(--color-accent)] prose-blockquote:text-[var(--color-muted-foreground)]"
+            className="blog-content max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
