@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CristalChat from "./components/CristalChat";
+import { BlogIndex } from "./blog/Blog";
 import {
   Menu,
   X,
@@ -27,6 +28,7 @@ import {
   Facebook,
   Instagram,
   Linkedin,
+  FileText,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────── */
@@ -408,6 +410,7 @@ export default function App() {
               ["Casos", "casos"],
               ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
+              ["Blog", "blog"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
               <button
@@ -447,6 +450,7 @@ export default function App() {
               ["Casos", "casos"],
               ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
+              ["Blog", "blog"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
               <button
@@ -1194,6 +1198,13 @@ export default function App() {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── BLOG ─────────────────────────────────────────────── */}
+      <section id="blog" className="py-24 border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <BlogIndex />
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { ChevronRight, Calendar, Clock, ExternalLink, Tag } from "lucide-react";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
@@ -288,7 +288,7 @@ export function BlogPost({ slug }: { slug: string }) {
         <div className="mt-16 pt-8 border-t border-border">
           <h3 className="font-serif text-xl font-bold mb-6">Más artículos</h3>
           <div className="grid md:grid-cols-2 gap-4">
-            {getAllPosts()
+            {getAllPostsForCrossLink()
               .filter((p) => p.slug !== post.slug)
               .slice(0, 2)
               .map((p) => (
@@ -316,7 +316,7 @@ export function BlogPost({ slug }: { slug: string }) {
 }
 
 /* ─── HELPER: get all posts for cross-linking ──────────────── */
-function getAllPosts(): BlogPost[] {
+function getAllPostsForCrossLink(): BlogPost[] {
   return Object.entries(POSTS_RAW)
     .map(([slug, raw]) => {
       const { fm } = parseFrontmatter(raw);
