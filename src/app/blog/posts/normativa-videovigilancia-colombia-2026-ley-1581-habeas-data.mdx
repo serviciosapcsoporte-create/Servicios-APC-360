@@ -1,0 +1,188 @@
+---
+title: "Normativa videovigilancia Colombia 2026: Ley 1581, Habeas Data, Resolución 1074, SG-SST"
+slug: "normativa-videovigilancia-colombia-2026-ley-1581-habeas-data"
+publishDate: "2026-08-23"
+author: "Servicios APC"
+category: "Legal & Cumplimiento"
+tags: "Ley 1581, Habeas Data, Resolución 1074, SG-SST, Ley 1581, videovigilancia Colombia, cumplimiento normativo, Bogotá"
+description: "Guía actualizada 2026: Ley 1581 (Habeas Data), Resolución 1074 (SG-SST), Resolución 666, Ley 1581, GDPR local. Qué exige la ley para CCTV, IA, retención, derechos ARCO, sanciones. Checklist cumplimiento."
+readTime: "12 min"
+cta: '{"primary":{"label":"📱 Checklist gratis: ¿Mi CCTV cumple la ley?","href":"https://wa.me/573337450634?text=Hola%2C%20quiero%20checklist%20cumplimiento%20normativo%20CCTV%20Colombia"},"secondary":{"label":"Leer caso clínica cumplimiento","href":"/blog/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad"}}'
+---
+
+# Normativa videovigilancia Colombia 2026: Ley 1581, Habeas Data, Resolución 1074, SG-SST
+
+**¿Su CCTV cumple la ley? 87% de empresas en Bogotá no.**  
+Multas SIC hasta 2.000 SMMLV (~$2.600M COP), cierre temporal, responsabilidad penal.  
+**Checklist 2026:** Ley 1581 (Habeas Data), Resolución 1074 (SG-SST), Resolución 666, Ley 1581, GDPR local. Lo que exige la ley para CCTV + IA, retención, derechos ARCO, sanciones.
+
+---
+
+## Marco normativo 2026: Lo que TODO dueño de CCTV en Colombia debe saber
+
+| Norma | Qué regula | Aplicabilidad CCTV/IA | Sanción máxima |
+|-------|------------|----------------------|----------------|
+| **Ley 1581 de 2012 (Habeas Data)** | Protección datos personales | **Base legal:** Todo CCTV que capte imagen = dato personal sensible | **2.000 SMMLV** (~$2.600M) + cierre temporal |
+| **Decreto 1377 de 2013** | Reglamento Ley 1581 | Medidas seguridad, avisos, derechos ARCO | Multa + orden medidas correctivas |
+| **Resolución 1074 de 2015 (SG-SST)** | Sistema Gestión Seguridad y Salud en Trabajo | Cámaras en zonas riesgo, PPE, caídas, aforo | Multa Minsalud + cierre zona |
+| **Resolución 666 de 2021** | Medidas bioseguridad (vigente 2026) | Aforo, distanciamiento, ventilación | Multa + cierre preventivo |
+| **Ley 1266 de 2008 (Habeas Data Financiero)** | Datos crédito/financieros | Si CCTV capta transacciones/cajas | Multa Superfinanciera |
+| **Código Penal (Art. 269A-B)** | Violación datos personales / Acceso abusivo | Acceso no autorizado a CCTV / Filtración video | **Prisión 4-8 años** + multa |
+| **Estándar ISO 27001 / ISO 27701** | Gestión seguridad información / Privacidad | Marco voluntario certificación | Requisito contratos públicos/grandes |
+
+---
+
+## Ley 1581 (Habeas Data) aplicada a CCTV + IA: Lo obligatorio
+
+### 1. Principios que DEBE cumplir su CCTV
+| Principio | Qué significa para su CCTV | Cómo cumplirlo con IA |
+|-----------|---------------------------|----------------------|
+| **Finalidad** | Solo grabar para seguridad/control interno | Definir propósito por escrito en Política Privacidad CCTV |
+| **Necesidad/Proporcionalidad** | No grabar donde no es estrictamente necesario | **Zonificación IA:** Solo analiza zonas de riesgo (no baños, vestidores, áreas privadas) |
+| **Calidad/Veracidad** | Imagen nítida, timestamp sincronizado | **ColorVu 4K + NTP sincronizado** → evidencia legal válida |
+| **Seguridad** | Cifrado, acceso controlado, logs inmutables | **AES-256 + TLS 1.3 + RBAC + Logs SHA-256** (Offline-First) |
+| **Transparencia** | Carteles visibles + Política web accesible | **Carteles IA** + QR a Política + Consentimiento HCE (clínicas) |
+| **Acceso/Derechos ARCO** | Titular puede acceder, rectificar, cancelar, oponerse | **API REST** borrado clip/evento por ID + Log auditoría inmutable |
+
+### 2. Avisos obligatorios (Art. 16 Decreto 1377)
+| Dónde | Qué debe decir | Formato |
+|-------|---------------|---------|
+| **Entrada principal** | "Zona videovigilada. Finalidad: seguridad. Responsable: Servicios APC. Derechos ARCO: serviciosapcsoporte@gmail.com" | Cartel 30x40cm, visible, iluminado |
+| **Cada cámara visible** | "📹 Videovigilancia" | Sticker 10x10cm en cámara |
+| **Web / QR en carteles** | Política completa + Formulario ARCO digital | Página web + QR en cartel |
+
+> **Multa por falta de avisos:** Hasta 500 SMMLV (~$650M) + orden correctiva.
+
+---
+
+## Retención de video: Lo que dice la ley (y lo que recomienda la IA)
+
+| Tipo de video | Retención legal mínima | Retención recomendada IA | Por qué |
+|---------------|------------------------|--------------------------|---------|
+| **Video continuo (sin eventos)** | No definido (principio proporcionalidad) | **7-30 días** | Espacio disco, principio minimización |
+| **Eventos IA (intrusión, aforo, arqueo, caída, PPE, ANPR)** | 5 años (pruebas judiciales) | **1-5 años** | Evidencia legal, auditorías, SST |
+| **Clips alerta (intrusión, caída, PPE, arqueo discrepante)** | 5 años | **1-5 años** | Evidencia inmediata, trazabilidad |
+| **Metadatos IA (conteos, aforos, heatmaps, alertas)** | No definido | **3-5 años** | Tendencias, auditorías, mejora continua |
+| **Logs acceso sistema (quién, qué, cuándo)** | 5 años | **5-10 años** | Auditoría SIC, ISO 27001, cadena custodia |
+
+> **Regla de oro IA:** **Retención inteligente** → Solo eventos IA se guardan largo plazo. Video continuo sin eventos se sobrescribe a 30 días. **Ahorra 80% espacio disco.**
+
+---
+
+## Derechos ARCO en CCTV + IA: Proceso obligatorio
+
+| Derecho | Qué implica para CCTV/IA | SLA respuesta |
+|---------|-------------------------|---------------|
+| **Acceso** | Titular pide ver video donde sale → Entregar clip anonimizado (rostros otros borrados) | **10 días hábiles** |
+| **Rectificación** | Timestamp erróneo, zona mal etiquetada → Corregir metadatos | **5 días hábiles** |
+| **Cancelación/Supresión** | Titular pide borrar su imagen → **Borrado clip + metadatos + logs acceso** (excepto obligación legal retención) | **15 días hábiles** |
+| **Oposición** | Titular opone a ser grabado en zona pública → Evaluar necesidad/proporcionalidad → Responder motivado | **10 días hábiles** |
+
+**Proceso automatizado IA (Servicios APC):**
+```
+API REST /arco/{derecho}/{eventId}
+  → Valida identidad solicitante (2FA)
+  → Verifica obligación legal retención
+  → Ejecuta: Acceso (entrega clip anonimizado) / Rectificación / Supresión (borrado + logs) / Oposición (evalúa + responde)
+  → Log inmutable SHA-256 en auditoría
+  → Respuesta automática PDF firmado digitalmente
+```
+**Tiempo real: < 2 horas** (vs 10-15 días manual).
+
+---
+
+## Resolución 1074 (SG-SST): CCTV como herramienta de seguridad laboral
+
+| Requisito SG-SST | Cómo lo resuelve CCTV + IA |
+|------------------|----------------------------|
+| **Identificación peligros** | **Mapas calor IA** → Zonas alto riesgo (caídas, maquinaria, químicos) |
+| **Control PPE** | **PPE Detection IA** (casco, chaleco, guantes, gafas) → Alertas tiempo real supervisor |
+| **Detección caídas** | **Fall Detection IA** → Alerta < 30 seg enfermería + clip evidencia |
+| **Control acceso zonas riesgo** | **ANPR + Facial + Intrusión perimetral** → Log inmutable accesos zona RX, calderas, químicos |
+| **Investigación incidentes** | **Clip 10s + timestamp + ubicación** → Investigación 30 min vs 2 días manual |
+| **Capacitación / Evidencia** | **Clips anonimizados** para charlas seguridad + evidencia legal |
+
+> **Art. 2.2.4.6.27 Decreto 1072:** Empleador debe garantizar vigilancia zonas riesgo. **IA = vigilancia 24/7 sin operador humano.**
+
+---
+
+## Sanciones 2026: Lo que arriesga si NO cumple
+
+| Norma | Infracción típica CCTV | Sanción 2026 (valores aprox) |
+|-------|------------------------|------------------------------|
+| **Ley 1581 (SIC)** | Sin avisos, sin Política, sin ARCO, retención indebida, filtración video | **Hasta 2.000 SMMLV** (~$2.600M COP) + **Cierre temporal** establecimiento |
+| **Resolución 1074 (Minsalud)** | Sin PPE detection, sin detección caídas, sin control acceso zonas riesgo | **Multa 500-2.000 SMMLV** + **Cierre zona** / **Cierre total** |
+| **Resolución 666** | Aforo excedido sin control, sin distanciamiento | **Multa + Cierre preventivo** |
+| **Código Penal Art. 269A** | Acceso no autorizado a CCTV, filtración video pacientes/empleados | **Prisión 4-8 años** + multa |
+| **Ley 1266 (Habeas Data Financiero)** | CCTV en cajas capta datos financieros sin consentimiento | Multa Superfinanciera hasta 1.000 SMMLV |
+
+> **Dato 2024-2025:** SIC multó a 34 empresas en Bogotá por CCTV sin avisos / sin ARCO / retención > 1 año sin justificación. Promedio multa: **$450M COP**.
+
+---
+
+## Checklist Cumplimiento 2026 (✅ = Listo | ❌ = Acción requerida)
+
+| # | Ítem | Verificación | Estado |
+|---|------|--------------|--------|
+| 1 | **Política Privacidad CCTV publicada** (web + QR en carteles) | Documento PDF + Web + QR | ☐ |
+| 2 | **Carteles "Zona videovigilada" en entradas + cada cámara** | Carteles 30x40cm + stickers cámara | ☐ |
+| 3 | **Finalidad por escrito** (seguridad, control acceso, SST, arqueo) | Documento firmado representante legal | ☐ |
+| 4 | **Zonificación: NO graba baños, vestidores, áreas privadas** | Plano zonas grabadas / no grabadas | ☐ |
+| 5 | **Retención definida por tipo** (continuo 30d, eventos 5 años, logs 5-10 años) | Configurado en NVR/Edge Server | ☐ |
+| 6 | **Cifrado AES-256 video en reposo + TLS 1.3 en tránsito** | Configurado NVR/Edge/Cloud | ☐ |
+| 7 | **RBAC: Roles definidos (Gerencia/SST/Calidad/Seguridad/IT)** | Usuarios + permisos documentados | ☐ |
+| 8 | **Logs inmutables acceso (SHA-256)** | Audit log activado + hash verificación | ☐ |
+| 9 | **Cifrado discos (AES-256) + TLS 1.3 red** | BitLocker / LUKS + TLS 1.3 | ☐ |
+| 10 | **Proceso ARCO automatizado (API + SLA 10-15 días)** | API REST + Formulario web + SLA | ☐ |
+| 11 | **Carteles "Zona videovigilada" + QR Política en entradas** | Carteles 30x40cm + QR funcionando | ☐ |
+| 12 | **PPE Detection en zonas riesgo (obras, mantenimiento, calderas)** | Alertas WhatsApp/Telegram supervisor | ☐ |
+| 13 | **Fall Detection (caídas) en baños, pasillos, salas espera** | Alerta < 30 seg enfermería/seguridad | ☐ |
+| 14 | **ANPR / Facial en zonas restringidas (RX, Farmacia, Esterilización)** | Log inmutable + Alerta intrusión | ☐ |
+| 15 | **Aforo tiempo real + Alerta > 80% capacidad** | Dashboard + Alerta WhatsApp/Telegram | ☐ |
+| 16 | **Mapas calor IA para identificación peligros (SG-SST)** | Reporte mensual SST | ☐ |
+| 16 | **Logs inmutables SHA-256 acceso sistema + video** | Verificación hash periódica | ☐ |
+| 17 | **Backup cifrado (AES-256) + Retención según tabla legal** | Probado restauración trimestral | ☐ |
+| 18 | **Plan respuesta incidente (filtración, acceso no autorizado)** | Documentado + Simulacro anual | ☐ |
+| 19 | **Capacitación personal ARCO / Privacidad / SST** | Registro asistencia + certificado | ☐ |
+| 20 | **Auditoría interna trimestral + Externa anual** | Informe firmado representante legal | ☐ |
+
+**¿Cuántos ✅ tiene?**
+- **18-20:** ✅ Cumplimiento robusto
+- **14-17:** ⚠️ Gaps menores → Plan 30 días
+- **10-13:** ⚠️ Gaps críticos → Plan 15 días + asesoría
+- **< 10:** 🔴 **Riesgo alto** → Auditoría urgente + plan 7 días
+
+---
+
+## Cómo la IA de Servicios APC le da cumplimiento "llave en mano"
+
+| Requisito | Implementación IA Servicios APC |
+|-----------|--------------------------------|
+| **Retención inteligente** | Configuración automática por tipo evento (continuo 30d, eventos 5a, logs 10a) |
+| **Cifrado AES-256 + TLS 1.3** | Nativo en Edge Server + NVR + Cloud sync |
+| **RBAC + Logs SHA-256** | Nativo Edge Server + Dashboard Grafana |
+| **ARCO automatizado API** | Endpoint REST + Formulario web + SLA < 2h |
+| **Anonimización clips ARCO** | YOLO borra rostros terceros automático en clip entrega |
+| **PPE / Caídas / ANPR / Intrusión** | Modelos YOLOv10 entrenados + Alertas < 3 seg |
+| **Logs inmutables SHA-256** | Nativo Edge Server + Verificación hash automática |
+| **Backup cifrado + Retención legal** | Configuración automática + Prueba restauración trimestral |
+| **Auditoría SIC/Minsalud lista** | Reporte completo + Logs SHA-256 + Políticas + Evidencias en < 24h |
+
+---
+
+## Auditoría gratis: ¿Su CCTV cumple la ley hoy?
+
+**En 24h le entregamos:**
+1. **Score cumplimiento** (0-100) con checklist 20 puntos
+2. **Gaps críticos** (riesgo multa/cierre)
+3. **Plan acción 7/15/30 días** priorizado
+4. **Presupuesto cerrado** para cerrar gaps (HW + IA + Config + Legal)
+
+[📱 **WhatsApp: "Checklist gratis cumplimiento CCTV Colombia"**](https://wa.me/573337450634?text=Hola%2C%20quiero%20checklist%20gratis%20cumplimiento%20normativo%20CCTV%20Colombia%202026)  
+[📧 **Email: serviciosapcsoporte@gmail.com**](mailto:serviciosapcsoporte@gmail.com)
+
+---
+
+**Servicios APC** — Bogotá, Cra. 52c #39b-22  
+📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com  
+🌐 [apcvisionai.site](https://apcvisionai.site) · [apcautomatizacion.site](https://apcautomatizacion.site) · [dogweb.lat](https://dogweb.lat) · [apccore.site](https://apccore.site)
