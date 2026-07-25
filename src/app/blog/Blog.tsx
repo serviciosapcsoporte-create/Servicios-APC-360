@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, Calendar, Clock, ExternalLink, ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
 export interface BlogPost {
@@ -23,21 +23,25 @@ export interface BlogPost {
 
 /* ─── POSTS REGISTRY ──────────────────────────────────────── */
 import post1 from "./posts/guia-camaras-hikvision-ia-empresas-bogota-2026.mdx?raw";
-import post2 from "./posts/5-senales-camaras-no-protegen-empresa-bogota.mdx?raw";
-import post3 from "./posts/negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues.mdx?raw";
-import post4 from "./posts/analitica-video-ia-ferreterias-bogota-caso-real-suba.mdx?raw";
-import post5 from "./posts/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad.mdx?raw";
-import post6 from "./posts/hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026.mdx?raw";
-import post7 from "./posts/normativa-videovigilancia-colombia-2026-ley-1581-habeas-data.mdx?raw";
+import post2 from "./posts/costo-camaras-seguridad-empresas-2026-hardware-vs-ia.mdx?raw";
+import post3 from "./posts/que-es-analitica-video-ia-empresas-bogota.mdx?raw";
+import post4 from "./posts/5-senales-camaras-no-protegen-empresa-bogota.mdx?raw";
+import post5 from "./posts/negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues.mdx?raw";
+import post6 from "./posts/analitica-video-ia-ferreterias-bogota-caso-real-suba.mdx?raw";
+import post7 from "./posts/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad.mdx?raw";
+import post8 from "./posts/hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026.mdx?raw";
+import post9 from "./posts/normativa-videovigilancia-colombia-2026-ley-1581-habeas-data.mdx?raw";
 
 const POSTS_RAW: Record<string, string> = {
   "guia-camaras-hikvision-ia-empresas-bogota-2026": post1,
-  "5-senales-camaras-no-protegen-empresa-bogota": post2,
-  "negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues": post3,
-  "analitica-video-ia-ferreterias-bogota-caso-real-suba": post4,
-  "analitica-video-ia-clinicas-bogota-cumplimiento-seguridad": post5,
-  "hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026": post6,
-  "normativa-videovigilancia-colombia-2026-ley-1581-habeas-data": post7,
+  "costo-camaras-seguridad-empresas-2026-hardware-vs-ia": post2,
+  "que-es-analitica-video-ia-empresas-bogota": post3,
+  "5-senales-camaras-no-protegen-empresa-bogota": post4,
+  "negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues": post5,
+  "analitica-video-ia-ferreterias-bogota-caso-real-suba": post6,
+  "analitica-video-ia-clinicas-bogota-cumplimiento-seguridad": post7,
+  "hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026": post8,
+  "normativa-videovigilancia-colombia-2026-ley-1581-habeas-data": post9,
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {
@@ -79,7 +83,213 @@ function getAllPosts(): BlogPost[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-/* ─── BLOG COMPONENT ──────────────────────────────────────── */
+function formatDate(dateStr: string) {
+  return new Date(dateStr).toLocaleDateString("es-CO", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
+
+/* ─── ARTICLE VIEW ────────────────────────────────────────── */
+function ArticleView({
+  post,
+  allPosts,
+  onBack,
+  onSelect,
+}: {
+  post: BlogPost;
+  allPosts: BlogPost[];
+  onBack: () => void;
+  onSelect: (slug: string) => void;
+}) {
+  return (
+    <div className="min-h-screen">
+      <div className="max-w-[728px] mx-auto px-5">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1.5 text-sm text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] transition-colors py-8"
+        >
+          <ArrowLeft size={14} />
+          <span>Volver al blog</span>
+        </button>
+
+        <article>
+          {/* Category + Date */}
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-sm font-medium text-[var(--color-accent)]">
+              {post.category}
+            </span>
+            <span className="text-[var(--color-border)]">·</span>
+            <time className="text-sm text-[var(--color-muted-foreground)]" dateTime={post.date}>
+              {formatDate(post.date)}
+            </time>
+          </div>
+
+          {/* Title */}
+          <h1 className="font-serif text-[2.5rem] md:text-[3rem] leading-[1.15] font-bold text-[var(--color-foreground)] mb-5">
+            {post.title}
+          </h1>
+
+          {/* Subtitle */}
+          <p className="text-xl text-[var(--color-muted-foreground)] leading-relaxed mb-8">
+            {post.excerpt}
+          </p>
+
+          {/* Author bar */}
+          <div className="flex items-center justify-between py-6 border-t border-b border-[var(--color-border)] mb-10">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-sm font-bold text-[var(--color-accent)]">
+                SA
+              </div>
+              <div>
+                <p className="text-sm font-medium text-[var(--color-foreground)]">
+                  {post.author}
+                </p>
+                <p className="text-xs text-[var(--color-muted-foreground)]">
+                  {post.readTime} de lectura · {formatDate(post.date)}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 text-[var(--color-muted-foreground)]">
+              <button className="hover:text-[var(--color-foreground)] transition-colors">
+                <Bookmark size={18} />
+              </button>
+              <button className="hover:text-[var(--color-foreground)] transition-colors">
+                <Share2 size={18} />
+              </button>
+            </div>
+          </div>
+
+          {/* Cover */}
+          {post.coverImage && (
+            <figure className="mb-10">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full aspect-[16/9] object-cover"
+              />
+            </figure>
+          )}
+
+          {/* Content */}
+          <div
+            className="prose prose-lg max-w-none
+              prose-headings:font-serif prose-headings:text-[var(--color-foreground)]
+              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
+              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-[1.15rem] prose-p:leading-[1.8] prose-p:text-[var(--color-foreground)]
+              prose-a:text-[var(--color-accent)] prose-a:underline prose-a:decoration-[var(--color-accent)]/30
+              prose-strong:text-[var(--color-foreground)]
+              prose-li:text-[1.15rem] prose-li:leading-[1.8]
+              prose-blockquote:border-l-[var(--color-accent)] prose-blockquote:text-[var(--color-muted-foreground)]"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mt-12 mb-8">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1.5 text-xs bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA */}
+          {post.cta && (
+            <div className="my-12 p-8 bg-[var(--color-secondary)] rounded-2xl">
+              <p className="text-xs uppercase tracking-widest text-[var(--color-accent)] font-medium mb-3">
+                ¿Necesitas esto para tu empresa?
+              </p>
+              <h3 className="font-serif text-2xl font-bold text-[var(--color-foreground)] mb-5">
+                {post.cta.primary.label}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={post.cta.primary.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-6 py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity"
+                >
+                  Solicitar cotización
+                  <ExternalLink size={14} />
+                </a>
+                {post.cta.secondary && (
+                  <a
+                    href={post.cta.secondary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-[var(--color-border)] text-[var(--color-foreground)] px-6 py-3 rounded-full font-medium text-sm hover:bg-[var(--color-secondary)] transition-colors"
+                  >
+                    {post.cta.secondary.label}
+                    <ExternalLink size={14} />
+                  </a>
+                )}
+                {post.cta.tertiary && (
+                  <a
+                    href={post.cta.tertiary.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 border border-[var(--color-border)] text-[var(--color-foreground)] px-6 py-3 rounded-full font-medium text-sm hover:bg-[var(--color-secondary)] transition-colors"
+                  >
+                    {post.cta.tertiary.label}
+                    <ExternalLink size={14} />
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* More posts */}
+          <div className="border-t border-[var(--color-border)] pt-10 pb-16">
+            <h3 className="text-sm uppercase tracking-widest text-[var(--color-muted-foreground)] mb-6">
+              Sigue leyendo
+            </h3>
+            <div className="space-y-8">
+              {allPosts
+                .filter((p) => p.slug !== post.slug)
+                .slice(0, 3)
+                .map((p) => (
+                  <button
+                    key={p.slug}
+                    onClick={() => onSelect(p.slug)}
+                    className="flex gap-6 text-left group w-full"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-[var(--color-muted-foreground)] mb-1">
+                        {p.category}
+                      </p>
+                      <h4 className="font-serif text-xl font-bold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors leading-snug mb-1">
+                        {p.title}
+                      </h4>
+                      <p className="text-sm text-[var(--color-muted-foreground)] line-clamp-2">
+                        {p.excerpt}
+                      </p>
+                      <p className="text-xs text-[var(--color-muted-foreground)] mt-2">
+                        {p.readTime} · {formatDate(p.date)}
+                      </p>
+                    </div>
+                    {p.coverImage && (
+                      <img
+                        src={p.coverImage}
+                        alt=""
+                        className="w-[120px] h-[80px] object-cover rounded-lg flex-shrink-0"
+                      />
+                    )}
+                  </button>
+                ))}
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  );
+}
+
+/* ─── INDEX VIEW ──────────────────────────────────────────── */
 export function BlogIndex() {
   const [selected, setSelected] = useState<string | null>(null);
   const posts = getAllPosts();
@@ -87,206 +297,128 @@ export function BlogIndex() {
 
   if (activePost) {
     return (
-      <div>
-        <button
-          onClick={() => setSelected(null)}
-          className="inline-flex items-center gap-2 text-sm text-accent hover:gap-3 transition-all mb-8"
-        >
-          <ArrowLeft size={16} /> Volver al blog
-        </button>
-
-        <article className="max-w-3xl mx-auto">
-          <header className="mb-12 space-y-4">
-            <div className="flex flex-wrap items-center gap-2 text-sm">
-              <span className="font-mono text-xs text-accent tracking-widest uppercase">
-                {activePost.category}
-              </span>
-              <Calendar size={12} className="text-muted-foreground" />
-              <time dateTime={activePost.date} className="text-muted-foreground">
-                {new Date(activePost.date).toLocaleDateString("es-CO", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </time>
-              <Clock size={12} className="text-muted-foreground" />
-              <span className="text-muted-foreground">{activePost.readTime}</span>
-            </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold leading-[1.05]">
-              {activePost.title}
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl">
-              {activePost.excerpt}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {activePost.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 text-xs font-medium bg-secondary text-muted-foreground rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </header>
-
-          {activePost.coverImage && (
-            <div className="mb-12 rounded-xl overflow-hidden border border-border">
-              <img
-                src={activePost.coverImage}
-                alt={activePost.title}
-                className="w-full aspect-[16/9] object-cover"
-              />
-            </div>
-          )}
-
-          <div
-            className="prose prose-lg prose-invert max-w-none space-y-8"
-            dangerouslySetInnerHTML={{ __html: activePost.content }}
-          />
-
-          {activePost.cta && (
-            <div className="mt-16 p-8 bg-secondary/50 border border-border rounded-xl space-y-4">
-              <h3 className="font-serif text-2xl font-bold">¿Qué problema necesita resolver hoy?</h3>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={activePost.cta.primary.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 font-medium rounded-lg hover:bg-accent/90 transition-colors"
-                >
-                  {activePost.cta.primary.label}
-                  <ExternalLink size={14} />
-                </a>
-                {activePost.cta.secondary && (
-                  <a
-                    href={activePost.cta.secondary.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-border text-foreground px-6 py-3 font-medium rounded-lg hover:bg-secondary transition-colors"
-                  >
-                    {activePost.cta.secondary.label}
-                    <ExternalLink size={14} />
-                  </a>
-                )}
-                {activePost.cta.tertiary && (
-                  <a
-                    href={activePost.cta.tertiary.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3 font-medium rounded-lg hover:bg-secondary/80 transition-colors"
-                  >
-                    {activePost.cta.tertiary.label}
-                    <ExternalLink size={14} />
-                  </a>
-                )}
-              </div>
-            </div>
-          )}
-
-          <div className="mt-16 pt-8 border-t border-border">
-            <h3 className="font-serif text-xl font-bold mb-6">Más artículos</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {posts
-                .filter((p) => p.slug !== activePost.slug)
-                .slice(0, 2)
-                .map((p) => (
-                  <button
-                    key={p.slug}
-                    onClick={() => setSelected(p.slug)}
-                    className="text-left p-4 border border-border rounded-xl hover:border-accent/30 transition-colors group"
-                  >
-                    <p className="font-mono text-xs text-accent tracking-widest uppercase mb-2">
-                      {p.category}
-                    </p>
-                    <h4 className="font-semibold group-hover:text-accent transition-colors">
-                      {p.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                      {p.excerpt}
-                    </p>
-                  </button>
-                ))}
-            </div>
-          </div>
-        </article>
-      </div>
+      <ArticleView
+        post={activePost}
+        allPosts={posts}
+        onBack={() => setSelected(null)}
+        onSelect={setSelected}
+      />
     );
   }
 
+  const featured = posts[0];
+  const rest = posts.slice(1);
+
   return (
-    <div>
-      <header className="mb-16 text-center">
-        <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
+    <div className="min-h-screen">
+      {/* Header */}
+      <div className="max-w-[1200px] mx-auto px-5 pt-12 pb-16">
+        <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent)] font-medium mb-4">
           Blog · Servicios APC
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-          Cámaras Hikvision + IA: guías, casos y estrategia
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[var(--color-foreground)] leading-tight max-w-3xl">
+          Cámaras Hikvision + IA para empresas
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-          Análisis de video YOLO, CCTV offline-first, automatización n8n, SEO local Bogotá.
-          Publicamos guías técnicas, casos reales y comparativas para que tomes decisiones con datos.
+        <p className="text-lg text-[var(--color-muted-foreground)] mt-4 max-w-2xl leading-relaxed">
+          Guías técnicas, comparativas y casos reales sobre CCTV con inteligencia artificial,
+          automatización y seguridad empresarial en Bogotá.
         </p>
-      </header>
+      </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
-          <article
-            key={post.slug}
-            className="group bg-card border border-border rounded-xl overflow-hidden transition-all hover:border-accent/30 hover:shadow-xl cursor-pointer"
-            onClick={() => setSelected(post.slug)}
+      {/* Featured post */}
+      {featured && (
+        <div className="max-w-[1200px] mx-auto px-5 mb-16">
+          <button
+            onClick={() => setSelected(featured.slug)}
+            className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full"
           >
-            {post.coverImage && (
-              <div className="block relative aspect-[16/9] overflow-hidden">
+            {featured.coverImage && (
+              <div className="overflow-hidden rounded-2xl">
                 <img
-                  src={post.coverImage}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
+                  src={featured.coverImage}
+                  alt={featured.title}
+                  className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
             )}
-            <div className="p-6 space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="font-mono text-xs text-accent tracking-widest uppercase">
-                  {post.category}
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  {new Date(post.date).toLocaleDateString("es-CO", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </span>
-                <span className="text-xs text-muted-foreground ml-2">
-                  · {post.readTime}
-                </span>
-              </div>
-              <h3 className="font-serif text-xl md:text-2xl font-bold group-hover:text-accent transition-colors">
-                {post.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                {post.excerpt}
+            <div className="space-y-4 py-4">
+              <p className="text-xs uppercase tracking-[0.15em] text-[var(--color-accent)] font-medium">
+                Destacado
               </p>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {post.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 text-[10px] font-medium bg-secondary text-muted-foreground rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              <h3 className="font-serif text-3xl md:text-4xl font-bold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors leading-[1.15]">
+                {featured.title}
+              </h3>
+              <p className="text-[var(--color-muted-foreground)] leading-relaxed text-lg">
+                {featured.excerpt}
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-8 h-8 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-xs font-bold text-[var(--color-accent)]">
+                  SA
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-[var(--color-foreground)]">
+                    {featured.author}
+                  </p>
+                  <p className="text-xs text-[var(--color-muted-foreground)]">
+                    {featured.readTime} · {formatDate(featured.date)}
+                  </p>
+                </div>
               </div>
-              <span className="inline-flex items-center gap-1.5 font-medium text-sm text-accent hover:gap-2 transition-all mt-4">
-                Leer artículo <ChevronRight size={14} />
-              </span>
             </div>
-          </article>
-        ))}
+          </button>
+        </div>
+      )}
+
+      {/* Divider */}
+      <div className="max-w-[1200px] mx-auto px-5">
+        <div className="border-t border-[var(--color-border)]" />
+      </div>
+
+      {/* Grid */}
+      <div className="max-w-[1200px] mx-auto px-5 py-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          {rest.map((post) => (
+            <button
+              key={post.slug}
+              onClick={() => setSelected(post.slug)}
+              className="group text-left"
+            >
+              {post.coverImage && (
+                <div className="overflow-hidden rounded-xl mb-4">
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="space-y-2.5">
+                <p className="text-xs text-[var(--color-muted-foreground)]">
+                  {post.category}
+                </p>
+                <h3 className="font-serif text-xl font-bold text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors leading-snug">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-[var(--color-muted-foreground)] leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center gap-3 pt-1">
+                  <div className="w-6 h-6 rounded-full bg-[var(--color-secondary)] flex items-center justify-center text-[9px] font-bold text-[var(--color-accent)]">
+                    SA
+                  </div>
+                  <p className="text-xs text-[var(--color-muted-foreground)]">
+                    {post.readTime} · {formatDate(post.date)}
+                  </p>
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+
         {posts.length === 0 && (
-          <div className="col-span-full text-center py-12 text-muted-foreground">
-            Próximamente más artículos...
+          <div className="text-center py-20 text-[var(--color-muted-foreground)]">
+            <p className="text-lg">Próximamente más artículos...</p>
           </div>
         )}
       </div>
