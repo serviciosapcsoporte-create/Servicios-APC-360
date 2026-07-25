@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 import CristalChat from "./components/CristalChat";
 import { BlogIndex } from "./blog/Blog";
+import { CamarasNegocio } from "./pages/CamarasNegocio";
+import { CamarasSuba } from "./pages/CamarasSuba";
+import { CamarasKennedy } from "./pages/CamarasKennedy";
+import { CamarasChapinero } from "./pages/CamarasChapinero";
+import { CamarasUsaquen } from "./pages/CamarasUsaquen";
+import { CamarasFontibon } from "./pages/CamarasFontibon";
 import {
   Menu,
   X,
@@ -325,12 +331,51 @@ export default function App() {
   const [error, setError] = useState("");
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
+  const [hash, setHash] = useState(window.location.hash.slice(1));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const onHashChange = () => setHash(window.location.hash.slice(1));
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  const landingPages: Record<string, () => JSX.Element> = {
+    "negocio": CamarasNegocio,
+    "suba": CamarasSuba,
+    "kennedy": CamarasKennedy,
+    "chapinero": CamarasChapinero,
+    "usaquen": CamarasUsaquen,
+    "fontibon": CamarasFontibon,
+  };
+
+  const LandingPage = landingPages[hash];
+
+  if (LandingPage) {
+    return (
+      <div className="min-h-screen bg-background text-foreground font-sans">
+        <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
+            <button onClick={() => { window.location.hash = ""; }} className="flex items-center gap-2.5">
+              <img src="/logo.png" alt="Servicios APC" className="h-8 w-auto" />
+              <span className="text-foreground font-semibold text-sm hidden sm:block">Servicios APC</span>
+            </button>
+            <a href="https://wa.me/573337450634" target="_blank" rel="noopener noreferrer"
+               className="bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity">
+              WhatsApp Gratis
+            </a>
+          </div>
+        </nav>
+        <LandingPage />
+        <CristalChat />
+      </div>
+    );
+  }
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -1221,7 +1266,7 @@ export default function App() {
                 </span>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Cámaras Hikvision + IA = seguridad que piensa. Analítica de video YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local en Bogotá.
+                Cámaras de seguridad para negocio y empresas con IA Hikvision. Analítica YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local en Bogotá.
               </p>
               <div className="flex flex-wrap gap-2 text-xs">
                 <a href="https://apcvisionai.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
@@ -1297,25 +1342,32 @@ export default function App() {
             {/* Internal navigation */}
             <div>
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
-                Navegación
+                Páginas SEO
               </p>
               <ul className="space-y-2">
+                <li>
+                  <a href="#negocio" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Cámaras para Negocio
+                  </a>
+                </li>
                 {[
-                  ["Ecosistema APC", "ecosistema"],
-                  ["Casos de éxito", "casos"],
-                  ["Preguntas frecuentes", "faq"],
-                  ["Quiénes somos", "nosotros"],
-                  ["Contacto", "contacto"],
-                ].map(([label, id]) => (
-                  <li key={id}>
-                    <button
-                      onClick={() => scrollTo(id)}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
-                    >
-                      <ChevronRight size={12} /> {label}
-                    </button>
+                  ["Suba", "suba"],
+                  ["Kennedy", "kennedy"],
+                  ["Chapinero", "chapinero"],
+                  ["Usaquén", "usaquen"],
+                  ["Fontibón", "fontibon"],
+                ].map(([label, h]) => (
+                  <li key={h}>
+                    <a href={`#${h}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                      <ChevronRight size={12} /> Cámaras {label}
+                    </a>
                   </li>
                 ))}
+                <li>
+                  <button onClick={() => scrollTo("blog")} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Blog
+                  </button>
+                </li>
               </ul>
             </div>
 

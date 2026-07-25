@@ -38,6 +38,10 @@ import post12 from "./posts/servidores-edge-gpu-para-ia-video-analitica-bogota.m
 import post13 from "./posts/hikvision-vs-dahua-vs-uniview-comparativa-ia-2026.mdx?raw";
 import post14 from "./posts/bot-whatsapp-ia-atencion-clientes-seguridad-bogota.mdx?raw";
 import post15 from "./posts/deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento.mdx?raw";
+import post16 from "./posts/cuanto-cuesta-camaras-seguridad-negocio-bogota-2026.mdx?raw";
+import post17 from "./posts/mejores-camaras-seguridad-local-comercial-bogota.mdx?raw";
+import post18 from "./posts/camaras-seguridad-bodega-bogota-monitoreo-inteligente.mdx?raw";
+import post19 from "./posts/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia.mdx?raw";
 
 const POSTS_RAW: Record<string, string> = {
   "guia-camaras-hikvision-ia-empresas-bogota-2026": post1,
@@ -55,6 +59,10 @@ const POSTS_RAW: Record<string, string> = {
   "hikvision-vs-dahua-vs-uniview-comparativa-ia-2026": post13,
   "bot-whatsapp-ia-atencion-clientes-seguridad-bogota": post14,
   "deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento": post15,
+  "cuanto-cuesta-camaras-seguridad-negocio-bogota-2026": post16,
+  "mejores-camaras-seguridad-local-comercial-bogota": post17,
+  "camaras-seguridad-bodega-bogota-monitoreo-inteligente": post18,
+  "instalacion-camaras-seguridad-negocio-pequeno-bogota-guia": post19,
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {
