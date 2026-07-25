@@ -32,6 +32,12 @@ import post6 from "./posts/analitica-video-ia-ferreterias-bogota-caso-real-suba.
 import post7 from "./posts/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad.mdx?raw";
 import post8 from "./posts/hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026.mdx?raw";
 import post9 from "./posts/normativa-videovigilancia-colombia-2026-ley-1581-habeas-data.mdx?raw";
+import post10 from "./posts/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.mdx?raw";
+import post11 from "./posts/seo-local-google-maps-empresas-seguridad-bogota.mdx?raw";
+import post12 from "./posts/servidores-edge-gpu-para-ia-video-analitica-bogota.mdx?raw";
+import post13 from "./posts/hikvision-vs-dahua-vs-uniview-comparativa-ia-2026.mdx?raw";
+import post14 from "./posts/bot-whatsapp-ia-atencion-clientes-seguridad-bogota.mdx?raw";
+import post15 from "./posts/deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento.mdx?raw";
 
 const POSTS_RAW: Record<string, string> = {
   "guia-camaras-hikvision-ia-empresas-bogota-2026": post1,
@@ -43,6 +49,12 @@ const POSTS_RAW: Record<string, string> = {
   "analitica-video-ia-clinicas-bogota-cumplimiento-seguridad": post7,
   "hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026": post8,
   "normativa-videovigilancia-colombia-2026-ley-1581-habeas-data": post9,
+  "automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard": post10,
+  "seo-local-google-maps-empresas-seguridad-bogota": post11,
+  "servidores-edge-gpu-para-ia-video-analitica-bogota": post12,
+  "hikvision-vs-dahua-vs-uniview-comparativa-ia-2026": post13,
+  "bot-whatsapp-ia-atencion-clientes-seguridad-bogota": post14,
+  "deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento": post15,
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {

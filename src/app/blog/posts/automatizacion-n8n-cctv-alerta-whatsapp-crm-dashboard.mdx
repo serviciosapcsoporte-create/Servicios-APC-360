@@ -1,0 +1,224 @@
+---
+title: "Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos"
+excerpt: "Aprende a configurar flujos automáticos con n8n que conectan tus cámaras CCTV con WhatsApp, CRM y dashboards en tiempo real. Guía práctica para negocios en Bogotá."
+date: "2026-07-27"
+publishDate: "2026-07-27"
+author: "Servicios APC"
+category: "Automatización"
+tags: "n8n, automatización CCTV, WhatsApp Bot, CRM, dashboard seguridad, alertas automáticas, Bogotá"
+readTime: "10 min"
+coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop&auto=format&fm=webp&q=70"
+cta: "{\"primary\":{\"label\":\"Solicitar automatización CCTV\",\"href\":\"https://apcautomatizacion.site\"},\"secondary\":{\"label\":\"Ver infraestructura edge\",\"href\":\"https://apccore.site\"},\"tertiary\":{\"label\":\"Visitar DogWeb\",\"href\":\"https://dogweb.lat\"}}"
+---
+
+## El problema
+
+Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el ropero ya no está.
+
+Este escenario se repite diariamente en miles de negocios en Bogotá: **las cámaras graban, pero no actúan**. La alerta CCTV tradicional depende de que alguien esté mirando un monitor en el momento exacto del evento.
+
+Los problemas concretos:
+
+- **Alertas silenciosas**: el NVR suena pero el operador está en otra tarea
+- **Sin escalamiento**: la alerta no llega al dueño, al gerente ni a la policía
+- **Sin contexto**: se recibe un beep, no un video de 15 segundos del evento
+- **Sin registro**: no hay trazabilidad de quién fue notificado y cuándo respondió
+- **Sin automatización**: cada integración manual costaría $15-30M COP en desarrollo
+
+## Qué es n8n y por qué cambia todo
+
+**n8n** (pronunciado "n-eight-n") es una plataforma de automatización de código abierto que conecta aplicaciones y servicios mediante flujos visuales. Piensa en ella como un "cerebro" que recibe señales de tus cámaras y decide qué hacer con ellas: enviar WhatsApp, actualizar un CRM, activar una sirena o encender luces.
+
+A diferencia de herramientas como Zapier o Make, n8n puede ejecutarse **self-hosted** en tu propia infraestructura en Bogotá, lo que significa:
+
+- **Datos locales**: las alertas no viajan a servidores en EE.UU.
+- **Costo fijo**: sin suscripciones mensuales por ejecución
+- **Sin límites**: ejecuta millones de flujos sin pagar extra
+- **Personalización total**: lógica condicional compleja, no solo "si A entonces B"
+
+### Características clave para seguridad
+
+| Característica | Beneficio para CCTV |
+|---|---|
+| Webhooks | Recibe alertas HTTP de cámaras y NVR en tiempo real |
+| Integraciones nativas | WhatsApp Business API, Telegram, Slack, Google Sheets |
+| Lógica condicional | "Si es nocturno + movimiento en zona X → WhatsApp al dueño" |
+| Retry automático | Si WhatsApp falla, reintenta o envía por Telegram |
+| Ejecución local | El flujo corre en tu servidor edge en Bogotá |
+
+## Cómo funciona: flujo CCTV → n8n → Acción
+
+### Arquitectura del sistema
+
+```
+┌──────────────┐     ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+│   Cámara     │────▶│   NVR /      │────▶│   n8n        │────▶│  WhatsApp /  │
+│   IP CCTV    │     │   VMS        │     │  (self-hosted│     │  Telegram /  │
+│              │     │              │     │   en edge)   │     │  Dashboard   │
+└──────────────┘     └──────────────┘     └──────────────┘     └──────────────┘
+                                                   │
+                                                   ▼
+                                          ┌──────────────┐
+                                          │  CRM / ERP   │
+                                          │  (opcional)  │
+                                          └──────────────┘
+```
+
+### Paso 1: La cámara detecta movimiento
+
+La cámara IP envía una alerta HTTP (webhook) al NVR cuando detecta movimiento en una zona configurada. La mayoría de cámaras Hikvision, Dahua y Axis soportan esta función nativa.
+
+```
+POST /webhook/cctv-alert HTTP/1.1
+Content-Type: application/json
+
+{
+  "camera_id": "cam_bodega_01",
+  "event": "motion_detected",
+  "zone": "zona_restringida",
+  "timestamp": "2026-07-27T02:47:00-05:00",
+  "snapshot_url": "http://192.168.1.100/snapshots/20260727_024700.jpg"
+}
+```
+
+### Paso 2: n8n recibe y procesa
+
+El nodo webhook de n8n recibe la alerta y ejecuta la lógica:
+
+```
+1. ¿Es horario nocturno (8 PM - 6 AM)?
+   ├─ SÍ → Enviar WhatsApp al dueño + activar sirena
+   └─ NO → ¿Hay personal en turno?
+           ├─ SÍ → Notificar por Telegram al vigilante
+           └─ NO → Alerta completa: WhatsApp + Telegram + Dashboard
+```
+
+### Paso 3: Acciones automáticas
+
+**WhatsApp Business API** envía un mensaje estructurado:
+
+```
+🚨 ALERTA BODEGA - Cam 01
+Hora: 02:47 AM
+Zona: Restringida
+Estado: Movimiento detectado
+
+Ver snapshot:
+http://192.168.1.100/snapshots/20260727_024700.jpg
+
+Responder:
+1 - Confirmar alerta
+2 - Falsa alarma
+3 - Llamar policía
+```
+
+**Dashboard** actualiza en tiempo real con:
+
+- Timestamp del evento
+- Cámara activada
+- Snapshot capturado
+- Estado de notificación (enviado / fallido)
+- Tiempo de respuesta del operador
+
+**CRM** registra el incidente automáticamente con toda la metadata para auditorías futuras.
+
+## Casos reales en Bogotá
+
+### Caso 1: Ferretería en Kennedy — Intrusión nocturna
+
+Una ferretería en Kennedy tenía 8 cámaras Hikvision conectadas a un NVR básico. Las alertas sonaban en el local cerrado y nadie las escuchaba.
+
+**Implementación:**
+
+1. Se instaló n8n en un servidor edge con GPU en la bodega
+2. Se configuró webhook en el NVR para eventos de movimiento nocturno
+3. Se creó flujo: movimiento nocturno → WhatsApp al dueño + Telegram al grupo de vigilancia
+4. Se integró sirena IP activada por n8n vía HTTP
+
+**Resultado:** La primera semana detectaron 3 intentos de acceso no autorizado. El dueño recibió WhatsApp con snapshot en 3 segundos. La sirena se activó automáticamente. No hubo pérdidas.
+
+### Caso 2: Distribuidora en Chapinero — Dashboard de aforo
+
+Una distribuidora de alimentos necesitaba controlar el aforo de su bodega durante entregas. n8n conectó las cámaras con un dashboard web que mostraba:
+
+- Personas detectadas por zona (usa YOLO via APC Visión AI)
+- Alerta cuando se excedía el aforo máximo
+- Registro diario exportable a Excel
+
+**Resultado:** Cumplimiento normativo del 100% y reducción de incidentes de seguridad en un 67%.
+
+### Caso 3: Centro comercial en Suba — Flujos complejos
+
+Un centro comercial con 42 cámaras implementó flujos de n8n con:
+
+- **Zonificación**: diferentes alertas por zona (estacionamiento, pasillos, tiendas)
+- **Escalamiento**: si no hay respuesta en 2 minutos → escala al gerente
+- **Integración con CRM**: cada incidente se registra como ticket
+- **Reporte semanal automático**: resumen de incidentes enviado por email
+
+**Resultado:** Reducción del 45% en tiempo de respuesta y reportes automáticos para aseguradora.
+
+## FAQ
+
+### ¿n8n self-hosted o cloud para seguridad?
+
+**Self-hosted es la opción recomendada** para empresas de seguridad en Bogotá. Razones:
+
+- Los datos de video y alertas permanecen en tu infraestructura
+- Sin dependencia de internet para la ejecución de flujos críticos
+- Costo fijo: un servidor edge ($3-5M COP/mes) vs. n8n Cloud ($20-50 USD/mes por ejecuciones)
+- Cumplimiento de normativas de protección de datos locales
+
+n8n Cloud es viable solo para empresas pequeñas con bajo volumen de alertas (<100/día).
+
+### ¿Cuánto cuesta implementar esto?
+
+| Componente | Costo estimado (COP) |
+|---|---|
+| Servidor edge (1 mes) | $3.000.000 - $5.000.000 |
+| Configuración n8n + flujos | $2.000.000 - $4.000.000 |
+| Integración WhatsApp API | $500.000 - $1.000.000 |
+| Dashboard personalizado | $1.500.000 - $3.000.000 |
+| **Total inicial** | **$7.000.000 - $13.000.000** |
+| **Mantenimiento mensual** | **$800.000 - $1.500.000** |
+
+Comparado con $30-50M COP que costaría desarrollar una solución similar desde cero.
+
+### ¿Funciona con cualquier cámara?
+
+Sí. n8n se conecta vía HTTP/webhook, que es un estándar. Cámaras Hikvision, Dahua, Axis, Reolink y la mayoría de marcas profesionales soportan envío de alertas HTTP. Si tu cámara no soporta webhooks, usamos el NVR como intermediario.
+
+### ¿Qué pasa si se cae internet?
+
+El servidor edge sigue procesando localmente. Las alertas se almacenan en cola y se envían cuando se restablece la conexión. Para alertas críticas (intrusión), la sirena se activa localmente sin depender de internet.
+
+### ¿Necesito programador para mantenerlo?
+
+No. Los flujos de n8n se editan visualmente. Después de la implementación inicial, tu equipo puede modificar condiciones, agregar cámaras o cambiar destinatarios sin código. Servicios APC ofrece soporte mensual incluido.
+
+## Próximos pasos
+
+Si tu negocio en Bogotá tiene cámaras CCTV que solo graban pero no actúan, la automatización con n8n es el paso más rápido y costo-efectivo para convertirlas en un sistema de seguridad inteligente.
+
+**Lo que puedes hacer hoy:**
+
+1. **Auditar tu infraestructura actual**: ¿qué cámaras tienes? ¿El NVR soporta webhooks?
+2. **Definir prioridades**: ¿qué alerta necesitas primero? ¿Intrusión? ¿Aforo? ¿Acceso?
+3. **Solicitar una demostración**: vemos tu caso específico y te mostramos el flujo funcionando
+
+> **Servicios APC** implementa automatización CCTV con n8n para negocios en Bogotá. Desde la configuración de webhooks hasta dashboards personalizados y notificaciones por WhatsApp.
+
+## Ecosistema APC: Todo conectado
+
+| Línea | Qué hace | Enlace |
+|-------|----------|--------|
+| **APC Visión AI** | Analítica YOLO, PPE, aforo, arqueo, intrusión | [apcvisionai.site](https://apcvisionai.site) |
+| **APC Automatización** | n8n flujos: CCTV → Alerta → WhatsApp/CRM/Dashboard | [apcautomatizacion.site](https://apcautomatizacion.site) |
+| **DogWeb** | Web + SEO Local Bogotá → Formulario → WhatsApp Bot → Venta | [dogweb.lat](https://dogweb.lat) |
+| **APC Core** | Infraestructura, servidores edge GPU, bases datos, redes | [apccore.site](https://apccore.site) |
+
+---
+
+**Servicios APC** — Bogotá, Cra. 52c #39b-22
+📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com
+🌐 [apcvisionai.site](https://apcvisionai.site) · [apcautomatizacion.site](https://apcautomatizacion.site) · [dogweb.lat](https://dogweb.lat) · [apccore.site](https://apccore.site)

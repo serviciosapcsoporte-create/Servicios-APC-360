@@ -1,0 +1,342 @@
+---
+title: "Servidores Edge con GPU para IA en videoanalítica: qué necesitas en Bogotá 2026"
+excerpt: "Guía técnica sobre servidores edge con GPU para procesamiento de video con inteligencia artificial en Bogotá. Compara opciones NVIDIA, costos y arquitecturas."
+date: "2026-07-27"
+publishDate: "2026-07-27"
+author: "Servicios APC"
+category: "Infraestructura"
+tags: "servidor edge, GPU, NVIDIA, YOLO, videoanalítica, infraestructura IA, Bogotá, edge computing"
+readTime: "11 min"
+coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop&auto=format&fm=webp&q=70"
+cta: "{\"primary\":{\"label\":\"Consultar infraestructura edge\",\"href\":\"https://apccore.site\"},\"secondary\":{\"label\":\"Ver videoanalítica IA\",\"href\":\"https://apcvisionai.site\"},\"tertiary\":{\"label\":\"Automatización n8n\",\"href\":\"https://apcautomatizacion.site\"}}"
+---
+
+## El problema
+
+Tienes 20 cámaras IP en tu negocio en Bogotá. Cada una genera 2-4 Mbps de stream continuo. El NVR graba todo, pero **no analiza nada**. Si quieres detección de intrusión, conteo de personas o verificación de EPP (equipo de protección personal), necesitas enviar ese video a la nube y pagar $15-40 USD por cámara por mes.
+
+Para 20 cámaras, eso son **$300-800 USD mensuales** — entre $1.2M y $3.4M COP — solo por el procesamiento en la nube. Y ese costo escala linealmente: 50 cámaras = $750-2.000 USD/mes.
+
+El problema se vuelve insoportable cuando:
+
+- **Latencia**: el video viaja a servidores en EE.UU., se procesa, y la alerta llega 3-8 segundos después. Para intrusión, eso es demasiado.
+- **Ancho de banda**: subir 20 streams HD a la nube requiere 40-80 Mbps de subida — internet empresarial en Bogotá cuesta $200-500K COP/mes por 100 Mbps.
+- **Dependencia**: si se cae internet, se pierde el análisis. La cámara sigue grabando pero la IA se desconecta.
+- **Privacidad**: el video de tus clientes viaja por servidores externos. Problemático para empresas con datos sensibles.
+
+**La alternativa**: procesar la IA localmente, en un servidor edge con GPU, en tu propia instalación en Bogotá.
+
+## Qué es edge computing para videoanalítica
+
+**Edge computing** significa procesar los datos cerca de donde se generan, en lugar de enviarlos a la nube. Para videoanalítica, esto significa: la cámara envía el video a un servidor local con GPU, la GPU ejecuta el modelo de IA (YOLO, por ejemplo), y las alertas se generan en milisegundos.
+
+### Edge vs Cloud para análisis de video
+
+| Aspecto | Cloud (AWS, Azure, GCP) | Edge Local |
+|---|---|---|
+| Costo mensual (20 cámaras) | $300-800 USD | $0 (hardware comprado) |
+| Latencia de inferencia | 200-800ms | 15-50ms |
+| Dependencia de internet | Crítica | Ninguna |
+| Escalabilidad | Ilimitada | Limitada por hardware |
+| Privacidad | Datos en servidores externos | 100% local |
+| Mantenimiento | El proveedor lo hace | Tu equipo o APC Core |
+| Costo inicial | $0 | $8-25M COP |
+| Break-even | Mes 3-8 vs edge | — |
+
+**Cuándo usar edge**: cuando tienes 5+ cámaras, necesitas baja latencia, o la privacidad es prioridad.
+
+**Cuándo usar cloud**: cuando tienes 1-4 cámaras, no puedes instalar hardware, o necesitas análisis esporádico (no 24/7).
+
+## Cómo funciona: arquitectura edge completa
+
+### Diagrama de arquitectura
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     INSTALACIÓN EN BOGOTÁ                       │
+│                                                                 │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐       ┌─────────┐     │
+│  │ Cam IP  │  │ Cam IP  │  │ Cam IP  │  ...  │ Cam IP  │     │
+│  │  01     │  │  02     │  │  03     │       │  20     │     │
+│  └────┬────┘  └────┬────┘  └────┬────┘       └────┬────┘     │
+│       │             │             │                  │          │
+│       └─────────────┴──────┬──────┴──────────────────┘          │
+│                            │                                    │
+│                    ┌───────▼───────┐                            │
+│                    │   Switch PoE  │                            │
+│                    │   (Gigabit)   │                            │
+│                    └───────┬───────┘                            │
+│                            │                                    │
+│              ┌─────────────▼─────────────┐                     │
+│              │    SERVIDOR EDGE GPU       │                     │
+│              │  ┌─────────────────────┐  │                     │
+│              │  │  NVIDIA T4 / A2000  │  │                     │
+│              │  │  YOLO v8 + DeepSort │  │                     │
+│              │  └─────────────────────┘  │                     │
+│              │  ┌─────────────────────┐  │                     │
+│              │  │  n8n + Dashboard    │  │                     │
+│              │  │  Alertas / Webhooks │  │                     │
+│              │  └─────────────────────┘  │                     │
+│              └─────────────┬─────────────┘                     │
+│                            │                                    │
+│              ┌─────────────▼─────────────┐                     │
+│              │  NAS / RAID Storage       │                     │
+│              │  (grabación 30 días)      │                     │
+│              └───────────────────────────┘                     │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Flujo de datos
+
+```
+Cámara IP ──RTSP──▶ Servidor Edge ──GPU──▶ YOLO detecta objeto
+                                              │
+                                    ┌─────────▼──────────┐
+                                    │  ¿Qué se detectó?  │
+                                    └─────────┬──────────┘
+                                              │
+                         ┌────────────────────┼────────────────────┐
+                         │                    │                    │
+                    ┌────▼────┐          ┌────▼────┐          ┌────▼────┐
+                    │ Persona │          │ Vehículo│          │  EPP   │
+                    └────┬────┘          └────┬────┘          └────┬────┘
+                         │                    │                    │
+                    ┌────▼────┐          ┌────▼────┐          ┌────▼────┐
+                    │¿Sin cas-│          │¿Placa   │          │¿Falta   │
+                    │co en    │          │no regis-│          │chaleco/ │
+                    │zona?    │          │trada?   │          │casco?   │
+                    └────┬────┘          └────┬────┘          └────┬────┘
+                         │                    │                    │
+                    ┌────▼────┐          ┌────▼────┐          ┌────▼────┐
+                    │ALERTA   │          │ALERTA   │          │ALERTA   │
+                    │WhatsApp │          │Sirena + │          │Dashboard│
+                    └─────────┘          │WhatsApp │          │+ Reporte│
+                                         └─────────┘          └─────────┘
+```
+
+### Requisitos del servidor edge
+
+**Especificación mínima para 10 cámaras con YOLO:**
+
+- **CPU**: Intel Core i5-12400 / AMD Ryzen 5 5600 (6 núcleos)
+- **RAM**: 16 GB DDR4 3200MHz
+- **GPU**: NVIDIA T4 (16GB VRAM) o RTX A2000 (12GB VRAM)
+- **Almacenamiento**: 1TB NVMe SSD (sistema + modelos) + 4TB HDD RAID1 (grabación)
+- **Red**: 2x Gigabit Ethernet (1 para cámaras, 1 para red general)
+- **Fuente**: 550W 80+ Bronze
+- **Gabinete**: Rack 2U o tower con ventilación adecuada
+
+**Especificación recomendada para 20-30 cámaras:**
+
+- **CPU**: Intel Core i7-13700 / AMD Ryzen 7 7700X (8+ núcleos)
+- **RAM**: 32 GB DDR5 5600MHz
+- **GPU**: NVIDIA RTX A2000 12GB o RTX 4000 Ada (16GB VRAM)
+- **Almacenamiento**: 2TB NVMe SSD + 8TB HDD RAID5
+- **Red**: 2x 2.5 Gigabit Ethernet
+- **Fuente**: 750W 80+ Gold
+- **Gabinete**: Rack 2U con ventilación forzada
+
+## Comparativa de GPUs para videoanalítica
+
+### NVIDIA T4 vs A2000 vs RTX 4000 Ada
+
+| Especificación | NVIDIA T4 | RTX A2000 | RTX 4000 Ada |
+|---|---|---|---|
+| VRAM | 16 GB GDDR6 | 12 GB GDDR6 | 16 GB GDDR6 |
+| TDP | 70W | 70W | 130W |
+| Rendimiento FP32 | 8.1 TFLOPS | 6.3 TFLOPS | 19.2 TFLOPS |
+| Cámaras simultáneas (YOLO v8) | 8-12 | 6-10 | 15-25 |
+| Tensor Cores | Gen 2 | Gen 2 | Gen 4 |
+| Costo estimado (COP) | $3.500.000 | $4.200.000 | $8.500.000 |
+| Disponibilidad en Bogotá | Alta | Media | Baja (importación) |
+| Mejor para | 10 cámaras, bajo consumo | 8 cámaras, estación de trabajo | 20+ cámaras, alto rendimiento |
+
+### Recomendación por número de cámaras
+
+- **1-8 cámaras**: NVIDIA T4 — mejor relación costo-rendimiento, bajo consumo
+- **8-15 cámaras**: RTX A2000 — buen equilibrio, soporte profesional NVIDIA
+- **15-30 cámaras**: RTX 4000 Ada — rendimiento necessário, justifica el costo
+- **30+ cámaras**: Considerar RTX 4000 Ada SFF o dos servidores edge
+
+## Costo real: Cloud vs Edge para Bogotá
+
+### Escenario: 20 cámaras CCTV, análisis 24/7, 36 meses
+
+**Opción A: Cloud (AWS/Azure)**
+
+| Concepto | Costo mensual | Costo 36 meses |
+|---|---|---|
+| Instancia GPU (g4dn.xlarge) x2 | $500 USD | $18.000 USD |
+| Almacenamiento (1TB) | $23 USD | $828 USD |
+| Ancho de banda (20 streams) | $150 USD | $5.400 USD |
+| Soporte técnico | $100 USD | $3.600 USD |
+| **Total** | **$773 USD** | **$27.828 USD (~$116M COP)** |
+
+**Opción B: Edge local (APC Core)**
+
+| Concepto | Costo único | Costo 36 meses |
+|---|---|---|
+| Servidor edge GPU completo | — | $12.000.000 COP |
+| Instalación y configuración | — | $3.000.000 COP |
+| Internet empresarial | $350.000/mes | $12.600.000 COP |
+| Mantenimiento mensual | $800.000/mes | $28.800.000 COP |
+| **Total** | — | **$56.400.000 COP (~$13.400 USD)** |
+
+**Ahorro edge vs cloud: $102.6M COP (88%) en 36 meses.**
+
+Y el servidor edge sigue siendo tuyo después de 3 años. El cloud no.
+
+### Break-even mensual
+
+| Mes | Cloud acumulado | Edge acumulado | Ahorro edge |
+|---|---|---|---|
+| Mes 1 | $3.4M COP | $16.8M COP | -$13.4M |
+| Mes 3 | $10.2M COP | $19.2M COP | -$9.0M |
+| Mes 6 | $20.4M COP | $22.8M COP | -$2.4M |
+| **Mes 7** | **$23.8M COP** | **$24.0M COP** | **+$0.2M** |
+| Mes 12 | $47.6M COP | $30.0M COP | +$17.6M |
+| Mes 24 | $95.2M COP | $45.6M COP | +$49.6M |
+| Mes 36 | $142.8M COP | $56.4M COP | +$86.4M |
+
+**El edge se paga solo en el mes 7.** Después de eso, cada mes es puro ahorro.
+
+## Casos reales en Bogotá
+
+### Caso 1: Bodega industrial en Soacha — 32 cámaras, YOLO + PPE
+
+**Situación**: Bodega de 3.000m² con 32 cámaras Hikvision. Necesitaban detección de EPP (chaleco, casco, guantes) y control de aforo. Cotización cloud: $1.200 USD/mes.
+
+**Solución APC Core**:
+
+- Servidor Dell PowerEdge T40 con NVIDIA T4 (16GB)
+- 32 GB RAM, 2TB NVMe + 8TB RAID
+- YOLO v8 nano para EPP, YOLO v8 medium para aforo
+- Dashboard web con alertas en tiempo real
+- n8n integrado para WhatsApp + email
+
+**Resultado**: Funcionando 18 meses sin interrupciones. Costo total: $18M COP (instalación) + $800K/mes (mantenimiento). La empresa ahorra $1.1M COP/mes vs cloud.
+
+### Caso 2: Centro logístico en Fontibón — 48 cámaras, doble GPU
+
+**Situación**: Centro logístico con 48 cámaras de alta resolución (4MP). Necesitaban lectura de placas vehiculares, detección de intrusiones, y conteo de personas.
+
+**Solución APC Core**:
+
+- 2 servidores edge (24 cámaras cada uno)
+- NVIDIA RTX A2000 en cada servidor
+- DeepSort para tracking de personas entre cámaras
+- Base de datos PostgreSQL para registro de placas
+- Alertas automáticas por zona horaria
+
+**Resultado**: 99.7% de uptime en 12 meses. Placas detectadas con 96% de precisión. Alertas de intrusión en <2 segundos.
+
+### Caso 3: cadena de farmacias — 15 sedes, edge compacto
+
+**Situación**: 15 farmacias con 4-6 cámaras cada una. Necesitaban detección de personas sospechosas y conteo de clientes por hora.
+
+**Solución APC Core**:
+
+- Mini PC con NVIDIA Jetson Orin Nano por sede
+- YOLO v8 nano optimizado para Jetson
+- Dashboard centralizado que recibe datos de las 15 sedes
+- Alertas diferenciadas: sedes abiertas vs cerradas
+
+**Resultado**: Inversión total $45M COP (vs $180M COP que costaría cloud para 15 sedes). Break-even en 4 meses.
+
+## FAQ
+
+### ¿Cuánta electricidad consume un servidor edge con GPU?
+
+Depende de la GPU:
+
+| GPU | TDP | Consumo del sistema completo | Costo mensual eléctrico COP |
+|---|---|---|---|
+| NVIDIA T4 | 70W | ~150W total | ~$18.000 |
+| RTX A2000 | 70W | ~160W total | ~$19.200 |
+| RTX 4000 Ada | 130W | ~220W total | ~$26.400 |
+
+El costo eléctrico es mínimo comparado con el ahorro vs cloud. Un servidor edge consume lo mismo que 3-4 focos LED.
+
+### ¿Qué mantenimiento necesita un servidor edge?
+
+- **Mensual**: revisar temperaturas, actualizar software de seguridad, verificar backups
+- **Trimestral**: limpiar polvo de filtros y ventiladores, revisar SMART de discos
+- **Anual**: reevaluar capacidad, actualizar modelos YOLO, possible upgrade de GPU
+
+En Bogotá, el clima es ideal: la temperatura promedio (14°C) reduce el desgaste térmico. No necesitas aire acondicionado dedicado como en ciudades costeras.
+
+### ¿Cuándo debo upgradear la GPU?
+
+Señales de que necesitas upgrade:
+
+- Uso de VRAM consistently >90%
+- FPS de inferencia caen por debajo de 10 (para alertas en tiempo real necesitas 15+)
+- Agregaste cámaras y el rendimiento cayó >20%
+- Quieres agregar nuevos modelos (ej: OCR para placas + detección de personas)
+
+Tiempo promedio de vida útil de una GPU en edge: 4-5 años. La T4 de 2020 sigue siendo relevante en 2026 para aplicaciones medianas.
+
+### ¿Self-hosted o managed para infraestructura edge?
+
+**Self-hosted** (tú compras y administras):
+
+- Control total, sin mensualidades
+- Requiere equipo técnico interno
+- Ideal si tienes 2+ servidores edge
+
+**Managed** (APC Core administra):
+
+- Nosotros compramos, instalamos, y mantenemos
+- Costo mensual predecible
+- Soporte 24/7 con SLA garantizado
+- Ideal si no tienes equipo técnico dedicado
+
+La mayoría de clientes en Bogotá eligen **managed** porque el ahorro de no contratar un sysadmin dedicado ($3-5M COP/mes) justifica el costo del servicio.
+
+### ¿Puedo usar hardware existente?
+
+Depende. Si tu servidor actual tiene:
+
+- Slot PCIe x16 disponible
+- Fuente de al menos 450W
+- 16GB+ RAM
+- SSD para el sistema operativo
+
+...probablemente sí se puede agregar una GPU. Evaluamos tu hardware actual y te decimos la mejor opción. Muchos clientes empiezan con un upgrade de GPU en su servidor existente y escalan a servidor dedicado cuando crecen.
+
+### ¿Qué pasa si la GPU falla?
+
+El sistema sigue funcionando en modo degradado: las cámaras siguen grabando en el NVR, pero el análisis de IA se pausa. APC Core ofrece:
+
+- GPU de reemplazo en 24-48 horas
+- Monitoreo remoto de salud de la GPU
+- Alertas proactivas cuando la temperatura o uso anómalos
+- Backup de configuración para recuperación rápida
+
+## Próximos pasos
+
+Si tu empresa en Bogotá está pagando por análisis de video en la nube o simplemente tiene cámaras que graban sin analizar, un servidor edge con GPU es la inversión con mejor ROI en infraestructura de seguridad.
+
+**Pasos concretos:**
+
+1. **Inventario de cámaras**: ¿cuántas tienes? ¿Qué resolución? ¿Cuántos FPS?
+2. **Define tus necesidades de análisis**: ¿Intrusión? ¿EPP? ¿Aforo? ¿Placas? ¿Todo junto?
+3. **Solicita una evaluación**: analizamos tu infraestructura actual y proponemos la arquitectura óptima
+4. **Decide self-hosted vs managed**: según tu equipo técnico y presupuesto
+
+> **APC Core** diseña, instala y mantiene servidores edge con GPU para videoanalítica en Bogotá. Desde mini PCs con Jetson para 4 cámaras hasta servidores rack con RTX 4000 para 30+ cámaras.
+
+## Ecosistema APC: Todo conectado
+
+| Línea | Qué hace | Enlace |
+|-------|----------|--------|
+| **APC Visión AI** | Analítica YOLO, PPE, aforo, arqueo, intrusión | [apcvisionai.site](https://apcvisionai.site) |
+| **APC Automatización** | n8n flujos: CCTV → Alerta → WhatsApp/CRM/Dashboard | [apcautomatizacion.site](https://apcautomatizacion.site) |
+| **DogWeb** | Web + SEO Local Bogotá → Formulario → WhatsApp Bot → Venta | [dogweb.lat](https://dogweb.lat) |
+| **APC Core** | Infraestructura, servidores edge GPU, bases datos, redes | [apccore.site](https://apccore.site) |
+
+---
+
+**Servicios APC** — Bogotá, Cra. 52c #39b-22
+📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com
+🌐 [apcvisionai.site](https://apcvisionai.site) · [apcautomatizacion.site](https://apcautomatizacion.site) · [dogweb.lat](https://dogweb.lat) · [apccore.site](https://apccore.site)
