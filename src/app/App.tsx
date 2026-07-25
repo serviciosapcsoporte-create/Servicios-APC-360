@@ -1401,6 +1401,16 @@ export default function App() {
                     +57 333 7450634
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://search.google.com/local/writereview?placeid=ChIJ3YMe_3yfP44R1bbtdfSOqSQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-accent hover:text-foreground transition-colors font-medium"
+                  >
+                    ⭐ Dejar reseña en Google
+                  </a>
+                </li>
               </ul>
               <div className="flex items-center gap-3 mt-4">
                 <a
