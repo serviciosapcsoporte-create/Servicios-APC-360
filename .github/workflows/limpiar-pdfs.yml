@@ -1,0 +1,62 @@
+name: Limpiar PDFs expirados (30 dias)
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  limpiar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Limpiar PDFs con mas de 30 dias
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          for carpeta in cuentadecobro cotizacion; do
+            echo "=== Carpeta: $carpeta ==="
+            # Listar subcarpetas (cada una es una contrasena de un documento)
+            # API de arbol: obtenemos las rutas de los PDFs
+            ARBOL=$(curl -s -H "Authorization: token ${GH_TOKEN}" \
+              "https://api.github.com/repos/${REPO}/git/trees/main?recursive=1")
+            echo "$ARBOL" | node -e "
+              const stdin = require('fs').readFileSync(0, 'utf8');
+              const data = JSON.parse(stdin);
+              const hoy = Date.now();
+              const limite = 30 * 24 * 60 * 60 * 1000;
+              const token = process.env.GH_TOKEN;
+              const repo = process.env.REPO;
+              const carpeta = process.argv[1];
+              (async () => {
+                const files = (data.tree || []).filter(t => t.path.includes('public/' + carpeta + '/') && t.path.endsWith('.pdf'));
+                for (const f of files) {
+                  const res = await fetch('https://api.github.com/repos/' + repo + '/commits?path=' + encodeURIComponent(f.path) + '&per_page=1', {
+                    headers: { Authorization: 'token ' + token }
+                  });
+                  const commits = await res.json();
+                  const fecha = commits[0] ? new Date(commits[0].commit.committer.date).getTime() : hoy;
+                  const edad = hoy - fecha;
+                  if (edad > limite) {
+                    // Obtener sha del archivo y borrarlo
+                    const infoRes = await fetch('https://api.github.com/repos/' + repo + '/contents/' + f.path, {
+                      headers: { Authorization: 'token ' + token }
+                    });
+                    const info = await infoRes.json();
+                    const del = await fetch('https://api.github.com/repos/' + repo + '/contents/' + f.path, {
+                      method: 'DELETE',
+                      headers: { Authorization: 'token ' + token, 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ message: 'eliminar PDF expirado ' + f.path, sha: info.sha })
+                    });
+                    console.log((del.ok ? 'BORRADO' : 'ERROR ') + ' ' + f.path + ' (edad: ' + Math.round(edad / 86400000) + ' dias)');
+                  } else {
+                    console.log('OK ' + f.path + ' (edad: ' + Math.round(edad / 86400000) + ' dias)');
+                  }
+                }
+              })().catch(e => { console.error(e); process.exit(1); });
+            " "$carpeta"
+          done
