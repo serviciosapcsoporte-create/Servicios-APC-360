@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Acceso a documento | Servicios APC</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f5f5f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .card{background:#fff;border-radius:12px;padding:40px;max-width:400px;width:100%;box-shadow:0 4px 24px rgba(0,0,0,.08)}
+    .logo{width:56px;height:56px;background:#0A2540;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .logo span{color:#fff;font-weight:700;font-size:18px}
+    h1{color:#0A2540;font-size:20px;margin:0 0 4px;text-align:center}
+    p.lead{color:#666;font-size:14px;text-align:center;margin:0 0 24px}
+    .form-group{margin-bottom:16px}
+    label{display:block;font-size:13px;color:#333;margin-bottom:6px;font-weight:500}
+    input[type=text]{width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:15px;outline:none;transition:border-color .2s}
+    input:focus{border-color:#C8A951}
+    button{width:100%;padding:14px;background:#0A2540;color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s}
+    button:hover{background:#153d6b}
+    .error{display:none;color:#dc2626;font-size:13px;margin-top:10px;text-align:center}
+    .error.show{display:block}
+    .footer{margin-top:20px;text-align:center;font-size:12px;color:#999}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo"><span>APC</span></div>
+    <h1>Acceso a documento</h1>
+    <p class="lead">Ingresa el c&#243;digo de acceso enviado a tu correo</p>
+    <form id="form">
+      <div class="form-group">
+        <label>C&#243;digo de acceso</label>
+        <input type="text" id="clave" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus>
+      </div>
+      <button type="submit">Ver / Descargar</button>
+      <div id="error" class="error">Clave incorrecta. Verifica el c&#243;digo de tu correo.</div>
+    </form>
+    <div class="footer">Servicios APC &#8212; Infraestructura Digital e Inteligencia Operativa</div>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const tipo = params.get('tipo') || '';
+    const id = params.get('id') || '';
+    const base = location.origin;
+    const form = document.getElementById('form');
+    const input = document.getElementById('clave');
+    const err = document.getElementById('error');
+    form.onsubmit = async (e) => {
+      e.preventDefault();
+      const clave = input.value.trim();
+      if (!clave) return;
+      const url = `${base}/${tipo}/${clave}/${id}.pdf`;
+      try {
+        const head = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+        if (!head.ok) throw new Error();
+        const res = await fetch(url, { cache: 'no-store' });
+        const blob = await res.blob();
+        const objUrl = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = objUrl;
+        a.download = `${id}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(objUrl), 10000);
+      } catch {
+        err.classList.add('show');
+        input.value = '';
+        input.focus();
+      }
+    };
+  </script>
+</body>
+</html>
