@@ -97,7 +97,7 @@ function getAllPosts(): BlogPost[] {
         readTime: fm.readTime || "5 min",
         coverImage: fm.coverImage,
         content: marked.parse(content) as string,
-        cta: fm.cta ? JSON.parse(fm.cta) : undefined,
+        cta: fm.cta ? JSON.parse(fm.cta.replace(/\\"/g, '"')) : undefined,
       } as BlogPost;
     })
     .filter((p): p is BlogPost => p !== null)
