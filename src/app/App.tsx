@@ -7,6 +7,10 @@ import { CamarasKennedy } from "./pages/CamarasKennedy";
 import { CamarasChapinero } from "./pages/CamarasChapinero";
 import { CamarasUsaquen } from "./pages/CamarasUsaquen";
 import { CamarasFontibon } from "./pages/CamarasFontibon";
+import { CamerasInstalacion } from "./pages/CamerasInstalacion";
+import { CamerasCasa } from "./pages/CamerasCasa";
+import { CamerasPrecios } from "./pages/CamerasPrecios";
+import { ConsultorTecnologico } from "./pages/ConsultorTecnologico";
 import {
   Menu,
   X,
@@ -352,6 +356,10 @@ export default function App() {
     "chapinero": CamarasChapinero,
     "usaquen": CamarasUsaquen,
     "fontibon": CamarasFontibon,
+    "instalacion": CamerasInstalacion,
+    "casa": CamerasCasa,
+    "precios-camaras": CamerasPrecios,
+    "consultor": ConsultorTecnologico,
   };
 
   const LandingPage = landingPages[hash];
@@ -1348,6 +1356,26 @@ export default function App() {
                 <li>
                   <a href="#negocio" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
                     <ChevronRight size={12} /> Cámaras para Negocio
+                  </a>
+                </li>
+                <li>
+                  <a href="#instalacion" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Instalación de Cámaras
+                  </a>
+                </li>
+                <li>
+                  <a href="#casa" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Cámaras para Casa
+                  </a>
+                </li>
+                <li>
+                  <a href="#precios-camaras" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Precios Instalación
+                  </a>
+                </li>
+                <li>
+                  <a href="#consultor" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Consultor Tecnológico
                   </a>
                 </li>
                 {[
