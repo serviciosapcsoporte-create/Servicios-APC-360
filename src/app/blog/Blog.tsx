@@ -308,13 +308,18 @@ export function BlogIndex() {
   const posts = getAllPosts();
   const activePost = posts.find((p) => p.slug === selected);
 
+  const openPost = (slug: string) => {
+    setSelected(slug);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (activePost) {
     return (
       <ArticleView
         post={activePost}
         allPosts={posts}
         onBack={() => setSelected(null)}
-        onSelect={setSelected}
+        onSelect={openPost}
       />
     );
   }
@@ -342,7 +347,7 @@ export function BlogIndex() {
       {featured && (
         <div className="max-w-[1200px] mx-auto px-5 mb-16">
           <button
-            onClick={() => setSelected(featured.slug)}
+            onClick={() => openPost(featured.slug)}
             className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full"
           >
             {featured.coverImage && (
@@ -393,7 +398,7 @@ export function BlogIndex() {
           {rest.map((post) => (
             <button
               key={post.slug}
-              onClick={() => setSelected(post.slug)}
+              onClick={() => openPost(post.slug)}
               className="group text-left"
             >
               {post.coverImage && (

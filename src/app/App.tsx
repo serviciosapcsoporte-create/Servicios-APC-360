@@ -11,6 +11,7 @@ import { CamerasInstalacion } from "./pages/CamerasInstalacion";
 import { CamerasCasa } from "./pages/CamerasCasa";
 import { CamerasPrecios } from "./pages/CamerasPrecios";
 import { ConsultorTecnologico } from "./pages/ConsultorTecnologico";
+import { BlogLanding } from "./pages/BlogLanding";
 import {
   Menu,
   X,
@@ -370,6 +371,10 @@ export default function App() {
       title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
       description: "Consultor tecnológico en Bogotá: auditoría de seguridad CCTV con IA, automatización de procesos y dashboards. Diagnóstico gratis con implementación.",
     },
+    "blog": {
+      title: "Blog de Cámaras de Seguridad e IA | Servicios APC Bogotá",
+      description: "Guías, comparativas y casos reales sobre CCTV Hikvision con inteligencia artificial en Bogotá: precios, instalación, analítica IA, automatización y seguridad empresarial.",
+    },
   };
 
   useEffect(() => {
@@ -396,6 +401,7 @@ export default function App() {
     "casa": CamerasCasa,
     "precios-camaras": CamerasPrecios,
     "consultor": ConsultorTecnologico,
+    "blog": BlogLanding,
   };
 
   const LandingPage = landingPages[hash];
@@ -1428,9 +1434,9 @@ export default function App() {
                   </li>
                 ))}
                 <li>
-                  <button onClick={() => scrollTo("blog")} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                  <a href="#blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
                     <ChevronRight size={12} /> Blog
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
