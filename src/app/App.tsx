@@ -349,6 +349,42 @@ export default function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  const seoMeta: Record<string, { title: string; description: string }> = {
+    "negocio": {
+      title: "Cámaras de Seguridad para Negocio en Bogotá | 500+ instalaciones",
+      description: "Instalación de cámaras para negocio en Bogotá con IA. Hikvision ColorVu, analítica YOLO, aforo, arqueo y alertas WhatsApp. Desde $1.800.000. Cotiza gratis.",
+    },
+    "instalacion": {
+      title: "Instalación de Cámaras de Seguridad en Bogotá | Hikvision Certificado",
+      description: "Instalación profesional de cámaras de seguridad en Bogotá: cableado estructurado sin puntos ciegos, configuración remota y equipos IA-ready. Cotización con visita técnica.",
+    },
+    "casa": {
+      title: "Cámaras para Instalar en Casa en Bogotá | Instalación el mismo día",
+      description: "Cámaras para casa en Bogotá con visión nocturna a color y acceso desde el celular. Desde $600.000 por cámara, instalación el mismo día en toda la ciudad.",
+    },
+    "precios-camaras": {
+      title: "Precios de Instalación de Cámaras de Seguridad en Bogotá 2026",
+      description: "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.800.000 para 4 cámaras con instalación. Precios cerrados, IVA incluido y cotización gratis.",
+    },
+    "consultor": {
+      title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
+      description: "Consultor tecnológico en Bogotá: auditoría de seguridad CCTV con IA, automatización de procesos y dashboards. Diagnóstico gratis con implementación.",
+    },
+  };
+
+  useEffect(() => {
+    const meta = seoMeta[hash];
+    if (!meta) return;
+    document.title = meta.title;
+    let desc = document.querySelector('meta[name="description"]');
+    if (!desc) {
+      desc = document.createElement("meta");
+      desc.setAttribute("name", "description");
+      document.head.appendChild(desc);
+    }
+    desc.setAttribute("content", meta.description);
+  }, [hash]);
+
   const landingPages: Record<string, () => JSX.Element> = {
     "negocio": CamarasNegocio,
     "suba": CamarasSuba,
