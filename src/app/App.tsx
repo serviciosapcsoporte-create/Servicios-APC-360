@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import CristalChat from "./components/CristalChat";
-import { BlogIndex } from "./blog/Blog";
 import { CamarasNegocio } from "./pages/CamarasNegocio";
 import { CamarasSuba } from "./pages/CamarasSuba";
 import { CamarasKennedy } from "./pages/CamarasKennedy";
@@ -505,7 +504,6 @@ export default function App() {
               ["Casos", "casos"],
               ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
-              ["Blog", "blog"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
               <button
@@ -516,6 +514,12 @@ export default function App() {
                 {label}
               </button>
             ))}
+            <a
+              href="#blog"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium"
+            >
+              Blog
+            </a>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
@@ -545,7 +549,6 @@ export default function App() {
               ["Casos", "casos"],
               ["Preguntas", "faq"],
               ["Quiénes somos", "nosotros"],
-              ["Blog", "blog"],
               ["Contacto", "contacto"],
             ].map(([label, id]) => (
               <button
@@ -556,6 +559,13 @@ export default function App() {
                 {label}
               </button>
             ))}
+            <a
+              href="#blog"
+              onClick={() => setMobileOpen(false)}
+              className="block w-full text-left text-sm text-muted-foreground hover:text-foreground py-1.5"
+            >
+              Blog
+            </a>
           </div>
         )}
       </nav>
@@ -1293,13 +1303,6 @@ export default function App() {
               )}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── BLOG ─────────────────────────────────────────────── */}
-      <section id="blog" className="py-24 border-b border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <BlogIndex />
         </div>
       </section>
 

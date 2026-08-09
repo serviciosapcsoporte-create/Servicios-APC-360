@@ -318,7 +318,10 @@ export function BlogIndex() {
       <ArticleView
         post={activePost}
         allPosts={posts}
-        onBack={() => setSelected(null)}
+        onBack={() => {
+          setSelected(null);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
         onSelect={openPost}
       />
     );
