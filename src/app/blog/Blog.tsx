@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 import { marked } from "marked";
 
@@ -303,13 +303,44 @@ function ArticleView({
 }
 
 /* ─── INDEX VIEW ──────────────────────────────────────────── */
-export function BlogIndex() {
-  const [selected, setSelected] = useState<string | null>(null);
+function slugFromHash(): string | null {
+  const h = window.location.hash.slice(1);
+  if (h.startsWith("blog/")) return h.slice("blog/".length);
+  return null;
+}
+
+export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
+  const [selected, setSelected] = useState<string | null>(
+    initialSlug !== null && initialSlug !== undefined ? initialSlug : slugFromHash()
+  );
   const posts = getAllPosts();
   const activePost = posts.find((p) => p.slug === selected);
 
+  useEffect(() => {
+    if (activePost) {
+      document.title = `${activePost.title} | Servicios APC Bogotá`;
+    }
+  }, [activePost]);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const slug = slugFromHash();
+      setSelected(slug);
+      if (slug) window.scrollTo({ top: 0 });
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
   const openPost = (slug: string) => {
     setSelected(slug);
+    window.location.hash = `blog/${slug}`;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const onBack = () => {
+    setSelected(null);
+    window.location.hash = "blog";
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -318,10 +349,7 @@ export function BlogIndex() {
       <ArticleView
         post={activePost}
         allPosts={posts}
-        onBack={() => {
-          setSelected(null);
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
+        onBack={onBack}
         onSelect={openPost}
       />
     );

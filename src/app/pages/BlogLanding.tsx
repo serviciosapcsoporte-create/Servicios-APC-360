@@ -5,10 +5,10 @@ import { BlogIndex } from "../blog/Blog";
  * patrón de navegación que las demás landings de serviciosapc.site.
  * ───────────────────────────────────────────────────────────── */
 
-export function BlogLanding() {
+export function BlogLanding({ slug }: { slug?: string | null }) {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      <BlogIndex />
+      <BlogIndex initialSlug={slug} />
     </div>
   );
 }

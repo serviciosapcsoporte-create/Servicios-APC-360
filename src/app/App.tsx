@@ -403,9 +403,10 @@ export default function App() {
     "blog": BlogLanding,
   };
 
+  const blogSlug = hash.startsWith("blog/") ? hash.slice("blog/".length) : null;
   const LandingPage = landingPages[hash];
 
-  if (LandingPage) {
+  if (LandingPage || blogSlug) {
     return (
       <div className="min-h-screen bg-background text-foreground font-sans">
         <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -420,7 +421,7 @@ export default function App() {
             </a>
           </div>
         </nav>
-        <LandingPage />
+        {blogSlug ? <BlogLanding slug={blogSlug} /> : <LandingPage />}
         <CristalChat />
       </div>
     );
