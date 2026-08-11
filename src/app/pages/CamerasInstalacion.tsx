@@ -245,7 +245,7 @@ export function CamerasInstalacion() {
               {
                 icon: Boxes,
                 title: "Restaurantes",
-                desc: "Monitoreo de cocina, barra y salón. Control de aforo para cumplimiento del IDEA y reducción de mermas.",
+                desc: "Analítica de cocina, barra y salón. Control de aforo para cumplimiento del IDEA y reducción de mermas.",
                 bullets: "6-12 cámaras · Aforo IA",
               },
               {
@@ -321,7 +321,7 @@ export function CamerasInstalacion() {
                 icon: Headphones,
                 step: "04",
                 title: "Soporte y garantía",
-                desc: "Monitoreo remoto del sistema, detección temprana de caídas y garantía de fábrica. Con IA, le avisamos por WhatsApp si algo se interrumpe.",
+                desc: "Seguimiento remoto del sistema, detección temprana de caídas y garantía de fábrica. Con IA, usted recibe alertas por WhatsApp si algo se interrumpe.",
                 time: "24/7",
               },
             ].map((item) => (

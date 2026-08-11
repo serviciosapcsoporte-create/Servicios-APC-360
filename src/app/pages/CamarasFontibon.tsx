@@ -16,7 +16,7 @@ export function CamarasFontibon() {
     },
     {
       titulo: "Fábricas y Talleres Industriales",
-      desc: "Videovigilancia de naves industriales con cámaras PTZ de larga distancia. Monitoreo de personal con detección de EPP obligatorio.",
+      desc: "Cobertura de naves industriales con cámaras PTZ de larga distancia. Analítica de personal con detección de EPP obligatorio.",
       icon: "🏭",
     },
     {

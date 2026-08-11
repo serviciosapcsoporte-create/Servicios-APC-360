@@ -17,7 +17,7 @@ export function CamarasKennedy() {
     },
     {
       titulo: "Talleres Mecánicos",
-      desc: "Videovigilancia de herramientas y vehículos en proceso con grabación 24/7 y visión nocturna ColorVu.",
+      desc: "Cobertura de herramientas y vehículos en proceso con grabación 24/7 y visión nocturna ColorVu.",
       icon: "🔧",
     },
     {
@@ -117,7 +117,7 @@ export function CamarasKennedy() {
         </h1>
         <p className="text-lg mb-6" style={{ color: "var(--color-muted-foreground)" }}>
           Protege tu tienda, taller o bodega en Kennedy con tecnología de última generación.
-          Desde Kennedy Central hasta Patio Bonito, instalamos sistemas de videovigilancia
+          Desde Kennedy Central hasta Patio Bonito, instalamos sistemas de video con IA
           con inteligencia artificial que previenen hurtos y controlan accesos.
         </p>
         <a

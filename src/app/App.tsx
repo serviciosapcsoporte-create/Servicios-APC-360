@@ -231,7 +231,7 @@ const cases = [
     client: "Clínica Dental Sonrisa Viva",
     sector: "Salud · Chapinero, Bogotá",
     implementation:
-      "Hikvision 2MP WDR + IA: control de aforo salas de espera, detección de caídas pacientes, monitoreo acceso zonas restringidas (RX, esterilización).",
+      "Hikvision 2MP WDR + IA: control de aforo salas de espera, detección de caídas de pacientes, analítica de acceso a zonas restringidas (RX, esterilización).",
     result:
       "Cumplimiento normativo HIPAA/Ley 1581. Cero incidentes en zona RX. Alerta automática a enfermería ante caída (tiempo respuesta < 30 seg).",
   },

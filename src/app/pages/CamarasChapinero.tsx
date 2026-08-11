@@ -12,12 +12,12 @@ export function CamarasChapinero() {
   const negocios = [
     {
       titulo: "Clínicas y Consultorios",
-      desc: "Control de aforo, cumplimiento de normas PPE para personal sanitario y monitoreo de áreas restringidas con alertas en tiempo real.",
+      desc: "Control de aforo, cumplimiento de normas PPE para personal sanitario y analítica de áreas restringidas con alertas en tiempo real.",
       icon: "🏥",
     },
     {
       titulo: "Restaurantes",
-      desc: "Analítica de aforo para optimizar servicio, detección de intrusión nocturna y monitoreo de cocina con cámaras ambientadas.",
+      desc: "Analítica de aforo para optimizar servicio, detección de intrusión nocturna y analítica de cocina con cámaras ambientadas.",
       icon: "🍽️",
     },
     {
@@ -120,7 +120,7 @@ export function CamarasChapinero() {
           Cámaras de Seguridad en Chapinero, Bogotá
         </h1>
         <p className="text-lg mb-6" style={{ color: "var(--color-muted-foreground)" }}>
-          Videovigilancia inteligente para clínicas, restaurantes y oficinas en Chapinero.
+          Soluciones de video con IA para clínicas, restaurantes y oficinas en Chapinero.
           Cumplimiento normativo, control de aforo y protección de personal con tecnología
           de analítica de IA y reconocimiento PPE.
         </p>

@@ -328,7 +328,7 @@ export function CamarasNegocio() {
               {
                 icon: UtensilsCrossed,
                 title: "Restaurante",
-                desc: "Monitoreo de cocina, sala y barra. Control de aforo para cumplimiento IDEA. Cámaras resistentes a humedad y grasas industriales.",
+                desc: "Analítica de cocina, sala y barra. Control de aforo para cumplimiento IDEA. Cámaras resistentes a humedad y grasas industriales.",
                 cameras: "6-12 cámaras",
                 zones: "Cocina · Sala · Barra · Bodega",
               },
@@ -342,7 +342,7 @@ export function CamarasNegocio() {
               {
                 icon: Car,
                 title: "Estacionamiento",
-                desc: "LPR (reconocimiento de placas) para control de acceso. Cámaras ANPR con flash IR para lectura 24/7. Monitoreo de cajones y control de permanencia.",
+                desc: "LPR (reconocimiento de placas) para control de acceso. Cámaras ANPR con flash IR para lectura 24/7. Analítica de cajones y control de permanencia.",
                 cameras: "8-16 cámaras",
                 zones: "Entrada · Salida · Pisos · Vigilancia",
               },
@@ -479,7 +479,7 @@ export function CamarasNegocio() {
               {
                 icon: Brain,
                 step: "03",
-                title: "Configuración IA y Monitoreo",
+                title: "Configuración IA y alertas",
                 desc: "Configuramos la analítica de video (YOLO v8): detección de personas, control de aforo, alertas de intrusión. Conectamos las alertas a su WhatsApp o CRM. Le entrenamos para usar la app Remotion.",
                 time: "2-4 horas",
               },
@@ -487,7 +487,7 @@ export function CamarasNegocio() {
                 icon: Headphones,
                 step: "04",
                 title: "Soporte Continuo",
-                desc: "Monitoreo remoto del sistema. Si una cámara falla, la detectamos antes de que usted. Soporte técnico vía WhatsApp. Actualizaciones de firmware incluidas. Mantenimiento preventivo cada 6 meses.",
+                desc: "Seguimiento remoto del sistema con alertas automáticas. Si una cámara falla, usted recibe un aviso por WhatsApp antes de notar la caída. Soporte técnico vía WhatsApp. Actualizaciones de firmware incluidas. Mantenimiento preventivo cada 6 meses.",
                 time: "24/7",
               },
             ].map((item, i) => (

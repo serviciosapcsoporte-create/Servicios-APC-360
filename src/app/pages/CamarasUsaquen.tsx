@@ -12,17 +12,17 @@ export function CamarasUsaquen() {
   const negocios = [
     {
       titulo: "Restaurantes Gourmet",
-      desc: "Analítica de aforo para optimizar mesas, monitoreo de cocina y entrada/salida de personal con reconocimiento facial.",
+      desc: "Analítica de aforo para optimizar mesas, analítica de cocina y entrada/salida de personal con reconocimiento facial.",
       icon: "🍷",
     },
     {
       titulo: "Hoteles Boutique",
-      desc: "Control de acceso por habitaciones, vigilancia de áreas comunes y lobby con IA que detecta comportamientos anómalos.",
+      desc: "Control de acceso por habitaciones, cobertura de áreas comunes y lobby con IA que detecta comportamientos anómalos.",
       icon: "🏨",
     },
     {
       titulo: "Oficinas Corporativas",
-      desc: "Seguridad perimetral, control de acceso con credenciales y monitoreo de salas de servidores con alertas en tiempo real.",
+      desc: "Cobertura perimetral, control de acceso con credenciales y analítica de salas de servidores con alertas en tiempo real.",
       icon: "🏢",
     },
   ];
@@ -116,7 +116,7 @@ export function CamarasUsaquen() {
           Cámaras de Seguridad en Usaquén, Bogotá
         </h1>
         <p className="text-lg mb-6" style={{ color: "var(--color-muted-foreground)" }}>
-          Videovigilancia de alto nivel para restaurantes, hoteles y oficinas corporativas
+          Video con IA de alto nivel para restaurantes, hoteles y oficinas corporativas
           en Usaquén. Analítica de aforo, control de acceso y protección premium con
           dashboard ejecutivo en tiempo real.
         </p>

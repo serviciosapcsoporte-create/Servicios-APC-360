@@ -35,8 +35,8 @@ export function CamarasSuba() {
       icon: "⏱️",
     },
     {
-      titulo: "Monitoreo 24/7",
-      desc: "Centro de operaciones remoto que vigila tus cámaras y dispara alertas automáticas.",
+      titulo: "Alertas y analítica IA",
+      desc: "Analítica de video en tiempo real que dispara alertas automáticas a tu WhatsApp cuando ocurre un evento.",
       icon: "👁️",
     },
     {
@@ -121,7 +121,7 @@ export function CamarasSuba() {
           Cámaras de Seguridad en Suba, Bogotá
         </h1>
         <p className="text-lg mb-6" style={{ color: "var(--color-muted-foreground)" }}>
-          Soluciones de videovigilancia profesional para cada barrio de Suba.
+          Soluciones de video con IA para cada barrio de Suba.
           Desde La Florida hasta Salitre Oriental, protegemos tu negocio y tu hogar
           con tecnología Hikvision ColorVu y analítica de inteligencia artificial.
         </p>
