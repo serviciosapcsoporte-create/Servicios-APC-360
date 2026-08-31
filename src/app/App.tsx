@@ -9,6 +9,7 @@ import { CamarasFontibon } from "./pages/CamarasFontibon";
 import { CamerasInstalacion } from "./pages/CamerasInstalacion";
 import { CamerasCasa } from "./pages/CamerasCasa";
 import { CamerasPrecios } from "./pages/CamerasPrecios";
+import { MantenimientoCamaras } from "./pages/MantenimientoCamaras";
 import { ConsultorTecnologico } from "./pages/ConsultorTecnologico";
 import { BlogLanding } from "./pages/BlogLanding";
 import {
@@ -366,6 +367,10 @@ export default function App() {
       title: "Precios de Instalación de Cámaras de Seguridad en Bogotá 2026",
       description: "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.800.000 para 4 cámaras con instalación. Precios cerrados, IVA incluido y cotización gratis.",
     },
+    "mantenimiento-camaras": {
+      title: "Mantenimiento de Cámaras de Seguridad en Bogotá | Preventivo y Correctivo",
+      description: "Mantenimiento de cámaras de seguridad en Bogotá: preventivo, correctivo y supervisión remota para Hikvision/Dahua. Limpieza, firmware, cableado y configuración. Desde $180.000. Diagnóstico gratis.",
+    },
     "consultor": {
       title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
       description: "Consultor tecnológico en Bogotá: auditoría de seguridad CCTV con IA, automatización de procesos y dashboards. Diagnóstico gratis con implementación.",
@@ -399,6 +404,7 @@ export default function App() {
     "instalacion": CamerasInstalacion,
     "casa": CamerasCasa,
     "precios-camaras": CamerasPrecios,
+    "mantenimiento-camaras": MantenimientoCamaras,
     "consultor": ConsultorTecnologico,
     "blog": BlogLanding,
   };
