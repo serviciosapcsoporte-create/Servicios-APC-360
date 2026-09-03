@@ -1,4 +1,40 @@
 User-agent: *
 Allow: /
+Disallow: /src/
+Disallow: /node_modules/
+
+# AI Crawlers - Explicitly allowed for LLM visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
 
 Sitemap: https://serviciosapc.site/sitemap.xml
+
+# robots.txt - Servicios APC | Automatizacion e IA para Pymes en Bogota
+# Last updated: 2026-09-03
