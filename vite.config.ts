@@ -24,6 +24,16 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    // Modern browsers only: no transpilation to ES5, no legacy polyfills.
+    // Baseline Widely Available (2026) ≈ ES2022.
+    target: 'es2022',
+    minify: 'esbuild',
+    sourcemap: false,
+    modulePreload: { polyfill: false },
+    // Prefer modern CSS (no prefix-arming for ancient browsers).
+    cssTarget: 'es2022',
+  },
   resolve: {
     alias: {
       // Alias @ to the src directory
