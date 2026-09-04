@@ -62,7 +62,7 @@ const services = [
       "Alertas por Telegram, Email y WhatsApp vía n8n",
     ],
     image:
-      "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Dashboard analítica de video IA sobre cámaras Hikvision",
   },
   {
@@ -82,7 +82,7 @@ const services = [
       "Garantía extendida Hikvision + capa IA incluida",
     ],
     image:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Instalación profesional cámaras Hikvision con analítica IA",
   },
   {
@@ -102,7 +102,7 @@ const services = [
       "Integración con analítica de video: alertas de aforo → WhatsApp",
     ],
     image:
-      "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Bot de WhatsApp para atención automática de clientes",
   },
   {
@@ -122,7 +122,7 @@ const services = [
       "Integración CCTV → Alerta → Acción (WhatsApp, CRM, Dashboard)",
     ],
     image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Automatización de procesos empresariales con n8n",
   },
   {
@@ -142,7 +142,7 @@ const services = [
       "Exportación a Excel/CSV para contabilidad",
     ],
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Dashboard ejecutivo con métricas CCTV + CRM + ventas",
   },
   {
@@ -162,7 +162,7 @@ const services = [
       "CTAs cruzados: Web → WhatsApp Bot → CCTV Demo",
     ],
     image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=560&fit=crop&auto=format&fm=webp&q=70",
+      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Desarrollo web y posicionamiento SEO local en Bogotá",
   },
 ];
@@ -418,7 +418,7 @@ export default function App() {
         <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button onClick={() => { window.location.hash = ""; }} className="flex items-center gap-2.5">
-              <img src="/logo.png" alt="Servicios APC" className="h-8 w-auto" />
+              <img src="/logo.webp" alt="Servicios APC" className="h-8 w-auto" />
               <span className="text-foreground font-semibold text-sm hidden sm:block">Servicios APC</span>
             </button>
             <a href="https://wa.me/573337450634" target="_blank" rel="noopener noreferrer"
@@ -494,7 +494,7 @@ export default function App() {
             className="flex items-center gap-2.5"
           >
             <img
-              src="/logo.png"
+              src="/logo.webp"
               alt="Servicios APC"
               className="h-9 w-auto"
             />
@@ -585,7 +585,7 @@ export default function App() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1600&h=900&fit=crop&auto=format&fm=webp&q=70"
+            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1200&h=675&fit=crop&auto=format&fm=webp&q=40"
             alt="Ciudad moderna iluminada representando tecnología e innovación en Bogotá"
             className="w-full h-full object-cover opacity-25"
             width={1600}
@@ -1320,7 +1320,7 @@ export default function App() {
             {/* Brand */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <img src="/logo.png" alt="Servicios APC" className="h-9 w-auto" />
+                <img src="/logo.webp" alt="Servicios APC" className="h-9 w-auto" />
                 <span className="text-foreground font-semibold text-sm">
                   Servicios APC
                 </span>
