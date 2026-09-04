@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel SEO - Servicios APC</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.container{max-width:1200px;margin:0 auto;padding:24px}
+header{text-align:center;padding:40px 0 30px;border-bottom:1px solid #1e293b;margin-bottom:40px}
+header h1{font-size:2rem;font-weight:800;color:#f8fafc;margin-bottom:8px}
+header p{color:#94a3b8;font-size:.95rem}
+.score-card{background:linear-gradient(135deg,#1e293b,#334155);border-radius:16px;padding:32px;margin-bottom:32px;text-align:center;border:1px solid #475569}
+.score-number{font-size:4rem;font-weight:900;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.score-label{color:#94a3b8;font-size:.9rem;margin-top:8px}
+.score-meta{display:flex;justify-content:center;gap:32px;margin-top:16px;flex-wrap:wrap}
+.score-meta .stat{text-align:center}
+.score-meta .stat .val{font-size:1.4rem;font-weight:700;color:#38bdf8}
+.score-meta .stat .lbl{font-size:.75rem;color:#64748b;margin-top:4px}
+.phases{display:grid;gap:24px;margin-bottom:32px}
+.phase{background:#1e293b;border-radius:12px;border:1px solid #334155;overflow:hidden}
+.phase-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;user-select:none;transition:background .2s}
+.phase-header:hover{background:#253347}
+.phase-info{display:flex;align-items:center;gap:16px}
+.phase-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.phase-icon.done{background:#065f46;color:#34d399}
+.phase-icon.pending{background:#78350f;color:#fbbf24}
+.phase-title{font-size:1.1rem;font-weight:700;color:#f1f5f9}
+.phase-subtitle{font-size:.8rem;color:#64748b;margin-top:2px}
+.phase-status{font-size:.8rem;font-weight:600;padding:4px 12px;border-radius:20px}
+.phase-status.done{background:#065f46;color:#34d399}
+.phase-status.pending{background:#78350f;color:#fbbf24}
+.phase-body{padding:0 24px 20px;display:none}
+.phase-body.open{display:block}
+.tasks{display:grid;gap:8px}
+.task{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#0f172a;border-radius:8px;border:1px solid #1e293b}
+.task-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.task-dot.done{background:#34d399}
+.task-dot.pending{background:#fbbf24}
+.task-text{flex:1;font-size:.9rem;color:#cbd5e1}
+.task-text.done{text-decoration:line-through;color:#64748b}
+.task-time{font-size:.75rem;color:#475569;white-space:nowrap}
+.progress-bar{background:#0f172a;border-radius:6px;height:6px;margin-top:8px;overflow:hidden}
+.progress-fill{background:linear-gradient(90deg,#34d399,#22d3ee);height:100%;border-radius:6px}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.kpi{background:#1e293b;border-radius:12px;padding:24px;border:1px solid #334155;text-align:center}
+.kpi .kpi-val{font-size:2rem;font-weight:800;color:#f8fafc}
+.kpi .kpi-lbl{font-size:.8rem;color:#64748b;margin-top:4px}
+.kpi .kpi-change{font-size:.75rem;margin-top:8px}
+.kpi .kpi-change.up{color:#34d399}
+.kpi .kpi-change.down{color:#ef4444}
+.competitors{background:#1e293b;border-radius:12px;padding:24px;border:1px solid #334155;margin-bottom:32px}
+.competitors h3{font-size:1.1rem;font-weight:700;color:#f1f5f9;margin-bottom:16px}
+.competitor-row{display:flex;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #334155}
+.competitor-row:last-child{border-bottom:none}
+.competitor-name{font-weight:600;color:#e2e8f0;min-width:140px}
+.competitor-weak{color:#fbbf24;font-size:.85rem;flex:1}
+.competitor-advantage{color:#34d399;font-size:.85rem}
+.next-steps{background:#1e293b;border-radius:12px;padding:24px;border:1px solid #334155}
+.next-steps h3{font-size:1.1rem;font-weight:700;color:#f1f5f9;margin-bottom:16px}
+.next-step{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #334155;font-size:.9rem}
+.next-step:last-child{border-bottom:none}
+.next-step .step-num{background:#38bdf8;color:#0f172a;width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.next-step .step-text{color:#cbd5e1}
+.next-step .step-owner{color:#64748b;font-size:.8rem;margin-left:auto;white-space:nowrap}
+footer{text-align:center;padding:30px 0;color:#475569;font-size:.8rem;border-top:1px solid #1e293b;margin-top:30px}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>SEO Dashboard — Servicios APC</h1>
+<p>Panel de estado de todos los agentes SEO | Septiembre 2026</p>
+</header>
+<div class="score-card">
+<div class="score-number">55/100</div>
+<div class="score-label">SEO Score Actual</div>
+<div class="score-meta">
+<div class="stat"><div class="val">13</div><div class="lbl">Paginas creadas</div></div>
+<div class="stat"><div class="val">55</div><div class="lbl">Meta 90 dias</div></div>
+<div class="stat"><div class="val">8</div><div class="lbl">Blog posts</div></div>
+<div class="stat"><div class="val">5</div><div class="lbl">Landings locales</div></div>
+</div>
+</div>
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-val">30+</div><div class="kpi-lbl">Paginas indexadas GSC</div><div class="kpi-change up">↑ Meta: 80+</div></div>
+<div class="kpi"><div class="kpi-val">0</div><div class="kpi-lbl">Resenas GBP</div><div class="kpi-change down">↑ Meta: 50 en 90 dias</div></div>
+<div class="kpi"><div class="kpi-val">5</div><div class="kpi-lbl">Landings locales</div><div class="kpi-change up">↑ Meta: 20</div></div>
+<div class="kpi"><div class="kpi-val">8</div><div class="kpi-lbl">Blog posts indexables</div><div class="kpi-change up">↑ Meta: 14+</div></div>
+</div>
+<div class="phases">
+<div class="phase">
+<div class="phase-header" onclick="togglePhase(this)">
+<div class="phase-info">
+<div class="phase-icon done">✅</div>
+<div><div class="phase-title">FASE 0 — Fundacion Tecnica</div><div class="phase-subtitle">Completada 3 Sept 2026</div></div>
+</div>
+<span class="phase-status done">COMPLETA</span>
+</div>
+<div class="phase-body open">
+<div class="tasks">
+<div class="task"><div class="task-dot done"></div><span class="task-text done">Title cambiado: Camaras Seguridad -> Automatizacion e IA</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">Meta description enfocado automatizacion</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">Schema LocalBusiness + Organization + Service</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">FAQPage: 5 preguntas automatizacion</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">OG tags con imagen local servicios-apc.webp</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">hreflang es-CO</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">robots.txt: permitir AI crawlers</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">llms.txt + llms-full.txt</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">sitemap.xml con URLs reales</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">5 landing pages locales creadas</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">8 blog posts SEO con schema Article</span><span class="task-time">3 Sept</span></div>
+<div class="task"><div class="task-dot done"></div><span class="task-text done">Navbar + footer consistente en todas las paginas</span><span class="task-time">3 Sept</span></div>
+</div>
+</div>
+</div>
+<div class="phase">
+<div class="phase-header" onclick="togglePhase(this)">
+<div class="phase-info">
+<div class="phase-icon pending">📋</div>
+<div><div class="phase-title">FASE 1 — Google Business Profile</div><div class="phase-subtitle">Pendiente — Ejecutar esta semana</div></div>
+</div>
+<span class="phase-status pending">PENDIENTE</span>
+</div>
+<div class="phase-body">
+<div class="tasks">
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Reclamar GBP con serviciosapcsoporte@gmail.com</span><span class="task-time">Owner: Fundador · 30 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Cambiar nombre a "Servicios APC - Automatización e IA Bogotá"</span><span class="task-time">Owner: Fundador · 5 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Configurar categorias (Automatización principal)</span><span class="task-time">Owner: Fundador · 10 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Subir 19+ fotos instalaciones + video</span><span class="task-time">Owner: Fundador · 45 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Cargar 8 servicios/precios en Products</span><span class="task-time">Owner: Fundador · 30 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Precargar 10 Q&A</span><span class="task-time">Owner: Fundador · 20 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Enviar 5 solicitudes reseña por WhatsApp</span><span class="task-time">Owner: Fundador · 15 min</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Configurar citas NAP en todas las propiedades</span><span class="task-time">Owner: Fundador</span></div>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+</div>
+</div>
+<div class="phase">
+<div class="phase-header" onclick="togglePhase(this)">
+<div class="phase-info">
+<div class="phase-icon pending">📝</div>
+<div><div class="phase-title">FASE 2 — Contenido y Links</div><div class="phase-subtitle">Semanas 3-8 — Pendiente</div></div>
+</div>
+<span class="phase-status pending">PENDIENTE</span>
+</div>
+<div class="phase-body">
+<div class="tasks">
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Crear 15 landing pages locales adicionales</span><span class="task-time">Chapinero, Usaquen, Bosa, etc.</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Publicar 14+ blog posts adicionales</span><span class="task-time">Automatizacion, n8n, GPS flotas...</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Schema Article/BlogPosting por cada post</span><span class="task-time">Post-migracion</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">BreadcrumbList en todas las paginas</span><span class="task-time">Post-migracion</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">WebSite + SearchAction para sitelinks</span><span class="task-time">Post-migracion</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Product schema por cada servicio con precio</span><span class="task-time">Post-migracion</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Review/AggregateRating cuando haya 5+ reseñas</span><span class="task-time">Post-GBP</span></div>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+</div>
+</div>
+<div class="phase">
+<div class="phase-header" onclick="togglePhase(this)">
+<div class="phase-info">
+<div class="phase-icon pending">📍</div>
+<div><div class="phase-title">FASE 3 — Local SEO</div><div class="phase-subtitle">Continuo desde Semana 1</div></div>
+</div>
+<span class="phase-status pending">PENDIENTE</span>
+</div>
+<div class="phase-body">
+<div class="tasks">
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Meta: 50 reseñas 5 estrellas en 90 dias</span><span class="task-time">Owner: Fundador</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Sistema: WhatsApp post-instalación → link GBP</span><span class="task-time">Owner: Fundador</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Responder TODAS las reseñas <24h</span><span class="task-time">Owner: Fundador</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Contenido GBP: 2x/semana (foto, caso, tip, oferta)</span><span class="task-time">Owner: Fundador</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Configurar GSC + Analytics</span><span class="task-time">Owner: SEO</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Geo-grid tracking para Posicion Map Pack</span><span class="task-time">Owner: SEO</span></div>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+</div>
+</div>
+<div class="phase">
+<div class="phase-header" onclick="togglePhase(this)">
+<div class="phase-info">
+<div class="phase-icon pending">🔄</div>
+<div><div class="phase-title">FASE 4 — Migración Astro</div><div class="phase-subtitle">Semanas 4-8 — Pendiente</div></div>
+</div>
+<span class="phase-status pending">PENDIENTE</span>
+</div>
+<div class="phase-body">
+<div class="tasks">
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Migrar de React a Astro (SSG por defecto)</span><span class="task-time">Owner: Dev senior · 3 semanas</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">URLs limpias: /servicios/, /ubicacion/, /blog/</span><span class="task-time">Owner: Dev senior</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Islands de React para interactividad</span><span class="task-time">Owner: Dev senior</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">Deploy en Cloudflare Pages</span><span class="task-time">Owner: Dev senior</span></div>
+<div class="task"><div class="task-dot pending"></div><span class="task-text">SEO Score objetivo: 85/100</span><span class="task-time">Owner: Dev + SEO</span></div>
+</div>
+<div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+</div>
+</div>
+</div>
+<div class="competitors">
+<h3>Competidores en Monitoreo</h3>
+<div class="competitor-row"><div class="competitor-name">Energiteca</div><div class="competitor-weak">Solo hardware, sin automatización</div><div class="competitor-advantage">✅ Stack completo IA + n8n + CRM</div></div>
+<div class="competitor-row"><div class="competitor-name">UniBaterias</div><div class="competitor-weak">20 localidades, sin blog, sin IA</div><div class="competitor-advantage">✅ Contenido técnico + automatización</div></div>
+<div class="competitor-row"><div class="competitor-name">Prosegur/Securitas</div><div class="competitor-weak">Caros, rígidos, enfoque seguridad</div><div class="competitor-advantage">✅ Agiles, precios pyme, IA offline</div></div>
+<div class="competitor-row"><div class="competitor-name">Agencias marketing</div><div class="competitor-weak">No tienen IA ni automatización</div><div class="competitor-advantage">✅ Integración Siigo + WhatsApp + CRM</div></div>
+</div>
+<div class="next-steps">
+<h3>Próximos Pasos Inmediatos</h3>
+<div class="next-step"><div class="step-num">1</div><span class="step-text">Reclamar GBP con serviciosapcsoporte@gmail.com</span><span class="step-owner">Fundador · 30 min</span></div>
+<div class="next-step"><div class="step-num">2</div><span class="step-text">Cambiar nombre GBP a "Servicios APC - Automatización e IA Bogotá"</span><span class="step-owner">Fundador · 5 min</span></div>
+<div class="next-step"><div class="step-num">3</div><span class="step-text">Subir 19+ fotos instalaciones + video</span><span class="step-owner">Fundador · 45 min</span></div>
+<div class="next-step"><div class="step-num">4</div><span class="step-text">Build y deploy del sitio actualizado</span><span class="step-owner">Dev · 2 horas</span></div>
+<div class="next-step"><div class="step-num">5</div><span class="step-text">Configurar GSC + Analytics</span><span class="step-owner">SEO · 1 hora</span></div>
+</div>
+<footer><p>Servicios APC — Socio Tecnológico de Automatización para Pymes en Bogotá | Panel generado 3 Septiembre 2026</p></footer>
+</div>
+<script>
+function togglePhase(el){
+  const body = el.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.phase-body').forEach(b => b.classList.remove('open'));
+  if(!isOpen) body.classList.add('open');
+}
+</script>
+</body>
+</html>
