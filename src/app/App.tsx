@@ -945,19 +945,6 @@ export default function App() {
                 })}
               </div>
 
-              {/* Frase motivacional */}
-              <div className="mt-10 relative overflow-hidden">
-                <img
-                  src="/alejandro-frase.jpg"
-                  alt="De la seguridad aprendí a pensar más rápido y mis asistentes IA me conectan un segundo cerebro"
-                  width={1200}
-                  height={674}
-                  className="w-full object-cover aspect-video"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
             </div>
           </div>
         </div>
@@ -1060,6 +1047,22 @@ export default function App() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── BANNER FRASE ──────────────────────────────────── */}
+      <section className="relative w-full overflow-hidden">
+        <picture>
+          <source srcSet="/banner-frase.webp" type="image/webp" />
+          <img
+            src="/banner-frase.jpg"
+            alt="De la seguridad aprendí a pensar más rápido y mis asistentes IA me conectan un segundo cerebro"
+            width={1920}
+            height={1097}
+            className="w-full h-auto object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────── */}
