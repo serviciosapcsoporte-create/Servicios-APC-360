@@ -170,17 +170,17 @@ const services = [
     id: "mantenimiento",
     icon: Wrench,
     color: "#c94a0a",
-    title: "Mantenimiento de Cámaras de Seguridad en Bogotá",
+    title: "Mantenimiento de Cámaras de Seguridad, hecho para que no vuelvas a llamarnos por una emergencia",
     tagline: "Su CCTV funcionando al 100% — y listo para analítica IA.",
     description:
-      "Mantenimiento preventivo y correctivo de cámaras de seguridad y CCTV en Bogotá. Limpieza de lentes, revisión de cableado y fuentes, verificación de grabación continua, actualización de firmware, diagnóstico de puntos ciegos. Trabajamos con Hikvision, Dahua y la mayoría de marcas. Además, alineamos su sistema para que esté listo para analítica IA (conteo, mapas de calor, arqueo de caja) sin comprar hardware nuevo. Desde $180.000 COP/visita preventiva (hasta 4 cámaras). Planes de supervisión remota mensual desde $250.000 COP.",
+      "No llegamos solo a 'revisar si prende'. Nuestro servicio de mantenimiento preventivo de cámaras de seguridad cubre: limpieza de lentes y housing (la razón #1 de video borroso), revisión de cableado, conectores y fuentes de poder, verificación de grabación continua en el DVR/NVR, ajuste de ángulos y enfoque, diagnóstico de puntos ciegos en su local. Trabajamos con Hikvision, Dahua y la mayoría de marcas del mercado colombiano.",
     bullets: [
-      "Mantenimiento preventivo semestral — lentes, cableado, firmware, grabación",
-      "Mantenimiento correctivo — diagnóstico de causa exacta y reparación",
-      "Supervisión remota 24/7 con alertas por WhatsApp de caídas",
-      "Compatible Hikvision, Dahua, Uniview, Axis y marcas RTSP/ONVIF",
-      "Dejamos su infraestructura lista para analítica IA sin hardware nuevo",
-      "Cobertura toda Bogotá: Suba, Kennedy, Chapinero, Usaquén, Fontibón, Centro y más",
+      "Limpieza de lentes y housing — la razón #1 de video borroso",
+      "Revisión de cableado, conectores y fuentes de poder",
+      "Verificación de grabación continua en DVR/NVR",
+      "Ajuste de ángulos y enfoque",
+      "Diagnóstico de puntos ciegos en su local",
+      "Trabajamos con Hikvision, Dahua y la mayoría de marcas colombianas",
     ],
     image:
       "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=683&h=478&fit=crop&auto=format&fm=webp&q=70",
@@ -355,7 +355,7 @@ export default function App() {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [activeService, setActiveService] = useState(0);
+  const [activeService, setActiveService] = useState(5);
   const [openFaq, setOpenFaq] = useState(-1);
   const [hash, setHash] = useState(window.location.hash.slice(1));
 
@@ -768,15 +768,15 @@ export default function App() {
           <div className="grid lg:grid-cols-12 gap-8 mb-16">
             <div className="lg:col-span-3">
               <p className="font-mono text-xs text-accent tracking-widest uppercase">
-                Nuestros Servicios
+                Qué hacemos
               </p>
             </div>
             <div className="lg:col-span-9">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-                Servicios de tecnología y automatización para empresas
+                Mantenimiento de cámaras de seguridad, hecho para que no vuelvas a llamarnos por una emergencia
               </h2>
               <p className="text-muted-foreground max-w-xl leading-relaxed">
-                Tus cámaras no deberían ser un lujo que solo revisas después de un robo. Hacemos mantenimiento de cámaras de seguridad y CCTV para que tu sistema funcione siempre — y de paso, te mostramos todo lo que esas cámaras pueden hacer por tu negocio que hoy no estás usando.
+                No llegamos solo a "revisar si prende". Nuestro servicio de mantenimiento preventivo de cámaras de seguridad cubre limpieza de lentes y housing, revisión de cableado, verificación de grabación continua, ajuste de ángulos y diagnóstico de puntos ciegos. Trabajamos con Hikvision, Dahua y la mayoría de marcas del mercado colombiano.
               </p>
             </div>
           </div>
