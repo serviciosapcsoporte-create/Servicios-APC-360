@@ -1,3 +1,9 @@
 /logo.png /logo.webp 301
 /logo-small.png /logo-small.webp 301
+
+# SPA Hash Routing - All routes serve the same index.html
+# Cloudflare Pages SPA mode
 /* /index.html 200
+
+# API routes (if any)
+# /api/*  /api/index.html 200

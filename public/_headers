@@ -1,15 +1,45 @@
 /*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
   X-UA-Compatible: IE=edge
+  X-Robots-Tag: index, follow
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self' https://api.web3forms.com https://wa.me https://www.google-analytics.com; frame-src https://www.google.com https://www.youtube.com https://wa.me; object-src 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com https://wa.me;
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  X-DNS-Prefetch-Control: on
+  Timing-Allow-Origin: *
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
 /chat/*
   Cache-Control: public, max-age=31536000, immutable
+
 /logo.webp
   Cache-Control: public, max-age=31536000, immutable
+
 /logo-small.webp
   Cache-Control: public, max-age=31536000, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Robots-Tag: index, follow
+
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Robots-Tag: index, follow
+
+/llms.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Robots-Tag: index, follow
+
+/llms-full.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Robots-Tag: index, follow
+
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: index, follow
