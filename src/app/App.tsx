@@ -719,9 +719,7 @@ export default function App() {
                 Servicios de tecnología y automatización para empresas
               </h2>
               <p className="text-muted-foreground max-w-xl leading-relaxed">
-                Soluciones tecnológicas diseñadas para empresas en Bogotá y toda
-                Colombia que quieren operar mejor, reducir pérdidas y crecer con
-                inteligencia.
+                Tus cámaras no deberían ser un lujo que solo revisas después de un robo. Hacemos mantenimiento de cámaras de seguridad y CCTV para que tu sistema funcione siempre — y de paso, te mostramos todo lo que esas cámaras pueden hacer por tu negocio que hoy no estás usando.
               </p>
             </div>
           </div>
