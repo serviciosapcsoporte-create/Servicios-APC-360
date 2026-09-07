@@ -413,6 +413,63 @@ export default function App() {
       document.head.appendChild(desc);
     }
     desc.setAttribute("content", meta.description);
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", `https://serviciosapc.site/${hash === "inicio" ? "" : hash + "/"}`);
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement("meta");
+      ogTitle.setAttribute("property", "og:title");
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute("content", meta.title);
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement("meta");
+      ogDesc.setAttribute("property", "og:description");
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute("content", meta.description);
+    let ogUrl = document.querySelector('meta[property="og:url"]');
+    if (!ogUrl) {
+      ogUrl = document.createElement("meta");
+      ogUrl.setAttribute("property", "og:url");
+      document.head.appendChild(ogUrl);
+    }
+    ogUrl.setAttribute("content", `https://serviciosapc.site/${hash === "inicio" ? "" : hash + "/"}`);
+    let ogType = document.querySelector('meta[property="og:type"]');
+    if (!ogType) {
+      ogType = document.createElement("meta");
+      ogType.setAttribute("property", "og:type");
+      document.head.appendChild(ogType);
+    }
+    ogType.setAttribute("content", hash.startsWith("blog") ? "article" : "website");
+    if (hash.startsWith("blog")) {
+      const existing = document.querySelector('script[type="application/ld+json"]');
+      if (existing) existing.remove();
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": meta.title,
+        "description": meta.description,
+        "image": "https://serviciosapc.site/blog/mantenimiento-de-camaras-de-seguridad/hero.jpg",
+        "author": { "@type": "Organization", "name": "Servicios APC" },
+        "publisher": { "@type": "Organization", "name": "Servicios APC", "logo": { "@type": "ImageObject", "url": "https://serviciosapc.site/logo.png" } },
+        "datePublished": "2026-09-06",
+        "dateModified": "2026-09-07",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": `https://serviciosapc.site/blog/${hash}/` },
+        "keywords": "mantenimiento de cámaras de seguridad, mantenimiento CCTV Bogotá, Hikvision, analítica video IA",
+        "articleSection": "Mantenimiento & IA"
+      };
+      const script = document.createElement("script");
+      script.setAttribute("type", "application/ld+json");
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    }
   }, [hash]);
 
   const landingPages: Record<string, () => JSX.Element> = {
