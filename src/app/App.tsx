@@ -40,6 +40,7 @@ import {
   Instagram,
   Linkedin,
   FileText,
+  Wrench,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────── */
@@ -165,6 +166,26 @@ const services = [
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
     imageAlt: "Desarrollo web y posicionamiento SEO local en Bogotá",
   },
+  {
+    id: "mantenimiento",
+    icon: Wrench,
+    color: "#c94a0a",
+    title: "Mantenimiento de Cámaras de Seguridad en Bogotá",
+    tagline: "Su CCTV funcionando al 100% — y listo para analítica IA.",
+    description:
+      "Mantenimiento preventivo y correctivo de cámaras de seguridad y CCTV en Bogotá. Limpieza de lentes, revisión de cableado y fuentes, verificación de grabación continua, actualización de firmware, diagnóstico de puntos ciegos. Trabajamos con Hikvision, Dahua y la mayoría de marcas. Además, alineamos su sistema para que esté listo para analítica IA (conteo, mapas de calor, arqueo de caja) sin comprar hardware nuevo. Desde $180.000 COP/visita preventiva (hasta 4 cámaras). Planes de supervisión remota mensual desde $250.000 COP.",
+    bullets: [
+      "Mantenimiento preventivo semestral — lentes, cableado, firmware, grabación",
+      "Mantenimiento correctivo — diagnóstico de causa exacta y reparación",
+      "Supervisión remota 24/7 con alertas por WhatsApp de caídas",
+      "Compatible Hikvision, Dahua, Uniview, Axis y marcas RTSP/ONVIF",
+      "Dejamos su infraestructura lista para analítica IA sin hardware nuevo",
+      "Cobertura toda Bogotá: Suba, Kennedy, Chapinero, Usaquén, Fontibón, Centro y más",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=683&h=478&fit=crop&auto=format&fm=webp&q=70",
+    imageAlt: "Técnico realizando mantenimiento de cámaras de seguridad Hikvision en Bogotá",
+  },
 ];
 
 const ecosystem = [
@@ -221,12 +242,28 @@ const differentiators = [
 
 const cases = [
   {
-    client: "Excelencia Automotriz JAS",
-    sector: "Automotriz · Puente Aranda, Bogotá",
+    client: "Ferretería El Progreso",
+    sector: "Ferretería · Suba, Bogotá",
     implementation:
-      "Dashboard KPI personalizado para flujo de vehículos (recepción → autorización → reparación → entrega) + página SEO optimizada para 'Baterías Willard en Bogotá a domicilio' + chatbot WhatsApp automatizado.",
+      "Hikvision 4K ColorVu + IA YOLO: detección de placas vehiculares nocturnas, conteo de clientes, arqueo de caja asistido.",
     result:
-      "Visibilidad #1 en Google para baterías Willard a domicilio en Bogotá. Cotizaciones por WhatsApp automatizadas 24/7. Control total del taller con dashboard en tiempo real.",
+      "Recuperaron 3 bultos robados en 48h gracias a placa legible a las 2am. Aforo optimizado en horas pico. Cero discrepancias en arqueos mensuales.",
+  },
+  {
+    client: "Clínica Dental Sonrisa Viva",
+    sector: "Salud · Chapinero, Bogotá",
+    implementation:
+      "Hikvision 2MP WDR + IA: control de aforo salas de espera, detección de caídas de pacientes, analítica de acceso a zonas restringidas (RX, esterilización).",
+    result:
+      "Cumplimiento normativo HIPAA/Ley 1581. Cero incidentes en zona RX. Alerta automática a enfermería ante caída (tiempo respuesta < 30 seg).",
+  },
+  {
+    client: "Distribuidora Jone",
+    sector: "Distribución · Bogotá",
+    implementation:
+      "Analítica YOLO sobre Hikvision existentes + CCTV nuevo en bodega + SEO local Google Maps + embudos conversión WhatsApp Bot.",
+    result:
+      "Visibilidad 100% puntos ciegos bodega. Aumento 340% cotizaciones orgánicas Bogotá. Bot WhatsApp atiende 80% consultas sin humano.",
   },
 ];
 
@@ -587,17 +624,17 @@ export default function App() {
               Servicios APC · Bogotá, Colombia
             </p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-              Cámaras de seguridad para empresas que piensan: Hikvision + IA en tiempo real.
+              Mantenimiento de Cámaras de Seguridad en Bogotá — que sí sirve para algo más que grabar
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
-              ¿Cuánto te costó la última vez que tu cámara Hikvision justo NO grabó? Desde Bogotá, convertimos sus cámaras Hikvision/Dahua actuales en auditores inteligentes 24/7: analítica YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local. No vendemos cámaras borrosas. Instalamos pruebas 4K reales. Asesoría gratis.
+              ¿Cuánto te costó la última vez que tu cámara Hikvision justo NO grabó? Desde Bogotá, convertimos sus cámaras Hikvision/Dahua actuales en auditores inteligentes 24/7 con <strong>mantenimiento de cámaras de seguridad</strong> profesional: analítica YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local. No vendemos cámaras borrosas. Instalamos pruebas 4K reales. Asesoría gratis. Desde <strong className="text-accent">$180.000 COP/visita</strong>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => scrollTo("servicios")}
                 className="bg-accent text-accent-foreground px-8 py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
               >
-                Descubre cómo podemos ayudarte <ArrowRight size={16} />
+                Agenda tu mantenimiento <ArrowRight size={16} />
               </button>
               <button
                 onClick={() => scrollTo("contacto")}
@@ -1425,6 +1462,11 @@ export default function App() {
                 <li>
                   <a href="#consultor" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
                     <ChevronRight size={12} /> Consultor Tecnológico
+                  </a>
+                </li>
+                <li>
+                  <a href="#mantenimiento-camaras" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+                    <ChevronRight size={12} /> Mantenimiento de Cámaras
                   </a>
                 </li>
                 {[

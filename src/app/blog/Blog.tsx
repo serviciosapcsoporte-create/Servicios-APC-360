@@ -42,6 +42,7 @@ import post16 from "./posts/cuanto-cuesta-camaras-seguridad-negocio-bogota-2026.
 import post17 from "./posts/mejores-camaras-seguridad-local-comercial-bogota.mdx?raw";
 import post18 from "./posts/camaras-seguridad-bodega-bogota-monitoreo-inteligente.mdx?raw";
 import post19 from "./posts/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia.mdx?raw";
+import post20 from "./posts/mantenimiento-de-camaras-de-seguridad.mdx?raw";
 
 const POSTS_RAW: Record<string, string> = {
   "guia-camaras-hikvision-ia-empresas-bogota-2026": post1,
@@ -63,6 +64,7 @@ const POSTS_RAW: Record<string, string> = {
   "mejores-camaras-seguridad-local-comercial-bogota": post17,
   "camaras-seguridad-bodega-bogota-monitoreo-inteligente": post18,
   "instalacion-camaras-seguridad-negocio-pequeno-bogota-guia": post19,
+  "mantenimiento-de-camaras-de-seguridad": post20,
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {
