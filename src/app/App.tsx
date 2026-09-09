@@ -242,28 +242,12 @@ const differentiators = [
 
 const cases = [
   {
-    client: "Ferretería El Progreso",
-    sector: "Ferretería · Suba, Bogotá",
+    client: "Excelencia Automotriz JAS",
+    sector: "Automotriz · Puente Aranda, Bogotá",
     implementation:
-      "Hikvision 4K ColorVu + IA YOLO: detección de placas vehiculares nocturnas, conteo de clientes, arqueo de caja asistido.",
+      "Dashboard KPI personalizado para flujo de vehículos (recepción → autorización → reparación → entrega) + página SEO optimizada para 'Baterías Willard en Bogotá a domicilio' + chatbot WhatsApp automatizado.",
     result:
-      "Recuperaron 3 bultos robados en 48h gracias a placa legible a las 2am. Aforo optimizado en horas pico. Cero discrepancias en arqueos mensuales.",
-  },
-  {
-    client: "Clínica Dental Sonrisa Viva",
-    sector: "Salud · Chapinero, Bogotá",
-    implementation:
-      "Hikvision 2MP WDR + IA: control de aforo salas de espera, detección de caídas de pacientes, analítica de acceso a zonas restringidas (RX, esterilización).",
-    result:
-      "Cumplimiento normativo HIPAA/Ley 1581. Cero incidentes en zona RX. Alerta automática a enfermería ante caída (tiempo respuesta < 30 seg).",
-  },
-  {
-    client: "Distribuidora Jone",
-    sector: "Distribución · Bogotá",
-    implementation:
-      "Analítica YOLO sobre Hikvision existentes + CCTV nuevo en bodega + SEO local Google Maps + embudos conversión WhatsApp Bot.",
-    result:
-      "Visibilidad 100% puntos ciegos bodega. Aumento 340% cotizaciones orgánicas Bogotá. Bot WhatsApp atiende 80% consultas sin humano.",
+      "Visibilidad #1 en Google para baterías Willard a domicilio en Bogotá. Cotizaciones por WhatsApp automatizadas 24/7. Control total del taller con dashboard en tiempo real.",
   },
 ];
 
@@ -1097,7 +1081,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-px bg-border">
+          <div className="grid md:grid-cols-2 gap-px bg-border max-w-3xl mx-auto">
             {cases.map((c) => (
               <div key={c.client} className="bg-background p-8">
                 <Quote size={24} className="text-accent mb-5" />
@@ -1121,6 +1105,25 @@ export default function App() {
                 </p>
               </div>
             ))}
+
+            {/* Espacio editorial: sin casos ficticios — solo CTA real */}
+            <div className="bg-background p-8 flex flex-col justify-center">
+              <p className="font-serif text-xl font-bold mb-3">
+                ¿Su empresa es la próxima?
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                Armamos su caso con datos reales: dashboard, automatización e
+                infraestructura lista para IA.
+              </p>
+              <a
+                href="https://wa.me/573337450634?text=Hola%2C%20quiero%20ser%20el%20pr%C3%B3ximo%20caso%20de%20%C3%A9xito%20de%20Servicios%20APC"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 w-fit text-sm font-medium text-accent border border-accent/40 px-5 py-2.5 hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <MessageCircle size={14} /> Ser el próximo caso
+              </a>
+            </div>
           </div>
         </div>
       </section>
