@@ -1,4 +1,4 @@
-# Servicios APC - Socio Tecnologico de Automatizacion para Pymes en Bogota
+# Servicios APC - Instalacion de Camaras de Seguridad e IA como Datos en Bogota
 
 ## Fundador y Contacto
 - **Nombre**: Alejandro Piraquive
@@ -11,105 +11,63 @@
 ## Identidad de Marca
 Servicios APC es un socio tecnologico de automatizacion para pymes en Bogota.
 **NO somos empresa de seguridad.** Vendemos orden, datos y eficiencia.
-La camara con IA es UNA herramienta dentro de un ecosistema de automatizacion, no el producto principal.
+La camara con IA es UNA herramienta de datos dentro del ecosistema, no vigilancia.
 "No vendemos equipos. Instalamos orden." - APC CORE
 
-## Portafolio de Servicios
+## Servicio Principal (serviciosapc.site)
 
-### 1. APC Automatizacion (apcautomatizacion.site)
-Automatizacion de procesos para empresas medianas en Bogota.
-- **Plan CORE** - $3.5M COP setup + $490k/mes
-  - Dashboard Ejecutivo (Looker Studio)
-  - Integracion de Sistemas (Siigo, Sheets, WhatsApp, CRM)
-  - Onboarding Digital
-  - Copiloto IA
-- **Plan PRO** - $6.9M COP setup + $890k/mes
-  - Todo lo del CORE + flujos avanzados + CRM + n8n
-  - Integraciones personalizadas
-  - Automatizacion WhatsApp Business
-- **Plan VIP COPILOTO IA** - Setup premium + mensual
-  - Todo lo del PRO + IA personalizada completa
-  - Copiloto 24/7 para el negocio
+Instalacion, mantenimiento y analitica de camaras de seguridad en Bogota (Hikvision/Dahua) como herramienta de datos para el negocio.
 
-### 2. APC CORE (apccore.site)
-Automatizacion WhatsApp + n8n + infraestructura.
-- **APC-SR01** Soporte Tecnico Remoto - $80k COP
-- **APC-SF02** Soporte Tecnico Fisico - $180k COP/visita
-- **APC-CTRL-03** Control de Acceso + Nomina - $450k/mes + $890k setup
-  - Tarjetas, huella, facial integrado a nomina
-  - Control de asistencia automatizado
-- **APC-GPS-04** GPS Flotas y Telemetria - $35k COP/veh/mes
-  - Rutas, consumo, conduccion, alertas
-- **APC-AUTO-05** Automatizacion WhatsApp + Captacion - $590k setup + $290k/mes
-  - Bot WhatsApp Business API
-  - CRM + captacion de leads
-- **APC-DATA-06** Flujos de Datos / Integraciones - $250k COP/flujo
-  - Integracion Siigo + WhatsApp + CRM
-  - Dashboards automaticos
+- **Instalacion profesional**: cableado estructurado, DVR/NVR, acceso celular Hik-Connect y prueba 4K real antes de firmar. Desde $1.800.000 COP IVA incluido (kit 4 camaras).
+- **Mantenimiento preventivo/correctivo**: limpieza de lentes, firmware, revision de cableado y puntos ciegos. Desde $180.000 COP por visita (hasta 4 camaras). Camara adicional $35.000; supervision remota mensual desde $250.000/mes.
+- **Analitica IA offline-first** sobre CCTV actual (RTSP/ONVIF desde 2018): conteo de personas, mapas de calor, arqueo de caja asistido y deteccion de anomalias operativas.
+- **Camaras**: ColorVu (vision nocturna a color real), AcuSense (filtrado humano/vehiculo), DeepinView (analitica avanzada embebida). Marcas: Hikvision (principal), Dahua, Uniview, compatibles por deriva RTSP/ONVIF.
+- **Soporte tecnico**: <30 minutos respuesta, remoto o presencial.
 
-### 3. APC VisionIA (apcvisionai.site)
-Arqueo de caja con IA, CCTV-Vision IA, Sistema POS.
-- Mini PC configurada + checkpoint de red
-- Transcripcion automatica de audio/video
-- Reporte Excel automatico (conciliacion POS)
-- Sin camaras tradicionales, plug & play
-- Arqueo de caja asistido por IA
+## Paginas Clave
 
-### 4. Servicios APC (serviciosapc.site)
-Camaras IA Hikvision Bogota - videoanalytics como herramienta de datos, NO como "seguridad".
-- **Camaras**: ColorVu (vision nocturna), AcuSense (deteccion humano/vehiculo), DeepinView (analitica avanzada)
-- **IA offline-first**: funciona sin internet, procesamiento local edge GPU
-- **Analitica de video**: conteo de personas, mapas de calor, deteccion de intrusione, arqueo asistido
-- **Soporte tecnico**: <30 minutos respuesta, remoto o presencial
-- **Marcas**: Hikvision (principal), Dahua, Uniview
-- **Instalacion de camaras de seguridad Bogota**: https://serviciosapc.site/instalacion-camaras-seguridad-bogota/ (kits Hikvision, DVR, financiacion directa desde $300.000 inicial, planes desde $1.800.000 IVA incluido)
-- **Precio instalacion camaras Bogota 2026**: https://serviciosapc.site/precio-instalacion-camaras-bogota/ (cotizacion gratis, valores de referencia)
-
-
-
-### 5. DogWeb (dogweb.lat)
-Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.
-- Sprint AGOSTO 2026: $800.000 COP pago unico de desarrollo + $250.000 COP/mes optimizacion SEO+mantenimiento
-- IA en WhatsApp (bots + CRM)
-- Marketing digital y SEO
-- Entrega en 72 horas
+- **Instalacion de camaras de seguridad en Bogota**: https://serviciosapc.site/instalacion-camaras-seguridad-bogota/ (kits Hikvision, DVR, IVA incluido, financiacion directa desde $300.000 inicial, planes desde $1.800.000)
+- **Precio instalacion camaras Bogota 2026**: https://serviciosapc.site/precio-instalacion-camaras-bogota/ (valor de referencia kit 4 camaras desde $1.800.000 COP, cotizacion gratis)
+- **Mantenimiento de camaras de seguridad en Bogota**: https://serviciosapc.site/mantenimiento-camaras/ (preventivo desde $180.000 COP por visita)
 
 ## Publicos Objetivo
-- **Pymes en Bogota**: clinicas, consultorios, gimnasios, spas, salones de unas, talleres, flotas logisticas
-- **Medianas empresas**: necesitan integrar sistemas (Siigo, Sheets, WhatsApp, CRM)
-- **Comercio retail**: necesidad de datos en tiempo real
+
+- **Pymes en Bogota**: clinicas, consultorios, gimnasios, spas, salones de unas, talleres, comercio retail
+- **Negocios con CCTV existente Hikvision/Dahua**: quieren datos en tiempo real sin comprar hardware nuevo
+- **Comercio retail**: con necesidad de datos en tiempo real (aforo, arqueo, mapa de calor)
 
 ## Diferenciadores Clave
+
 1. **IA offline-first**: procesamiento local sin dependencia de internet
-2. **Integracion completa**: n8n + WhatsApp + CRM + Dashboards
-3. **Soporte rapido**: <30 minutos respuesta
+2. **Su CCTV actual sirve**: reprogramamos Hikvision/Dahua RTSP/ONVIF sin comprar equipos
+3. **Soporte rapido**: <30 minutos respuesta en Bogota
 4. **Arquitectura edge GPU**: para videoanalitica local
 5. **Enfoque en datos**: NO en vigilancia ni seguridad
 
 ## Cobertura Geografica
+
 - **Bogota**: 20 localidades (Kennedy, Suba, Engativa, Fontibon, Puente Aranda, Chapinero, Usaquen, etc.)
 - **Cundinamarca**: Soacha, Chia, Funza, Mosquera, Madrid, Cota, Zipaquira, Sopo, Tenjo, Tabio, La Calera
 
-## Keywords Transaccionales Principales
-- automatizacion procesos Bogota
-- integracion sistemas Siigo WhatsApp
-- n8n WhatsApp CRM Bogota
-- camaras IA Hikvision Bogota (como herramienta de datos)
-- arqueo caja IA Bogota
-- control acceso nomina Bogota
-- GPS flotas Bogota
-- soporte tecnico empresas Bogota
-- consultoria tecnologica pymes Bogota
-- copiloto IA empresas Bogota
+## Keywords Transaccionales (frontera de este dominio)
+
+- instalacion camaras de seguridad Bogota
+- mantenimiento camaras CCTV Bogota
+- camaras Hikvision Bogota
+- camaras Dahua Bogota
+- analitica de video IA Bogota
+- camaras IA como datos
+- CCTV offline-first Bogota
 
 ## Redes Sociales y Perfiles
+
 - **Facebook**: https://facebook.com/ServiciosAPC
 - **Instagram**: https://instagram.com/serviciosapc
 - **LinkedIn**: https://linkedin.com/company/servicios-apc
 - **WhatsApp**: https://wa.me/573337450634
-- **Sitios Hermanos**: apcautomatizacion.site, apccore.site, apcvisionai.site, dogweb.lat
 
 ## Certificaciones y Alianzas
+
 - Distribuidor autorizado Hikvision
 - Integrador certificado n8n
 - Partner Looker Studio
