@@ -155,7 +155,7 @@ export function CamerasInstalacion() {
             ¿Por qué contratar un instalador certificado y no hacerlo usted mismo?
           </h2>
           <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            En Bogotá se denuncian más de 20.000 hurtos a residencias al año. Un sistema mal instalado crea puntos ciegos, cámaras caídas y evidencia que no sirve. Esto es lo que resuelve una instalación profesional:
+            En Bogotá muchas residencias y negocios dependen de su sistema de cámaras para operar con orden y datos confiables. Un sistema mal instalado crea puntos ciegos, cámaras caídas y grabaciones que no sirven cuando se necesitan. Esto es lo que resuelve una instalación profesional:
           </p>
 
           <div className="space-y-8">

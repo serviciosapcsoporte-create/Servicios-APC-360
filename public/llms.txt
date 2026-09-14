@@ -39,6 +39,8 @@ Camaras IA Hikvision Bogota - videoanalytics como herramienta de datos, NO como 
 - IA offline-first (funciona sin internet)
 - Analitica de video para conteo de personas, arqueo asistido, deteccion de anomalias operativas
 - Soporte tecnico <30 min
+- Instalacion de camaras de seguridad Bogota: https://serviciosapc.site/instalacion-camaras-seguridad-bogota/ (kits Hikvision, DVR, financiacion directa desde $300.000 inicial, planes desde $1.800.000 IVA incluido)
+- Precio instalacion camaras Bogota 2026: https://serviciosapc.site/precio-instalacion-camaras-bogota/ (cotizacion gratis, valores de referencia)
 
 ### DogWeb (dogweb.lat)
 Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.

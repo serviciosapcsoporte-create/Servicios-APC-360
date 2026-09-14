@@ -114,7 +114,7 @@ const faqs = [
   },
   {
     q: "¿Por qué un sistema de cámaras cuesta $1.800.000 cuando veo cámaras wifi en $150.000?",
-    a: "La diferencia está en la grabación. Una cámara wifi barata graba en SD (que se llena, o se roban), no tiene retención de 90 días ni garantía. Un sistema Hikvision con DVR graba 24/7 en local, con respaldo y visión nocturna. Son cosas diferentes: una es un juguete, la otra es evidencia.",
+    a: "La diferencia está en la grabación y la confiabilidad de los datos. Una cámara wifi barata graba en SD (que se llena rápido y puede perderse), no tiene retención de 90 días ni garantía. Un sistema Hikvision con DVR graba 24/7 en local, con respaldo y visión nocturna. Son cosas diferentes: una es un accesorio, la otra es un sistema de datos confiable.",
   },
   {
     q: "¿Ofrecen pagos a cuotas o financiación?",

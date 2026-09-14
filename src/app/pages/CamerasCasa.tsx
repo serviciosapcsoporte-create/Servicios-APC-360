@@ -100,7 +100,7 @@ export function CamerasCasa() {
           </h1>
 
           <p className="font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--color-muted-foreground)" }}>
-            Proteja su hogar con cámaras Hikvision de visión nocturna a color, instalación profesional y app de celular. Desde $600.000 por cámara, instalación el mismo día en Bogotá.
+            Organice su hogar con cámaras Hikvision de visión nocturna a color, instalación profesional y app de celular. Desde $600.000 por cámara, instalación el mismo día en Bogotá.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -376,7 +376,7 @@ export function CamerasCasa() {
             Preguntas frecuentes sobre cámaras para casa
           </h2>
           <p className="font-sans text-lg text-center mb-12" style={{ color: "var(--color-muted-foreground)" }}>
-            Todo lo que necesita saber antes de proteger su hogar:
+            Todo lo que necesita saber antes de instalar su sistema:
           </p>
 
           <div className="space-y-4">
@@ -409,7 +409,7 @@ export function CamerasCasa() {
       <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            Proteja su hogar hoy
+            Optimice su hogar hoy con datos en tiempo real
           </h2>
           <p className="font-sans text-lg mb-8 max-w-xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
             Asesoría gratuita: le decimos cuántas cámaras necesita, con qué tipo y el precio final antes de que perforamos cualquier muro.
