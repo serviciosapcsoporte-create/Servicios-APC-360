@@ -28,6 +28,7 @@ import {
   Linkedin,
   Wrench,
   HardDrive,
+  Shield,
 } from "lucide-react";
 
 /* ─── DATA ─────────────────────────────────────────────── */

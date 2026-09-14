@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component, type ReactNode } from "react";
 import CristalChat from "./components/CristalChat";
 import { MessageCircle } from "lucide-react";
 import { CamarasNegocio } from "./pages/CamarasNegocio";
@@ -16,6 +16,31 @@ import { BlogLanding } from "./pages/BlogLanding";
 import Home from "./pages/Home";
 
 /* ─── COMPONENT ─────────────────────────────────────────── */
+
+class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state: { hasError: boolean } = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen bg-background text-foreground font-sans flex flex-col items-center justify-center gap-4 p-8 text-center">
+          <img src="/logo.webp" alt="Servicios APC" className="h-12 w-auto" />
+          <h1 className="text-xl font-semibold">Algo salió mal al cargar la página.</h1>
+          <p className="text-muted-foreground max-w-md">
+            Recarga la página o escríbenos por WhatsApp y lo resolvemos en minutos.
+          </p>
+          <a href="https://wa.me/573337450634" target="_blank" rel="noopener noreferrer"
+             className="bg-accent text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90">
+            WhatsApp Gratis
+          </a>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 export default function App() {
   const [hash, setHash] = useState(window.location.hash.slice(1));
@@ -147,7 +172,8 @@ export default function App() {
 
   if (LandingPage || blogSlug) {
     return (
-      <div className="min-h-screen bg-background text-foreground font-sans">
+      <ErrorBoundary>
+        <div className="min-h-screen bg-background text-foreground font-sans">
         <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button onClick={() => { window.location.hash = ""; }} className="flex items-center gap-2.5">
@@ -162,9 +188,14 @@ export default function App() {
         </nav>
         {blogSlug ? <BlogLanding slug={blogSlug} /> : <LandingPage />}
         <CristalChat />
-      </div>
+        </div>
+      </ErrorBoundary>
     );
   }
 
-  return <Home />;
+  return (
+    <ErrorBoundary>
+      <Home />
+    </ErrorBoundary>
+  );
 }
