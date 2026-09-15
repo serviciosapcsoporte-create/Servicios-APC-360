@@ -1,0 +1,94 @@
+/* ─── Video Background (landing fondo) ─────────────────────── */
+
+#video-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+#video-bg-container video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.65) contrast(1.1);
+}
+
+#video-bg-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.video-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    circle,
+    rgba(8, 8, 12, 0.4) 0%,
+    rgba(8, 8, 12, 0.85) 100%
+  );
+}
+
+.video-bg-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.3;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(123, 199, 255, 0.05) 0px,
+    rgba(123, 199, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.video-bg-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 44, 89, 0.35),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.video-bg[data-active] .video-bg-tint {
+  opacity: 0.45;
+}
+
+/* ─── Glassmorphism (capa 3 del prompt) ────────────────────── */
+
+.glass-card {
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  background: rgba(15, 44, 89, 0.45);
+}
+
+@media (max-width: 768px) {
+  .glass-card,
+  .video-bg-scanlines {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .video-bg-scanlines {
+    opacity: 0.15;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #video-bg-container video {
+    animation: none;
+  }
+  #video-bg-container[data-reduced] video {
+    display: none;
+  }
+}

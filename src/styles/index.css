@@ -2,6 +2,7 @@
 @import './tailwind.css';
 @import './theme.css';
 @import './motion.css';
+@import './video-bg.css';
 
 /* ─── Blog Content (Medium-style) ──────────────────────── */
 .blog-content h2 {

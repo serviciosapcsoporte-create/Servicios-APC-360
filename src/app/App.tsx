@@ -171,9 +171,14 @@ export default function App() {
   const LandingPage = landingPages[hash];
 
   if (LandingPage || blogSlug) {
+    const isBlog = blogSlug !== null || hash === "blog";
     return (
       <ErrorBoundary>
-        <div className="min-h-screen bg-background text-foreground font-sans">
+        <div
+          className={`min-h-screen text-foreground font-sans ${
+            isBlog ? "bg-transparent" : "bg-background"
+          }`}
+        >
         <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button onClick={() => { window.location.hash = ""; }} className="flex items-center gap-2.5">

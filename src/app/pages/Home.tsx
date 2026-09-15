@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import CristalChat from "../components/CristalChat";
+import VideoBackground from "../components/VideoBackground";
 import {
   Menu,
   X,
@@ -290,7 +291,14 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+    <div className="min-h-screen text-foreground font-sans overflow-x-hidden">
+      {/* ── VIDEO FONDO ─────────────────────────────────── */}
+      <VideoBackground
+        src="/assets/home-bg.mp4"
+        poster="/assets/hero-poster.jpg"
+        sections={["inicio", "incluye", "proceso", "casos", "contacto"]}
+      />
+
       {/* ── NAV ─────────────────────────────────────────── */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -378,19 +386,7 @@ export default function Home() {
         id="inicio"
         className="relative min-h-screen flex items-center pt-16 overflow-hidden"
       >
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1200&h=675&fit=crop&auto=format&fm=webp&q=40"
-            alt="Cámaras de seguridad con inteligencia artificial en Bogotá"
-            className="w-full h-full object-cover opacity-25"
-            width={1600}
-            height={900}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-        </div>
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-background/90 via-background/60 to-background/20" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -442,7 +438,7 @@ export default function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <div className="card-3d border border-border bg-card/80 backdrop-blur-sm p-8 space-y-4">
+            <div className="card-3d border border-border glass-card p-8 space-y-4">
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
                 Puntos rápidos
               </p>
@@ -499,7 +495,7 @@ export default function Home() {
               return (
                 <div
                   key={s.title}
-                  className="bg-background flex flex-col group reveal"
+                  className="glass-card flex flex-col group reveal"
                   style={{ transitionDelay: `${i * 55}ms` }}
                 >
                   <div className="relative overflow-hidden">
@@ -543,7 +539,7 @@ export default function Home() {
       </section>
 
       {/* ── H2 · PROCESO ────────────────────────────────── */}
-      <section id="proceso" className="py-24 bg-secondary border-y border-border">
+      <section id="proceso" className="py-24 bg-background/30 border-y border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-8 mb-16">
             <div className="lg:col-span-3">
@@ -566,7 +562,7 @@ export default function Home() {
             {processSteps.map((p, i) => (
               <div
                 key={p.n}
-                className="bg-secondary p-8 hover:bg-background transition-colors duration-200 reveal"
+                className="glass-card p-8 hover:bg-background transition-colors duration-200 reveal"
                 style={{ transitionDelay: `${i * 55}ms` }}
               >
                 <p className="font-mono text-3xl font-bold text-accent mb-5">
@@ -663,7 +659,7 @@ export default function Home() {
       </section>
 
       {/* ── QUIÉNES SOMOS ───────────────────────────────── */}
-      <section id="nosotros" className="py-24 bg-secondary border-b border-border">
+      <section id="nosotros" className="py-24 bg-background/30 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 relative">
@@ -769,7 +765,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 gap-px bg-border max-w-3xl mx-auto">
             {cases.map((c) => (
-              <div key={c.client} className="bg-background p-8">
+              <div key={c.client} className="glass-card p-8">
                 <Quote size={24} className="text-accent mb-5" />
                 <h3 className="font-serif text-lg font-bold mb-1">{c.client}</h3>
                 <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-5">
@@ -790,7 +786,7 @@ export default function Home() {
               </div>
             ))}
 
-            <div className="bg-background p-8 flex flex-col justify-center">
+            <div className="glass-card p-8 flex flex-col justify-center">
               <p className="font-serif text-xl font-bold mb-3">
                 ¿Su empresa es la próxima?
               </p>
@@ -812,7 +808,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ─────────────────────────────────────────── */}
-      <section id="faq" className="py-24 bg-secondary border-b border-border">
+      <section id="faq" className="py-24 bg-background/30 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-12 gap-8 mb-16">
             <div className="lg:col-span-3">
@@ -963,7 +959,7 @@ export default function Home() {
               ) : (
                 <form
                   onSubmit={handleSubmit}
-                  className="border border-border p-8 lg:p-10 space-y-6"
+                  className="glass-card border border-border p-8 lg:p-10 space-y-6"
                 >
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
