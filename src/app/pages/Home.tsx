@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import CristalChat from "../components/CristalChat";
 import {
   Menu,
@@ -189,6 +189,29 @@ const faqs = [
 
 /* ─── COMPONENT ─────────────────────────────────────────── */
 
+function useReveal<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !("IntersectionObserver" in window)) return;
+    el.classList.add("reveal-ready");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            el.classList.add("is-visible");
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -208,6 +231,10 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const incluyeReveal = useReveal<HTMLDivElement>();
+  const procesoReveal = useReveal<HTMLDivElement>();
+  const trojanReveal = useReveal<HTMLDivElement>();
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -367,13 +394,13 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
+            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6 hero-enter">
               Servicios APC · Bogotá, Colombia
             </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6 hero-enter hero-enter-d1">
               Instalación de Cámaras de Seguridad en Bogotá — que sí sirve para algo más que grabar
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl hero-enter hero-enter-d2">
               Instalamos cámaras Hikvision y Dahua con cableado estructurado,
               grabación continua en DVR/NVR y acceso desde tu celular por
               Hik-Connect. Prueba 4K real antes de firmar y soporte en menos de
@@ -382,22 +409,22 @@ export default function Home() {
               arqueo asistido y reportes automáticos. Desde{" "}
               <strong className="text-accent">$1.800.000 COP</strong> (kit 4 cámaras, IVA incluido).
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 hero-enter hero-enter-d3">
               <a
                 href="/instalacion-camaras-seguridad-bogota/"
-                className="bg-accent text-accent-foreground px-8 py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
+                className="lift bg-accent text-accent-foreground px-8 py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
               >
                 Cotizar instalación Bogotá <ArrowRight size={16} />
               </a>
               <a
                 href="/precio-instalacion-camaras-bogota/"
-                className="border border-border text-foreground px-8 py-4 font-medium hover:bg-secondary transition-colors"
+                className="lift border border-border text-foreground px-8 py-4 font-medium hover:bg-secondary transition-colors"
               >
                 Ver precios 2026
               </a>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-border">
+            <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-border hero-enter hero-enter-d4">
               {[
                 ["Instalación certificada", "Hikvision y Dahua"],
                 ["Soporte < 30 min", "En Bogotá"],
@@ -415,7 +442,7 @@ export default function Home() {
           </div>
 
           <div className="hidden lg:block">
-            <div className="border border-border bg-card/80 backdrop-blur-sm p-8 space-y-4">
+            <div className="card-3d border border-border bg-card/80 backdrop-blur-sm p-8 space-y-4">
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
                 Puntos rápidos
               </p>
@@ -466,20 +493,21 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {homeIncludes.map((s) => {
+          <div ref={incluyeReveal} className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            {homeIncludes.map((s, i) => {
               const Icon = s.icon;
               return (
                 <div
                   key={s.title}
-                  className="bg-background flex flex-col"
+                  className="bg-background flex flex-col group reveal"
+                  style={{ transitionDelay: `${i * 55}ms` }}
                 >
-                  <div className="relative">
-                    <div className="bg-secondary h-2 w-full absolute top-0 left-0" />
+                  <div className="relative overflow-hidden">
+                    <div className="bg-secondary h-2 w-full absolute top-0 left-0 z-10" />
                     <img
                       src={s.image}
                       alt={s.imageAlt}
-                      className="w-full aspect-[4/3] object-cover"
+                      className="w-full aspect-[4/3] object-cover transition-transform duration-300 ease-out group-hover:scale-[1.04]"
                       width={800}
                       height={560}
                       loading="lazy"
@@ -534,11 +562,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
-            {processSteps.map((p) => (
+          <div ref={procesoReveal} className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
+            {processSteps.map((p, i) => (
               <div
                 key={p.n}
-                className="bg-secondary p-8 hover:bg-background transition-colors duration-200"
+                className="bg-secondary p-8 hover:bg-background transition-colors duration-200 reveal"
+                style={{ transitionDelay: `${i * 55}ms` }}
               >
                 <p className="font-mono text-3xl font-bold text-accent mb-5">
                   {p.n}
@@ -593,8 +622,8 @@ export default function Home() {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="border-t border-border">
-              {trojan.map((t) => {
+            <div ref={trojanReveal} className="border-t border-border">
+              {trojan.map((t, i) => {
                 const Icon = t.icon;
                 return (
                   <a
@@ -602,7 +631,8 @@ export default function Home() {
                     href={`https://${t.domain}?utm_source=serviciosapc_home_trojan`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group border-b border-border flex items-start gap-5 py-7 hover:bg-secondary transition-colors duration-200 px-4"
+                    className="group border-b border-border flex items-start gap-5 py-7 hover:bg-secondary transition-colors duration-200 px-4 reveal"
+                    style={{ transitionDelay: `${i * 55}ms` }}
                   >
                     <div className="w-11 h-11 border border-border flex items-center justify-center flex-shrink-0 group-hover:border-accent/50 transition-colors">
                       <Icon size={18} className="text-accent" />
@@ -822,7 +852,7 @@ export default function Home() {
                     />
                   </button>
                   {open && (
-                    <p className="text-muted-foreground leading-relaxed pb-6 -mt-1">
+                    <p className="text-muted-foreground leading-relaxed pb-6 -mt-1 apc-pop">
                       {f.a}
                     </p>
                   )}
@@ -914,7 +944,7 @@ export default function Home() {
 
             <div className="lg:col-span-7">
               {sent ? (
-                <div className="h-full flex flex-col items-center justify-center border border-border p-12 text-center">
+                <div className="h-full flex flex-col items-center justify-center border border-border p-12 text-center apc-pop">
                   <CheckCircle2 size={48} className="text-accent mb-4" />
                   <h3 className="font-serif text-2xl font-bold mb-3">
                     ¡Mensaje enviado!

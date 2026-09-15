@@ -1,0 +1,114 @@
+/* ─── Motion sutil (B2B) ─────────────────────────────── */
+/* Vocabulario compartido: curvas y duraciones. Solo transform/opacity. */
+
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-fast: 160ms;
+  --dur-base: 300ms;
+  --dur-slow: 320ms;
+  --stagger: 55ms;
+}
+
+/* Respetar prefers-reduced-motion: cruces suaves, nada de movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Entrada del hero (first load → presupuesto delight) ─── */
+@keyframes apc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation: apc-rise var(--dur-base) var(--ease-out) both;
+  will-change: opacity, transform;
+}
+.hero-enter-d1 { animation-delay: 70ms; }
+.hero-enter-d2 { animation-delay: 140ms; }
+.hero-enter-d3 { animation-delay: 210ms; }
+.hero-enter-d4 { animation-delay: 280ms; }
+
+/* Entrada corta para estados que aparecen/desaparecen (FAQ, éxito) */
+@keyframes apc-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.apc-pop {
+  animation: apc-pop-in 220ms var(--ease-out) both;
+}
+
+/* ─── Reveal al hacer scroll (grupos bajo el fold) ───
+   El contenedor recibe .reveal-ready al montar (solo con JS).
+   Al intersecar: .is-visible. Stagger por transition-delay inline. */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+.reveal-ready.is-visible .reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Elevación de CTAs (hover gateado a puntero fino) ─── */
+.lift {
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .lift:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 26px -16px rgba(201, 74, 10, 0.55);
+  }
+}
+.lift:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* ─── 3D sutil en tarjeta del hero (Puntos rápidos) ─── */
+.card-3d {
+  transform-style: preserve-3d;
+  transition:
+    transform var(--dur-slow) var(--ease-out),
+    box-shadow var(--dur-slow) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .card-3d:hover {
+    transform: perspective(1100px) rotateX(1.5deg) rotateY(-1.5deg)
+      translateY(-3px);
+    box-shadow: 0 28px 60px -30px rgba(0, 0, 0, 0.65);
+  }
+  .card-3d:active {
+    transform: perspective(1100px) rotateX(0) rotateY(0) translateY(0)
+      scale(0.99);
+  }
+}
