@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 import {
   ShieldCheck,
   Camera,
@@ -77,75 +78,24 @@ const faqs = [
 export function MantenimientoCamaras() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* ═══════════ HERO ═══════════ */}
-      <section
-        className="relative overflow-hidden py-20 md:py-28 px-6"
-        style={{ backgroundColor: "var(--color-background)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, var(--color-foreground) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Wrench className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-            <span
-              className="text-sm font-sans uppercase tracking-widest"
-              style={{ color: "var(--color-muted-foreground)" }}
-            >
-              Mantenimiento de cámaras · Bogotá 2026
-            </span>
-          </div>
-
-          <span className="inline-block text-xs font-sans font-semibold px-3 py-1 rounded-full mb-6 border" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}>
-            Hikvision / Dahua · Preventivo y correctivo · Visita el mismo día
-          </span>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Mantenimiento de Cámaras de Seguridad en Bogotá
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--color-muted-foreground)" }}>
-            ¿Su cámara graba a negro, se ve borrosa o dejó de grabar? Servicio de mantenimiento preventivo y correctivo para sistemas CCTV Hikvision / Dahua en Bogotá: limpieza, firmware, cableado y configuración. Diagnóstico con causa exacta y cotización antes de intervenir.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-            >
-              Agendar Revisión <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#proceso"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base border-2 transition-all hover:scale-105"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-foreground)" }}
-            >
-              Ver Proceso <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Camera, label: "Preventivo", sub: "desde $180.000 / visita" },
-              { icon: Clock, label: "Respuesta", sub: "< 24 horas" },
-              { icon: ScanLine, label: "Diagnóstico", sub: "causa exacta" },
-              { icon: ShieldCheck, label: "Reparación", sub: "todas las marcas" },
-            ].map((item) => (
-              <div key={item.label} className="text-center">
-                <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
-                <p className="font-sans font-semibold text-sm">{item.label}</p>
-                <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
-              </div>
-            ))}
-          </div>
+      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      <VideoHero
+        title="Mantenimiento de CÃ¡maras de Seguridad en BogotÃ¡"
+        subtitle="Su cÃ¡mara graba a negro, se ve borrosa o dejÃ³ de grabar? Servicio de mantenimiento preventivo y correctivo para sistemas CCTV Hikvision / Dahua en BogotÃ¡: limpieza, firmware, cableado y configuraciÃ³n."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
+      <section className="py-12 bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            [{ icon: Camera, label: "Preventivo", sub: "desde $180.000 / visita" }, { icon: Clock, label: "Respuesta", sub: "< 24 horas" }, { icon: ScanLine, label: "DiagnÃ³stico", sub: "causa exacta" }, { icon: ShieldCheck, label: "ReparaciÃ³n", sub: "todas las marcas" }]
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
+              <p className="font-sans font-semibold text-sm">{item.label}</p>
+              <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
+            </div>
+          ))}
         </div>
       </section>
 

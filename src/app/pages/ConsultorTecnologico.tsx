@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 import {
   Shield,
   Camera,
@@ -69,71 +70,24 @@ const faqs = [
 export function ConsultorTecnologico() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* ═══════════ HERO ═══════════ */}
-      <section
-        className="relative overflow-hidden py-20 md:py-28 px-6"
-        style={{ backgroundColor: "var(--color-background)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, var(--color-foreground) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Brain className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-            <span
-              className="text-sm font-sans uppercase tracking-widest"
-              style={{ color: "var(--color-muted-foreground)" }}
-            >
-              Consultoría tecnológica · Bogotá
-            </span>
-          </div>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Consultor Tecnológico para Empresas en Bogotá
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--color-muted-foreground)" }}>
-            Convertimos la tecnología que ya paga en resultados medibles: seguridad con IA, automatización de procesos y datos que toman decisiones. Diagnóstico con retorno de inversión, sin tecnicismos.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-            >
-              Agendar Diagnóstico <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#metodo"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base border-2 transition-all hover:scale-105"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-foreground)" }}
-            >
-              Ver Metodología <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Search, label: "Diagnóstico", sub: "gratis con implementación" },
-              { icon: BarChart3, label: "ROI", sub: "medido en semanas" },
-              { icon: Lock, label: "Reutiliza", sub: "su CCTV actual" },
-              { icon: Workflow, label: "Procesos", sub: "automatizados con n8n" },
-            ].map((item) => (
-              <div key={item.label} className="text-center">
-                <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
-                <p className="font-sans font-semibold text-sm">{item.label}</p>
-                <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
-              </div>
-            ))}
-          </div>
+      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      <VideoHero
+        title="Consultor TecnolÃ³gico para Empresas en BogotÃ¡"
+        subtitle="Convertimos la tecnologÃ­a que ya paga en resultados medibles: seguridad con IA, automatizaciÃ³n de procesos y datos que toman decisiones. DiagnÃ³stico con retorno de inversiÃ³n, sin tecnicismos."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
+      <section className="py-12 bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            [{ icon: Search, label: "DiagnÃ³stico", sub: "gratis con implementaciÃ³n" }, { icon: BarChart3, label: "ROI", sub: "medido en semanas" }, { icon: Lock, label: "Reutiliza", sub: "su CCTV actual" }, { icon: Workflow, label: "Procesos", sub: "automatizados con n8n" }]
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
+              <p className="font-sans font-semibold text-sm">{item.label}</p>
+              <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
+            </div>
+          ))}
         </div>
       </section>
 

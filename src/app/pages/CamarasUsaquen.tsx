@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 
 export function CamarasUsaquen() {
   const barrios = [
@@ -100,6 +101,12 @@ export function CamarasUsaquen() {
         background: "var(--color-background)",
       }}
     >
+      <VideoHero
+        title="CÃ¡maras de Seguridad en UsaquÃ©n"
+        subtitle="Hoteles boutique, restaurantes gourmet y oficinas corporativas en UsaquÃ©n con reconocimiento facial, control de acceso y analÃ­tica IA."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

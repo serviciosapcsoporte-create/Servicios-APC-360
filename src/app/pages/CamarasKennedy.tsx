@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 
 export function CamarasKennedy() {
   const barrios = [
@@ -100,6 +101,12 @@ export function CamarasKennedy() {
         background: "var(--color-background)",
       }}
     >
+      <VideoHero
+        title="CÃ¡maras de Seguridad en Kennedy"
+        subtitle="Sistemas CCTV con IA para Kennedy, Castilla, Timiza y Patio Bonito: detecciÃ³n de hurtos, control de acceso y alertas automÃ¡ticas vÃ­a WhatsApp."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

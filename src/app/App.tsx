@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CristalChat from "./components/CristalChat";
+import { VideoHero } from "./components/VideoHero";
 import { CamarasNegocio } from "./pages/CamarasNegocio";
 import { CamarasSuba } from "./pages/CamarasSuba";
 import { CamarasKennedy } from "./pages/CamarasKennedy";
@@ -578,72 +579,17 @@ export default function App() {
       </nav>
 
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section
-        id="inicio"
-        className="relative min-h-screen flex items-center pt-16 overflow-hidden"
-      >
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1782743549510-926bf57fc98c?w=1200&h=675&fit=crop&auto=format&fm=webp&q=40"
-            alt="Ciudad moderna iluminada representando tecnología e innovación en Bogotá"
-            className="w-full h-full object-cover opacity-25"
-            width={1600}
-            height={900}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
-        </div>
+      <VideoHero
+        title="Cámaras de seguridad para empresas que piensan: Hikvision + IA en tiempo real."
+        subtitle="¿Cuánto te costó la última vez que tu cámara Hikvision justo NO grabó? Desde Bogotá, convertimos sus cámaras Hikvision/Dahua actuales en auditores inteligentes 24/7."
+        ctaLabel="Descubre cómo podemos ayudarte"
+        onCta={() => scrollTo("servicios")}
+      />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
-              Servicios APC · Bogotá, Colombia
-            </p>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight mb-6">
-              Cámaras de seguridad para empresas que piensan: Hikvision + IA en tiempo real.
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-xl">
-              ¿Cuánto te costó la última vez que tu cámara Hikvision justo NO grabó? Desde Bogotá, convertimos sus cámaras Hikvision/Dahua actuales en auditores inteligentes 24/7: analítica YOLO, CCTV offline-first, bots WhatsApp 24/7 y SEO local. No vendemos cámaras borrosas. Instalamos pruebas 4K reales. Asesoría gratis.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={() => scrollTo("servicios")}
-                className="bg-accent text-accent-foreground px-8 py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center gap-2"
-              >
-                Descubre cómo podemos ayudarte <ArrowRight size={16} />
-              </button>
-              <button
-                onClick={() => scrollTo("contacto")}
-                className="border border-border text-foreground px-8 py-4 font-medium hover:bg-secondary transition-colors"
-              >
-                Hablar con un asesor
-              </button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="flex flex-wrap items-center gap-6 mt-10 pt-10 border-t border-border">
-              {[
-                ["Control del dinero", "Auditoría con IA"],
-                ["Offline-First", "Nunca se pierde nada"],
-                ["Sin tecnicismos", "Reportes claros"],
-              ].map(([label, sub]) => (
-                <div key={label} className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-accent flex-shrink-0" />
-                  <div>
-                    <p className="text-xs font-semibold text-foreground">{label}</p>
-                    <p className="text-xs text-muted-foreground">{sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Hero side card */}
-          <div className="hidden lg:block">
-            <div className="border border-border bg-card/80 backdrop-blur-sm p-8 space-y-4">
+      <section id="inicio-card" className="py-24 bg-secondary border-y border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
                 Nuestros servicios
               </p>
@@ -658,27 +604,55 @@ export default function App() {
                     }}
                     className="w-full flex items-center gap-4 p-4 border border-border hover:border-accent/30 hover:bg-secondary transition-all duration-200 text-left group"
                   >
-                    <Icon
-                      size={18}
-                      style={{ color: s.color }}
-                      className="flex-shrink-0"
-                    />
+                    <Icon size={18} style={{ color: s.color }} className="flex-shrink-0" />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors truncate">
-                        {s.title}
-                      </p>
-                      <p className="text-xs text-muted-foreground truncate">
-                        {s.tagline}
-                      </p>
+                      <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors truncate">{s.title}</p>
+                      <p className="text-xs text-muted-foreground truncate">{s.tagline}</p>
                     </div>
-                    <ChevronRight
-                      size={14}
-                      className="text-muted-foreground flex-shrink-0"
-                    />
+                    <ChevronRight size={14} className="text-muted-foreground flex-shrink-0" />
                   </button>
                 );
               })}
             </div>
+            <div className="hidden lg:block">
+              <div className="border border-border bg-card/80 backdrop-blur-sm p-8 space-y-4">
+                <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">Nuestros servicios</p>
+                {services.map((s, i) => {
+                  const Icon = s.icon;
+                  return (
+                    <button key={s.id} className="w-full flex items-center gap-4 p-4 border border-border hover:border-accent/30 hover:bg-secondary transition-all text-left group">
+                      <Icon size={18} style={{ color: s.color }} className="flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors truncate">{s.title}</p>
+                        <p className="text-xs text-muted-foreground truncate">{s.tagline}</p>
+                      </div>
+                      <ChevronRight size={14} className="text-muted-foreground flex-shrink-0" />
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust indicators */}
+      <section className="py-10 bg-background border-b border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-wrap items-center gap-6">
+            {[
+              ["Control del dinero", "Auditoría con IA"],
+              ["Offline-First", "Nunca se pierde nada"],
+              ["Sin tecnicismos", "Reportes claros"],
+            ].map(([label, sub]) => (
+              <div key={label} className="flex items-center gap-2">
+                <CheckCircle2 size={14} className="text-accent flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-semibold text-foreground">{label}</p>
+                  <p className="text-xs text-muted-foreground">{sub}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
