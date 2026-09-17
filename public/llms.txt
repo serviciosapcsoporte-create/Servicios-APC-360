@@ -40,6 +40,19 @@ Camaras IA Hikvision Bogota - videoanalytics como herramienta de datos, NO como 
 - Analitica de video para conteo de personas, arqueo asistido, deteccion de anomalias operativas
 - Soporte tecnico <30 min
 
+### Instalacion de Camaras de Seguridad Bogota (serviciosapc.site)
+P1 head transaccional: instalacion de camaras de seguridad bogota (500 vol).
+- Kits Hikvision con analitica YOLO, cableado estructurado sin puntos ciegos, NVR PoE
+- Plan Basico 4c $1.8M / Profesional 8c ColorVu $3.2M / Empresarial 16c $5.6M / IA Total $4.5M+
+- Cotizacion gratuita, cobertura Bogota + Cundinamarca
+- URL: /instalacion-camaras-seguridad-bogota/
+
+### Precio Instalacion de Camaras Bogota (serviciosapc.site)
+P2 nicho precio: precio instalacion camaras de seguridad bogota (50 vol).
+- Tabla comparativa 4 planes con IVA incluido, priceValidUntil 2026-12-31
+- Schema Product + AggregateOffer + FAQPage precios
+- URL: /precio-instalacion-camaras-bogota/
+
 ### DogWeb (dogweb.lat)
 Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.
 - Sprint AGOSTO 2026: $800.000 COP pago unico de desarrollo + $250.000 COP/mes optimizacion SEO+mantenimiento

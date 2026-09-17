@@ -1,0 +1,1 @@
+import os; print(" VITE\ if os.path.exists(\node_modules/.bin/vite\) else \NO_VITE\)
