@@ -42,6 +42,7 @@ import {
   Linkedin,
   FileText,
 } from "lucide-react";
+import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 
 /* ─── DATA ─────────────────────────────────────────────── */
 
@@ -413,7 +414,7 @@ export default function App() {
         <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button onClick={() => { window.location.hash = ""; }} className="flex items-center gap-2.5">
-              <img src="/logo.webp" alt="Servicios APC" className="h-8 w-auto" />
+              <ImageWithFallback src="/logo.webp" alt="Servicios APC" className="h-8 w-auto" />
               <span className="text-foreground font-semibold text-sm hidden sm:block">Servicios APC</span>
             </button>
             <a href="https://wa.me/573337450634" target="_blank" rel="noopener noreferrer"
@@ -488,7 +489,7 @@ export default function App() {
             onClick={() => scrollTo("inicio")}
             className="flex items-center gap-2.5"
           >
-            <img
+            <ImageWithFallback
               src="/logo.webp"
               alt="Servicios APC"
               className="h-9 w-auto"
@@ -745,7 +746,7 @@ export default function App() {
                           className="bg-secondary h-2 w-full absolute -top-2 left-0"
                           style={{ backgroundColor: s.color, opacity: 0.3 }}
                         />
-                        <img
+                        <ImageWithFallback
                           src={s.image}
                           alt={s.imageAlt}
                           className="w-full aspect-[4/3] object-cover"
@@ -816,7 +817,7 @@ export default function App() {
               />
               <picture>
                 <source srcSet="/servicios-apc.webp" type="image/webp" />
-                <img
+                <ImageWithFallback
                   src="/servicios-apc.jpeg"
                   alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
                   width={900}
@@ -1288,7 +1289,7 @@ export default function App() {
             {/* Brand */}
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <img src="/logo.webp" alt="Servicios APC" className="h-9 w-auto" />
+                <ImageWithFallback src="/logo.webp" alt="Servicios APC" className="h-9 w-auto" />
                 <span className="text-foreground font-semibold text-sm">
                   Servicios APC
                 </span>

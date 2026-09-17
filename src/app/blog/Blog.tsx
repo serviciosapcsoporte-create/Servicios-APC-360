@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 import { marked } from "marked";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
 export interface BlogPost {
@@ -187,7 +188,7 @@ function ArticleView({
           {/* Cover */}
           {post.coverImage && (
             <figure className="mb-10">
-              <img
+              <ImageWithFallback
                 src={post.coverImage}
                 alt={post.title}
                 className="w-full aspect-[16/9] object-cover"
@@ -288,9 +289,9 @@ function ArticleView({
                       </p>
                     </div>
                     {p.coverImage && (
-                      <img
+                      <ImageWithFallback
                         src={p.coverImage}
-                        alt=""
+                        alt={p.title}
                         className="w-[120px] h-[80px] object-cover rounded-lg flex-shrink-0"
                       />
                     )}
@@ -385,7 +386,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
           >
             {featured.coverImage && (
               <div className="overflow-hidden rounded-2xl">
-                <img
+                <ImageWithFallback
                   src={featured.coverImage}
                   alt={featured.title}
                   className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -436,7 +437,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
             >
               {post.coverImage && (
                 <div className="overflow-hidden rounded-xl mb-4">
-                  <img
+                  <ImageWithFallback
                     src={post.coverImage}
                     alt={post.title}
                     className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
