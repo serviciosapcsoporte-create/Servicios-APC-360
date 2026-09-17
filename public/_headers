@@ -15,4 +15,6 @@
   Cache-Control: public, max-age=0, must-revalidate
 /precio-instalacion-camaras-bogota/index.html
   Cache-Control: public, max-age=0, must-revalidate
+/camaras-seguridad-empresas-bogota/index.html
+  Cache-Control: public, max-age=0, must-revalidate
 /index.html

@@ -53,6 +53,12 @@ P2 nicho precio: precio instalacion camaras de seguridad bogota (50 vol).
 - Schema Product + AggregateOffer + FAQPage precios
 - URL: /precio-instalacion-camaras-bogota/
 
+### Camaras de Seguridad para Empresas Bogota (serviciosapc.site)
+P3 segmento B2B: camaras de seguridad instalacion empresas (50 vol, #1 virgen).
+- Soluciones por vertical: local, bodega, restaurante, oficina, estacionamiento
+- Casos reales Bogota + analitica YOLO + FAQ B2B 8Q
+- URL: /camaras-seguridad-empresas-bogota/
+
 ### DogWeb (dogweb.lat)
 Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.
 - Sprint AGOSTO 2026: $800.000 COP pago unico de desarrollo + $250.000 COP/mes optimizacion SEO+mantenimiento
