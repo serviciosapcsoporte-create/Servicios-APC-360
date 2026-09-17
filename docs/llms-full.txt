@@ -1,0 +1,112 @@
+# Servicios APC - Socio Tecnologico de Automatizacion para Pymes en Bogota
+
+## Fundador y Contacto
+- **Nombre**: Alejandro Piraquive
+- **Telefono**: +57 333 745 0634
+- **Email**: serviciosapcsoporte@gmail.com
+- **Direccion**: Cra. 52c #39b-22, Bogota, Colombia
+- **Web Principal**: https://serviciosapc.site
+- **LinkedIn**: https://es.linkedin.com/in/alejandropiraquive
+
+## Identidad de Marca
+Servicios APC es un socio tecnologico de automatizacion para pymes en Bogota.
+**NO somos empresa de seguridad.** Vendemos orden, datos y eficiencia.
+La camara con IA es UNA herramienta dentro de un ecosistema de automatizacion, no el producto principal.
+"No vendemos equipos. Instalamos orden." - APC CORE
+
+## Portafolio de Servicios
+
+### 1. APC Automatizacion (apcautomatizacion.site)
+Automatizacion de procesos para empresas medianas en Bogota.
+- **Plan CORE** - $3.5M COP setup + $490k/mes
+  - Dashboard Ejecutivo (Looker Studio)
+  - Integracion de Sistemas (Siigo, Sheets, WhatsApp, CRM)
+  - Onboarding Digital
+  - Copiloto IA
+- **Plan PRO** - $6.9M COP setup + $890k/mes
+  - Todo lo del CORE + flujos avanzados + CRM + n8n
+  - Integraciones personalizadas
+  - Automatizacion WhatsApp Business
+- **Plan VIP COPILOTO IA** - Setup premium + mensual
+  - Todo lo del PRO + IA personalizada completa
+  - Copiloto 24/7 para el negocio
+
+### 2. APC CORE (apccore.site)
+Automatizacion WhatsApp + n8n + infraestructura.
+- **APC-SR01** Soporte Tecnico Remoto - $80k COP
+- **APC-SF02** Soporte Tecnico Fisico - $180k COP/visita
+- **APC-CTRL-03** Control de Acceso + Nomina - $450k/mes + $890k setup
+  - Tarjetas, huella, facial integrado a nomina
+  - Control de asistencia automatizado
+- **APC-GPS-04** GPS Flotas y Telemetria - $35k COP/veh/mes
+  - Rutas, consumo, conduccion, alertas
+- **APC-AUTO-05** Automatizacion WhatsApp + Captacion - $590k setup + $290k/mes
+  - Bot WhatsApp Business API
+  - CRM + captacion de leads
+- **APC-DATA-06** Flujos de Datos / Integraciones - $250k COP/flujo
+  - Integracion Siigo + WhatsApp + CRM
+  - Dashboards automaticos
+
+### 3. APC VisionIA (apcvisionai.site)
+Arqueo de caja con IA, CCTV-Vision IA, Sistema POS.
+- Mini PC configurada + checkpoint de red
+- Transcripcion automatica de audio/video
+- Reporte Excel automatico (conciliacion POS)
+- Sin camaras tradicionales, plug & play
+- Arqueo de caja asistido por IA
+
+### 4. Servicios APC (serviciosapc.site)
+Camaras IA Hikvision Bogota - videoanalytics como herramienta de datos, NO como "seguridad".
+- **Camaras**: ColorVu (vision nocturna), AcuSense (deteccion humano/vehiculo), DeepinView (analitica avanzada)
+- **IA offline-first**: funciona sin internet, procesamiento local edge GPU
+- **Analitica de video**: conteo de personas, mapas de calor, deteccion de intrusione, arqueo asistido
+- **Soporte tecnico**: <30 minutos respuesta, remoto o presencial
+- **Marcas**: Hikvision (principal), Dahua, Uniview
+
+### 5. DogWeb (dogweb.lat)
+Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.
+- Sprint AGOSTO 2026: $800.000 COP pago unico de desarrollo + $250.000 COP/mes optimizacion SEO+mantenimiento
+- IA en WhatsApp (bots + CRM)
+- Marketing digital y SEO
+- Entrega en 72 horas
+
+## Publicos Objetivo
+- **Pymes en Bogota**: clinicas, consultorios, gimnasios, spas, salones de unas, talleres, flotas logisticas
+- **Medianas empresas**: necesitan integrar sistemas (Siigo, Sheets, WhatsApp, CRM)
+- **Comercio retail**: necesidad de datos en tiempo real
+
+## Diferenciadores Clave
+1. **IA offline-first**: procesamiento local sin dependencia de internet
+2. **Integracion completa**: n8n + WhatsApp + CRM + Dashboards
+3. **Soporte rapido**: <30 minutos respuesta
+4. **Arquitectura edge GPU**: para videoanalitica local
+5. **Enfoque en datos**: NO en vigilancia ni seguridad
+
+## Cobertura Geografica
+- **Bogota**: 20 localidades (Kennedy, Suba, Engativa, Fontibon, Puente Aranda, Chapinero, Usaquen, etc.)
+- **Cundinamarca**: Soacha, Chia, Funza, Mosquera, Madrid, Cota, Zipaquira, Sopo, Tenjo, Tabio, La Calera
+
+## Keywords Transaccionales Principales
+- automatizacion procesos Bogota
+- integracion sistemas Siigo WhatsApp
+- n8n WhatsApp CRM Bogota
+- camaras IA Hikvision Bogota (como herramienta de datos)
+- arqueo caja IA Bogota
+- control acceso nomina Bogota
+- GPS flotas Bogota
+- soporte tecnico empresas Bogota
+- consultoria tecnologica pymes Bogota
+- copiloto IA empresas Bogota
+
+## Redes Sociales y Perfiles
+- **Facebook**: https://facebook.com/ServiciosAPC
+- **Instagram**: https://instagram.com/serviciosapc
+- **LinkedIn**: https://linkedin.com/company/servicios-apc
+- **WhatsApp**: https://wa.me/573337450634
+- **Sitios Hermanos**: apcautomatizacion.site, apccore.site, apcvisionai.site, dogweb.lat
+
+## Certificaciones y Alianzas
+- Distribuidor autorizado Hikvision
+- Integrador certificado n8n
+- Partner Looker Studio
+- Aliado tecnologico para pymes en Bogota
