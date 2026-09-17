@@ -62,8 +62,7 @@ const services = [
       "Se integra a su CCTV actual Hikvision/Dahua sin comprar hardware nuevo",
       "Alertas por Telegram, Email y WhatsApp vía n8n",
     ],
-    image:
-      "https://images.unsplash.com/photo-1760553120324-d3d2bf53852b?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/blog-img/dashboard-ejecutivo.webp",
     imageAlt: "Dashboard analítica de video IA sobre cámaras Hikvision",
   },
   {
@@ -82,8 +81,7 @@ const services = [
       "Soporte técnico remoto y presencial en Bogotá",
       "Garantía extendida Hikvision + capa IA incluida",
     ],
-    image:
-      "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/blog-img/automatizacion-procesos.webp",
     imageAlt: "Instalación profesional cámaras Hikvision con analítica IA",
   },
   {
@@ -102,8 +100,7 @@ const services = [
       "Transferencia a agente humano cuando se necesita",
       "Integración con analítica de video: alertas de aforo → WhatsApp",
     ],
-    image:
-      "https://images.unsplash.com/photo-1636751364472-12bfad09b451?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/blog-img/integracion-sistemas.webp",
     imageAlt: "Bot de WhatsApp para atención automática de clientes",
   },
   {
@@ -122,8 +119,7 @@ const services = [
       "Notificaciones y alertas automáticas cruzadas",
       "Integración CCTV → Alerta → Acción (WhatsApp, CRM, Dashboard)",
     ],
-    image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/blog-img/eficiencia-empresarial.webp",
     imageAlt: "Automatización de procesos empresariales con n8n",
   },
   {
@@ -142,8 +138,7 @@ const services = [
       "Control de acceso a la información por roles",
       "Exportación a Excel/CSV para contabilidad",
     ],
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/servicios-apc.webp",
     imageAlt: "Dashboard ejecutivo con métricas CCTV + CRM + ventas",
   },
   {
@@ -162,8 +157,7 @@ const services = [
       "Soporte y mantenimiento mensual incluido",
       "CTAs cruzados: Web → WhatsApp Bot → CCTV Demo",
     ],
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=683&h=478&fit=crop&auto=format&fm=webp&q=50",
+    image: "/blog-img/equipo-apc.webp",
     imageAlt: "Desarrollo web y posicionamiento SEO local en Bogotá",
   },
 ];
