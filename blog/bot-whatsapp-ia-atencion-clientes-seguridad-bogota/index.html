@@ -153,28 +153,28 @@
 <p>│  • Dashboard métricas: mensajes/día, resolución, satisfacción   │</p>
 <p>└─────────────────────────────────────────────────────────────────┘</p>
 <p>```</p>
-<h3>Flujo detallado: Ejemplo real</h3>
+<h3>Flujo detallado: ejemplo ilustrativo</h3>
 <p>```</p>
-<p>Cliente (WhatsApp): &quot;Buenos días, soy de la distribuidora Jone en Suba.</p>
+<p>Cliente (WhatsApp): &quot;Buenos días, soy de una distribuidora en Bogotá.</p>
 <p>Necesito saber cuánto cuesta el servicio de vigilancia nocturna</p>
 <p>para nuestra bodega de 1,500 m²&quot;</p>
 <p>│</p>
 <p>▼</p>
-<p>n8n → Identifica: Distribuidora Jone (cliente existente, servicio activo: CCTV 8 cámaras)</p>
+<p>n8n → Identifica: distribuidora (flujo tipo, servicio: CCTV 8 cámaras)</p>
 <p>→ Consulta historial: 2 tickets cerrados, 1 cotización pendiente de acáreo</p>
 <p>→ Envía a GPT con contexto:</p>
 <p>&quot;Responde como asistente de SeguridadTotal SAS.</p>
-<p>Cliente: Distribuidora Jone, Suba.</p>
+<p>Cliente: distribuidora en Bogotá (flujo tipo).</p>
 <p>Servicio activo: CCTV 8 cámaras Hikvision.</p>
 <p>Ticket pendiente: cotización acáreo cámaras.</p>
-<p>Servicios disponibles: Vigilancia 24/7 desde $2.8M/mes.</p>
+<p>Servicios disponibles: Monitoreo con respuesta (cotización personalizada).</p>
 <p>Si pide más detalles, ofrece visita técnica gratuita.&quot;</p>
 <p>│</p>
 <p>▼</p>
-<p>Bot responde: &quot;¡Buenos días, Distribuidora Jone! 👋</p>
+<p>Bot responde: &quot;¡Buenos días! Gracias por contactarnos. 👋</p>
 <p>Gracias por contactarnos. Para una bodega de 1,500 m² en Suba,</p>
 <p>el servicio de vigilancia nocturno (8PM-6AM) con 2 guardias</p>
-<p>cuesta desde $3.2M/mes.</p>
+<p>se cotiza según turnos y cobertura (diagnóstico gratuito).</p>
 <p>Incluye:</p>
 <p>✅ Rondas cada 2 horas con reporte fotográfico</p>
 <p>✅ Alarmas conectadas a central de monitoreo</p>
@@ -203,9 +203,9 @@
 <tr><td>Placa no autorizada</td><td>Bot alerta seguridad: &quot;Vehículo no registrado: ABC-123 en entrada&quot;</td></tr>
 <tr><td>Aforo excedido</td><td>Bot notifica al gerente: &quot;Aforo 95% en bodega. Considerar redirigir entregas&quot;</td></tr>
 </table>
-<h2>Casos reales Bogotá</h2>
-<h3>Caso: Distribuidora Jone — 80% consultas automatizadas</h3>
-<p><strong>Perfil:</strong> Distribuidora de alimentos en Suba, 45 empleados, bodega 1,500 m², 8 cámaras CCTV instaladas. Recibe ~200 mensajes/día en WhatsApp de clientes y proveedores.</p>
+<h2>Ejemplos operativos en Bogotá (flujos tipo)</h2>
+<h3>Ejemplo: distribuidora — consultas automatizadas (flujo tipo)</h3>
+<p><strong>Perfil:</strong> distribuidora de alimentos con bodega, 8 cámaras instaladas y alto volumen de mensajes en WhatsApp de clientes y proveedores.</p>
 <p><strong>Implementación:</strong></p>
 <ul>
 <li>Bot WhatsApp con GPT-4o-mini vía n8n (self-hosted)</li>

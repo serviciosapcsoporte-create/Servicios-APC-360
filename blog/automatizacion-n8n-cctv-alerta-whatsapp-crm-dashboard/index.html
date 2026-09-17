@@ -79,7 +79,7 @@
     <img class="cover" src="/blog-img/integracion-sistemas.webp" alt="Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos" loading="lazy" />
     <div class="answer"><p><strong>En resumen:</strong> Muestra como conectar tus camaras en Bogota a n8n para enviar clips y alertas a WhatsApp, registrar eventos en CRM y visualizarlos en tablero, con logica condicional, reintentos automaticos y operacion local que ahorra integraciones manuales costosas todos los dias.</p></div>
     <h2>El problema</h2>
-<p>Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el ropero ya no está.</p>
+<p>Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el faltante ya ocurrió.</p>
 <p>Este escenario se repite diariamente en miles de negocios en Bogotá: <strong>las cámaras graban, pero no actúan</strong>. La alerta CCTV tradicional depende de que alguien esté mirando un monitor en el momento exacto del evento.</p>
 <p>Los problemas concretos:</p>
 <ul>
@@ -167,9 +167,9 @@
 <li>Tiempo de respuesta del operador</li>
 </ul>
 <p><strong>CRM</strong> registra el incidente automáticamente con toda la metadata para auditorías futuras.</p>
-<h2>Casos reales en Bogotá</h2>
-<h3>Caso 1: Ferretería en Kennedy — Intrusión nocturna</h3>
-<p>Una ferretería en Kennedy tenía 8 cámaras Hikvision conectadas a un NVR básico. Las alertas sonaban en el local cerrado y nadie las escuchaba.</p>
+<h2>Ejemplos operativos típicos en Bogotá</h2>
+<h3>Ejemplo 1: Ferretería — Intrusión nocturna (flujo tipo)</h3>
+<p>Una ferretería con 8 cámaras Hikvision conectadas a un NVR básico. Las alertas sonaban en el local cerrado y nadie las veía a tiempo.</p>
 <p><strong>Implementación:</strong></p>
 <ul>
 <li>Se instaló n8n en un servidor edge con GPU en la bodega</li>
@@ -177,24 +177,24 @@
 <li>Se creó flujo: movimiento nocturno → WhatsApp al dueño + Telegram al grupo de vigilancia</li>
 <li>Se integró sirena IP activada por n8n vía HTTP</li>
 </ul>
-<p><strong>Resultado:</strong> La primera semana detectaron 3 intentos de acceso no autorizado. El dueño recibió WhatsApp con snapshot en 3 segundos. La sirena se activó automáticamente. No hubo pérdidas.</p>
-<h3>Caso 2: Distribuidora en Chapinero — Dashboard de aforo</h3>
-<p>Una distribuidora de alimentos necesitaba controlar el aforo de su bodega durante entregas. n8n conectó las cámaras con un dashboard web que mostraba:</p>
+<p><strong>Resultado:</strong> el dueño recibe WhatsApp con imagen en segundos, la sirena se activa automáticamente y cada evento queda registrado con hora y cámara para auditoría.</p>
+<h3>Ejemplo 2: Distribuidora — Dashboard de aforo (flujo tipo)</h3>
+<p>Una distribuidora de alimentos que necesita controlar el aforo de su bodega durante entregas. n8n conectó las cámaras con un dashboard web que mostraba:</p>
 <ul>
 <li>Personas detectadas por zona (usa YOLO via APC Visión AI)</li>
 <li>Alerta cuando se excedía el aforo máximo</li>
 <li>Registro diario exportable a Excel</li>
 </ul>
-<p><strong>Resultado:</strong> Cumplimiento normativo del 100% y reducción de incidentes de seguridad en un 67%.</p>
-<h3>Caso 3: Centro comercial en Suba — Flujos complejos</h3>
-<p>Un centro comercial con 42 cámaras implementó flujos de n8n con:</p>
+<p><strong>Resultado:</strong> aforo visible en tiempo real, alertas automáticas y registro diario exportable para trazabilidad.</p>
+<h3>Ejemplo 3: Centro comercial — Flujos por zonas (flujo tipo)</h3>
+<p>Un centro comercial con 42 cámaras puede ordenar sus flujos de n8n con:</p>
 <ul>
 <li><strong>Zonificación</strong>: diferentes alertas por zona (estacionamiento, pasillos, tiendas)</li>
 <li><strong>Escalamiento</strong>: si no hay respuesta en 2 minutos → escala al gerente</li>
 <li><strong>Integración con CRM</strong>: cada incidente se registra como ticket</li>
 <li><strong>Reporte semanal automático</strong>: resumen de incidentes enviado por email</li>
 </ul>
-<p><strong>Resultado:</strong> Reducción del 45% en tiempo de respuesta y reportes automáticos para aseguradora.</p>
+<p><strong>Resultado:</strong> menos tiempo manual de respuesta y reporte semanal automático para revisión gerencial.</p>
 <h2>FAQ</h2>
 <h3>¿n8n self-hosted o cloud para seguridad?</h3>
 <p><strong>Self-hosted es la opción recomendada</strong> para empresas de seguridad en Bogotá. Razones:</p>

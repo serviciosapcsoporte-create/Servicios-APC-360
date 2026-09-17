@@ -79,7 +79,7 @@ cta: '{"primary":{"label":"Tengo clínica y necesito cumplimiento + detección c
 - **Alerta:** Clip 10s + ubicación exacta → **Telegram/WhatsApp Enfermería + Seguridad + Gerencia** en **< 30 segundos**
 - **Registro automático:** Evento + clip + ubicación → Reporte PDF mensual para SST / Calidad
 
-> **Caso Clínica Dental Sonrisa Viva (Chapinero):** 3 caídas detectadas en 6 meses. Tiempo respuesta promedio: **22 segundos**. Cero demandas. Antes: 1 caída/no detectada → demanda $180M.
+> **Ejemplo tipo en clínica:** la caída se detecta en segundos y enfermería recibe clip con ubicación exacta, con registro automático para reporte SST/Calidad.
 
 ### 2. PPE Detection (Casco, Chaleco, Guantes, Gafas) en zonas críticas
 
@@ -91,7 +91,7 @@ cta: '{"primary":{"label":"Tengo clínica y necesito cumplimiento + detección c
 | **Chaleco reflectivo** | YOLOv8-seg (torso + vest class) | Inmediata → Jefe Seguridad |
 | **Guantes / Gafas** | YOLOv8-seg (hands + gloves/glasses) | Alerta Supervisor zona |
 
-> **Caso Clínica Cardiovascular (Norte):** Obra ampliación 4 meses. **0 incidentes PPE**. Alertas: 47 (todas resueltas < 5 min). Antes: 3 incidentes leves/año, 2 multas Minsalud.
+> **Ejemplo tipo en obra dentro de clínica:** el EPP se verifica en tiempo real y el supervisor recibe la alerta para corrección inmediata, con trazabilidad por turno.
 
 ### 3. Control de acceso zonas restringidas (RX, Esterilización, Farmacia, Servidores)
 
@@ -116,7 +116,7 @@ cta: '{"primary":{"label":"Tengo clínica y necesito cumplimiento + detección c
 - **Alerta automática:** Si aforo > 80% capacidad → Alerta Gerencia + Recepción → Redirección pacientes
 - **Reporte diario PDF:** Aforo pico, promedio, cumplimiento normativo → Archivo legal
 
-> **Caso Clínica Oftalmológica (Centro):** Aforo pico reducido 35% tras heatmap → redistribución sillas + señalética → 0 multas aforo 2024-2025.
+> **Ejemplo tipo en salas de espera:** el mapa de calor muestra saturación por hora y permite redistribuir sillas y turnos con datos.
 
 ### 5. Privacidad by Design: Ley 1581 / HIPAA cumplidas por arquitectura
 
@@ -148,11 +148,11 @@ cta: '{"primary":{"label":"Tengo clínica y necesito cumplimiento + detección c
 
 ---
 
-## Caso real: Clínica Dental Sonrisa Viva (Chapinero, Bogotá)
+## Ejemplo operativo tipo: clínica con 10 a 20 consultorios (flujo tipo)
 
-**Perfil:** 12 sillas, 2 quirófanos, RX digital, esterilización, 45 empleados, 120 pacientes/día.
+**Perfil tipo:** consultorios, RX digital, esterilización y farmacia, con flujo diario de pacientes y personal por turnos.
 
-**Implementación (Feb 2025):**
+**Configuración tipo:**
 - 8× Hikvision DeepinView 4MP (Salas espera, Baños, Pasillos, Esterilización, RX, Farmacia, Entrada, Parking)
 - 4× Hikvision ColorVu 4K (Entrada principal, Parking, Entrada staff, Entrada proveedores)
 - Servidor Edge NVIDIA RTX A2000 + YOLOv10 custom (caídas, PPE, colas, ANPR)
@@ -171,7 +171,7 @@ cta: '{"primary":{"label":"Tengo clínica y necesito cumplimiento + detección c
 | **Tiempo auditoría Minsalud** | 2 días (buscar logs papel) | **30 minutos** (logs inmutables) | **98% reducción** |
 | **Satisfacción pacientes (encuesta)** | 4.1/5 | **4.8/5** | +17% |
 
-> **Testimonio Dra. María González (Gerente):** *"La tranquilidad de saber que si un paciente se cae en el baño, enfermería lo sabe en 22 segundos, no en 20 minutos. Y que la auditoría Minsalud la pasamos en 30 minutos, no en 2 días. La IA pagó su inversión en el primer trimestre solo evitando una multa."*
+> **Resultado operativo tipo:** enfermería recibe la alerta con clip y ubicación en segundos, y la auditoría se atiende con logs ordenados y reportes del periodo.
 
 ---
 

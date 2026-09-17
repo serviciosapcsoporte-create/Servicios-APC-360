@@ -134,7 +134,7 @@
 <li><strong>Alerta:</strong> Clip 10s + ubicación exacta → <strong>Telegram/WhatsApp Enfermería + Seguridad + Gerencia</strong> en <strong>&lt; 30 segundos</strong></li>
 <li><strong>Registro automático:</strong> Evento + clip + ubicación → Reporte PDF mensual para SST / Calidad</li>
 </ul>
-<p>&gt; <strong>Caso Clínica Dental Sonrisa Viva (Chapinero):</strong> 3 caídas detectadas en 6 meses. Tiempo respuesta promedio: <strong>22 segundos</strong>. Cero demandas. Antes: 1 caída/no detectada → demanda $180M.</p>
+<p>&gt; <strong>Ejemplo tipo en clínica:</strong> la caída se detecta en segundos y enfermería recibe clip con ubicación exacta, con registro automático para reporte SST/Calidad.</p>
 <h3>2. PPE Detection (Casco, Chaleco, Guantes, Gafas) en zonas críticas</h3>
 <p><strong>Zonas:</strong> Mantenimiento, Obras, Cuarto de máquinas, Generadores, Tanques Oxígeno, Área residuos.</p>
 <table><tr><th>EPP</th><th>Modelo IA</th><th>Alerta si falta</th></tr>
@@ -142,7 +142,7 @@
 <tr><td><strong>Chaleco reflectivo</strong></td><td>YOLOv8-seg (torso + vest class)</td><td>Inmediata → Jefe Seguridad</td></tr>
 <tr><td><strong>Guantes / Gafas</strong></td><td>YOLOv8-seg (hands + gloves/glasses)</td><td>Alerta Supervisor zona</td></tr>
 </table>
-<p>&gt; <strong>Caso Clínica Cardiovascular (Norte):</strong> Obra ampliación 4 meses. <strong>0 incidentes PPE</strong>. Alertas: 47 (todas resueltas &lt; 5 min). Antes: 3 incidentes leves/año, 2 multas Minsalud.</p>
+<p>&gt; <strong>Ejemplo tipo en obra dentro de clínica:</strong> el EPP se verifica en tiempo real y el supervisor recibe la alerta para corrección inmediata, con trazabilidad por turno.</p>
 <h3>3. Control de acceso zonas restringidas (RX, Esterilización, Farmacia, Servidores)</h3>
 <p><strong>Problema:</strong> Llaves perdidas, personal no autorizado entra, sin trazabilidad.</p>
 <p><strong>Solución IA:</strong></p>
@@ -161,7 +161,7 @@
 <li><strong>Alerta automática:</strong> Si aforo &gt; 80% capacidad → Alerta Gerencia + Recepción → Redirección pacientes</li>
 <li><strong>Reporte diario PDF:</strong> Aforo pico, promedio, cumplimiento normativo → Archivo legal</li>
 </ul>
-<p>&gt; <strong>Caso Clínica Oftalmológica (Centro):</strong> Aforo pico reducido 35% tras heatmap → redistribución sillas + señalética → 0 multas aforo 2024-2025.</p>
+<p>&gt; <strong>Ejemplo tipo en salas de espera:</strong> el mapa de calor muestra saturación por hora y permite redistribuir sillas y turnos con datos.</p>
 <h3>5. Privacidad by Design: Ley 1581 / HIPAA cumplidas por arquitectura</h3>
 <table><tr><th>Requisito</th><th>Cómo lo cumple la arquitectura IA</th></tr>
 <tr><td><strong>Consentimiento informado</strong></td><td>Carteles visibles + Política privacidad web + Consentimiento HCE</td></tr>
@@ -185,9 +185,9 @@
 <tr><td><strong>Costo total 3 años</strong></td><td>$15-25K USD (solo hardware)</td><td>$25-40K USD (hardware + IA + Soporte + Cumplimiento)</td></tr>
 </table>
 <p>---</p>
-<h2>Caso real: Clínica Dental Sonrisa Viva (Chapinero, Bogotá)</h2>
-<p><strong>Perfil:</strong> 12 sillas, 2 quirófanos, RX digital, esterilización, 45 empleados, 120 pacientes/día.</p>
-<p><strong>Implementación (Feb 2025):</strong></p>
+<h2>Ejemplo operativo tipo: clínica con 10 a 20 consultorios (flujo tipo)</h2>
+<p><strong>Perfil:</strong> consultorios, RX digital, esterilización y farmacia, con flujo diario de pacientes y personal por turnos.</p>
+<p><strong>Configuración tipo:</strong></p>
 <ul>
 <li>8× Hikvision DeepinView 4MP (Salas espera, Baños, Pasillos, Esterilización, RX, Farmacia, Entrada, Parking)</li>
 <li>4× Hikvision ColorVu 4K (Entrada principal, Parking, Entrada staff, Entrada proveedores)</li>
@@ -205,7 +205,7 @@
 <tr><td><strong>Tiempo auditoría Minsalud</strong></td><td>2 días (buscar logs papel)</td><td><strong>30 minutos</strong> (logs inmutables)</td><td><strong>98% reducción</strong></td></tr>
 <tr><td><strong>Satisfacción pacientes (encuesta)</strong></td><td>4.1/5</td><td><strong>4.8/5</strong></td><td>+17%</td></tr>
 </table>
-<p>&gt; <strong>Testimonio Dra. María González (Gerente):</strong> *&quot;La tranquilidad de saber que si un paciente se cae en el baño, enfermería lo sabe en 22 segundos, no en 20 minutos. Y que la auditoría Minsalud la pasamos en 30 minutos, no en 2 días. La IA pagó su inversión en el primer trimestre solo evitando una multa.&quot;*</p>
+<p>&gt; <strong>Resultado operativo tipo:</strong> *&quot;enfermería recibe la alerta con clip y ubicación en segundos, y la auditoría se atiende con logs ordenados y reportes del periodo.&quot;*</p>
 <p>---</p>
 <h2>Inversión típica Clínica 10-20 consultorios (Bogotá 2026)</h2>
 <table><tr><th>Ítem</th><th>Costo USD</th><th>Detalle</th></tr>

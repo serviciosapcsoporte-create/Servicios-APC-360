@@ -127,21 +127,21 @@
 <p>```</p>
 <p><strong>Si se corta internet:</strong> la IA sigue corriendo en local (edge). Cuenta personas, detecta intrusos, arquea cajas. Cuando vuelve la señal, sincroniza todo automático. <strong>Nada se pierde.</strong></p>
 <p>---</p>
-<h2>Casos reales Bogotá (clientes Servicios APC)</h2>
-<h3>1. Ferretería El Progreso — Suba, Bogotá</h3>
-<p><strong>Problema:</strong> Robos nocturnos, cámaras borrosas, placas ilegibles.</p>
-<p><strong>Solución:</strong> Hikvision ColorVu 4K ColorVu + YOLO detección placas + alerta Telegram.</p>
-<p><strong>Resultado:</strong> Recuperaron 3 bultos robados en 48h. Placa legible a las 2am. Cero falsos positivos.</p>
-<p>&gt; *&quot;Por primera vez la Policía tuvo una prueba real. Antes solo teníamos sombras.&quot;*</p>
-<h3>2. Clínica Dental Sonrisa Viva — Chapinero, Bogotá</h3>
-<p><strong>Problema:</strong> Control aforo salas espera, normativa HIPAA/Ley 1581, caídas pacientes.</p>
-<p><strong>Solución:</strong> Hikvision 2MP WDR + YOLO aforo + detección caídas + zonas restringidas (RX, esterilización).</p>
-<p><strong>Resultado:</strong> Cumplimiento normativo 100%. Alerta caída → enfermería &lt;30 seg. Cero incidentes zona RX.</p>
-<p>&gt; *&quot;La alerta de caída llegó al celular de enfermería antes de que el paciente gritara.&quot;*</p>
-<h3>3. Distribuidora Jone — Bodega + SEO Local Bogotá</h3>
-<p><strong>Problema:</strong> Puntos ciegos bodega, 0 cotizaciones orgánicas web.</p>
-<p><strong>Solución:</strong> YOLO sobre Hikvision existentes + CCTV nuevo ColorVu bodega + SEO Local Google Maps + WhatsApp Bot embudos.</p>
-<p><strong>Resultado:</strong> Visibilidad 100% bodega. <strong>+340% cotizaciones orgánicas Bogotá</strong>. Bot atiende 80% consultas sin humano.</p>
+<h2>Ejemplos operativos en Bogotá (flujos tipo)</h2>
+<h3>1. Ferretería — Accesos y arqueo (flujo tipo)</h3>
+<p><strong>Problema:</strong> imagen nocturna deficiente y arqueo manual lento.</p>
+<p><strong>Solución:</strong> Hikvision ColorVu 4K + YOLO para registro de placas y accesos + alerta con clip.</p>
+<p><strong>Resultado:</strong> trazabilidad por evento con hora y zona, y arqueo asistido en minutos.</p>
+<p>&gt; *&quot;flujo tipo con registro ordenado por evento para revisión del día.&quot;*</p>
+<h3>2. Clínica — Aforo y caídas (flujo tipo)</h3>
+<p><strong>Problema:</strong> aforo en salas de espera, cumplimiento Ley 1581 y respuesta ante caídas.</p>
+<p><strong>Solución:</strong> Hikvision WDR + YOLO para aforo, detección de caídas y control en zonas restringidas (RX, esterilización).</p>
+<p><strong>Resultado:</strong> alertas con clip a enfermería en segundos y registros ordenados para auditoría.</p>
+<p>&gt; *&quot;flujo tipo con registro ordenado por evento para revisión del día.&quot;*</p>
+<h3>3. Bodega + atención por WhatsApp (flujo tipo)</h3>
+<p><strong>Problema:</strong> puntos ciegos y consultas repetitivas sin respuesta inmediata.</p>
+<p><strong>Solución:</strong> YOLO sobre cámaras existentes + ColorVu en puntos críticos + bot de WhatsApp para consultas frecuentes.</p>
+<p><strong>Resultado:</strong> operación visible por zonas y atención más rápida con registro por conversación.</p>
 <p>---</p>
 <h2>Modelos Hikvision recomendados para IA (2026)</h2>
 <table><tr><th>Necesidad</th><th>Modelo recomendado</th><th>Por qué</th></tr>
