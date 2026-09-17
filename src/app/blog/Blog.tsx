@@ -105,13 +105,14 @@ function getAllPosts(): BlogPost[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("es-CO", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
+// Función para formatear fechas de forma segura
+const formatDate = (dateString: string) => {
+  if (!dateString) return "Reciente";
+  const date = new Date(dateString);
+  return isNaN(date.getTime())
+    ? "Reciente"
+    : date.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+};
 
 /* ─── ARTICLE VIEW ────────────────────────────────────────── */
 function ArticleView({
