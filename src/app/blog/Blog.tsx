@@ -66,15 +66,16 @@ const POSTS_RAW: Record<string, string> = {
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {
-  const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) return { fm: {}, content: raw };
+  const normalized = raw.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
+  const fmMatch = normalized.match(/^---\n([\s\S]*?)\n---/);
+  if (!fmMatch) return { fm: {}, content: normalized };
   const fmText = fmMatch[1];
   const fm: Record<string, string> = {};
   fmText.split("\n").forEach((line) => {
     const i = line.indexOf(":");
     if (i > 0) fm[line.slice(0, i).trim()] = line.slice(i + 1).trim().replace(/^["']|["']$/g, "");
   });
-  const content = raw.slice(fmMatch[0].length).trim();
+  const content = normalized.slice(fmMatch[0].length).trim();
   return { fm: fm as Partial<BlogPost>, content };
 }
 
