@@ -101,82 +101,6 @@ const services = [
     image: "/blog-img/automatizacion-procesos.webp",
     imageAlt: "Instalación profesional cámaras Hikvision con analítica IA",
   },
-  {
-    id: "bots",
-    icon: MessageCircle,
-    color: "#25d366",
-    title: "Bots de WhatsApp con IA",
-    tagline: "Atienda a sus clientes 24/7, sin contratar más personal.",
-    description:
-      "Desarrollamos bots de WhatsApp con identidad propia que responden, agendan citas, procesan pedidos y califican leads de forma automática. Desde un menú interactivo básico hasta ecosistemas con APIs, pagos y agendamiento. Se conectan a su CRM y a la analítica de video: si una cámara detecta aforo lleno, el bot avisa al gerente.",
-    bullets: [
-      "Atención automática 24 horas con IA conversacional",
-      "Menú interactivo, catálogos y respuestas con IA",
-      "Agendamiento de citas y pedidos integrados",
-      "Calificación y seguimiento de leads automático",
-      "Transferencia a agente humano cuando se necesita",
-      "Integración con analítica de video: alertas de aforo → WhatsApp",
-    ],
-    image: "/blog-img/integracion-sistemas.webp",
-    imageAlt: "Bot de WhatsApp para atención automática de clientes",
-  },
-  {
-    id: "automatizacion",
-    icon: Zap,
-    color: "#7c3aed",
-    title: "Automatización de Procesos (n8n + APIs)",
-    tagline: "Menos trabajo manual, más resultados.",
-    description:
-      "Diseñamos flujos de trabajo indestructibles que conectan sus herramientas, eliminan tareas repetitivas y entregan reportes programados. Menos errores humanos, menos tiempo perdido, más control. Conectamos su CCTV, CRM, ERP y WhatsApp en un solo cerebro n8n.",
-    bullets: [
-      "Flujos automáticos e integraciones API (n8n self-hosted)",
-      "Onboarding digital de clientes con validación IA",
-      "CRM con seguimiento post-venta automatizado",
-      "Reportes programados 24 horas vía Email/Telegram",
-      "Notificaciones y alertas automáticas cruzadas",
-      "Integración CCTV → Alerta → Acción (WhatsApp, CRM, Dashboard)",
-    ],
-    image: "/blog-img/eficiencia-empresarial.webp",
-    imageAlt: "Automatización de procesos empresariales con n8n",
-  },
-  {
-    id: "dashboards",
-    icon: LayoutDashboard,
-    color: "#f59e0b",
-    title: "Dashboards e Integración de Datos",
-    tagline: "Todos sus datos CCTV + CRM + ERP, en una sola pantalla.",
-    description:
-      "Centralizamos la información dispersa de su operación en tableros ejecutivos claros. Integramos su software contable, CRM, analítica de video Hikvision y herramientas para que la gerencia tome decisiones con datos, no con corazonadas. Mapas de calor, conteo histórico, arqueos, tickets WhatsApp: todo unificado.",
-    bullets: [
-      "Dashboards ejecutivos en tiempo real (Looker Studio / Grafana)",
-      "Integración entre CCTV Hikvision, CRM, ERP y WhatsApp",
-      "Bases de datos operativas centralizadas y replicadas",
-      "Reportería automatizada (Looker / PDF / Telegram)",
-      "Control de acceso a la información por roles",
-      "Exportación a Excel/CSV para contabilidad",
-    ],
-    image: "/servicios-apc.webp",
-    imageAlt: "Dashboard ejecutivo con métricas CCTV + CRM + ventas",
-  },
-  {
-    id: "web",
-    icon: Globe,
-    color: "#10b981",
-    title: "Desarrollo Web y SEO Local en Bogotá (DogWeb)",
-    tagline: "Presencia digital que atrae clientes reales en Google Maps.",
-    description:
-      "Creamos sitios web resilientes y posicionamos su negocio donde sus clientes en Bogotá lo buscan: Google Maps y búsquedas locales de la ciudad. Desde landings hasta portales corporativos con bases de datos y SEO técnico. Conectamos el sitio a su CRM y WhatsApp: lead web → bot → cita → venta.",
-    bullets: [
-      "Sitios web corporativos y landings de alta conversión",
-      "Posicionamiento en Google Maps / SEO local Bogotá",
-      "Infraestructura web resiliente (Cloudflare + CDN)",
-      "Formularios, bases de datos y CRM integrado",
-      "Soporte y mantenimiento mensual incluido",
-      "CTAs cruzados: Web → WhatsApp Bot → CCTV Demo",
-    ],
-    image: "/blog-img/equipo-apc.webp",
-    imageAlt: "Desarrollo web y posicionamiento SEO local en Bogotá",
-  },
 ];
 
 const plans = [
@@ -431,7 +355,7 @@ function Reveal({
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ type: "spring", bounce: 0, duration: 0.5, delay }}
+      transition={{ type: "spring", bounce: 0, duration: 0.45, delay }}
     >
       {children}
     </motion.div>
@@ -471,6 +395,7 @@ function Tilt({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       whileHover={{ y: -4 }}
+      whileTap={{ scale: 0.98 }}
       transition={SPRING}
       className={className}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 900 }}
@@ -532,6 +457,39 @@ function WhatsAppChip({ label, href, small = false }: { label: string; href: str
   );
 }
 
+/* Acordeón sin layout jank: anima grid-template-rows 0fr→1fr
+   (CSS nativo, sin medir altura ni reflujo por frame). */
+function AccordionPanel({
+  open,
+  children,
+  className,
+  durationMs = 300,
+}: {
+  open: boolean;
+  children: React.ReactNode;
+  className?: string;
+  durationMs?: number;
+}) {
+  return (
+    <div
+      className={cn(
+        "grid",
+        open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+        className
+      )}
+      style={{
+        transitionProperty: "grid-template-rows, opacity",
+        transitionDuration: `${durationMs}ms`,
+        transitionTimingFunction: "cubic-bezier(0.23, 1, 0.32, 1)",
+        willChange: "grid-template-rows",
+      }}
+      aria-hidden={!open}
+    >
+      <div className="overflow-hidden min-h-0">{children}</div>
+    </div>
+  );
+}
+
 /* ─── APP ──────────────────────────────────────────────────── */
 
 export default function App() {
@@ -554,6 +512,7 @@ export default function App() {
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
   const [cuotas, setCuotas] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const [hash, setHash] = useState(window.location.hash.slice(1));
 
   useEffect(() => {
@@ -791,44 +750,38 @@ export default function App() {
             </button>
           </div>
 
-          <AnimatePresence>
-            {mobileOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={SPRING}
-                className="md:hidden overflow-hidden glass-nav border-t border-border/50"
+          <AccordionPanel
+            open={mobileOpen}
+            durationMs={280}
+            className="md:hidden glass-nav border-t border-border/50"
+          >
+            <div className="px-6 py-5 space-y-3">
+              {navItems.map(([label, id]) => (
+                <button
+                  key={id}
+                  onClick={() => scrollTo(id)}
+                  className="block w-full text-left text-sm text-muted-foreground hover:text-foreground py-1.5"
+                >
+                  {label}
+                </button>
+              ))}
+              <a
+                href="#blog"
+                onClick={() => setMobileOpen(false)}
+                className="block w-full text-left text-sm text-muted-foreground hover:text-foreground py-1.5"
               >
-                <div className="px-6 py-5 space-y-3">
-                  {navItems.map(([label, id]) => (
-                    <button
-                      key={id}
-                      onClick={() => scrollTo(id)}
-                      className="block w-full text-left text-sm text-muted-foreground hover:text-foreground py-1.5"
-                    >
-                      {label}
-                    </button>
-                  ))}
-                  <a
-                    href="#blog"
-                    onClick={() => setMobileOpen(false)}
-                    className="block w-full text-left text-sm text-muted-foreground hover:text-foreground py-1.5"
-                  >
-                    Blog
-                  </a>
-                  <a
-                    href={WA_HERO}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center bg-[#25d366] text-white rounded-full px-5 py-2.5 text-sm font-medium"
-                  >
-                    Cotizar por WhatsApp
-                  </a>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                Blog
+              </a>
+              <a
+                href={WA_HERO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center bg-[#25d366] text-white rounded-full px-5 py-2.5 text-sm font-medium"
+              >
+                Cotizar por WhatsApp
+              </a>
+            </div>
+          </AccordionPanel>
         </nav>
 
         {/* ── HERO ─────────────────────────────────────────── */}
@@ -838,25 +791,25 @@ export default function App() {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             poster="/videos/reels-poster.webp"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(0.5) contrast(1.05) saturate(0.85)" }}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out"
+            style={{ filter: "brightness(0.62) contrast(1.02) saturate(0.9)" }}
             aria-hidden="true"
           >
             <source src="/videos/reels-10s.mp4" type="video/mp4" />
           </video>
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: "rgba(0,0,0,0.55)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.45)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-background/35" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-20 w-full">
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.5 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
               className="font-mono text-xs md:text-sm text-[#25d366] tracking-widest uppercase mb-6 inline-flex items-center gap-2 glass rounded-full px-4 py-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#25d366]" />
@@ -866,7 +819,7 @@ export default function App() {
             <motion.h1
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.55, delay: 0.08 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
               className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,5vw,4.5rem)] mb-6"
             >
               Instalación de Cámaras de Seguridad e IA en Bogotá
@@ -875,7 +828,7 @@ export default function App() {
             <motion.p
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.55, delay: 0.16 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
               className="text-foreground/85 text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
             >
               Transformamos sistemas tradicionales en redes de monitoreo
@@ -886,7 +839,7 @@ export default function App() {
             <motion.div
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.55, delay: 0.24 }}
+              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.15 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
             >
               <WhatsAppChip label="Cotizar Instalación por WhatsApp" href={WA_HERO} />
@@ -901,7 +854,7 @@ export default function App() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              transition={{ delay: 0.4, duration: 0.35 }}
               className="mt-14 flex items-center gap-5 flex-wrap"
             >
               {[
@@ -919,7 +872,7 @@ export default function App() {
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
+            transition={{ delay: 0.65, duration: 0.35 }}
             onClick={() => scrollTo("servicios")}
             aria-label="Bajar"
             className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-muted-foreground hover:text-foreground transition-colors"
@@ -961,8 +914,8 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
               kicker="Nuestros Servicios"
-              title="Servicios de tecnología y automatización para empresas"
-              desc="Soluciones tecnológicas diseñadas para empresas en Bogotá y toda Colombia que quieren operar mejor, reducir pérdidas y crecer con inteligencia."
+              title="Instalación de cámaras y analítica de video con IA"
+              desc="Cámaras Hikvision certificadas, cableado profesional y analítica que convierte su video en datos: conteo, aforo, mapas de calor y arqueo de caja. Todo en Bogotá."
             />
 
             <Reveal>
@@ -1002,16 +955,7 @@ export default function App() {
                         </motion.span>
                       </button>
 
-                      <AnimatePresence initial={false}>
-                        {open && (
-                          <motion.div
-                            key="srv-panel"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ type: "spring", bounce: 0, duration: 0.45 }}
-                            className="overflow-hidden"
-                          >
+                      <AccordionPanel open={open} durationMs={320}>
                             <div className="pb-10 grid lg:grid-cols-2 gap-10 items-center">
                               <div>
                                 <p className="text-muted-foreground leading-relaxed mb-6">
@@ -1061,9 +1005,7 @@ export default function App() {
                                 />
                               </div>
                             </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                          </AccordionPanel>
                     </div>
                   );
                 })}
@@ -1499,22 +1441,11 @@ export default function App() {
                         <ChevronRight size={20} />
                       </motion.span>
                     </button>
-                    <AnimatePresence initial={false}>
-                      {open && (
-                        <motion.div
-                          key="faq-panel"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                          className="overflow-hidden"
-                        >
+                    <AccordionPanel open={open} durationMs={280}>
                           <p className="text-muted-foreground leading-relaxed pb-6 -mt-1">
                             {f.a}
                           </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                        </AccordionPanel>
                   </div>
                 );
               })}
@@ -2072,13 +2003,13 @@ export default function App() {
             href={WA_HERO}
             target="_blank"
             rel="noopener noreferrer"
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.93 }}
             aria-label="Cotizar por WhatsApp"
             className="relative w-14 h-14 rounded-full bg-[#25d366]/95 border border-white/20 shadow-[0_10px_40px_rgba(37,211,102,0.45)] flex items-center justify-center backdrop-blur-md"
           >
             <motion.span
               className="absolute inset-0 rounded-full bg-[#25d366]/45"
-              animate={{ scale: [1, 1.28, 1], opacity: [0.55, 0, 0.55] }}
+              animate={{ scale: [1, 1.22, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
             />
             <MessageCircle size={22} className="relative text-white" />
