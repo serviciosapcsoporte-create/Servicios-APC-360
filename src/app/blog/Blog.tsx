@@ -192,6 +192,7 @@ function ArticleView({
                 src={post.coverImage}
                 alt={post.title}
                 className="w-full aspect-[16/9] object-cover"
+                decoding="async"
               />
             </figure>
           )}
@@ -442,6 +443,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
                     alt={post.title}
                     className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               )}

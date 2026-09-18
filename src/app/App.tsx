@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
+import { VideoHero } from "./components/VideoHero";
 import {
   Menu,
   X,
@@ -1705,6 +1706,73 @@ export default function App() {
           </div>
         </section>
 
+        {/* ── BLOG EN LANDING ─────────────────────────────────── */}
+        <section id="blog" className="relative py-24 overflow-hidden">
+          <VideoHero
+            title="Blog de Cámaras IA y Automatización"
+            subtitle="Guías, casos reales y novedades sobre analítica de video con IA, CCTV Hikvision, bots WhatsApp y automatización de procesos para empresas en Bogotá."
+            ctaLabel="Ver todos los artículos"
+            onCta={() => { window.location.hash = "blog"; }}
+            className="absolute inset-0 z-0"
+            overlayClassName="bg-black/80"
+            videoClassName="object-cover"
+          />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+            <Reveal>
+              <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4 text-center">
+                Artículos y Recursos
+              </p>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-4 leading-[1.05] tracking-[-0.02em]">
+                Lo último en IA, CCTV y Automatización
+              </h2>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-16">
+                Guías técnicas, casos reales y comparativas para que tus cámaras generen datos,
+                no solo grabaciones.
+              </p>
+            </Reveal>
+
+            {/* ── 4 CATEGORÍAS PRINCIPALES ── */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+              <CategoryCard
+                image="/blog-img/cctv-ia-bogota.webp"
+                title="CCTV + IA Bogotá"
+                desc="Analítica de video con Hikvision DeepinView: conteo, PPE, calor, ANPR."
+                href="/blog/category/cctv-ia"
+              />
+              <CategoryCard
+                image="/blog-img/automatizacion-n8n.webp"
+                title="Automatización n8n + IA"
+                desc="Flujos WhatsApp, CRM, dashboards y alertas sin código con n8n."
+                href="/blog/category/automatizacion"
+              />
+              <CategoryCard
+                image="/blog-img/control-acceso.webp"
+                title="Control de Acceso + Nómina"
+                desc="Biometría, ANPR, torniquetes integrados a nómina y RRHH."
+                href="/blog/category/control-acceso"
+              />
+              <CategoryCard
+                image="/blog-img/diagnostico-b2b.webp"
+                title="Diagnóstico B2B Gratis"
+                desc="Auditoría de 1-2h sin costo si implementas. ROI medido en semanas."
+                href="/blog/category/diagnostico"
+              />
+            </div>
+
+            {/* ── 3 ARTÍCULOS RECIENTES ── */}
+            <Reveal>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-center mb-10">
+                Artículos recientes
+              </h3>
+            </Reveal>
+            <RecentArticlesGrid />
+          </div>
+        </section>
+
         {/* ── CTA FINAL BANNER ───────────────────────────────── */}
         <section className="py-20 relative overflow-hidden vignette">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-[#25d366]/10" />
@@ -2021,6 +2089,119 @@ export default function App() {
         <CristalChat />
       </div>
     </MotionConfig>
+  );
+}
+
+/* ─── Componentes de la sección Blog en Landing ─── */
+
+interface CategoryCardProps {
+  image: string;
+  title: string;
+  desc: string;
+  href: string;
+}
+
+function CategoryCard({ image, title, desc, href }: CategoryCardProps) {
+  return (
+    <a
+      href={href}
+      className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl p-6 hover:border-accent/30 hover:bg-background transition-all duration-300"
+      style={{ backdropFilter: "blur(20px)" }}
+    >
+      <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+        <ImageWithFallback
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      </div>
+      <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+        {title}
+      </h4>
+      <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+    </a>
+  );
+}
+
+function RecentArticlesGrid() {
+  // 3 artículos más recientes (hardcoded para evitar bundle pesado)
+  const posts = [
+    {
+      slug: "guia-camaras-hikvision-ia-empresas-bogota-2026",
+      title: "Guía Hikvision IA 2026: ColorVu, AcuSense y DeepinView para empresas",
+      excerpt: "Comparativa completa de líneas Hikvision con IA integrada para empresas en Bogotá: precios, analítica y casos de uso.",
+      date: "2026-07-20",
+      category: "CCTV + IA",
+      readTime: "8 min",
+      coverImage: "/blog-img/guia-camaras-hikvision-ia-empresas-bogota-2026.webp",
+    },
+    {
+      slug: "automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard",
+      title: "Automatización n8n + CCTV: alertas WhatsApp, CRM y dashboard en tiempo real",
+      excerpt: "Cómo conectar tus cámaras Hikvision a n8n para disparar alertas, crear tickets y poblar dashboards sin programar.",
+      date: "2026-07-15",
+      category: "Automatización",
+      readTime: "6 min",
+      coverImage: "/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp",
+    },
+    {
+      slug: "que-es-analitica-video-ia-empresas-bogota",
+      title: "¿Qué es analítica de video con IA? Guía para empresas en Bogotá",
+      excerpt: "Definición, casos de uso (conteo, PPE, calor, ANPR) y cómo elegir proveedor Hikvision/Dahua/Uniview en Colombia.",
+      date: "2026-07-10",
+      category: "Analítica IA",
+      readTime: "7 min",
+      coverImage: "/blog-img/que-es-analitica-video-ia-empresas-bogota.webp",
+    },
+  ];
+
+  return (
+    <div className="grid md:grid-cols-3 gap-6">
+      {posts.map((post, i) => (
+        <article
+          key={post.slug}
+          className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl hover:border-accent/30 hover:shadow-[0_20px_40px_rgba(37,211,102,0.1)] transition-all duration-300"
+          style={{ backdropFilter: "blur(20px)" }}
+        >
+          <div className="relative aspect-video overflow-hidden">
+            <ImageWithFallback
+              src={post.coverImage}
+              alt={post.title}
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <span
+              className="absolute top-3 left-3 text-xs font-medium text-accent px-2 py-1 rounded bg-black/80 backdrop-blur"
+            >
+              {post.category}
+            </span>
+          </div>
+          <div className="p-5 space-y-3">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}</time>
+              <span>·</span>
+              <span>{post.readTime}</span>
+            </div>
+            <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors line-clamp-2">
+              {post.title}
+            </h4>
+            <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
+            <a
+              href={`/blog/${post.slug}/`}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline mt-2"
+            >
+              Leer artículo completo
+              <ChevronRight size={14} />
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
 
