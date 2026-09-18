@@ -816,13 +816,13 @@ export default function App() {
                 aria-hidden="true"
               />
               <picture>
-                <source srcSet="/servicios-apc.webp" type="image/webp" />
+                <source srcSet="/fundador.webp" type="image/webp" />
                 <ImageWithFallback
-                  src="/servicios-apc.jpeg"
+                  src="/fundador.webp"
                   alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
-                  width={900}
-                  height={1200}
-                  className="w-full object-cover aspect-[3/4] relative z-10"
+                  width={1400}
+                  height={1024}
+                  className="w-full object-cover aspect-[16/10] relative z-10"
                   loading="lazy"
                   decoding="async"
                 />
