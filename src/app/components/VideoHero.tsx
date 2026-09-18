@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface VideoHeroProps {
   title?: string;
@@ -7,6 +7,9 @@ interface VideoHeroProps {
   onCta?: () => void;
   overlayOpacity?: number;
   brightness?: number;
+  className?: string;
+  overlayClassName?: string;
+  videoClassName?: string;
 }
 
 export const VideoHero: React.FC<VideoHeroProps> = ({
@@ -16,27 +19,49 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
   onCta,
   overlayOpacity = 0.82,
   brightness = 0.45,
+  className = "",
+  overlayClassName = "",
+  videoClassName = "",
 }) => {
+  const [videoError, setVideoError] = useState(false);
+
   return (
-    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+    <section className={`relative min-h-[70vh] flex items-center overflow-hidden ${className}`}>
       {/* Video de fondo — oscuro y sin protagonismo */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        poster="/videos/reels-poster.webp"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: `brightness(${brightness}) contrast(1) saturate(0.8)` }}
-        aria-hidden="true"
-      >
-        <source src="/videos/reels-10s.mp4" type="video/mp4" />
-      </video>
+      {!videoError && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/videos/reels-poster.webp"
+          className={`absolute inset-0 w-full h-full object-cover ${videoClassName}`}
+          style={{ filter: `brightness(${brightness}) contrast(1) saturate(0.8)` }}
+          aria-hidden="true"
+          onError={() => setVideoError(true)}
+        >
+          <source src="/videos/reels-10s.mp4" type="video/mp4" />
+        </video>
+      )}
+
+      {/* Fallback: poster image when video fails or is blocked */}
+      {videoError && (
+        <div
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            backgroundImage: "url('/videos/reels-poster.webp')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: `brightness(${brightness}) contrast(1) saturate(0.8)`,
+          }}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Capa de oscurecido */}
       <div
-        className="absolute inset-0"
+        className={`absolute inset-0 ${overlayClassName}`}
         style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
       />
 

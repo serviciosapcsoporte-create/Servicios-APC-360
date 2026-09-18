@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import { VideoHero } from "./components/VideoHero";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 import {
   Menu,
   X,
@@ -673,7 +674,9 @@ export default function App() {
           </div>
         </nav>
         {blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}
-        <CristalChat />
+        <ErrorBoundary fallback={null}>
+          <CristalChat />
+        </ErrorBoundary>
       </div>
     );
   }
@@ -690,7 +693,8 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+      <ErrorBoundary>
+        <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
         {/* ── NAV ─────────────────────────────────────────── */}
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 edge-fade ${
@@ -2086,8 +2090,11 @@ export default function App() {
           </motion.a>
         </div>
 
-        <CristalChat />
+        <ErrorBoundary fallback={null}>
+          <CristalChat />
+        </ErrorBoundary>
       </div>
+    </ErrorBoundary>
     </MotionConfig>
   );
 }
@@ -2224,17 +2231,39 @@ function DynamicPage({ page }: { page: string }) {
   const loader = map[page] ?? map["consultor"];
   const Comp = lazy(loader);
   return (
-    <Suspense fallback={<div className="min-h-[60vh]" />}>
-      <Comp />
-    </Suspense>
+    <ErrorBoundary
+      fallback={
+        <div className="min-h-[60vh] flex items-center justify-center p-6">
+          <div className="text-center text-muted-foreground">
+            <p className="text-lg font-medium mb-2">No se pudo cargar la página</p>
+            <p className="text-sm">Intenta recargar o vuelve al <a href="/" className="text-accent underline">inicio</a>.</p>
+          </div>
+        </div>
+      }
+    >
+      <Suspense fallback={<div className="min-h-[60vh]" />}>
+        <Comp />
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
 function DynamicBlog({ slug }: { slug: string }) {
   return (
-    <Suspense fallback={<div className="min-h-[60vh]" />}>
-      <LazyBlog slug={slug} />
-    </Suspense>
+    <ErrorBoundary
+      fallback={
+        <div className="min-h-[60vh] flex items-center justify-center p-6">
+          <div className="text-center text-muted-foreground">
+            <p className="text-lg font-medium mb-2">No se pudo cargar el blog</p>
+            <p className="text-sm">Intenta recargar o vuelve al <a href="/" className="text-accent underline">inicio</a>.</p>
+          </div>
+        </div>
+      }
+    >
+      <Suspense fallback={<div className="min-h-[60vh]" />}>
+        <LazyBlog slug={slug} />
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 
