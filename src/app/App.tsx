@@ -1303,17 +1303,17 @@ export default function App() {
                     <source srcSet="/servicios-apc.webp" type="image/webp" />
                     <ImageWithFallback
                       src="/servicios-apc.jpeg"
-                      alt="Fundador de Servicios APC — experto en soluciones tecnológicas para empresas en Bogotá, Colombia"
-                      width={900}
-                      height={1200}
-                      className="w-full object-cover aspect-[3/4] relative z-10"
+                      alt="Tecnología — Servicios APC"
+                      width={1600}
+                      height={900}
+                      className="w-full object-cover aspect-video relative z-10"
                       loading="lazy"
                       decoding="async"
                     />
                   </picture>
                   <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
                     <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
-                      Fundador — Servicios APC
+                      Tecnología — Servicios APC
                     </p>
                     <p className="text-accent-foreground/70 text-xs mt-0.5 font-mono">
                       Bogotá, Colombia
