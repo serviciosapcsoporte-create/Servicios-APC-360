@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 import { marked } from "marked";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -309,7 +309,10 @@ function ArticleView({
 /* ─── INDEX VIEW ──────────────────────────────────────────── */
 function slugFromHash(): string | null {
   const h = window.location.hash.slice(1);
-  if (h.startsWith("blog/")) return h.slice("blog/".length);
+  if (h.startsWith("blog/")) {
+    const slug = h.slice("blog/".length);
+    return slug || null; // evita string vacío si hash es "#blog/"
+  }
   return null;
 }
 
@@ -327,26 +330,37 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
   }, [activePost]);
 
   useEffect(() => {
+    let isMounted = true;
     const onHashChange = () => {
+      if (!isMounted) return;
       const slug = slugFromHash();
       setSelected(slug);
+      // Scroll al top solo al navegar a un artículo (no al volver al índice)
       if (slug) window.scrollTo({ top: 0 });
     };
     window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
+    return () => {
+      isMounted = false;
+      window.removeEventListener("hashchange", onHashChange);
+    };
   }, []);
 
-  const openPost = (slug: string) => {
+  const openPost = useCallback((slug: string) => {
     setSelected(slug);
     window.location.hash = `blog/${slug}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
-  const onBack = () => {
+  const onBack = useCallback(() => {
     setSelected(null);
-    window.location.hash = "blog";
+    // Usar replaceState para no añadir entrada al historial si ya estamos en #blog
+    if (window.location.hash === "#blog") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      window.location.hash = "blog";
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  }, []);
 
   if (activePost) {
     return (
