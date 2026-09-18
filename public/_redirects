@@ -1,19 +1,6 @@
 /logo.png /logo.webp 301
 /logo-small.png /logo-small.webp 301
-
-# SEO P1/P2: canonical x1 para keyword instalacion camaras bogota
-/instalacion-cctv /instalacion-camaras-seguridad-bogota/ 301
 /instalacion-cctv/ /instalacion-camaras-seguridad-bogota/ 301
-/venta-instalacion-camaras /instalacion-camaras-seguridad-bogota/ 301
 /venta-instalacion-camaras/ /instalacion-camaras-seguridad-bogota/ 301
-/precio-instalacion /precio-instalacion-camaras-bogota/ 301
 /precio-instalacion/ /precio-instalacion-camaras-bogota/ 301
-/instalacion-camaras-seguridad-bogota /instalacion-camaras-seguridad-bogota/ 301
-/precio-instalacion-camaras-bogota /precio-instalacion-camaras-bogota/ 301
-
-# SPA Hash Routing - All routes serve the same index.html
-# Cloudflare Pages SPA mode
 /* /index.html 200
-
-# API routes (if any)
-# /api/*  /api/index.html 200

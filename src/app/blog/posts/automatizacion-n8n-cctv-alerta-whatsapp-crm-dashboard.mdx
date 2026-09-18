@@ -7,13 +7,13 @@ author: "Servicios APC"
 category: "Automatización"
 tags: "n8n, automatización CCTV, WhatsApp Bot, CRM, dashboard seguridad, alertas automáticas, Bogotá"
 readTime: "10 min"
-coverImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=630&fit=crop&auto=format&fm=webp&q=70"
+coverImage: "/blog-img/integracion-sistemas.webp"
 cta: "{\"primary\":{\"label\":\"Solicitar automatización CCTV\",\"href\":\"https://apcautomatizacion.site\"},\"secondary\":{\"label\":\"Ver infraestructura edge\",\"href\":\"https://apccore.site\"},\"tertiary\":{\"label\":\"Visitar DogWeb\",\"href\":\"https://dogweb.lat\"}}"
 ---
 
 ## El problema
 
-Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el ropero ya no está.
+Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el faltante ya ocurrió.
 
 Este escenario se repite diariamente en miles de negocios en Bogotá: **las cámaras graban, pero no actúan**. La alerta CCTV tradicional depende de que alguien esté mirando un monitor en el momento exacto del evento.
 
@@ -77,7 +77,7 @@ Content-Type: application/json
   "event": "motion_detected",
   "zone": "zona_restringida",
   "timestamp": "2026-07-27T02:47:00-05:00",
-  "snapshot_url": "http://192.168.1.100/snapshots/20260727_024700.jpg"
+  "snapshot_url": "https://tu-nvr-local/snapshots/20260727_024700.jpg"
 }
 ```
 
@@ -104,7 +104,7 @@ Zona: Restringida
 Estado: Movimiento detectado
 
 Ver snapshot:
-http://192.168.1.100/snapshots/20260727_024700.jpg
+https://tu-nvr-local/snapshots/20260727_024700.jpg
 
 Responder:
 1 - Confirmar alerta
@@ -122,11 +122,11 @@ Responder:
 
 **CRM** registra el incidente automáticamente con toda la metadata para auditorías futuras.
 
-## Casos reales en Bogotá
+## Ejemplos operativos típicos en Bogotá
 
-### Caso 1: Ferretería en Kennedy — Intrusión nocturna
+### Ejemplo 1: Ferretería — Intrusión nocturna (flujo tipo)
 
-Una ferretería en Kennedy tenía 8 cámaras Hikvision conectadas a un NVR básico. Las alertas sonaban en el local cerrado y nadie las escuchaba.
+Una ferretería con 8 cámaras Hikvision conectadas a un NVR básico. Las alertas sonaban en el local cerrado y nadie las veía a tiempo.
 
 **Implementación:**
 
@@ -135,28 +135,28 @@ Una ferretería en Kennedy tenía 8 cámaras Hikvision conectadas a un NVR bási
 3. Se creó flujo: movimiento nocturno → WhatsApp al dueño + Telegram al grupo de vigilancia
 4. Se integró sirena IP activada por n8n vía HTTP
 
-**Resultado:** La primera semana detectaron 3 intentos de acceso no autorizado. El dueño recibió WhatsApp con snapshot en 3 segundos. La sirena se activó automáticamente. No hubo pérdidas.
+**Resultado operativo tipo:** el dueño recibe WhatsApp con imagen en segundos, la sirena se activa automáticamente y cada evento queda registrado con hora y cámara para auditoría.
 
-### Caso 2: Distribuidora en Chapinero — Dashboard de aforo
+### Ejemplo 2: Distribuidora — Dashboard de aforo (flujo tipo)
 
-Una distribuidora de alimentos necesitaba controlar el aforo de su bodega durante entregas. n8n conectó las cámaras con un dashboard web que mostraba:
+Una distribuidora de alimentos que necesita controlar el aforo de su bodega durante entregas. n8n conecta las cámaras con un dashboard web que muestra:
 
 - Personas detectadas por zona (usa YOLO via APC Visión AI)
 - Alerta cuando se excedía el aforo máximo
 - Registro diario exportable a Excel
 
-**Resultado:** Cumplimiento normativo del 100% y reducción de incidentes de seguridad en un 67%.
+**Resultado operativo tipo:** aforo visible en tiempo real, alertas automáticas y registro diario exportable para trazabilidad.
 
-### Caso 3: Centro comercial en Suba — Flujos complejos
+### Ejemplo 3: Centro comercial — Flujos por zonas (flujo tipo)
 
-Un centro comercial con 42 cámaras implementó flujos de n8n con:
+Un centro comercial con 42 cámaras puede ordenar sus flujos de n8n con:
 
 - **Zonificación**: diferentes alertas por zona (estacionamiento, pasillos, tiendas)
 - **Escalamiento**: si no hay respuesta en 2 minutos → escala al gerente
 - **Integración con CRM**: cada incidente se registra como ticket
 - **Reporte semanal automático**: resumen de incidentes enviado por email
 
-**Resultado:** Reducción del 45% en tiempo de respuesta y reportes automáticos para aseguradora.
+**Resultado operativo tipo:** menos tiempo manual de respuesta y reporte semanal automático para revisión gerencial.
 
 ## FAQ
 

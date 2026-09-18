@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 import {
   Shield,
   Camera,
@@ -76,75 +77,24 @@ const faqs = [
 export function CamerasInstalacion() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* ═══════════ HERO ═══════════ */}
-      <section
-        className="relative overflow-hidden py-20 md:py-28 px-6"
-        style={{ backgroundColor: "var(--color-background)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, var(--color-foreground) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Video className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-            <span
-              className="text-sm font-sans uppercase tracking-widest"
-              style={{ color: "var(--color-muted-foreground)" }}
-            >
-              Instalación de cámaras · Bogotá 2026
-            </span>
-          </div>
-
-          <span className="inline-block text-xs font-sans font-semibold px-3 py-1 rounded-full mb-6 border" style={{ borderColor: "var(--color-accent)", color: "var(--color-accent)" }}>
-            Hikvision certificado · Garantía 1-3 años
-          </span>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Instalación de Cámaras de Seguridad en Bogotá
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--color-muted-foreground)" }}>
-            Instalación profesional de cámaras Hikvision para casas, negocios y empresas: cableado estructurado sin puntos ciegos, configuración de acceso remoto y equipos IA-ready. Cotización con visita técnica incluida.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-            >
-              Cotizar Instalación <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#proceso"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base border-2 transition-all hover:scale-105"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-foreground)" }}
-            >
-              Ver Proceso <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Camera, label: "4 cámaras", sub: "desde $1.800.000" },
-              { icon: Clock, label: "Instalación", sub: "1 día hábil" },
-              { icon: Settings2, label: "Sin puntos ciegos", sub: "cableado estructurado" },
-              { icon: Shield, label: "Garantía", sub: "1-3 años Hikvision" },
-            ].map((item) => (
-              <div key={item.label} className="text-center">
-                <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
-                <p className="font-sans font-semibold text-sm">{item.label}</p>
-                <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
-              </div>
-            ))}
-          </div>
+      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      <VideoHero
+        title="InstalaciÃ³n de CÃ¡maras de Seguridad en BogotÃ¡"
+        subtitle="InstalaciÃ³n profesional de cÃ¡maras Hikvision para casas, negocios y empresas: cableado estructurado sin puntos ciegos, configuraciÃ³n de acceso remoto y equipos IA-ready. CotizaciÃ³n con visita tÃ©cnica incluida."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
+      <section className="py-12 bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            [{ icon: Camera, label: "4 cÃ¡maras", sub: "desde $1.800.000" }, { icon: Clock, label: "InstalaciÃ³n", sub: "1 dÃ­a hÃ¡bil" }, { icon: Settings2, label: "Sin puntos ciegos", sub: "cableado estructurado" }, { icon: Shield, label: "GarantÃ­a", sub: "1-3 aÃ±os Hikvision" }]
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
+              <p className="font-sans font-semibold text-sm">{item.label}</p>
+              <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -155,7 +105,7 @@ export function CamerasInstalacion() {
             ¿Por qué contratar un instalador certificado y no hacerlo usted mismo?
           </h2>
           <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            En Bogotá muchas residencias y negocios dependen de su sistema de cámaras para operar con orden y datos confiables. Un sistema mal instalado crea puntos ciegos, cámaras caídas y grabaciones que no sirven cuando se necesitan. Esto es lo que resuelve una instalación profesional:
+            En Bogotá se denuncian más de 20.000 hurtos a residencias al año. Un sistema mal instalado crea puntos ciegos, cámaras caídas y evidencia que no sirve. Esto es lo que resuelve una instalación profesional:
           </p>
 
           <div className="space-y-8">

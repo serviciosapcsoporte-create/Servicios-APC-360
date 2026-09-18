@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 import { marked } from "marked";
+import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
 export interface BlogPost {
@@ -42,7 +43,6 @@ import post16 from "./posts/cuanto-cuesta-camaras-seguridad-negocio-bogota-2026.
 import post17 from "./posts/mejores-camaras-seguridad-local-comercial-bogota.mdx?raw";
 import post18 from "./posts/camaras-seguridad-bodega-bogota-monitoreo-inteligente.mdx?raw";
 import post19 from "./posts/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia.mdx?raw";
-import post20 from "./posts/mantenimiento-de-camaras-de-seguridad.mdx?raw";
 
 const POSTS_RAW: Record<string, string> = {
   "guia-camaras-hikvision-ia-empresas-bogota-2026": post1,
@@ -64,19 +64,19 @@ const POSTS_RAW: Record<string, string> = {
   "mejores-camaras-seguridad-local-comercial-bogota": post17,
   "camaras-seguridad-bodega-bogota-monitoreo-inteligente": post18,
   "instalacion-camaras-seguridad-negocio-pequeno-bogota-guia": post19,
-  "mantenimiento-de-camaras-de-seguridad": post20,
 };
 
 function parseFrontmatter(raw: string): { fm: Partial<BlogPost>; content: string } {
-  const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
-  if (!fmMatch) return { fm: {}, content: raw };
+  const normalized = raw.replace(/^\uFEFF/, "").replace(/\r\n/g, "\n");
+  const fmMatch = normalized.match(/^---\n([\s\S]*?)\n---/);
+  if (!fmMatch) return { fm: {}, content: normalized };
   const fmText = fmMatch[1];
   const fm: Record<string, string> = {};
   fmText.split("\n").forEach((line) => {
     const i = line.indexOf(":");
     if (i > 0) fm[line.slice(0, i).trim()] = line.slice(i + 1).trim().replace(/^["']|["']$/g, "");
   });
-  const content = raw.slice(fmMatch[0].length).trim();
+  const content = normalized.slice(fmMatch[0].length).trim();
   return { fm: fm as Partial<BlogPost>, content };
 }
 
@@ -106,13 +106,14 @@ function getAllPosts(): BlogPost[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("es-CO", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
+// Función para formatear fechas de forma segura
+const formatDate = (dateString: string) => {
+  if (!dateString) return "Reciente";
+  const date = new Date(dateString);
+  return isNaN(date.getTime())
+    ? "Reciente"
+    : date.toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" });
+};
 
 /* ─── ARTICLE VIEW ────────────────────────────────────────── */
 function ArticleView({
@@ -187,7 +188,7 @@ function ArticleView({
           {/* Cover */}
           {post.coverImage && (
             <figure className="mb-10">
-              <img
+              <ImageWithFallback
                 src={post.coverImage}
                 alt={post.title}
                 className="w-full aspect-[16/9] object-cover"
@@ -288,9 +289,9 @@ function ArticleView({
                       </p>
                     </div>
                     {p.coverImage && (
-                      <img
+                      <ImageWithFallback
                         src={p.coverImage}
-                        alt=""
+                        alt={p.title}
                         className="w-[120px] h-[80px] object-cover rounded-lg flex-shrink-0"
                       />
                     )}
@@ -385,7 +386,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
           >
             {featured.coverImage && (
               <div className="overflow-hidden rounded-2xl">
-                <img
+                <ImageWithFallback
                   src={featured.coverImage}
                   alt={featured.title}
                   className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
@@ -436,7 +437,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
             >
               {post.coverImage && (
                 <div className="overflow-hidden rounded-xl mb-4">
-                  <img
+                  <ImageWithFallback
                     src={post.coverImage}
                     alt={post.title}
                     className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"

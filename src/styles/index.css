@@ -1,8 +1,6 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
-@import './motion.css';
-@import './video-bg.css';
 
 /* ─── Blog Content (Medium-style) ──────────────────────── */
 .blog-content h2 {
@@ -160,4 +158,115 @@
 /* Mermaid / diagram containers */
 .blog-content pre:has(code) {
   position: relative;
+}
+
+/* ─── Apple-style materials & motion utilities ─────────────── */
+
+.glass {
+  background: rgba(19, 23, 32, 0.55);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(19, 23, 32, 0.62);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-nav {
+  background: rgba(11, 14, 23, 0.7);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Soft vignette at screen edges (Apple-like depth) */
+.vignette {
+  position: relative;
+}
+.vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 85% at 50% 42%,
+    transparent 58%,
+    rgba(0, 0, 0, 0.34) 100%
+  );
+}
+
+/* Edge fade under sticky chrome instead of hard dotted border */
+.edge-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+}
+
+/* Global focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* Press feedback (instant on pointer-down) */
+.press {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 100ms ease-out;
+  will-change: transform;
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* ─── Reduced motion / transparency / contrast ─────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .glass-card,
+  .glass-nav {
+    background: rgba(11, 14, 23, 0.94) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .glass,
+  .glass-card,
+  .glass-nav {
+    background: var(--color-background) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+  }
 }

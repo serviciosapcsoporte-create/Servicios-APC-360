@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 import {
   Shield,
   Camera,
@@ -71,71 +72,24 @@ const faqs = [
 export function CamerasCasa() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* ═══════════ HERO ═══════════ */}
-      <section
-        className="relative overflow-hidden py-20 md:py-28 px-6"
-        style={{ backgroundColor: "var(--color-background)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, var(--color-foreground) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <Home className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-            <span
-              className="text-sm font-sans uppercase tracking-widest"
-              style={{ color: "var(--color-muted-foreground)" }}
-            >
-              Cámaras para el hogar · Bogotá 2026
-            </span>
-          </div>
-
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Cámaras para Instalar en Casa en Bogotá
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "var(--color-muted-foreground)" }}>
-            Organice su hogar con cámaras Hikvision de visión nocturna a color, instalación profesional y app de celular. Desde $600.000 por cámara, instalación el mismo día en Bogotá.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-            >
-              Cotizar Cámaras para Casa <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="#precios"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base border-2 transition-all hover:scale-105"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-foreground)" }}
-            >
-              Ver Precios Residenciales <ChevronRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Camera, label: "Desde", sub: "$600.000 la cámara" },
-              { icon: Clock, label: "Instalación", sub: "el mismo día" },
-              { icon: Lock, label: "Garantía", sub: "1-3 años" },
-              { icon: Moon, label: "Color de noche", sub: "Hikvision ColorVu" },
-            ].map((item) => (
-              <div key={item.label} className="text-center">
-                <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
-                <p className="font-sans font-semibold text-sm">{item.label}</p>
-                <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
-              </div>
-            ))}
-          </div>
+      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      <VideoHero
+        title="CÃ¡maras para Instalar en Casa en BogotÃ¡"
+        subtitle="Proteja su hogar con cÃ¡maras Hikvision de visiÃ³n nocturna a color, instalaciÃ³n profesional y app de celular. Desde .000 por cÃ¡mara, instalaciÃ³n el mismo dÃ­a en BogotÃ¡."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
+      <section className="py-12 bg-background border-b border-border">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            [{ icon: Camera, label: "Desde", sub: "$600.000 la cÃ¡mara" }, { icon: Clock, label: "InstalaciÃ³n", sub: "el mismo dÃ­a" }, { icon: Lock, label: "GarantÃ­a", sub: "1-3 aÃ±os" }, { icon: Moon, label: "Color de noche", sub: "Hikvision ColorVu" }]
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
+              <p className="font-sans font-semibold text-sm">{item.label}</p>
+              <p className="font-sans text-xs" style={{ color: "var(--color-muted-foreground)" }}>{item.sub}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -376,7 +330,7 @@ export function CamerasCasa() {
             Preguntas frecuentes sobre cámaras para casa
           </h2>
           <p className="font-sans text-lg text-center mb-12" style={{ color: "var(--color-muted-foreground)" }}>
-            Todo lo que necesita saber antes de instalar su sistema:
+            Todo lo que necesita saber antes de proteger su hogar:
           </p>
 
           <div className="space-y-4">
@@ -409,7 +363,7 @@ export function CamerasCasa() {
       <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-            Optimice su hogar hoy con datos en tiempo real
+            Proteja su hogar hoy
           </h2>
           <p className="font-sans text-lg mb-8 max-w-xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
             Asesoría gratuita: le decimos cuántas cámaras necesita, con qué tipo y el precio final antes de que perforamos cualquier muro.

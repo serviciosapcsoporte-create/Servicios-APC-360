@@ -7,7 +7,7 @@ author: "Servicios APC"
 category: "Automatización"
 tags: "WhatsApp Bot, IA conversacional, chatbot, atención clientes, seguridad, Bogotá, soporte automatizado"
 readTime: "8 min"
-coverImage: "https://images.unsplash.com/photo-1611746872911-2fd628c2d80b?w=1200&h=630&fit=crop&auto=format&fm=webp&q=70"
+coverImage: "/blog-img/integracion-sistemas.webp"
 cta: "{\"primary\":{\"label\":\"Quiero un bot WhatsApp IA para mi negocio en Bogotá\",\"href\":\"https://dogweb.lat\"},\"secondary\":{\"label\":\"Integrar bot con CCTV y alertas automáticas\",\"href\":\"https://apcautomatizacion.site\"},\"tertiary\":{\"label\":\"Ver infraestructura para IA conversacional\",\"href\":\"https://apccore.site\"}}"
 ---
 
@@ -98,31 +98,31 @@ Un bot de WhatsApp con IA es un asistente virtual que usa inteligencia artificia
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### Flujo detallado: Ejemplo real
+### Flujo detallado: ejemplo ilustrativo
 
 ```
-Cliente (WhatsApp): "Buenos días, soy de la distribuidora Jone en Suba. 
+Cliente (WhatsApp): "Buenos días, soy de una distribuidora en Bogotá. 
 Necesito saber cuánto cuesta el servicio de vigilancia nocturna 
 para nuestra bodega de 1,500 m²"
 
                     │
                     ▼
 
-n8n → Identifica: Distribuidora Jone (cliente existente, servicio activo: CCTV 8 cámaras)
+n8n → Identifica: distribuidora (flujo tipo, servicio: CCTV 8 cámaras)
      → Consulta historial: 2 tickets cerrados, 1 cotización pendiente de acáreo
      → Envía a GPT con contexto:
 
      "Responde como asistente de SeguridadTotal SAS. 
-      Cliente: Distribuidora Jone, Suba. 
+      Cliente: distribuidora en Bogotá (flujo tipo). 
       Servicio activo: CCTV 8 cámaras Hikvision. 
       Ticket pendiente: cotización acáreo cámaras. 
-      Servicios disponibles: Vigilancia 24/7 desde $2.8M/mes. 
+      Servicios disponibles: Monitoreo con respuesta (cotización personalizada). 
       Si pide más detalles, ofrece visita técnica gratuita."
 
                     │
                     ▼
 
-Bot responde: "¡Buenos días, Distribuidora Jone! 👋 
+Bot responde: "¡Buenos días! Gracias por contactarnos. 
 Gracias por contactarnos. Para una bodega de 1,500 m² en Suba, 
 el servicio de vigilancia nocturno (8PM-6AM) con 2 guardias 
 cuesta desde $3.2M/mes. 
@@ -164,11 +164,11 @@ Una de las ventajas de usar n8n como motor de automatización es que el mismo bo
 | Placa no autorizada | Bot alerta seguridad: "Vehículo no registrado: ABC-123 en entrada" |
 | Aforo excedido | Bot notifica al gerente: "Aforo 95% en bodega. Considerar redirigir entregas" |
 
-## Casos reales Bogotá
+## Ejemplos operativos en Bogotá (flujos tipo)
 
-### Caso: Distribuidora Jone — 80% consultas automatizadas
+### Ejemplo: distribuidora — consultas automatizadas (flujo tipo)
 
-**Perfil:** Distribuidora de alimentos en Suba, 45 empleados, bodega 1,500 m², 8 cámaras CCTV instaladas. Recibe ~200 mensajes/día en WhatsApp de clientes y proveedores.
+**Perfil tipo:** distribuidora de alimentos con bodega, 8 cámaras instaladas y alto volumen de mensajes en WhatsApp de clientes y proveedores.
 
 **Implementación:**
 - Bot WhatsApp con GPT-4o-mini vía n8n (self-hosted)

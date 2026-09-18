@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { VideoHero } from "../components/VideoHero"
 
 export function CamarasSuba() {
   const barrios = [
@@ -105,6 +106,12 @@ export function CamarasSuba() {
         background: "var(--color-background)",
       }}
     >
+      <VideoHero
+        title="CÃ¡maras de Seguridad en Suba"
+        subtitle="ProtecciÃ³n con analÃ­tica YOLO para negocios en Suba: bodegas, ferreterÃ­as y conjuntos residenciales. Alertas en tiempo real, arqueo de caja y control de aforo."
+        ctaLabel="Cotizar"
+        onCta={() => {}}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

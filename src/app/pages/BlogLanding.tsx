@@ -1,5 +1,5 @@
 import { BlogIndex } from "../blog/Blog";
-import VideoBackground from "../components/VideoBackground";
+import { VideoHero } from "../components/VideoHero";
 
 /* ─── MAIN COMPONENT ─────────────────────────────────────────
  * Página dedicada del blog accesible vía #blog, con el mismo
@@ -9,13 +9,13 @@ import VideoBackground from "../components/VideoBackground";
 export function BlogLanding({ slug }: { slug?: string | null }) {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      <VideoBackground
-        src="/assets/fondo-holografico.mp4"
-        poster="/assets/holo-poster.jpg"
+      <VideoHero
+        title="Blog de Cámaras IA y Automatización"
+        subtitle="Guías, casos reales y novedades sobre analítica de video con IA, CCTV Hikvision, bots WhatsApp y automatización de procesos para empresas en Bogotá."
+        ctaLabel="Ver artículos"
+        onCta={() => {}}
       />
-      <div className="relative z-10">
-        <BlogIndex initialSlug={slug} />
-      </div>
+      <BlogIndex initialSlug={slug} />
     </div>
   );
 }
