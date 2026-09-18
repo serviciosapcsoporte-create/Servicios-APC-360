@@ -793,17 +793,19 @@ export default function App() {
             playsInline
             preload="metadata"
             poster="/videos/reels-poster.webp"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out"
-            style={{ filter: "brightness(0.62) contrast(1.02) saturate(0.9)" }}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out"
+            style={{ filter: "brightness(0.78) contrast(1.06) saturate(1.12)", opacity: videoReady ? 1 : 0 }}
+            onLoadedData={() => setVideoReady(true)}
+            onError={() => setVideoReady(true)}
             aria-hidden="true"
           >
             <source src="/videos/reels-10s.mp4" type="video/mp4" />
           </video>
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: "rgba(0,0,0,0.45)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.30)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/55 to-background/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/25" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-20 w-full">
             <motion.p
