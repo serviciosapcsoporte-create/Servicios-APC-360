@@ -1747,25 +1747,25 @@ export default function App() {
                 image="/blog-img/cctv-ia-bogota.webp"
                 title="CCTV + IA Bogotá"
                 desc="Analítica de video con Hikvision DeepinView: conteo, PPE, calor, ANPR."
-                href="/blog/category/cctv-ia"
+                href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/automatizacion-n8n.webp"
                 title="Automatización n8n + IA"
                 desc="Flujos WhatsApp, CRM, dashboards y alertas sin código con n8n."
-                href="/blog/category/automatizacion"
+                href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/control-acceso.webp"
                 title="Control de Acceso + Nómina"
                 desc="Biometría, ANPR, torniquetes integrados a nómina y RRHH."
-                href="/blog/category/control-acceso"
+                href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/diagnostico-b2b.webp"
                 title="Diagnóstico B2B Gratis"
                 desc="Auditoría de 1-2h sin costo si implementas. ROI medido en semanas."
-                href="/blog/category/diagnostico"
+                href="/#blog"
               />
             </div>
 
