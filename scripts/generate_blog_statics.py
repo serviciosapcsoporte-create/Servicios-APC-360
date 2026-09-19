@@ -126,7 +126,59 @@ def body_to_html(body):
     close_list(); close_table()
     return "\n".join(out)
 
-def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link):
+def get_contextual_cta(slug, category):
+    base = "https://wa.me/573337450634?text="
+    cta_map = {
+        "5-senales-camaras-no-protegen-empresa-bogota": "Hola Servicios APC, leí el diagnóstico de señales CCTV y quiero una auditoría gratis",
+        "analitica-video-ia-clinicas-bogota-cumplimiento-seguridad": "Hola Servicios APC, leí el caso de clínicas con IA y quiero asesoría para mi clínica",
+        "analitica-video-ia-ferreterias-bogota-caso-real-suba": "Hola Servicios APC, vi el caso de ferretería en Suba y quiero replicarlo",
+        "automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard": "Hola Servicios APC, vi la automatización n8n + CCTV y quiero integrar mis cámaras",
+        "automatizacion-procesos-pymes": "Hola Servicios APC, quiero automatizar procesos en mi pyme con n8n",
+        "bot-whatsapp-ia-atencion-clientes-seguridad-bogota": "Hola Servicios APC, quiero un bot WhatsApp con IA para mi negocio",
+        "camaras-ia-vs-tradicionales": "Hola Servicios APC, quiero comparar cámaras IA vs tradicionales",
+        "camaras-seguridad-bodega-bogota-monitoreo-inteligente": "Hola Servicios APC, vi el caso de bodega con IA y quiero replicarlo",
+        "como-elegir-camaras-seguridad": "Hola Servicios APC, quiero ayuda para elegir las mejores cámaras para mi local",
+        "conteo-personas-negocio": "Hola Servicios APC, quiero conteo de personas con IA para mi negocio",
+        "costo-camaras-seguridad-empresas-2026-hardware-vs-ia": "Hola Servicios APC, quiero comparar costo hardware vs IA para mis cámaras",
+        "cuanto-cuesta-camaras-seguridad-negocio-bogota-2026": "Hola Servicios APC, quiero saber cuánto cuesta instalar cámaras en mi negocio",
+        "deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento": "Hola Servicios APC, necesito detección de EPP con IA para mi obra/fábrica",
+        "guia-camaras-hikvision-ia-empresas-bogota-2026": "Hola Servicios APC, quiero la guía completa de Hikvision IA para mi empresa",
+        "guia-mantenimiento-camaras": "Hola Servicios APC, necesito guía de mantenimiento para mis cámaras",
+        "hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026": "Hola Servicios APC, quiero comparar ColorVu vs AcuSense vs DeepinView",
+        "hikvision-vs-dahua-vs-uniview-comparativa-ia-2026": "Hola Servicios APC, quiero comparar Hikvision vs Dahua vs Uniview",
+        "instalacion-camaras-seguridad-negocio-pequeno-bogota-guia": "Hola Servicios APC, necesito guía de instalación para mi negocio pequeño",
+        "instalacion-cctv-guia-completa": "Hola Servicios APC, necesito guía completa de instalación CCTV",
+        "mejores-camaras-seguridad-local-comercial-bogota": "Hola Servicios APC, quiero las mejores cámaras para mi local comercial",
+        "negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues": "Hola Servicios APC, vi el caso visual antes/después con IA y quiero eso",
+        "normativa-videovigilancia-colombia-2026-ley-1581-habeas-data": "Hola Servicios APC, necesito asesoría sobre normativa videovigilancia 2026",
+        "precio-camaras-seguridad-bogota": "Hola Servicios APC, quiero precios de cámaras de seguridad en Bogotá",
+        "que-es-analitica-video-ia-empresas-bogota": "Hola Servicios APC, quiero entender qué es analítica de video con IA",
+        "seo-local-google-maps-empresas-seguridad-bogota": "Hola Servicios APC, quiero SEO Local para mi negocio en Bogotá",
+        "servidores-edge-gpu-para-ia-video-analitica-bogota": "Hola Servicios APC, necesito servidor edge GPU para videoanalítica IA",
+    }
+    if slug in cta_map:
+        return base + cta_map[slug], "Cotizar por WhatsApp"
+    cat_defaults = {
+        "Diagnóstico": "Hola Servicios APC, leí su diagnóstico y quiero auditoría gratis",
+        "Caso Sectorial": "Hola Servicios APC, vi su caso sectorial y quiero replicarlo",
+        "Automatización": "Hola Servicios APC, quiero automatizar con n8n/WhatsApp",
+        "IA & Seguridad": "Hola Servicios APC, quiero IA para mis cámaras",
+        "Guía Técnica": "Hola Servicios APC, leí su guía y quiero implementarlo",
+        "Guía Sectorial": "Hola Servicios APC, leí su guía y quiero implementarlo",
+        "Guía Práctica": "Hola Servicios APC, leí su guía y quiero implementarlo",
+        "Guía de Compra": "Hola Servicios APC, leí su guía y quiero cotizar",
+        "Comparativa": "Hola Servicios APC, vi su comparativa y quiero cotizar",
+        "Comparativa Hardware": "Hola Servicios APC, vi su comparativa y quiero cotizar",
+        "Precios": "Hola Servicios APC, vi precios y quiero cotizar",
+        "Costos y ROI": "Hola Servicios APC, vi costos y quiero cotizar",
+        "Legal & Cumplimiento": "Hola Servicios APC, necesito asesoría legal videovigilancia",
+        "SEO & Marketing": "Hola Servicios APC, quiero SEO Local para mi negocio",
+        "Infraestructura": "Hola Servicios APC, necesito servidor edge GPU para IA",
+    }
+    msg = cat_defaults.get(category, "Hola Servicios APC, leí su artículo y quiero asesoría")
+    return base + msg, "Cotizar por WhatsApp"
+
+def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link, cta_href, cta_label):
     title = fix_mojibake(fm.get("title", slug))
     date = fm.get("date", fm.get("publishDate", "2026-07-29"))
     cat = fix_mojibake(fm.get("category", "Guías"))
@@ -143,6 +195,8 @@ def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link):
     h = h.replace("%%READ%%", html.escape(read))
     h = h.replace("%%INTRO40%%", html.escape(intro40))
     h = h.replace("%%CTA%%", html.escape(cta))
+    h = h.replace("%%CTA_HREF%%", html.escape(cta_href))
+    h = h.replace("%%CTA_LABEL%%", html.escape(cta_label))
     h = h.replace("%%BODY%%", body_html)
     h = h.replace("%%PREV_LINK%%", prev_link)
     h = h.replace("%%NEXT_LINK%%", next_link)
@@ -159,7 +213,9 @@ def main():
         meta, intro40, cta = COPY[slug]
         prev_link = ('<a href="https://serviciosapc.site/blog/' + slugs[i-1] + '/">&laquo; Anterior</a>') if i > 0 else ""
         next_link = ('<a href="https://serviciosapc.site/blog/' + slugs[i+1] + '/">Siguiente &raquo;</a>') if i < n-1 else ""
-        out = build(slug, fm, body_html, COVERS[slug], meta, intro40, cta, prev_link, next_link)
+        cat = fix_mojibake(fm.get("category", "Guías"))
+        cta_href, cta_label = get_contextual_cta(slug, cat)
+        out = build(slug, fm, body_html, COVERS[slug], meta, intro40, cta, prev_link, next_link, cta_href, cta_label)
         d = os.path.join(BASE, slug)
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(out)
