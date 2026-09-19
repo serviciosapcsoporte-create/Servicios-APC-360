@@ -67,67 +67,40 @@ function RenderMD({ md }: { md: string }) {
 
 const pricingPlans = [
   {
-    name: "Básico",
-    cameras: "4 cámaras",
+    name: "Kit 4 Cámaras HD",
+    cameras: "4 Cámaras",
     price: "$1.800.000",
-    desc: "Ideal para locales pequeños y consultorios",
+    desc: "El más vendido - Ideal para locales pequeños y consultorios",
     features: [
-      "4 cámaras HD 4MP",
-      "DVR 4 canales",
-      "1 TB almacenamiento",
-      "Instalación incluida",
-      "Soporte 30 días",
-      "App móvil Remotion",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Profesional",
-    cameras: "8 cámaras",
-    price: "$3.200.000",
-    desc: "Para negocios medianos con alta rotación",
-    features: [
-      "8 cámaras 4MP ColorVu",
-      "DVR 8 canales",
-      "2 TB almacenamiento",
-      "Instalación incluida",
-      "Soporte 90 días",
-      "Alertas automáticas IA",
-      "App móvil + escritorio",
+      "4 Cámaras de alta definición (Exterior/Interior)",
+      "DVR + Disco Duro de almacenamiento",
+      "Cableado, fuentes y conectores + Instalación Técnica Completa",
+      "BONUS GRATIS: Inducción de uso + Asesoría Básica de Escalado con IA",
     ],
     highlight: true,
   },
   {
-    name: "Empresarial",
-    cameras: "16 cámaras",
-    price: "$5.600.000",
-    desc: "Cobertura completa para bodegas y franquicias",
+    name: "Kit 8 Cámaras HD",
+    cameras: "8 Cámaras",
+    price: "$2.800.000",
+    desc: "Para Bodegas / Locales Grandes",
     features: [
-      "16 cámaras 4MP",
-      "NVR 16 canales PoE",
-      "4 TB almacenamiento RAID",
-      "Instalación incluida",
-      "Soporte 6 meses",
-      "Analítica IA completa",
-      "Dashboard remoto 24/7",
-      "Integración WhatsApp/CRM",
+      "8 Cámaras HD + DVR de 8 canales + Disco Duro",
+      "Cableado estructurado completo + Instalación Profesional",
+      "BONUS GRATIS: Inducción de uso + Diagnóstico de Infraestructura para Analítica de Video",
     ],
     highlight: false,
   },
   {
-    name: "IA Total",
-    cameras: "8-16 cámaras + IA",
-    price: "Desde $4.500.000",
-    desc: "Analítica inteligente: aforo, intrusión, PPE, arqueo",
+    name: "Mano de Obra por Punto",
+    cameras: "Instalación por punto",
+    price: "$80.000 - $150.000",
+    desc: "Mano de obra por punto según altura y complejidad",
     features: [
-      "Hardware + servidor edge GPU",
-      "YOLO v8 detección objetos",
-      "PPE detection (EPP obligatorio)",
-      "Control de aforo en tiempo real",
-      "Arqueo de caja por video",
-      "Alertas WhatsApp/CRM automáticas",
-      "Dashboard ejecutivo con métricas",
-      "Soporte prioritario 12 meses",
+      "Instalación por punto (según altura y complejidad)",
+      "Cableado estético y estructurado",
+      "Configuración e inducción en celular GRATIS",
+      "Asesoría de potencial con IA INCLUIDA",
     ],
     highlight: false,
   },
@@ -176,15 +149,15 @@ export function CamarasNegocio() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
       {/* ═══════════ HERO ═══════════ */}
-      <VideoHero
-          title="Instalación de Cámaras de Seguridad para Empresas y Negocios en Bogotá"
-          subtitle="Visualización, analítica e integración con alertas a WhatsApp. Transforma tu sistema CCTV actual en datos de valor sin reemplazar tu infraestructura."
-          ctaLabel="Cotizar por WhatsApp"
-          ctaHref={WHATSAPP}
-          showSecondaryCta={true}
-          secondaryCtaLabel="Ver Planes y Precios"
-          secondaryCtaHref="/#planes"
-        />
+            <VideoHero
+        title="Instalación de Cámaras de Seguridad en Bogotá"
+        subtitle="Instalación técnica profesional, cableado estético y configuración en tu celular. Desde mano de obra por punto hasta kits completos listos para proteger tu negocio o casa."
+        ctaLabel="Cotizar Mi Instalación por WhatsApp"
+        ctaHref={"https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad%20para%20mi%20negocio%20en%20Bogot%C3%A1"}
+        showSecondaryCta={true}
+        secondaryCtaLabel="Ver Planes y Precios"
+        secondaryCtaHref="/#precios"
+      />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
@@ -417,184 +390,237 @@ export function CamarasNegocio() {
           </div>
         </div>
       </section>
+        {/* 
+        {/* BLOQUE 2: VALOR AGREGADO EN LA INSTALACIÓN */}
+        <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
+              Valor Agregado en la Instalación: ¿Por qué elegirnos?
+            </h2>
+            <p className="font-sans text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
+              Mostramos brevemente por qué la mano de obra vale entre $80k y $150k:
+            </p>
 
-      {/* ═══════════ CÓMO FUNCIONA ═══════════ */}
-      <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-            Cómo funciona nuestro servicio
-          </h2>
-          <p className="font-sans text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            De la primera llamada al sistema funcionando en 4 pasos claros:
-          </p>
-
-          <div className="space-y-12 relative">
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5" style={{ backgroundColor: "var(--color-border)" }} />
-
-            {[
-              {
-                icon: ClipboardCheck,
-                step: "01",
-                title: "Auditoría Gratuita",
-                desc: "Visitamos su negocio en Bogotá, identificamos puntos críticos, medimos distancias, evaluamos infraestructura eléctrica y de red. Le entregamos un plano con ubicación óptima de cada cámara. Sin compromiso.",
-                time: "1-2 horas",
-              },
-              {
-                icon: Settings,
-                step: "02",
-                title: "Instalación Profesional",
-                desc: "Nuestro equipo técnico instala el hardware en menos de 24 horas para sistemas de hasta 8 cámaras. Cableado estructurado o inalámbrico según su caso. No dejamos cables expuestos ni destornilladores olvidados.",
-                time: "1-3 días",
-              },
-              {
-                icon: Brain,
-                step: "03",
-                title: "Configuración IA y alertas",
-                desc: "Configuramos la analítica de video (YOLO v8): detección de personas, control de aforo, alertas de intrusión. Conectamos las alertas a su WhatsApp o CRM. Le entrenamos para usar la app Remotion.",
-                time: "2-4 horas",
-              },
-              {
-                icon: Headphones,
-                step: "04",
-                title: "Soporte Continuo",
-                desc: "Seguimiento remoto del sistema con alertas automáticas. Si una cámara falla, usted recibe un aviso por WhatsApp antes de notar la caída. Soporte técnico vía WhatsApp. Actualizaciones de firmware incluidas. Mantenimiento preventivo cada 6 meses.",
-                time: "24/7",
-              },
-            ].map((item, i) => (
-              <div key={item.step} className="relative flex gap-6 md:gap-8">
-                <div className="flex-shrink-0 z-10">
-                  <div
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-serif font-bold text-lg md:text-xl border-4"
-                    style={{
-                      backgroundColor: "var(--color-background)",
-                      borderColor: "var(--color-accent)",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    {item.step}
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
+                  <UtensilsCrossed className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
                 </div>
-                <div className="flex-1 pt-2 md:pt-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <item.icon className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-                    <h3 className="font-serif text-xl md:text-2xl font-bold">{item.title}</h3>
-                  </div>
-                  <p className="font-sans leading-relaxed mb-3" style={{ color: "var(--color-muted-foreground)" }}>
-                    {item.desc}
-                  </p>
-                  <span
-                    className="inline-block text-xs font-sans font-semibold px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)", opacity: 0.8 }}
-                  >
-                    ⏱ {item.time}
-                  </span>
-                </div>
+                <h3 className="font-semibold text-foreground mb-2">Estética y Limpieza</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Cableado estructurado oculto, sin cables colgados ni instalaciones ordinarias. Dejamos tu espacio impecable.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════ CASOS REALES ═══════════ */}
-      <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-            Casos reales en Bogotá
-          </h2>
-          <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Negocios que ya protegemos con cámaras e inteligencia artificial:
-          </p>
-
-          <div className="space-y-8">
-            {[
-              {
-                business: "Ferretería Los 3 Amigos — Suba",
-                problem: "Pérdidas de $8 millones/mes por mermas no identificadas. Sin cámaras, el dueño no podía saber si eran robos internos o errores de inventario.",
-                solution: "Instalación de 8 cámaras Hikvision ColorVu con analítica IA. Detección de personas en zona de almacén y arqueo de caja por video.",
-                result: "Mermas reducidas en 68% en 3 meses. ROI recuperado en 5 semanas. Ahorro anual estimado: $65 millones.",
-                icon: Building2,
-              },
-              {
-                business: "Restaurante La Brasa — Chapinero",
-                problem: "Sanciones del IDEA por exceder aforo. El local tenía un sistema de conteo manual que fallaba los fines de semana.",
-                solution: "6 cámaras con control de aforo en tiempo real por IA. Alertas automáticas cuando se alcanza el 80% de capacidad. Dashboard para gerencia.",
-                result: "Cero multas en 12 meses. Mejor control de inventario de comida. Satisfacción de clientes aumentó por evitar esperas.",
-                icon: UtensilsCrossed,
-              },
-              {
-                business: "Bodega Distribuidora Norte — Kennedy",
-                problem: "2 asaltos en 6 meses. Los ladrones entraban por la noche y no había evidencia para la policía ni para el seguro.",
-                solution: "12 cámaras bullet con IR 80m, sensores de movimiento IA, alertas WhatsApp en 3 segundos. Server edge con grabación 90 días.",
-                result: "Intento de robo capturado en HD. Policía identificó y capturó sospechosos. Prima de seguro redujo un 40% el siguiente año.",
-                icon: Warehouse,
-              },
-            ].map((c) => (
-              <div
-                key={c.business}
-                className="p-6 md:p-8 rounded-xl border"
-                style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-background)" }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <c.icon className="w-5 h-5" style={{ color: "var(--color-accent)" }} />
-                  <h3 className="font-serif text-lg font-bold">{c.business}</h3>
+              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
+                  <Eye className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
                 </div>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <div>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--color-accent)" }}>Problema</p>
-                    <p className="font-sans text-sm" style={{ color: "var(--color-muted-foreground)" }}>{c.problem}</p>
-                  </div>
-                  <div>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--color-accent)" }}>Solución</p>
-                    <p className="font-sans text-sm" style={{ color: "var(--color-muted-foreground)" }}>{c.solution}</p>
-                  </div>
-                  <div>
-                    <p className="font-sans text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: "var(--color-accent)" }}>Resultado</p>
-                    <p className="font-sans text-sm" style={{ color: "var(--color-muted-foreground)" }}>{c.result}</p>
-                  </div>
-                </div>
+                <h3 className="font-semibold text-foreground mb-2">Ángulo de Visión Estratégico</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Estudio previo del espacio para evitar puntos ciegos. Cobertura total sin zonas muertas.</p>
               </div>
-            ))}
+              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
+                  <Brain className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">Inducción Técnica</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">Te enseñamos a ti y a tu personal a usar la app paso a paso. Soporte vitalicio incluido.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ═══════════ FAQ ═══════════ */}
-      <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-            Preguntas frecuentes
-          </h2>
-          <p className="font-sans text-lg text-center mb-12" style={{ color: "var(--color-muted-foreground)" }}>
-            Todo lo que necesita saber sobre cámaras de seguridad para su negocio en Bogotá:
-          </p>
+        {/* BLOQUE 3: KITS TODO INCLUIDO (reemplaza sección de precios) */}
+        <section id="precios" className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
+              Kits Todo Incluido: Instalación + Materiales + Bonus IA
+            </h2>
+            <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
+              Kits llave en mano: hardware + instalación + inducción + bonus de escalado con IA. Sin sorpresas, todo incluido.
+            </p>
 
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.q}
-                className="group border rounded-xl overflow-hidden"
-                style={{ borderColor: "var(--color-border)" }}
-              >
-                <summary className="flex items-center justify-between gap-4 p-5 font-sans font-semibold cursor-pointer select-none list-none">
-                  <span>{faq.q}</span>
-                  <ChevronRight
-                    className="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-90"
-                    style={{ color: "var(--color-accent)" }}
-                  />
-                </summary>
-                <div
-                  className="px-5 pb-5 font-sans text-sm leading-relaxed"
-                  style={{ color: "var(--color-muted-foreground)", borderTop: "1px solid var(--color-border)" }}
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Kit 4 Cámaras HD */}
+              <div className="relative flex flex-col p-6 rounded-2xl border-2 transition-all" style={{ borderColor: "var(--color-accent)", backgroundColor: "var(--color-background)" }}>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                  El más vendido
+                </div>
+                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Kit 4 Cámaras HD</h3>
+                <p className="text-center text-muted-foreground mb-4">El más vendido - Ideal para locales pequeños, consultorios y oficinas</p>
+                <div className="text-center text-3xl font-bold text-accent mb-6">$1.800.000 COP</div>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    "4 Cámaras de alta definición (Exterior/Interior)",
+                    "DVR + Disco Duro de almacenamiento",
+                    "Cableado, fuentes y conectores + Instalación Técnica Completa",
+                    "BONUS GRATIS: Inducción de uso + Asesoría Básica de Escalado con IA"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-foreground">
+                      <CheckCircle2 size={18} className="text-accent flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Plan%20Kit%204%20C%C3%A1maras%20HD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-accent text-accent-foreground py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
                 >
-                  <p className="pt-4">{faq.a}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+                  Cotizar Kit 4 Cámaras
+                  <ArrowRight size={16} />
+                </a>
+              </div>
 
-      {/* ═══════════ CTA FINAL ═══════════ */}
+              {/* Kit 8 Cámaras HD */}
+              <div className="relative flex flex-col p-6 rounded-2xl border-2 border-border transition-all hover:border-accent/50" style={{ backgroundColor: "var(--color-background)" }}>
+                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Kit 8 Cámaras HD</h3>
+                <p className="text-center text-muted-foreground mb-4">Para Bodegas / Locales Grandes</p>
+                <div className="text-center text-3xl font-bold text-foreground mb-6">$2.800.000 COP</div>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    "8 Cámaras HD + DVR de 8 canales + Disco Duro",
+                    "Cableado estructurado completo + Instalación Profesional",
+                    "BONUS GRATIS: Inducción de uso + Diagnóstico de Infraestructura para Analítica de Video"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-foreground">
+                      <CheckCircle2 size={18} className="text-accent flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Kit%208%20C%C3%A1maras%20HD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full border-2 border-accent text-accent py-3 rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-colors inline-flex items-center justify-center gap-2"
+                >
+                  Cotizar Kit 8 Cámaras
+                  <ArrowRight size={16} />
+                </a>
+              </div>
+            </div>
+
+            {/* Mano de obra por punto */}
+            <div className="mt-12 max-w-2xl mx-auto">
+              <div className="p-6 rounded-2xl border border-border bg-background/50 text-center">
+                <h3 className="font-serif text-xl font-bold mb-2">¿Ya tienes las cámaras? Solo necesitas la mano de obra</h3>
+                <p className="text-muted-foreground mb-4">Te cobramos entre $80.000 y $150.000 por punto según la altura y complejidad</p>
+                <a
+                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
+                >
+                  <MessageCircle size={18} />
+                  Agenda la Visita del Técnico
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* BLOQUE 4: PRIMER LLAMADO A LA ACCIÓN */}
+        <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
+              ¿Ya tienes las cámaras y solo necesitas la mano de obra de instalación?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+              Te cobramos entre $80.000 y $150.000 por punto según la altura y complejidad.
+            </p>
+            <a
+              href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold text-base hover:opacity-90 transition-opacity"
+            >
+              <MessageCircle size={20} />
+              Agenda la Visita del Técnico
+            </a>
+          </div>
+        </section>
+
+        {/* BLOQUE 5: EL ESCALADO - "¿QUÉ MÁS PUEDES HACER CON TUS CÁMARAS?" */}
+        <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
+          <div className="max-w-5xl mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
+              El Escalado: ¿Qué más puedes hacer con tus cámaras?
+            </h2>
+            <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
+              Una cámara no solo debe grabar robos, debe ayudarte a controlar tu negocio.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <a
+                href="/analitica-video-ia-empresas-bogota"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl p-6 hover:border-accent/30 hover:bg-background transition-all"
+                style={{ backdropFilter: "blur(20px)" }}
+              >
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Users className="w-12 h-12 text-white/20" />
+                  </div>
+                </div>
+                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                  Conectar tus cámaras a IA YOLO
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Para conteo de personas, mapas de calor, aforo y detección de intrusión.
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">
+                  Ver Analítica IA
+                  <ChevronRight size={14} />
+                </div>
+              </a>
+
+              <a
+                href="/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl hover:border-accent/30 hover:bg-background transition-all"
+                style={{ backdropFilter: "blur(20px)" }}
+              >
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Zap className="w-12 h-12 text-white/20" />
+                  </div>
+                </div>
+                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                  Automatizar reportes y alertas
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Integración con WhatsApp, CRM y dashboards en tiempo real vía n8n.
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">
+                  Ver Automatización
+                  <ChevronRight size={14} />
+                </div>
+              </a>
+
+              <a
+                href="/seo-local-google-maps-empresas-seguridad-bogota"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl hover:border-accent/30 hover:bg-background transition-all"
+                style={{ backdropFilter: "blur(20px)" }}
+              >
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Globe className="w-12 h-12 text-white/20" />
+                  </div>
+                </div>
+                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                  Aumentar visibilidad en Google Maps
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  SEO Local y Google Business Profile para empresas de seguridad en Bogotá.
+                </p>
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline">
+                  Ver SEO Local
+                  <ChevronRight size={14} />
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>CTA FINAL ═══════════ */
       <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
