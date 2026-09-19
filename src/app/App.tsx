@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
+import MobileCTA from "./components/MobileCTA";
 import { VideoHero } from "./components/VideoHero";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import {
@@ -49,7 +50,7 @@ const WHATSAPP = "https://wa.me/573337450634";
 const waLink = (msg: string) => `${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const WA_HERO = waLink(
-  "Hola Servicios APC, quiero cotizar la instalación de cámaras para mi negocio/hogar en Bogotá"
+  "Hola Servicios APC, quiero cotizar la instalación de cámaras de seguridad para mi negocio en Bogotá"
 );
 
 const fmtCOP = (n: number) =>
@@ -669,7 +670,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="press bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              WhatsApp Gratis
+              Cotizar
             </a>
           </div>
         </nav>
@@ -677,6 +678,7 @@ export default function App() {
         <ErrorBoundary fallback={null}>
           <CristalChat />
         </ErrorBoundary>
+        <MobileCTA ctaLabel="Cotizar por WhatsApp" />
       </div>
     );
   }
@@ -2087,12 +2089,14 @@ export default function App() {
               transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
             />
             <MessageCircle size={22} className="relative text-white" />
+              <span className="hidden md:inline text-sm font-medium">Cotizar</span>
           </motion.a>
         </div>
 
         <ErrorBoundary fallback={null}>
           <CristalChat />
         </ErrorBoundary>
+        <MobileCTA ctaLabel="Cotizar por WhatsApp" />
       </div>
     </ErrorBoundary>
     </MotionConfig>

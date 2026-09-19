@@ -177,11 +177,14 @@ export function CamarasNegocio() {
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
       {/* ═══════════ HERO ═══════════ */}
       <VideoHero
-        title="Cámaras de Seguridad para Negocio en Bogotá"
-        subtitle="Instalación profesional de cámaras con inteligencia artificial para locales comerciales, bodegas, restaurantes y oficinas. Hardware Hikvision, analítica YOLO v8, alertas automáticas por WhatsApp."
-        ctaLabel="Cotizar Ahora"
-        onCta={() => {}}
-      />
+          title="Instalación de Cámaras de Seguridad para Empresas y Negocios en Bogotá"
+          subtitle="Visualización, analítica e integración con alertas a WhatsApp. Transforma tu sistema CCTV actual en datos de valor sin reemplazar tu infraestructura."
+          ctaLabel="Cotizar por WhatsApp"
+          ctaHref={WHATSAPP}
+          showSecondaryCta={true}
+          secondaryCtaLabel="Ver Planes y Precios"
+          secondaryCtaHref="/#planes"
+        />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[

@@ -67,18 +67,37 @@
     .hub li{padding:4px 0}
     .nav{display:flex;justify-content:space-between;margin:30px 0}
     .footer{margin-top:40px;color:#718096;font-size:.85rem;text-align:center}
+    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#94a3b8;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
+    .breadcrumb a{color:#64748b;text-decoration:none;transition:color .2s}
+    .breadcrumb a:hover{color:#25d366}
+    .breadcrumb span{color:#64748b}
+    .breadcrumb .current{color:#e2e8f0}
+    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-volver:hover{background:#0f172a;color:#25d366;border-color:#25d366}
+    .btn-volver svg{width:1rem;height:1rem}
     @media(max-width:768px){.hero h1{font-size:1.4rem}}
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>%%TITLE%%</h1>
-    <div class="meta">%%CAT%% · %%DATE%% · %%READ%% de lectura · Servicios APC Bogota</div>
-  </div>
   <div class="container">
-    <img class="cover" src="/blog-img/%%COVER%%" alt="%%TITLE%%" loading="lazy" />
-    <div class="answer"><p><strong>En resumen:</strong> %%INTRO40%%</p></div>
-    %%BODY%%
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol style="display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1.5rem">
+        <li><a href="/" style="color:#64748b;text-decoration:none">Inicio</a></li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
+        <li><a href="/#blog" style="color:#64748b;text-decoration:none">Blog</a></li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
+        <li><a href="/#blog" style="color:#64748b;text-decoration:none">%%CAT%%</a></li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
+        <li class="current" style="color:#e2e8f0;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">%%TITLE%%</li>
+      </ol>
+    </nav>
+    <div style="margin-bottom:1rem">
+      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        <span>Volver al blog</span>
+      </a>
+    </div>
+    <div class="hero">
     <div class="cta-box">
       <p>%%CTA%%</p>
       <a href="https://wa.me/573337450634?text=Hola%2C%20lei%20su%20articulo%20y%20quiero%20un%20diagnostico%20gratuito" class="whatsapp">WhatsApp: 333 745 0634</a>
