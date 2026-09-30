@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
+import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
 import { VideoHero } from "./components/VideoHero";
 import { ErrorBoundary } from "../components/ErrorBoundary";
@@ -586,7 +587,13 @@ export default function App() {
   const LandingPage = landingPages[hash];
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("section:reveal", { detail: id }));
+    const jump = (tries = 0) => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+      else if (tries < 40) requestAnimationFrame(() => jump(tries + 1));
+    };
+    requestAnimationFrame(() => jump());
     setMobileOpen(false);
   };
 
@@ -658,6 +665,8 @@ export default function App() {
               <ImageWithFallback
                 src="/logo.webp"
                 alt="Servicios APC"
+                width={128}
+                height={128}
                 className="h-8 w-auto"
               />
               <span className="text-foreground font-semibold text-sm hidden sm:block">
@@ -711,6 +720,8 @@ export default function App() {
               <ImageWithFallback
                 src="/logo.webp"
                 alt="Servicios APC"
+                width={128}
+                height={128}
                 className="h-9 w-auto"
               />
               <span className="text-foreground font-semibold text-sm tracking-wide hidden sm:block">
@@ -919,6 +930,7 @@ export default function App() {
         </section>
 
         {/* ── SERVICIOS ─────────────────────────────────────── */}
+        <LazyMount id="servicios">
         <section id="servicios" className="py-24 border-t border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1024,6 +1036,8 @@ export default function App() {
         </section>
 
         {/* ── BENEFICIOS ─────────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="beneficios">
         <section id="beneficios" className="py-24 bg-secondary border-y border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1052,6 +1066,8 @@ export default function App() {
         </section>
 
         {/* ── PLANES & TRANSPARENCIA ─────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="planes">
         <section id="planes" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1173,6 +1189,8 @@ export default function App() {
         </section>
 
         {/* ── PROCESO 4 PASOS ────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="proceso">
         <section id="proceso" className="py-24 bg-secondary border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1216,6 +1234,8 @@ export default function App() {
         </section>
 
         {/* ── CASOS DE ÉXITO ─────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="casos">
         <section id="casos" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1254,6 +1274,8 @@ export default function App() {
         </section>
 
         {/* ── ECOSISTEMA ─────────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="ecosistema">
         <section id="ecosistema" className="py-24 bg-secondary border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1297,6 +1319,8 @@ export default function App() {
         </section>
 
         {/* ── NOSOTROS ───────────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="nosotros">
         <section id="nosotros" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -1421,6 +1445,8 @@ export default function App() {
         </section>
 
         {/* ── FAQ ────────────────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="faq">
         <section id="faq" className="py-24 bg-secondary border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
@@ -1463,6 +1489,8 @@ export default function App() {
         </section>
 
         {/* ── CONTACTO ───────────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="contacto">
         <section id="contacto" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-12">
@@ -1713,6 +1741,8 @@ export default function App() {
         </section>
 
         {/* ── BLOG EN LANDING ─────────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="blog">
         <section id="blog" className="relative py-24 overflow-hidden">
           <VideoHero
             title="Blog de Cámaras IA y Automatización"
@@ -1780,6 +1810,8 @@ export default function App() {
         </section>
 
         {/* ── CTA FINAL BANNER ───────────────────────────────── */}
+        </LazyMount>
+        <LazyMount id="cta">
         <section className="py-20 relative overflow-hidden vignette">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-[#25d366]/10" />
           <div className="relative max-w-4xl mx-auto px-6 text-center">
@@ -1807,6 +1839,7 @@ export default function App() {
             </Reveal>
           </div>
         </section>
+        </LazyMount>
 
         {/* ── FOOTER ─────────────────────────────────────────── */}
         <footer className="py-10 bg-background">
@@ -1814,7 +1847,7 @@ export default function App() {
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 pb-10 border-b border-border">
               <div className="lg:col-span-2">
                 <div className="flex items-center gap-2.5 mb-4">
-                  <ImageWithFallback src="/logo.webp" alt="Servicios APC" className="h-9 w-auto" />
+                  <ImageWithFallback src="/logo.webp" alt="Servicios APC" width={128} height={128} className="h-9 w-auto" />
                   <span className="text-foreground font-semibold text-sm">
                     Servicios APC
                   </span>

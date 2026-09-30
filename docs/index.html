@@ -10,11 +10,9 @@
   <meta name="author" content="Servicios APC - Alejandro Piraquive" />
   <meta name="theme-color" content="#1a365d" />
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link rel="preconnect" href="https://wa.me" crossorigin>
   <meta name="geo.region" content="CO-DC" />
   <meta name="geo.placename" content="Bogotá" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; script-src-elem 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://cloudflareinsights.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; worker-src 'self' blob:;" />
   <meta name="geo.position" content="4.60971;-74.08175" />
   <meta name="ICBM" content="4.60971, -74.08175" />
   <link rel="canonical" href="https://serviciosapc.site/" />
@@ -279,9 +277,10 @@
   }
   </script>
   <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
-  <script type="module" crossorigin src="/assets/index-Blnm1hBP.js"></script>
-  <link rel="stylesheet" href="/assets/index-DNy0KzF5.css" media="print" onload="this.media='all'" crossorigin>
-  <noscript><link rel="stylesheet" href="/assets/index-DNy0KzF5.css" crossorigin></noscript>
+  <script type="module" crossorigin src="/assets/index-BwHV23a7.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/index-BwHV23a7.js">
+  <link rel="stylesheet" href="/assets/index-BIk9aqf0.css" media="print" onload="this.media='all'" crossorigin>
+  <noscript><link rel="stylesheet" href="/assets/index-BIk9aqf0.css" crossorigin></noscript>
 </head>
 <body>
   <div id="root"></div>
@@ -300,13 +299,20 @@
       <p>Cra. 52c #39b-22, Bogot&aacute; &middot; +57 333 745 0634 &middot; <a href="https://wa.me/57337450634">WhatsApp</a></p>
     </div>
   </noscript>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWFDLTCM8R"></script>
+
+  <!-- Google tag (gtag.js diferido a window.load: fuera de la ruta critica) -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-EWFDLTCM8R');
+    window.addEventListener('load', function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-EWFDLTCM8R');
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-EWFDLTCM8R';
+      document.head.appendChild(s);
+    }, { once: true });
   </script>
 </body>
 </html>
