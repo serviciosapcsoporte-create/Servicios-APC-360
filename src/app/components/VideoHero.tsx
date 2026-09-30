@@ -59,6 +59,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
           aria-hidden="true"
           onError={() => setVideoError(true)}
         >
+          <source src="/videos/reels-10s.webm" type="video/webm" />
           <source src="/videos/reels-10s.mp4" type="video/mp4" />
         </video>
       )}

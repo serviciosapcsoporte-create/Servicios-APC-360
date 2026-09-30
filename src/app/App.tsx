@@ -820,6 +820,7 @@ export default function App() {
             onError={() => setVideoReady(true)}
             aria-hidden="true"
           >
+            <source src="/videos/reels-10s.webm" type="video/webm" />
             <source src="/videos/reels-10s.mp4" type="video/mp4" />
           </video>
           <div
