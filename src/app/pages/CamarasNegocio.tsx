@@ -561,9 +561,9 @@ export function CamarasNegocio() {
                     <Users className="w-12 h-12 text-white/20" />
                   </div>
                 </div>
-                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
                   Conectar tus cámaras a IA YOLO
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   Para conteo de personas, mapas de calor, aforo y detección de intrusión.
                 </p>
@@ -584,9 +584,9 @@ export function CamarasNegocio() {
                     <Zap className="w-12 h-12 text-white/20" />
                   </div>
                 </div>
-                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
                   Automatizar reportes y alertas
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   Integración con WhatsApp, CRM y dashboards en tiempo real vía n8n.
                 </p>
@@ -607,9 +607,9 @@ export function CamarasNegocio() {
                     <Globe className="w-12 h-12 text-white/20" />
                   </div>
                 </div>
-                <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+                <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
                   Aumentar visibilidad en Google Maps
-                </h4>
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   SEO Local y Google Business Profile para empresas de seguridad en Bogotá.
                 </p>

@@ -451,7 +451,7 @@ function WhatsAppChip({ label, href, small = false }: { label: string; href: str
       rel="noopener noreferrer"
       whileTap={{ scale: 0.97 }}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full bg-[#25d366]/90 text-white border border-white/20 backdrop-blur-md shadow-[0_8px_32px_rgba(37,211,102,0.35)] hover:bg-[#22c55e] transition-colors font-medium",
+        "inline-flex items-center justify-center gap-2 rounded-full bg-[#25d366]/90 text-[#07331c] border border-white/20 backdrop-blur-md shadow-[0_8px_32px_rgba(37,211,102,0.35)] hover:bg-[#22c55e] transition-colors font-medium",
         small ? "px-4 py-2 text-sm" : "px-6 py-3.5 text-[15px]"
       )}
     >
@@ -488,6 +488,7 @@ function AccordionPanel({
         willChange: "grid-template-rows",
       }}
       aria-hidden={!open}
+      {...(!open ? { inert: "" } : {})}
     >
       <div className="overflow-hidden min-h-0">{children}</div>
     </div>
@@ -654,7 +655,7 @@ export default function App() {
   if (LandingPage || blogSlug) {
     return (
       <div className="min-h-screen bg-background text-foreground font-sans">
-        <nav className="sticky top-0 z-50 glass-nav">
+        <nav aria-label="Navegación principal" className="sticky top-0 z-50 glass-nav">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button
               onClick={() => {
@@ -677,13 +678,13 @@ export default function App() {
               href={WHATSAPP}
               target="_blank"
               rel="noopener noreferrer"
-              className="press bg-accent text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+              className="press bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
             >
               Cotizar
             </a>
           </div>
         </nav>
-        {blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}
+        <main>{blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}</main>
         <ErrorBoundary fallback={null}>
           <CristalChat />
         </ErrorBoundary>
@@ -708,6 +709,7 @@ export default function App() {
         <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
         {/* ── NAV ─────────────────────────────────────────── */}
         <nav
+          aria-label="Navegación principal"
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 edge-fade ${
             scrolled ? "glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.35)]" : "bg-transparent border-b border-transparent"
           }`}
@@ -794,7 +796,7 @@ export default function App() {
                 href={WA_HERO}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center bg-[#25d366] text-white rounded-full px-5 py-2.5 text-sm font-medium"
+                className="block text-center bg-[#25d366] text-[#07331c] rounded-full px-5 py-2.5 text-sm font-medium"
               >
                 Cotizar por WhatsApp
               </a>
@@ -802,6 +804,7 @@ export default function App() {
           </AccordionPanel>
         </nav>
 
+        <main id="contenido">
         {/* ── HERO ─────────────────────────────────────────── */}
         <section id="inicio" className="relative min-h-[92vh] flex items-center overflow-hidden vignette">
           <video
@@ -1175,7 +1178,7 @@ export default function App() {
 
                       <WhatsAppChip
                         small
-                        label="Cotizar este plan"
+                        label={`Cotizar plan ${p.name}`}
                         href={waLink(
                           `Hola Servicios APC, quiero cotizar el plan ${p.name} para mi negocio en Bogotá`
                         )}
@@ -1205,7 +1208,7 @@ export default function App() {
                 return (
                   <Reveal key={p.step} delay={i * 0.09} className="h-full">
                     <div className="relative glass-card rounded-2xl p-6 h-full overflow-hidden">
-                      <span className="absolute top-4 right-5 font-serif text-5xl font-bold text-foreground/5 select-none">
+                      <span className="absolute top-4 right-5 font-serif text-5xl font-bold text-foreground/5 select-none" aria-hidden="true">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <div className="w-12 h-12 rounded-xl border border-[#25d366]/30 bg-[#25d366]/10 flex items-center justify-center mb-5">
@@ -1346,7 +1349,7 @@ export default function App() {
                     <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
                       Tecnología — Servicios APC
                     </p>
-                    <p className="text-accent-foreground/70 text-xs mt-0.5 font-mono">
+                    <p className="text-accent-foreground text-xs mt-0.5 font-mono">
                       Bogotá, Colombia
                     </p>
                   </div>
@@ -1841,6 +1844,8 @@ export default function App() {
         </section>
         </LazyMount>
 
+        </main>
+
         {/* ── FOOTER ─────────────────────────────────────────── */}
         <footer className="py-10 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -2162,9 +2167,9 @@ function CategoryCard({ image, title, desc, href }: CategoryCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
-      <h4 className="font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
+      <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
         {title}
-      </h4>
+      </h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
     </a>
   );
@@ -2237,6 +2242,7 @@ function RecentArticlesGrid() {
             <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
             <a
               href={`/blog/${post.slug}/`}
+              aria-label={`Leer artículo completo: ${post.title}`}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline mt-2"
             >
               Leer artículo completo
