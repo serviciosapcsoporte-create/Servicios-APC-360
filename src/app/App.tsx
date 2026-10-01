@@ -655,6 +655,12 @@ export default function App() {
   if (LandingPage || blogSlug) {
     return (
       <div className="min-h-screen bg-background text-foreground font-sans">
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-accent focus:text-accent-foreground focus:px-5 focus:py-2.5 focus:rounded-full focus:font-medium focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
         <nav aria-label="Navegación principal" className="sticky top-0 z-50 glass-nav">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button
@@ -684,7 +690,7 @@ export default function App() {
             </a>
           </div>
         </nav>
-        <main>{blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}</main>
+        <main id="contenido">{blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}</main>
         <ErrorBoundary fallback={null}>
           <CristalChat />
         </ErrorBoundary>
@@ -707,6 +713,12 @@ export default function App() {
     <MotionConfig reducedMotion="user">
       <ErrorBoundary>
         <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+        <a
+          href="#contenido"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-accent focus:text-accent-foreground focus:px-5 focus:py-2.5 focus:rounded-full focus:font-medium focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
         {/* ── NAV ─────────────────────────────────────────── */}
         <nav
           aria-label="Navegación principal"
