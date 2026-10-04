@@ -2,8 +2,9 @@
 """Genera paginas estaticas indexables desde src/app/blog/posts/*.mdx."""
 import os, re, html
 
-SRC = r"C:\Users\pc\Documents\serviciosapc-site\src\app\blog\posts"
-BASE = r"C:\Users\pc\Documents\serviciosapc-site\public\blog"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.path.normpath(os.path.join(_HERE, "..", "src", "app", "blog", "posts"))
+BASE = os.path.normpath(os.path.join(_HERE, "..", "public", "blog"))
 
 COVERS = {
     "guia-camaras-hikvision-ia-empresas-bogota-2026": "automatizacion-procesos.webp",
@@ -157,7 +158,7 @@ def get_contextual_cta(slug, category):
         "servidores-edge-gpu-para-ia-video-analitica-bogota": "Hola Servicios APC, necesito servidor edge GPU para videoanalítica IA",
     }
     if slug in cta_map:
-        return base + cta_map[slug], "Cotizar por WhatsApp"
+        return base + fix_mojibake(cta_map[slug]), "Cotizar por WhatsApp"
     cat_defaults = {
         "Diagnóstico": "Hola Servicios APC, leí su diagnóstico y quiero auditoría gratis",
         "Caso Sectorial": "Hola Servicios APC, vi su caso sectorial y quiero replicarlo",
@@ -176,7 +177,7 @@ def get_contextual_cta(slug, category):
         "Infraestructura": "Hola Servicios APC, necesito servidor edge GPU para IA",
     }
     msg = cat_defaults.get(category, "Hola Servicios APC, leí su artículo y quiero asesoría")
-    return base + msg, "Cotizar por WhatsApp"
+    return base + fix_mojibake(msg), "Cotizar por WhatsApp"
 
 def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link, cta_href, cta_label):
     title = fix_mojibake(fm.get("title", slug))
@@ -186,15 +187,15 @@ def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link, 
     read = fm.get("readTime", "8 min")
     h = TEMPLATE
     h = h.replace("%%TITLE%%", html.escape(title))
-    h = h.replace("%%META%%", html.escape(meta))
+    h = h.replace("%%META%%", html.escape(fix_mojibake(meta)))
     h = h.replace("%%SLUG%%", slug)
     h = h.replace("%%COVER%%", cover)
     h = h.replace("%%DATE%%", date)
     h = h.replace("%%CAT%%", html.escape(cat))
     h = h.replace("%%TAGS%%", html.escape(tags))
     h = h.replace("%%READ%%", html.escape(read))
-    h = h.replace("%%INTRO40%%", html.escape(intro40))
-    h = h.replace("%%CTA%%", html.escape(cta))
+    h = h.replace("%%INTRO40%%", html.escape(fix_mojibake(intro40)))
+    h = h.replace("%%CTA%%", html.escape(fix_mojibake(cta)))
     h = h.replace("%%CTA_HREF%%", html.escape(cta_href))
     h = h.replace("%%CTA_LABEL%%", html.escape(cta_label))
     h = h.replace("%%BODY%%", body_html)
