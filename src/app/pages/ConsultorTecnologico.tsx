@@ -70,17 +70,17 @@ const faqs = [
 export function ConsultorTecnologico() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* ═══════════ HERO ═══════════ */}
       <VideoHero
-        title="Consultor TecnolÃ³gico para Empresas en BogotÃ¡"
-        subtitle="Convertimos la tecnologÃ­a que ya paga en resultados medibles: seguridad con IA, automatizaciÃ³n de procesos y datos que toman decisiones. DiagnÃ³stico con retorno de inversiÃ³n, sin tecnicismos."
+        title="Consultor Tecnológico para Empresas en Bogotá"
+        subtitle="Convertimos la tecnología que ya paga en resultados medibles: seguridad con IA, automatización de procesos y datos que toman decisiones. Diagnóstico con retorno de inversión, sin tecnicismos."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            [{ icon: Search, label: "DiagnÃ³stico", sub: "gratis con implementaciÃ³n" }, { icon: BarChart3, label: "ROI", sub: "medido en semanas" }, { icon: Lock, label: "Reutiliza", sub: "su CCTV actual" }, { icon: Workflow, label: "Procesos", sub: "automatizados con n8n" }]
+            [{ icon: Search, label: "Diagnóstico", sub: "gratis con implementación" }, { icon: BarChart3, label: "ROI", sub: "medido en semanas" }, { icon: Lock, label: "Reutiliza", sub: "su CCTV actual" }, { icon: Workflow, label: "Procesos", sub: "automatizados con n8n" }]
           ].map((item) => (
             <div key={item.label} className="text-center">
               <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />

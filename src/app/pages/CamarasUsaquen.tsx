@@ -36,7 +36,7 @@ export function CamarasUsaquen() {
     },
     {
       titulo: "Diseño arquitectónico integrado",
-      desc: "Cámaras que se融合 al diseño interior sin comprometer la estética de espacios premium como hotel boutique.",
+      desc: "Cámaras que se integran al diseño interior sin comprometer la estética de espacios premium como hotel boutique.",
       icon: "🏛️",
     },
     {
@@ -64,7 +64,7 @@ export function CamarasUsaquen() {
   const faqs = [
     {
       q: "¿Cuánto cuesta un sistema de videovigilancia para restaurantes en Usaquén?",
-      a: "Para restaurantes de Usaquén, un sistema completo con 6-8 cámaras, analítica de aforo e intrusiones cuesta desde $5.800.000 COP. Incluye dashboard ejecutivo, configuración por zona y capacitación.",
+      a: "Para restaurantes de Usaquén, un sistema completo con 6-8 cámaras, analítica de aforo e intrusiones se cotiza a medida. Precios desde $1.500.000 con pago único o desde $50.000 semanales; el valor final se define en el estudio de instalación. Incluye dashboard ejecutivo, configuración por zona y capacitación.",
     },
     {
       q: "¿Cubren Country Club y Los Cedros?",
@@ -102,8 +102,8 @@ export function CamarasUsaquen() {
       }}
     >
       <VideoHero
-        title="CÃ¡maras de Seguridad en UsaquÃ©n"
-        subtitle="Hoteles boutique, restaurantes gourmet y oficinas corporativas en UsaquÃ©n con reconocimiento facial, control de acceso y analÃ­tica IA."
+        title="Cámaras de Seguridad en Usaquén"
+        subtitle="Hoteles boutique, restaurantes gourmet y oficinas corporativas en Usaquén con reconocimiento facial, control de acceso y analítica IA."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />

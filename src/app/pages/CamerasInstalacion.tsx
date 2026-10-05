@@ -5,6 +5,7 @@ import {
   Camera,
   Video,
   Clock,
+  DollarSign,
   CheckCircle2,
   Phone,
   Mail,
@@ -44,7 +45,7 @@ function RenderMD({ md }: { md: string }) {
 const faqs = [
   {
     q: "¿Cuánto cuesta la instalación de cámaras de seguridad en Bogotá?",
-    a: "Depende del número de puntos y del tipo de cableado. Un sistema de 4 cámaras parte de $1.800.000 COP, 8 cámaras ColorVu alrededor de $3.200.000 y 16 cámaras con NVR PoE cerca de $5.600.000. Todos incluyen instalación, configuración y app móvil.",
+    a: "Desde $1.500.000 COP con pago único todo incluido, o desde $50.000 semanales financiado. El precio exacto depende del número de puntos, el tipo de cableado y la accesibilidad, y se define en el estudio de instalación. Incluye instalación, configuración y app móvil.",
   },
   {
     q: "¿Cuánto demora la instalación?",
@@ -64,7 +65,7 @@ const faqs = [
   },
   {
     q: "¿Qué garantía tienen?",
-    a: "Hardware con garantía de fábrica de 1 a 3 años según modelo. Soporte técnico según plan: 30 días (básico) hasta 12 meses (IA Total), extensible con contrato mensual desde $250.000.",
+    a: "Hardware con garantía de fábrica de 1 a 3 años según modelo. Soporte técnico según plan: 30 días (básico) hasta 12 meses, extensible con contrato de mantenimiento según estudio de instalación.",
   },
   {
     q: "¿En qué zonas de Bogotá instalan?",
@@ -77,17 +78,17 @@ const faqs = [
 export function CamerasInstalacion() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* ═══════════ HERO ═══════════ */}
       <VideoHero
-        title="InstalaciÃ³n de CÃ¡maras de Seguridad en BogotÃ¡"
-        subtitle="InstalaciÃ³n profesional de cÃ¡maras Hikvision para casas, negocios y empresas: cableado estructurado sin puntos ciegos, configuraciÃ³n de acceso remoto y equipos IA-ready. CotizaciÃ³n con visita tÃ©cnica incluida."
+        title="Instalación de Cámaras de Seguridad en Bogotá"
+        subtitle="Instalación profesional de cámaras Hikvision para casas, negocios y empresas: cableado estructurado sin puntos ciegos, configuración de acceso remoto y equipos IA-ready. Cotización con visita técnica incluida."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            [{ icon: Camera, label: "4 cÃ¡maras", sub: "desde $1.800.000" }, { icon: Clock, label: "InstalaciÃ³n", sub: "1 dÃ­a hÃ¡bil" }, { icon: Settings2, label: "Sin puntos ciegos", sub: "cableado estructurado" }, { icon: Shield, label: "GarantÃ­a", sub: "1-3 aÃ±os Hikvision" }]
+            [{ icon: DollarSign, label: "Pago único", sub: "desde $1.500.000" }, { icon: Clock, label: "Financiado", sub: "desde $50.000/semana" }, { icon: Settings2, label: "Sin puntos ciegos", sub: "cableado estructurado" }, { icon: Shield, label: "Garantía", sub: "1-3 años Hikvision" }]
           ].map((item) => (
             <div key={item.label} className="text-center">
               <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
@@ -316,7 +317,7 @@ export function CamerasInstalacion() {
             Precios de instalación de cámaras 2026
           </h2>
           <p className="font-sans text-lg mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Precios referenciales en Bogotá, incluyen equipos Hikvision, instalación, configuración y app móvil (COP, IVA incluido).
+            Precios desde en Bogotá: pago único desde $1.500.000 todo incluido o financiado desde $50.000 semanales, con equipos Hikvision, instalación, configuración y app móvil incluidos. El valor final se define en el estudio de instalación.
           </p>
 
           <div className="overflow-x-auto mb-8 rounded-xl border" style={{ borderColor: "var(--color-border)" }}>
@@ -331,9 +332,8 @@ export function CamerasInstalacion() {
               </thead>
               <tbody>
                 {[
-                  ["Casa básica", "4 cámaras HD 4MP + DVR 4ch", "$1.800.000", "Instalación + app móvil"],
-                  ["Negocio medio", "8 cámaras ColorVu + DVR 8ch", "$3.200.000", "IA alertas + app móvil"],
-                  ["Empresa completa", "16 cámaras + NVR PoE", "$5.600.000", "Analítica IA + dashboard"],
+                  ["Pago único", "Equipo + instalación a la medida", "$1.500.000", "Todo incluido"],
+                  ["Financiado", "Kit completo", "$50.000/semana", "Total ref. desde $1.800.000"],
                 ].map((row, i) => (
                   <tr key={i} style={{ borderTop: "1px solid var(--color-border)", backgroundColor: i % 2 ? "var(--color-background)" : "transparent" }}>
                     {row.map((cell, j) => (

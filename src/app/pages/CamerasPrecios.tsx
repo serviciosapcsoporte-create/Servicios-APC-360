@@ -36,67 +36,32 @@ function RenderMD({ md }: { md: string }) {
 
 const pricePlans = [
   {
-    name: "Básico",
-    cameras: "4 cámaras",
-    price: "$1.800.000",
-    desc: "Locales pequeños, consultorios, casa",
+    name: "Pago único",
+    cameras: "Todo incluido",
+    price: "Desde $1.500.000",
+    desc: "Equipos, cableado, instalación, configuración y app móvil",
     features: [
-      "4 cámaras HD 4MP",
-      "DVR 4 canales",
-      "1 TB almacenamiento",
-      "Instalación incluida",
-      "Configuración app móvil",
-      "Soporte 30 días",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Profesional",
-    cameras: "8 cámaras",
-    price: "$3.200.000",
-    desc: "Negocios medianos con alta rotación",
-    features: [
-      "8 cámaras 4MP ColorVu",
-      "DVR 8 canales",
-      "2 TB almacenamiento",
-      "Instalación incluida",
-      "Alertas automáticas IA",
-      "App móvil + escritorio",
-      "Soporte 90 días",
+      "Equipo a la medida del estudio de instalación",
+      "Instalación y cableado estructurado",
+      "Configuración DVR/NVR y acceso remoto",
+      "Capacitación de uso en 15 minutos",
+      "Soporte técnico post-instalación",
+      "Precio final definido en el estudio de instalación",
     ],
     highlight: true,
   },
   {
-    name: "Empresarial",
-    cameras: "16 cámaras",
-    price: "$5.600.000",
-    desc: "Bodegas, clínicas, franquicias",
+    name: "Financiado",
+    cameras: "Kit desde",
+    price: "Desde $50.000/semana",
+    desc: "Total de referencia del kit: desde $1.800.000",
     features: [
-      "16 cámaras 4MP",
-      "NVR 16 canales PoE",
-      "4 TB almacenamiento RAID",
-      "Instalación incluida",
-      "Analítica IA completa",
-      "Dashboard remoto 24/7",
-      "Integración WhatsApp/CRM",
-      "Soporte 6 meses",
-    ],
-    highlight: false,
-  },
-  {
-    name: "IA Total",
-    cameras: "8-16 cámaras + IA",
-    price: "Desde $4.500.000",
-    desc: "Analítica inteligente: aforo, intrusión, PPE, arqueo",
-    features: [
-      "Hardware + servidor edge GPU",
-      "YOLO v8 detección de objetos",
-      "PPE detection (EPP obligatorio)",
-      "Control de aforo en tiempo real",
-      "Arqueo de caja por video",
-      "Alertas WhatsApp/CRM automáticas",
-      "Dashboard ejecutivo",
-      "Soporte prioritario 12 meses",
+      "Mismo alcance que el pago único",
+      "Cuota semanal fija durante la instalación",
+      "Equipo y mano de obra incluidos",
+      "Acceso remoto desde el primer día",
+      "Soporte técnico post-instalación",
+      "Cronograma de pagos acordado por escrito",
     ],
     highlight: false,
   },
@@ -107,19 +72,19 @@ const pricePlans = [
 const faqs = [
   {
     q: "¿Cuánto cuesta la instalación de un sistema de cámaras de seguridad en Bogotá?",
-    a: "Un sistema de 4 cámaras cuesta desde $1.800.000 COP con instalación y configuración incluida. Uno de 8 cámaras ColorVu ronda los $3.200.000 y uno de 16 con NVR PoE, $5.600.000. La cotización varía por distancia de cableado, número de puntos y accesibilidad.",
+    a: "Desde $1.500.000 COP con pago único todo incluido, o desde $50.000 semanales financiado. El precio exacto depende de la distancia del cableado, el número de puntos y la accesibilidad, y se define en el estudio de instalación antes de comprar nada.",
   },
   {
-    q: "¿El precio incluye el valor de la instalación o solo las cámaras?",
-    a: "Nuestros precios incluyen hardware, instalación, configuración y app móvil. No cobramos extra por los técnicos. Solo servicios adicionales (cableado extendido > 40m, acceso especial, servidor IA) se cotizan por separado.",
+    q: "¿El precio de referencia incluye el valor de la instalación o solo las cámaras?",
+    a: "Los precios de referencia ya incluyen hardware, instalación, configuración y app móvil. No cobramos extra por los técnicos. Solo servicios adicionales (cableado extendido > 40m, acceso especial, servidor IA) se cotizan por separado.",
   },
   {
-    q: "¿Por qué un sistema de cámaras cuesta $1.800.000 cuando veo cámaras wifi en $150.000?",
+    q: "¿Por qué no es lo mismo un sistema Hikvision que una cámara wifi barata?",
     a: "La diferencia está en la grabación. Una cámara wifi barata graba en SD (que se llena, o se roban), no tiene retención de 90 días ni garantía. Un sistema Hikvision con DVR graba 24/7 en local, con respaldo y visión nocturna. Son cosas diferentes: una es un juguete, la otra es evidencia.",
   },
   {
-    q: "¿Ofrecen pagos a cuotas o financiación?",
-    a: "Sí. Sistemas desde $1.800.000 se pueden financiar en cuotas con tarjeta de crédito (3, 6 y 12 cuotas) y también recibimos transferencia y efectivo. La cotización detalla las opciones.",
+    q: "¿Ofrecen financiación o pago a plazos?",
+    a: "Sí. Puede pagar con pago único desde $1.500.000 todo incluido, o financiar desde $50.000 semanales (total de referencia del kit instalado desde $1.800.000). También recibimos transferencia y efectivo. El número de cuotas y el cronograma se acuerdan por escrito en la cotización.",
   },
   {
     q: "¿La cotización es gratis y sin compromiso?",
@@ -127,7 +92,7 @@ const faqs = [
   },
   {
     q: "¿Qué incluye la garantía?",
-    a: "Hardware con garantía de fábrica de 1 a 3 años. Instalación con respaldo técnico por plan (30 días a 12 meses). Los contratos de soporte mensual desde $250.000 incluyen mantenimiento preventivo cada 6 meses.",
+    a: "Hardware con garantía de fábrica de 1 a 3 años. Instalación con respaldo técnico por plan (30 días a 12 meses). Los contratos de mantenimiento se cotizan según el estudio de instalación e incluyen revisión preventiva programada.",
   },
 ];
 
@@ -139,15 +104,15 @@ export function CamerasPrecios() {
       {/* ═══════════ HERO ═══════════ */}
       <VideoHero
         title="Precios de Instalación de Cámaras de Seguridad"
-        subtitle="Cuánto cuesta realmente instalar cámaras de seguridad en Bogotá en 2026: sin letra pequeña, incluyendo hardware, instalación, configuración y acceso desde el celular."
+        subtitle="Instalar cámaras de seguridad en Bogotá en 2026: desde $1.500.000 con pago único o desde $50.000 semanales, con hardware, instalación, configuración y acceso desde el celular incluidos. Sin letra pequeña."
         ctaLabel="Pedir Cotización"
         onCta={() => {}}
       />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: Camera, label: "4 cámaras", sub: "desde $1.800.000" },
-            { icon: Clock, label: "Instalación", sub: "incluida en el precio" },
+            { icon: DollarSign, label: "Pago único", sub: "desde $1.500.000" },
+            { icon: Camera, label: "Financiado", sub: "desde $50.000/semana" },
             { icon: Shield, label: "Garantía", sub: "1 a 3 años" },
             { icon: CheckCircle2, label: "Cotización", sub: "gratis y cerrada" },
           ].map((item) => (
@@ -222,14 +187,14 @@ export function CamerasPrecios() {
       <section id="tabla" className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-            Tabla de precios de instalación de cámaras 2026
+            Formas de pago de la instalación de cámaras 2026
           </h2>
           <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Precios en pesos colombianos, incluyen instalación y configuración. Cotice a su medida vía WhatsApp:
+            Precios en pesos colombianos desde; el valor final se define en el estudio de instalación. Cotice a su medida vía WhatsApp:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pricingPlans.map((plan) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6">
+            {pricePlans.map((plan) => (
               <div
                 key={plan.name}
                 className="relative flex flex-col p-6 rounded-xl border-2 transition-all"
@@ -278,7 +243,7 @@ export function CamerasPrecios() {
 
           <div className="mt-8 text-center">
             <p className="font-sans text-sm" style={{ color: "var(--color-muted-foreground)" }}>
-              * Precios referenciales Bogotá. La cotización final es cerrada solo después de la visita técnica. Financiación a 12 cuotas con tarjeta de crédito.
+              * Precios de referencia en COP. El valor final se define en el estudio de instalación: pago único desde $1.500.000 todo incluido o financiado desde $50.000 semanales.
             </p>
           </div>
         </div>
@@ -291,7 +256,7 @@ export function CamerasPrecios() {
             Por qué nuestros precios no se 'chotan'
           </h2>
           <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            No publicamos precio de gancho de $300.000 para luego cobrar $1.800.000 en partes. Esta es de a diferencia:
+            No publicamos precio de gancho para luego cobrar distinto en partes. Esta es la diferencia:
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -308,8 +273,8 @@ export function CamerasPrecios() {
               },
               {
                 icon: ChevronRight,
-                title: "IVA incluido",
-                desc: "Todos los precios publicados están en COP e incluyen IVA. No le agregan 'detallitos' al final.",
+                title: "IVA transparente",
+                desc: "La cotización detalla equipos, mano de obra e IVA por separado. No le agregan 'detallitos' al final.",
               },
             ].map((item) => (
               <div

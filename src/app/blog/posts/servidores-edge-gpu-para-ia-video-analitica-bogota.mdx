@@ -155,12 +155,14 @@ Cámara IP ──RTSP──▶ Servidor Edge ──GPU──▶ YOLO detecta obj
 
 - **1-8 cámaras**: NVIDIA T4 — mejor relación costo-rendimiento, bajo consumo
 - **8-15 cámaras**: RTX A2000 — buen equilibrio, soporte profesional NVIDIA
-- **15-30 cámaras**: RTX 4000 Ada — rendimiento necessário, justifica el costo
+- **15-30 cámaras**: RTX 4000 Ada — rendimiento necesario, justifica el costo
 - **30+ cámaras**: Considerar RTX 4000 Ada SFF o dos servidores edge
 
-## Costo real: Cloud vs Edge para Bogotá
+## Costos de referencia: Cloud vs Edge para Bogotá
 
 ### Escenario: 20 cámaras CCTV, análisis 24/7, 36 meses
+
+> Cifras ilustrativas para comparar modelos de costo. El edge se cotiza por proyecto (APC Core) según configuración y puede variar; la opción cloud usa tarifas públicas del proveedor.
 
 **Opción A: Cloud (AWS/Azure)**
 
@@ -172,33 +174,23 @@ Cámara IP ──RTSP──▶ Servidor Edge ──GPU──▶ YOLO detecta obj
 | Soporte técnico | $100 USD | $3.600 USD |
 | **Total** | **$773 USD** | **$27.828 USD (~$116M COP)** |
 
-**Opción B: Edge local (APC Core)**
+**Opción B: Edge local (APC Core) — valores según cotización**
 
 | Concepto | Costo único | Costo 36 meses |
 |---|---|---|
-| Servidor edge GPU completo | — | $12.000.000 COP |
-| Instalación y configuración | — | $3.000.000 COP |
+| Servidor edge GPU completo | — | Según configuración |
+| Instalación y configuración | — | Según proyecto |
 | Internet empresarial | $350.000/mes | $12.600.000 COP |
-| Mantenimiento mensual | $800.000/mes | $28.800.000 COP |
-| **Total** | — | **$56.400.000 COP (~$13.400 USD)** |
+| Mantenimiento mensual | Según plan | Según plan |
+| **Total** | — | **Según cotización** |
 
-**Ahorro edge vs cloud: $102.6M COP (88%) en 36 meses.**
+**Ahorro edge vs cloud: normalmente más del 80% en 36 meses — el ahorro exacto de tu caso se calcula en la cotización.**
 
 Y el servidor edge sigue siendo tuyo después de 3 años. El cloud no.
 
 ### Break-even mensual
 
-| Mes | Cloud acumulado | Edge acumulado | Ahorro edge |
-|---|---|---|---|
-| Mes 1 | $3.4M COP | $16.8M COP | -$13.4M |
-| Mes 3 | $10.2M COP | $19.2M COP | -$9.0M |
-| Mes 6 | $20.4M COP | $22.8M COP | -$2.4M |
-| **Mes 7** | **$23.8M COP** | **$24.0M COP** | **+$0.2M** |
-| Mes 12 | $47.6M COP | $30.0M COP | +$17.6M |
-| Mes 24 | $95.2M COP | $45.6M COP | +$49.6M |
-| Mes 36 | $142.8M COP | $56.4M COP | +$86.4M |
-
-**El edge se paga solo en el mes 7.** Después de eso, cada mes es puro ahorro.
+Con los valores de referencia del escenario, el edge típicamente iguala al cloud entre el mes 6 y el mes 8, y a partir de ahí cada mes representa ahorro. El punto exacto de equilibrio de tu proyecto se calcula en la cotización de APC Core.
 
 ## Ejemplos operativos en Bogotá (flujos tipo)
 
@@ -214,7 +206,7 @@ Y el servidor edge sigue siendo tuyo después de 3 años. El cloud no.
 - Dashboard web con alertas en tiempo real
 - n8n integrado para WhatsApp + email
 
-**Resultado**: Funcionando 18 meses sin interrupciones. Costo total: $18M COP (instalación) + $800K/mes (mantenimiento). La empresa ahorra $1.1M COP/mes vs cloud.
+**Resultado**: Funcionando 18 meses sin interrupciones. Costo total cotizado por proyecto (instalación única + mantenimiento según plan). La empresa ahorra cerca de $1.1M COP/mes vs cloud.
 
 ### Ejemplo 2: Centro logístico en Fontibón — 48 cámaras, doble GPU
 
@@ -241,7 +233,7 @@ Y el servidor edge sigue siendo tuyo después de 3 años. El cloud no.
 - Dashboard centralizado que recibe datos de las 15 sedes
 - Alertas diferenciadas: sedes abiertas vs cerradas
 
-**Resultado**: Inversión total $45M COP (vs $180M COP que costaría cloud para 15 sedes). Break-even en 4 meses.
+**Resultado**: Inversión total cotizada por proyecto (vs $180M COP que costaría cloud para 15 sedes). Break-even típico en pocos meses.
 
 ## FAQ
 

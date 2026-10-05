@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto cuesta el mantenimiento de cámaras en Bogotá?",
-    a: "El mantenimiento preventivo por visita parte de $180.000 COP e incluye la revisión de hasta 4 cámaras (limpieza, firmware, cableado y configuración). Cada cámara adicional suma un costo menor. El mantenimiento correctivo (reemplazo de equipo o reparación) se cotiza según la falla. Ofrecemos planes de supervisión remota mensual desde $250.000 COP.",
+    a: "Depende del número de cámaras, la frecuencia y el alcance: le cotizamos el plan según su sistema tras revisarlo, e incluye limpieza, firmware, cableado y configuración. El mantenimiento correctivo (reemplazo o reparación) se cotiza según la falla y la supervisión remota mensual se cotiza aparte. Diagnóstico sin costo.",
   },
   {
     q: "¿Revisan y reparaman cámaras de cualquier marca?",
@@ -78,17 +78,17 @@ const faqs = [
 export function MantenimientoCamaras() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* ═══════════ HERO ═══════════ */}
       <VideoHero
-        title="Mantenimiento de CÃ¡maras de Seguridad en BogotÃ¡"
-        subtitle="Su cÃ¡mara graba a negro, se ve borrosa o dejÃ³ de grabar? Servicio de mantenimiento preventivo y correctivo para sistemas CCTV Hikvision / Dahua en BogotÃ¡: limpieza, firmware, cableado y configuraciÃ³n."
+        title="Mantenimiento de Cámaras de Seguridad en Bogotá"
+        subtitle="Su cámara graba a negro, se ve borrosa o dejó de grabar? Servicio de mantenimiento preventivo y correctivo para sistemas CCTV Hikvision / Dahua en Bogotá: limpieza, firmware, cableado y configuración."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            [{ icon: Camera, label: "Preventivo", sub: "desde $180.000 / visita" }, { icon: Clock, label: "Respuesta", sub: "< 24 horas" }, { icon: ScanLine, label: "DiagnÃ³stico", sub: "causa exacta" }, { icon: ShieldCheck, label: "ReparaciÃ³n", sub: "todas las marcas" }]
+            [{ icon: Camera, label: "Plan preventivo", sub: "a la medida de su sistema" }, { icon: Clock, label: "Respuesta", sub: "< 24 horas" }, { icon: ScanLine, label: "Diagnóstico", sub: "causa exacta" }, { icon: ShieldCheck, label: "Reparación", sub: "todas las marcas" }]
           ].map((item) => (
             <div key={item.label} className="text-center">
               <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
@@ -178,7 +178,7 @@ export function MantenimientoCamaras() {
                 icon: Wrench,
                 title: "Mantenimiento preventivo",
                 desc: "Revisión programada: limpieza, firmware, cableado y configuración. El mejor costo/beneficio para que su sistema nunca lo deje a ciegas.",
-                bullets: "Visita semestral · desde $180.000",
+                bullets: "Visita semestral · a la medida",
               },
               {
                 icon: Settings2,
@@ -196,7 +196,7 @@ export function MantenimientoCamaras() {
                 icon: Headphones,
                 title: "Supervisión remota mensual",
                 desc: "Monitoreo de caídas de cámaras, estado de grabación y alertas por WhatsApp/Email. Detectamos problemas antes de que usted los note.",
-                bullets: "Desde $250.000 / mes",
+                bullets: "Cotizado según su sistema",
               },
               {
                 icon: Building2,
@@ -371,7 +371,7 @@ export function MantenimientoCamaras() {
             Precios de mantenimiento de cámaras 2026
           </h2>
           <p className="font-sans text-lg mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Tarifas referenciales en Bogotá para mantenimiento preventivo y correctivo (COP, IVA incluido). Cotización cerrada según su sistema.
+            Precios según su sistema en Bogotá: número de cámaras, frecuencia y alcance. El valor final se define en la cotización tras la revisión.
           </p>
 
           <div className="overflow-x-auto mb-8 rounded-xl border" style={{ borderColor: "var(--color-border)" }}>
@@ -380,15 +380,15 @@ export function MantenimientoCamaras() {
                 <tr style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}>
                   <th className="px-4 py-3 text-left font-sans font-semibold">Servicio</th>
                   <th className="px-4 py-3 text-left font-sans font-semibold">Alcance</th>
-                  <th className="px-4 py-3 text-left font-sans font-semibold">Precio desde</th>
+                  <th className="px-4 py-3 text-left font-sans font-semibold">Precio</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ["Mantenimiento preventivo", "Hasta 4 cámaras: limpieza, firmware, cableado", "$180.000 / visita"],
-                  ["Cámara adicional", "Cada punto extra de revisión", "$35.000 / cámara"],
+                  ["Mantenimiento preventivo", "Revisión, limpieza, firmware y cableado", "Según estudio"],
+                  ["Cámara adicional", "Cada punto extra de revisión", "Según estudio"],
                   ["Diagnóstico correctivo", "Causa exacta + cotización de reparación", "Gratis al contratar"],
-                  ["Supervisión remota mensual", "Monitoreo de caídas + alertas WhatsApp", "$250.000 / mes"],
+                  ["Supervisión remota mensual", "Monitoreo de caídas + alertas WhatsApp", "Según estudio"],
                   ["Correctivo (equipo/reparación)", "Según falla aprobada", "Cotizado por caso"],
                 ].map((row, i) => (
                   <tr key={i} style={{ borderTop: "1px solid var(--color-border)", backgroundColor: i % 2 ? "var(--color-background)" : "transparent" }}>

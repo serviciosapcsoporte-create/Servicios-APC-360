@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence, MotionConfig, useMotionValue, useSpring } from "motion/react";
+import { motion, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
@@ -11,9 +11,7 @@ import {
   Camera,
   MessageCircle,
   Zap,
-  TrendingUp,
   Shield,
-  Clock,
   Users,
   ArrowRight,
   MapPin,
@@ -109,53 +107,47 @@ const services = [
 
 const plans = [
   {
-    id: "basico",
-    name: "Básico 4C",
-    cameras: "4 cámaras HD 4MP",
-    price: 1800000,
-    tagline: "Monitoreo HD local + acceso remoto.",
+    id: "unico",
+    name: "Pago único",
+    cameras: "Kit instalado · todo incluido",
+    price: 1500000,
+    priceSuffix: " total",
+    tagline:
+      "Un solo pago con instalación, cableado, configuración y entrega funcionando.",
     features: [
-      "4 cámaras HD 4MP + DVR 4 canales",
-      "1 TB de almacenamiento",
-      "Acceso remoto desde tu móvil",
-      "Instalación y cableado incluidos",
-      "Soporte 30 días",
+      "Kit de cámaras y grabador definidos en el estudio",
+      "Instalación y cableado certificado incluidos",
+      "Configuración de app y acceso remoto",
+      "Prueba conjunta y entrega funcionando",
+      "Garantía de fábrica del equipo",
+      "Soporte post-instalación en Bogotá",
     ],
+    ctaLabel: "Cotizar mi instalación",
+    ctaMsg:
+      "Hola Servicios APC, quiero cotizar la instalación con pago único para mi negocio en Bogotá",
     icon: Package,
-    highlight: false,
-  },
-  {
-    id: "profesional",
-    name: "Profesional 8C ColorVu",
-    cameras: "8 cámaras 4MP ColorVu",
-    price: 3200000,
-    tagline: "Visión nocturna a color 24/7 + audio bidireccional.",
-    features: [
-      "8 cámaras 4MP ColorVu + DVR 8 canales",
-      "2 TB de almacenamiento",
-      "Visión nocturna a color y audio bidireccional",
-      "Alertas automáticas IA",
-      "App móvil + escritorio",
-      "Soporte 90 días",
-    ],
-    icon: Sparkles,
     highlight: true,
   },
   {
-    id: "empresarial",
-    name: "Empresarial IA 16C",
-    cameras: "16 cámaras 4MP + analítica IA",
-    price: 5600000,
-    tagline: "Analítica de video, conteo y detección inteligente.",
+    id: "financiado",
+    name: "Financiado",
+    cameras: "Mismo kit · pagos semanales",
+    price: 50000,
+    priceSuffix: "/semana",
+    tagline:
+      "Sin pagar el kit de una sola vez: cuotas semanales acordadas según su instalación.",
     features: [
-      "16 cámaras 4MP + NVR 16 canales PoE",
-      "4 TB de almacenamiento RAID",
-      "Analítica IA: conteo y detección inteligente",
-      "Dashboard remoto 24/7",
-      "Integración WhatsApp / CRM / n8n",
-      "Soporte 6 meses",
+      "Mismo kit y misma instalación del pago único",
+      "Pagos semanales desde $50.000",
+      "Total de referencia del kit: desde $1.800.000",
+      "Cronograma de cuotas acordado por escrito",
+      "Sin cuotas de tarjeta: pago directo a nosotros",
+      "El número de cuotas lo define el estudio",
     ],
-    icon: Building2,
+    ctaLabel: "Cotizar mi kit financiado",
+    ctaMsg:
+      "Hola Servicios APC, quiero cotizar el kit de cámaras financiado en cuotas semanales para mi negocio en Bogotá",
+    icon: CreditCard,
     highlight: false,
   },
 ];
@@ -303,40 +295,40 @@ const faqs = [
 
 const benefits = [
   {
-    icon: TrendingUp,
-    title: "Cámaras que auditan, no solo vigilan",
+    icon: ClipboardCheck,
+    title: "Estudio antes que precio",
     description:
-      "YOLO convierte cada frame en dato accionable: conteo, anomalías, aforo, arqueo. Sus cámaras dejan de ser un gasto pasivo y se convierten en fuente de orden y eficiencia.",
-  },
-  {
-    icon: Shield,
-    title: "Offline-First: si se va el internet, el sistema sigue",
-    description:
-      "Procesamiento edge en su red local. Sin internet, la IA sigue contando, detectando y arqueando. Sincroniza al volver la señal. Cero pérdida de datos.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Alertas en Telegram/WhatsApp en segundos",
-    description:
-      "Aforo excedido, arqueo discrepante o anomalía operativa: recibe clip de video + contexto en Telegram/Email/WhatsApp al instante. Decides desde el celular.",
-  },
-  {
-    icon: Clock,
-    title: "Dashboard 24/7 sin vigilar pantallas",
-    description:
-      "Mapas de calor, conteo histórico, arqueos diarios, alertas configurables. Todo en un dashboard web accesible desde el celular. Cero tecnicismos.",
+      "Vamos a ver su sitio antes de darle un número: puntos, cableado y acceso definen el trabajo. Por eso el precio que le cotizamos es el que termina pagando, casi sin sorpresas en la factura.",
   },
   {
     icon: Users,
-    title: "Hikvision ColorVu 4K: vea la placa a las 2 AM",
+    title: "El que instala es el que responde",
     description:
-      "Instalamos ColorVu 4K / AcuSense / DeepinView. Visión nocturna a color real: vea placas, rostros, billetes en oscuridad total. No más 'cámaras borrosas'.",
+      "Un solo equipo de punta a punta en Bogotá: diagnóstico, instalación, configuración y soporte. Sin terceros de por medio y con un solo interlocutor cuando algo necesita ajuste.",
+  },
+  {
+    icon: Shield,
+    title: "Cableado certificado y ordenado",
+    description:
+      "Puntos elegidos con criterio, rutas marcadas y etiquetadas, canaletas y conexiones probadas. Nada de cables sueltos ni ángulos ciegos dejados 'para después'.",
+  },
+  {
+    icon: Package,
+    title: "Si su equipo sirve, lo reutilizamos",
+    description:
+      "Antes de proponer hardware nuevo revisamos si sus cámaras actuales sirven. Si sirven, las aprovechamos: no le vendemos lo que no necesita.",
   },
   {
     icon: CheckCircle2,
-    title: "Su Hikvision actual ya sirve: sin comprar hardware nuevo",
+    title: "Entregamos el sistema funcionando",
     description:
-      "RTSP/ONVIF estándar = compatible. La mayoría de Hikvision 2018+ ya sirven. Le inyectamos YOLO por red. Ahorro real: cero pesos en cámaras nuevas si ya tiene compatibles.",
+      "Instalamos, configuramos la app y el acceso remoto, probamos con usted y dejamos todo andando. No le dejamos la caja abierta ni una contraseña suelta.",
+  },
+  {
+    icon: Wrench,
+    title: "Mantenimiento con visita programada",
+    description:
+      "Revisión, limpieza, firmware y soporte con agenda definida. Su sistema sigue grabando todo el año, no solo el día de la instalación.",
   },
 ];
 
@@ -516,7 +508,6 @@ export default function App() {
   const [error, setError] = useState("");
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
-  const [cuotas, setCuotas] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const [hash, setHash] = useState(window.location.hash.slice(1));
 
@@ -535,7 +526,7 @@ export default function App() {
     negocio: {
       title: "Cámaras de Seguridad para Negocio en Bogotá | 500+ instalaciones",
       description:
-        "Instalación de cámaras para negocio en Bogotá con IA. Hikvision ColorVu, analítica YOLO, aforo, arqueo y alertas WhatsApp. Desde $1.800.000. Cotiza gratis.",
+        "Cámaras para negocio en Bogotá: Hikvision, cableado certificado y acceso remoto. Desde $1.500.000 o $50.000 semanales. Cotiza gratis.",
     },
     instalacion: {
       title: "Instalación de Cámaras de Seguridad en Bogotá | Hikvision Certificado",
@@ -545,17 +536,17 @@ export default function App() {
     casa: {
       title: "Cámaras para Instalar en Casa en Bogotá | Instalación el mismo día",
       description:
-        "Cámaras para casa en Bogotá con visión nocturna a color y acceso desde el celular. Desde $600.000 por cámara, instalación el mismo día en toda la ciudad.",
+        "Cámaras para casa en Bogotá con visión nocturna a color y acceso desde el celular. Kit desde $1.500.000 instalado el mismo día en toda la ciudad.",
     },
     "precios-camaras": {
       title: "Precios de Instalación de Cámaras de Seguridad en Bogotá 2026",
       description:
-        "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.800.000 para 4 cámaras con instalación. Precios cerrados, IVA incluido y cotización gratis.",
+        "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.500.000 todo incluido o desde $50.000 semanales. El precio final sale del estudio. Cotiza gratis.",
     },
     "mantenimiento-camaras": {
       title: "Mantenimiento de Cámaras de Seguridad en Bogotá | Preventivo y Correctivo",
       description:
-        "Mantenimiento de cámaras de seguridad en Bogotá: preventivo, correctivo y supervisión remota para Hikvision/Dahua. Limpieza, firmware, cableado y configuración. Desde $180.000. Diagnóstico gratis.",
+        "Mantenimiento de cámaras en Bogotá: preventivo, correctivo y supervisión remota para Hikvision/Dahua. Limpieza, firmware y cableado. Diagnóstico gratis.",
     },
     consultor: {
       title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
@@ -1058,8 +1049,8 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
               kicker="Beneficios"
-              title="Beneficios de automatizar su empresa con Servicios APC"
-              desc="Mejore la eficiencia y competitividad de su empresa con soluciones tecnológicas hechas para la realidad colombiana."
+              title="Por qué instalar y contratar el mantenimiento con Servicios APC"
+              desc="No vendemos equipos sueltos: instalamos, configuramos y mantenemos su sistema de cámaras en Bogotá. Estos son los motivos por los que nuestros clientes nos siguen llamando."
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -1087,48 +1078,24 @@ export default function App() {
         <section id="planes" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
-              kicker="Planes y Precios 2026"
-              title="Precios transparentes, sin letra pequeña"
-              desc="Instalación con cableado certificado, IVA incluido y soporte local en Bogotá. Elige pago único o cuotas."
+              kicker="Precios"
+              title="Precios que se ajustan a su instalación, no al revés"
+              desc="Pago único desde $1.500.000 con todo incluido, o financiado desde $50.000 semanales. Publicamos precios 'desde' a propósito: el valor final siempre sale de un estudio de instalación."
             />
 
             <Reveal className="mb-10">
               <div className="flex flex-wrap items-center gap-3">
-                <div className="inline-flex items-center gap-1 glass rounded-full p-1">
-                  <button
-                    onClick={() => setCuotas(false)}
-                    className={cn(
-                      "px-5 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5",
-                      !cuotas
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    <CreditCard size={14} /> Pago único
-                  </button>
-                  <button
-                    onClick={() => setCuotas(true)}
-                    className={cn(
-                      "px-5 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-1.5",
-                      cuotas
-                        ? "bg-foreground text-background"
-                        : "text-muted-foreground hover:text-foreground"
-                    )}
-                  >
-                    <Clock size={14} /> En cuotas
-                  </button>
-                </div>
                 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
-                  <BadgeCheck size={13} className="text-accent" /> IVA incluido ·
-                  financiación directa
+                  <BadgeCheck size={13} className="text-accent" /> Precios de
+                  referencia · el valor final se define en el estudio de
+                  instalación
                 </span>
               </div>
             </Reveal>
 
-            <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-4xl">
               {plans.map((p, i) => {
                 const Icon = p.icon;
-                const monthly = Math.round(p.price / 12 / 5000) * 5000;
                 return (
                   <Reveal key={p.id} delay={i * 0.08} className="h-full">
                     <Tilt
@@ -1155,30 +1122,17 @@ export default function App() {
                         {p.tagline}
                       </p>
 
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={cuotas ? "cuotas" : "unico"}
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -8 }}
-                          transition={{ type: "spring", bounce: 0, duration: 0.35 }}
-                          className="mb-6"
-                        >
-                          {cuotas ? (
-                            <div>
-                              <p className="text-sm text-muted-foreground">12 cuotas de</p>
-                              <p className="font-serif text-4xl font-bold tracking-[-0.02em]">
-                                {fmtCOP(monthly)}
-                                <span className="text-lg text-muted-foreground font-normal"> /mes</span>
-                              </p>
-                            </div>
-                          ) : (
-                            <p className="font-serif text-4xl font-bold tracking-[-0.02em]">
-                              {fmtCOP(p.price)}
-                            </p>
-                          )}
-                        </motion.div>
-                      </AnimatePresence>
+                      <div className="mb-6">
+                        <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
+                          Desde
+                        </p>
+                        <p className="font-serif text-4xl font-bold tracking-[-0.02em]">
+                          {fmtCOP(p.price)}
+                          <span className="text-lg text-muted-foreground font-normal">
+                            {p.priceSuffix}
+                          </span>
+                        </p>
+                      </div>
 
                       <ul className="space-y-3 text-sm mb-8 flex-1">
                         {p.features.map((f) => (
@@ -1191,16 +1145,27 @@ export default function App() {
 
                       <WhatsAppChip
                         small
-                        label={`Cotizar plan ${p.name}`}
-                        href={waLink(
-                          `Hola Servicios APC, quiero cotizar el plan ${p.name} para mi negocio en Bogotá`
-                        )}
+                        label={p.ctaLabel}
+                        href={waLink(p.ctaMsg)}
                       />
                     </Tilt>
                   </Reveal>
                 );
               })}
             </div>
+
+            <Reveal delay={0.15} className="mt-10 max-w-4xl">
+              <p className="text-sm text-muted-foreground leading-relaxed bg-secondary border border-border rounded-xl px-5 py-4">
+                <strong className="text-foreground">
+                  ¿Por qué decimos "desde"?
+                </strong>{" "}
+                El valor final depende del número de puntos, la distancia del
+                cableado y las condiciones del sitio. Publicamos precios mínimos
+                de referencia a propósito: es la única forma de que el número
+                que reciba sea el que termina pagando. Lo concretamos en el
+                estudio de instalación, sin compromiso.
+              </p>
+            </Reveal>
           </div>
         </section>
 

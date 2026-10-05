@@ -45,7 +45,7 @@ export function CamarasFontibon() {
     },
     {
       titulo: "Soporte técnico en zona industrial",
-      desc: "Equipo técnico驻扎 en Fontibón con experiencia en infraestructura industrial y redes de alta disponibilidad.",
+      desc: "Equipo técnico en Fontibón con experiencia en infraestructura industrial y redes de alta disponibilidad.",
       icon: "🛠️",
     },
   ];
@@ -63,7 +63,7 @@ export function CamarasFontibon() {
   const faqs = [
     {
       q: "¿Cuánto cuesta instalar cámaras en una bodega logística en Fontibón?",
-      a: "Una bodega estándar con 8-12 cámaras, analítica YOLO y trazabilidad de mercancía cuesta desde $8.500.000 COP. Incluye hardware industrial, instalación, configuración y capacitación.",
+      a: "Una bodega estándar con 8-12 cámaras, analítica YOLO y trazabilidad se cotiza a medida. Precios desde $1.500.000 con pago único o desde $50.000 semanales; el valor final se define en el estudio de instalación. Incluye hardware industrial, instalación, configuración y capacitación.",
     },
     {
       q: "¿Las cámaras soportan condiciones industriales?",
@@ -101,8 +101,8 @@ export function CamarasFontibon() {
       }}
     >
       <VideoHero
-        title="CÃ¡maras de Seguridad en FontibÃ³n"
-        subtitle="Bodegas logÃ­sticas, fÃ¡bricas y conjuntos residenciales en FontibÃ³n con PTZ de largo alcance, LPR y alertas automÃ¡ticas por Telegram."
+        title="Cámaras de Seguridad en Fontibón"
+        subtitle="Bodegas logísticas, fábricas y conjuntos residenciales en Fontibón con PTZ de largo alcance, LPR y alertas automáticas por Telegram."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />

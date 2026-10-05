@@ -46,7 +46,7 @@ export function CamarasSuba() {
       icon: "🛡️",
     },
     {
-      titulo: "Precios desde $850.000",
+      titulo: "Kit desde $1.500.000",
       desc: "Kit completo de 4 cámaras Hikvision + DVR + instalación + configuración remota.",
       icon: "💰",
     },
@@ -65,7 +65,7 @@ export function CamarasSuba() {
   const faqs = [
     {
       q: "¿Cuánto cuestan las cámaras de seguridad en Suba?",
-      a: "Los kits completos para Suba arrancan desde $850.000 COP para 4 cámaras con DVR, incluyendo instalación. Para conjuntos residenciales o bodegas grandes, cotizamos a medida según el número de puntos.",
+      a: "Los kits completos para Suba arrancan desde $1.500.000 COP con pago único, o desde $50.000 semanales financiado, incluyendo instalación. Para conjuntos residenciales o bodegas grandes, cotizamos a medida según el número de puntos.",
     },
     {
       q: "¿Instalan cámaras en La Florida y Salitre Oriental?",
@@ -77,7 +77,7 @@ export function CamarasSuba() {
     },
     {
       q: "¿Puedo ver las cámaras desde mi celular?",
-      a: "Sí, configuração remota vía app Hik-Connect o HiLook. Puedes ver en vivo, reproducir grabaciones y recibir alertas desde cualquier lugar.",
+      a: "Sí, configuración remota vía app Hik-Connect o HiLook. Puedes ver en vivo, reproducir grabaciones y recibir alertas desde cualquier lugar.",
     },
     {
       q: "¿Ofrecen mantenimiento preventivo en Suba?",
@@ -107,8 +107,8 @@ export function CamarasSuba() {
       }}
     >
       <VideoHero
-        title="CÃ¡maras de Seguridad en Suba"
-        subtitle="ProtecciÃ³n con analÃ­tica YOLO para negocios en Suba: bodegas, ferreterÃ­as y conjuntos residenciales. Alertas en tiempo real, arqueo de caja y control de aforo."
+        title="Cámaras de Seguridad en Suba"
+        subtitle="Protección con analítica YOLO para negocios en Suba: bodegas, ferreterías y conjuntos residenciales. Alertas en tiempo real, arqueo de caja y control de aforo."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />

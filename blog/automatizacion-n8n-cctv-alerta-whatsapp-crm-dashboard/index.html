@@ -3,27 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos | Servicios APC</title>
-  <meta name="description" content="Automatizacion CCTV con n8n en Bogota: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo." />
+  <title>CCTV con n8n: alertas a WhatsApp y CRM | Servicios APC</title>
+  <meta name="description" content="Automatización CCTV con n8n en Bogotá: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Servicios APC" />
   <link rel="canonical" href="https://serviciosapc.site/blog/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard/" />
   <link rel="icon" type="image/png" href="/logo.png" />
   <meta name="geo.region" content="CO-DC" />
   <meta name="geo.placename" content="Bogota" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; script-src-elem 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://cloudflareinsights.com https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; worker-src 'self' blob:;" />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://serviciosapc.site/blog/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard/" />
-  <meta property="og:title" content="Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos | Servicios APC" />
-  <meta property="og:description" content="Automatizacion CCTV con n8n en Bogota: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo." />
-  <meta property="og:image" content="https://serviciosapc.site/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp" />
+  <meta property="og:title" content="CCTV con n8n: alertas a WhatsApp y CRM | Servicios APC" />
+  <meta property="og:description" content="Automatización CCTV con n8n en Bogotá: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo." />
+  <meta property="og:image" content="https://serviciosapc.site/blog-img/integracion-sistemas.webp" />
   <meta property="og:locale" content="es_CO" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos",
-    "description": "Automatizacion CCTV con n8n en Bogota: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo.",
-    "image": "https://serviciosapc.site/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp",
+    "description": "Automatización CCTV con n8n en Bogotá: de alerta a WhatsApp, CRM y dashboard en minutos. Integra tus sistemas y ahorra tiempo.",
+    "image": "https://serviciosapc.site/blog-img/integracion-sistemas.webp",
     "datePublished": "2026-07-27",
     "author": { "@type": "Organization", "name": "Servicios APC", "url": "https://serviciosapc.site" },
     "publisher": { "@type": "Organization", "name": "Servicios APC", "logo": { "@type": "ImageObject", "url": "https://serviciosapc.site/logo.webp" } },
@@ -41,7 +42,7 @@
     ]
   }
   </script>
-<style>
+  <style>
     body{font-family:system-ui,-apple-system,sans-serif;margin:0;padding:0;color:#1a202c;line-height:1.75;background:#f7fafc}
     .hero{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;padding:60px 20px 40px;text-align:center}
     .hero h1{font-size:2rem;margin:0 auto 10px;font-weight:800;max-width:800px}
@@ -79,19 +80,15 @@
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos</h1>
-    <div class="meta">Automatización · 2026-07-27 · 10 min de lectura · Servicios APC Bogota</div>
-  </div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol style="display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1.5rem">
         <li><a href="/" style="color:#64748b;text-decoration:none">Inicio</a></li>
-        <li style="color:#64748b">/</li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li><a href="/#blog" style="color:#64748b;text-decoration:none">Blog</a></li>
-        <li style="color:#64748b">/</li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li><a href="/#blog" style="color:#64748b;text-decoration:none">Automatización</a></li>
-        <li style="color:#64748b">/</li>
+        <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li class="current" style="color:#e2e8f0;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos</li>
       </ol>
     </nav>
@@ -101,8 +98,12 @@
         <span>Volver al blog</span>
       </a>
     </div>
-    <img class="cover" src="/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp" alt="Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos" loading="lazy" />
-    <div class="answer"><p><strong>En resumen:</strong> Muestra como conectar tus camaras en Bogota a n8n para enviar clips y alertas a WhatsApp, registrar eventos en CRM y visualizarlos en tablero, con logica condicional, reintentos automaticos y operacion local que ahorra integraciones manuales costosas todos los dias.</p></div>
+    <div class="hero">
+      <h1>Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos</h1>
+      <div class="meta">Automatización · 2026-07-27 · 10 min de lectura · Servicios APC Bogotá</div>
+    </div>
+    <img class="cover" src="/blog-img/integracion-sistemas.webp" alt="Automatización CCTV con n8n: de alerta de cámara a WhatsApp, CRM y Dashboard en 5 minutos" loading="lazy" />
+    <div class="answer"><p><strong>En resumen:</strong> Tus cámaras pueden mandar clips y alertas a WhatsApp, registrar eventos en el CRM y mostrarlos en un tablero, sin integraciones manuales todos los días. Aquí ves cómo conectarlas a n8n con lógica condicional, reintentos automáticos y operación local.</p></div>
     <h2>El problema</h2>
 <p>Tu cámara detecta un intruso a las 2:47 AM. El sistema graba el video, genera una alerta... y nadie la ve hasta la mañana siguiente. El vigilante nocturno recibe un beep que ignora. El dueño se entera cuando el faltante ya ocurrió.</p>
 <p>Este escenario se repite diariamente en miles de negocios en Bogotá: <strong>las cámaras graban, pero no actúan</strong>. La alerta CCTV tradicional depende de que alguien esté mirando un monitor en el momento exacto del evento.</p>
@@ -233,12 +234,12 @@
 <p>n8n Cloud es viable solo para empresas pequeñas con bajo volumen de alertas (&lt;100/día).</p>
 <h3>¿Cuánto cuesta implementar esto?</h3>
 <table><tr><th>Componente</th><th>Costo estimado (COP)</th></tr>
-<tr><td>Servidor edge (1 mes)</td><td>$3.000.000 - $5.000.000</td></tr>
-<tr><td>Configuración n8n + flujos</td><td>$2.000.000 - $4.000.000</td></tr>
-<tr><td>Integración WhatsApp API</td><td>$500.000 - $1.000.000</td></tr>
-<tr><td>Dashboard personalizado</td><td>$1.500.000 - $3.000.000</td></tr>
-<tr><td><strong>Total inicial</strong></td><td><strong>$7.000.000 - $13.000.000</strong></td></tr>
-<tr><td><strong>Mantenimiento mensual</strong></td><td><strong>$800.000 - $1.500.000</strong></td></tr>
+<tr><td>Servidor edge (1 mes)</td><td>Según infraestructura</td></tr>
+<tr><td>Configuración n8n + flujos</td><td>Según alcance</td></tr>
+<tr><td>Integración WhatsApp API</td><td>Según alcance</td></tr>
+<tr><td>Dashboard personalizado</td><td>Según alcance</td></tr>
+<tr><td><strong>Total inicial</strong></td><td><strong>Según alcance del proyecto (cotización)</strong></td></tr>
+<tr><td><strong>Mantenimiento mensual</strong></td><td><strong>Según plan</strong></td></tr>
 </table>
 <p>Comparado con $30-50M COP que costaría desarrollar una solución similar desde cero.</p>
 <h3>¿Funciona con cualquier cámara?</h3>
@@ -268,19 +269,19 @@
 <p>📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com</p>
 <p>🌐 <a href="https://apcvisionai.site">apcvisionai.site</a> · <a href="https://apcautomatizacion.site">apcautomatizacion.site</a> · <a href="https://dogweb.lat">dogweb.lat</a> · <a href="https://apccore.site">apccore.site</a></p>
     <div class="cta-box">
-      <p>Agenda un diagnostico gratuito con Servicios APC e integra tus camaras a WhatsApp y CRM. Escribenos al WhatsApp 333 745 0634 y cotiza ahora.</p>
-      <a href="https://wa.me/573337450634?text=Hola%2C%20lei%20su%20articulo%20y%20quiero%20un%20diagnostico%20gratuito" class="whatsapp">WhatsApp: 333 745 0634</a>
+      <p>Diagnóstico gratuito: revisamos tus cámaras y te dejamos el mapa de flujos para conectarlas a WhatsApp y CRM. Escríbenos y agendamos.</p>
+      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20vi%20la%20automatizaci%C3%B3n%20n8n%20%2B%20CCTV%20y%20quiero%20integrar%20mis%20c%C3%A1maras" class="whatsapp">Agendar diagnóstico gratis</a>
     </div>
     <div class="hub">
       <h3>Servicios relacionados</h3>
       <ul>
-        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">Instalacion de camaras de seguridad en Bogota</a></li>
-        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">Camaras de seguridad para empresas</a></li>
-        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalacion 2026</a></li>
+        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">Instalación de cámaras de seguridad en Bogotá</a></li>
+        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">Cámaras de seguridad para empresas</a></li>
+        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalación 2026</a></li>
       </ul>
     </div>
     <div class="nav"><span><a href="https://serviciosapc.site/blog/analitica-video-ia-ferreterias-bogota-caso-real-suba/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/bot-whatsapp-ia-atencion-clientes-seguridad-bogota/">Siguiente &raquo;</a></span></div>
-    <p class="footer">Servicios APC — Socio tecnologico para empresas en Bogota. Cra. 52c #39b-22 · +57 333 745 0634 · serviciosapcsoporte@gmail.com<br/>Tags: n8n, automatización CCTV, WhatsApp Bot, CRM, dashboard seguridad, alertas automáticas, Bogotá</p>
+    <p class="footer">Servicios APC — Socio tecnológico para empresas en Bogotá. Cra. 52c #39b-22 · +57 333 745 0634 · serviciosapcsoporte@gmail.com<br/>Tags: n8n, automatización CCTV, WhatsApp Bot, CRM, dashboard seguridad, alertas automáticas, Bogotá</p>
   </div>
 </body>
 </html>

@@ -31,7 +31,7 @@ export function CamarasKennedy() {
   const razones = [
     {
       titulo: "Cobertura express en Kennedy",
-      desc: "Técnicos驻扎 en la localidad. Llegamos a Castilla, Timiza y Patio Bonito en menos de 4 horas.",
+      desc: "Técnicos en la localidad. Llegamos a Castilla, Timiza y Patio Bonito en menos de 4 horas.",
       icon: "🚀",
     },
     {
@@ -46,7 +46,7 @@ export function CamarasKennedy() {
     },
     {
       titulo: "Financiación directa",
-      desc: "Paga en 3 cuotas sin intereses. Incluimos kit de 4 cámaras + DVR + instalación desde $850.000.",
+      desc: "Financiación directa con nosotros: desde $50.000 semanales. Incluimos kit de 4 cámaras + DVR + instalación.",
       icon: "💳",
     },
   ];
@@ -56,7 +56,7 @@ export function CamarasKennedy() {
 
 **Problema:** El propietario notó faltantes en caja de $180.000 semanales pero no podía identificar al responsable. Las cámaras antiguas no grababan en la noche y la resolución era insuficiente.
 
-**Solución:** Reemplazo de 4 cámaras legacy por kit Hikvision ColorVu 4MP con visión nocturna a color. Instalación de cámara oculta en punto de venta con analítica de movimiento. Configuración de alertas WhatsApp cuando有人 se acerca a la caja fuera de horario.
+**Solución:** Reemplazo de 4 cámaras legacy por kit Hikvision ColorVu 4MP con visión nocturna a color. Instalación de cámara oculta en punto de venta con analítica de movimiento. Configuración de alertas WhatsApp cuando alguien se acerca a la caja fuera de horario.
 
 **Resultado:** En 72 horas se identificó al empleado que realizaba retiros no autorizados. El propietario obtuvo evidencia de video con timestamp. Hurto interno eliminado. Ahorro anual estimado: $9.360.000 COP.
   `;
@@ -64,7 +64,7 @@ export function CamarasKennedy() {
   const faqs = [
     {
       q: "¿Cuánto cuesta instalar cámaras de seguridad en Kennedy?",
-      a: "Un kit de 4 cámaras Hikvision ColorVu con DVR e instalación cuesta desde $850.000 COP en Kennedy. Para tiendas y talleres, ofrecemos packs especializados con analítica IA desde $1.400.000 COP.",
+      a: "Desde $1.500.000 COP con pago único todo incluido, o desde $50.000 semanales financiado, en Kennedy. Para tiendas, talleres y conjuntos el valor final se define en el estudio de instalación.",
     },
     {
       q: "¿Cubren Patio Bonito y Castilla?",
@@ -102,8 +102,8 @@ export function CamarasKennedy() {
       }}
     >
       <VideoHero
-        title="CÃ¡maras de Seguridad en Kennedy"
-        subtitle="Sistemas CCTV con IA para Kennedy, Castilla, Timiza y Patio Bonito: detecciÃ³n de hurtos, control de acceso y alertas automÃ¡ticas vÃ­a WhatsApp."
+        title="Cámaras de Seguridad en Kennedy"
+        subtitle="Sistemas CCTV con IA para Kennedy, Castilla, Timiza y Patio Bonito: detección de hurtos, control de acceso y alertas automáticas vía WhatsApp."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />

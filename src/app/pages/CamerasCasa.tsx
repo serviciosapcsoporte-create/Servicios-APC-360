@@ -39,7 +39,7 @@ function RenderMD({ md }: { md: string }) {
 const faqs = [
   {
     q: "¿Cuánto cuesta instalar cámaras de seguridad en casa en Bogotá?",
-    a: "Una cámara de seguridad para el hogar cuesta desde $600.000 COP instalada. Un sistema de 4 cámaras para casa parte de $1.800.000 COP con DVR y app móvil. Incluye instalación, configuración y asesoría del punto exacto.",
+    a: "Desde $1.500.000 COP con pago único todo incluido, o desde $50.000 semanales financiado. Incluye cámaras, DVR, instalación, configuración y asesoría del punto exacto; el precio final se define en el estudio de instalación.",
   },
   {
     q: "¿Qué cámaras son las mejores para una casa?",
@@ -72,17 +72,17 @@ const faqs = [
 export function CamerasCasa() {
   return (
     <div className="min-h-screen" style={{ color: "var(--color-foreground)" }}>
-      {/* â•â•â•â•â•â•â•â•â•â•â• HERO â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* ═══════════ HERO ═══════════ */}
       <VideoHero
-        title="CÃ¡maras para Instalar en Casa en BogotÃ¡"
-        subtitle="Proteja su hogar con cÃ¡maras Hikvision de visiÃ³n nocturna a color, instalaciÃ³n profesional y app de celular. Desde .000 por cÃ¡mara, instalaciÃ³n el mismo dÃ­a en BogotÃ¡."
+        title="Cámaras para Instalar en Casa en Bogotá"
+        subtitle="Proteja su hogar con cámaras Hikvision de visión nocturna a color, instalación profesional y app de celular. Desde $1.500.000 con pago único o desde $50.000 semanales; instalación el mismo día en Bogotá."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />
       <section className="py-12 bg-background border-b border-border">
         <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            [{ icon: Camera, label: "Desde", sub: "$600.000 la cÃ¡mara" }, { icon: Clock, label: "InstalaciÃ³n", sub: "el mismo dÃ­a" }, { icon: Lock, label: "GarantÃ­a", sub: "1-3 aÃ±os" }, { icon: Moon, label: "Color de noche", sub: "Hikvision ColorVu" }]
+            [{ icon: Camera, label: "Pago único", sub: "desde $1.500.000" }, { icon: Clock, label: "Financiado", sub: "desde $50.000/semana" }, { icon: Lock, label: "Garantía", sub: "1-3 años" }, { icon: Moon, label: "Color de noche", sub: "Hikvision ColorVu" }]
           ].map((item) => (
             <div key={item.label} className="text-center">
               <item.icon className="w-6 h-6 mx-auto mb-2" style={{ color: "var(--color-accent)" }} />
@@ -243,30 +243,23 @@ export function CamerasCasa() {
             Precios de cámaras para instalar en casa, Bogotá 2026
           </h2>
           <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Precios referenciales incluyendo instalación y configuración (COP, IVA incluido):
+            Precios desde incluyendo instalación y configuración (COP). El valor final se define en el estudio de instalación:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
-                name: "1 cámara",
-                price: "$600.000",
-                desc: "Para una entrada o punto crítico",
-                features: ["1 cámara HD/ColorVu", "App móvil configurada", "Instalación el mismo día"],
-                highlight: false,
-              },
-              {
-                name: "Sistema 4 cámaras",
-                price: "$1.800.000",
-                desc: "Cobertura completa de la casa",
-                features: ["4 cámaras + DVR", "1 TB almacenamiento", "Visión nocturna a color", "Acceso remoto incluido"],
+                name: "Pago único",
+                price: "Desde $1.500.000",
+                desc: "Cobertura completa de la casa — todo incluido",
+                features: ["Cámaras + instalación a la medida", "Configuración DVR y acceso remoto", "Visión nocturna a color", "Capacitación de uso en 15 minutos"],
                 highlight: true,
               },
               {
-                name: "Sistema 8 cámaras",
-                price: "$3.200.000",
-                desc: "Para casas amplias y conjuntos",
-                features: ["8 cámaras ColorVu", "NVR 8ch / 2 TB", "Alertas IA incluidas", "Soporte 90 días"],
+                name: "Financiado",
+                price: "Desde $50.000/semana",
+                desc: "Total de referencia del kit: desde $1.800.000",
+                features: ["Mismo alcance que el pago único", "Cuota semanal fija durante la instalación", "Acceso remoto desde el primer día", "Soporte técnico post-instalación"],
                 highlight: false,
               },
             ].map((plan) => (

@@ -64,7 +64,7 @@ export function CamarasChapinero() {
   const faqs = [
     {
       q: "¿Cuánto cuesta el sistema de aforo para clínicas en Chapinero?",
-      a: "El sistema completo con 8 cámaras, analítica de aforo, detección PPE e instalación cuesta desde $4.200.000 COP. Incluye configuración personalizada por zona y capacitación al personal.",
+      a: "El sistema completo con 8 cámaras, analítica de aforo y detección PPE se cotiza a medida. Precios desde $1.500.000 con pago único o desde $50.000 semanales; el valor final se define en el estudio de instalación. Incluye configuración personalizada por zona y capacitación al personal.",
     },
     {
       q: "¿Las cámaras cumplen normativa MinSalud?",
@@ -106,8 +106,8 @@ export function CamarasChapinero() {
       }}
     >
       <VideoHero
-        title="CÃ¡maras de Seguridad en Chapinero"
-        subtitle="ClÃ­nicas, restaurantes y oficinas en Chapinero protegidas con analÃ­tica de aforo, control de acceso facial y visiÃ³n nocturna ColorVu."
+        title="Cámaras de Seguridad en Chapinero"
+        subtitle="Clínicas, restaurantes y oficinas en Chapinero protegidas con analítica de aforo, control de acceso facial y visión nocturna ColorVu."
         ctaLabel="Cotizar"
         onCta={() => {}}
       />

@@ -63,55 +63,12 @@ function RenderMD({ md }: { md: string }) {
   );
 }
 
-/* ─── PRICING DATA ─────────────────────────────────────────── */
-
-const pricingPlans = [
-  {
-    name: "Kit 4 Cámaras HD",
-    cameras: "4 Cámaras",
-    price: "$1.800.000",
-    desc: "El más vendido - Ideal para locales pequeños y consultorios",
-    features: [
-      "4 Cámaras de alta definición (Exterior/Interior)",
-      "DVR + Disco Duro de almacenamiento",
-      "Cableado, fuentes y conectores + Instalación Técnica Completa",
-      "BONUS GRATIS: Inducción de uso + Asesoría Básica de Escalado con IA",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Kit 8 Cámaras HD",
-    cameras: "8 Cámaras",
-    price: "$2.800.000",
-    desc: "Para Bodegas / Locales Grandes",
-    features: [
-      "8 Cámaras HD + DVR de 8 canales + Disco Duro",
-      "Cableado estructurado completo + Instalación Profesional",
-      "BONUS GRATIS: Inducción de uso + Diagnóstico de Infraestructura para Analítica de Video",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Mano de Obra por Punto",
-    cameras: "Instalación por punto",
-    price: "$80.000 - $150.000",
-    desc: "Mano de obra por punto según altura y complejidad",
-    features: [
-      "Instalación por punto (según altura y complejidad)",
-      "Cableado estético y estructurado",
-      "Configuración e inducción en celular GRATIS",
-      "Asesoría de potencial con IA INCLUIDA",
-    ],
-    highlight: false,
-  },
-];
-
 /* ─── FAQ DATA ─────────────────────────────────────────────── */
 
 const faqs = [
   {
     q: "¿Cuánto cuestan las cámaras de seguridad para un negocio en Bogotá?",
-    a: "El rango va desde $1.800.000 COP para 4 cámaras básicas hasta $5.600.000 para 16 cámaras con NVR. El plan con analítica IA cuesta desde $4.500.000 incluyendo servidor edge. El precio depende del hardware, cantidad de puntos y complejidad de instalación.",
+    a: "Desde $1.500.000 COP con pago único todo incluido, o desde $50.000 semanales financiado. El precio exacto depende del hardware, la cantidad de puntos y la complejidad de instalación, y se define en el estudio de instalación.",
   },
   {
     q: "¿Cuánto tarda la instalación?",
@@ -131,7 +88,7 @@ const faqs = [
   },
   {
     q: "¿Ofrecen garantía y soporte?",
-    a: "Sí. Hardware con garantía de fábrica (1-3 años según marca). Soporte técnico incluido según plan: 30 días (Básico) hasta 12 meses (IA Total). Extendemos soporte con contratos mensuales desde $250.000/mes.",
+    a: "Sí. Hardware con garantía de fábrica (1-3 años según marca). Soporte técnico incluido según plan: 30 días hasta 12 meses. Extendemos soporte con contratos de mantenimiento según estudio de instalación.",
   },
   {
     q: "¿Funciona en caso de apagón o corte de luz?",
@@ -278,7 +235,7 @@ export function CamarasNegocio() {
               {
                 icon: Briefcase,
                 title: "Oficina",
-                desc: "Acceso por人脸识别, control de visitantes, zonas restringidas. Integración con Sistemas de control de acceso existentes. Cámaras discretas tipo mini-dome.",
+                desc: "Acceso por reconocimiento facial, control de visitantes, zonas restringidas. Integración con Sistemas de control de acceso existentes. Cámaras discretas tipo mini-dome.",
                 cameras: "4-8 cámaras",
                 zones: "Recepción · Piso · Servidores · Salas",
               },
@@ -325,71 +282,6 @@ export function CamarasNegocio() {
         </div>
       </section>
 
-      {/* ═══════════ PRECIOS 2026 ═══════════ */}
-      <section id="precios" className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-            Precios reales 2026
-          </h2>
-          <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-            Sin sorpresas. Incluye hardware, instalación y configuración. Los precios son COP e IVA incluido.
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pricingPlans.map((plan) => (
-              <div
-                key={plan.name}
-                className="relative flex flex-col p-6 rounded-xl border-2 transition-all"
-                style={{
-                  borderColor: plan.highlight ? "var(--color-accent)" : "var(--color-border)",
-                  backgroundColor: plan.highlight ? "var(--color-accent)" : "var(--color-background)",
-                  color: plan.highlight ? "var(--color-background)" : "var(--color-foreground)",
-                }}
-              >
-                {plan.highlight && (
-                  <div
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-sans font-bold px-4 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-background)", color: "var(--color-accent)" }}
-                  >
-                    Más vendido
-                  </div>
-                )}
-                <h3 className="font-serif text-xl font-bold mb-1">{plan.name}</h3>
-                <p className="font-sans text-sm mb-1" style={{ opacity: 0.8 }}>{plan.cameras}</p>
-                <div className="font-serif text-3xl font-bold my-4">{plan.price}</div>
-                <p className="font-sans text-sm mb-6" style={{ opacity: 0.7 }}>{plan.desc}</p>
-                <ul className="space-y-2 mb-8 flex-1">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm font-sans">
-                      <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ opacity: 0.7 }} />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center px-6 py-3 rounded-lg font-sans font-semibold text-sm transition-all hover:scale-105 block"
-                  style={{
-                    backgroundColor: plan.highlight ? "var(--color-background)" : "var(--color-accent)",
-                    color: plan.highlight ? "var(--color-accent)" : "var(--color-background)",
-                    border: plan.highlight ? "2px solid var(--color-background)" : "none",
-                  }}
-                >
-                  Cotizar {plan.name}
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="font-sans text-sm" style={{ color: "var(--color-muted-foreground)" }}>
-              * Precios referenciales para Bogotá. El costo final depende de distancias, cantidad de puntos y accesibilidad. Cotización sin compromiso vía WhatsApp.
-            </p>
-          </div>
-        </div>
-      </section>
         {/* 
         {/* BLOQUE 2: VALOR AGREGADO EN LA INSTALACIÓN */}
         <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
@@ -398,7 +290,7 @@ export function CamarasNegocio() {
               Valor Agregado en la Instalación: ¿Por qué elegirnos?
             </h2>
             <p className="font-sans text-lg text-center mb-16 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-              Mostramos brevemente por qué la mano de obra vale entre $80k y $150k:
+              Mostramos brevemente por qué la mano de obra profesional marca la diferencia:
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -431,10 +323,10 @@ export function CamarasNegocio() {
         <section id="precios" className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
           <div className="max-w-6xl mx-auto">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
-              Kits Todo Incluido: Instalación + Materiales + Bonus IA
+              Formas de pago: kits todo incluido
             </h2>
             <p className="font-sans text-lg text-center mb-12 max-w-2xl mx-auto" style={{ color: "var(--color-muted-foreground)" }}>
-              Kits llave en mano: hardware + instalación + inducción + bonus de escalado con IA. Sin sorpresas, todo incluido.
+              Kits llave en mano: hardware, instalación e inducción incluidos. Pago único desde $1.500.000 todo incluido o financiado desde $50.000 semanales; el valor final se define en el estudio de instalación.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -443,9 +335,9 @@ export function CamarasNegocio() {
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full">
                   El más vendido
                 </div>
-                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Kit 4 Cámaras HD</h3>
-                <p className="text-center text-muted-foreground mb-4">El más vendido - Ideal para locales pequeños, consultorios y oficinas</p>
-                <div className="text-center text-3xl font-bold text-accent mb-6">$1.800.000 COP</div>
+                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Kit 4 cámaras — Pago único</h3>
+                <p className="text-center text-muted-foreground mb-4">Locales pequeños, consultorios y oficinas. Todo incluido.</p>
+                <div className="text-center text-3xl font-bold text-accent mb-6">Desde $1.500.000</div>
                 <ul className="space-y-3 mb-6">
                   {[
                     "4 Cámaras de alta definición (Exterior/Interior)",
@@ -465,21 +357,23 @@ export function CamarasNegocio() {
                   rel="noopener noreferrer"
                   className="w-full bg-accent text-accent-foreground py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
                 >
-                  Cotizar Kit 4 Cámaras
+                  Cotizar con pago único
                   <ArrowRight size={16} />
                 </a>
               </div>
 
               {/* Kit 8 Cámaras HD */}
               <div className="relative flex flex-col p-6 rounded-2xl border-2 border-border transition-all hover:border-accent/50" style={{ backgroundColor: "var(--color-background)" }}>
-                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Kit 8 Cámaras HD</h3>
-                <p className="text-center text-muted-foreground mb-4">Para Bodegas / Locales Grandes</p>
-                <div className="text-center text-3xl font-bold text-foreground mb-6">$2.800.000 COP</div>
+                <h3 className="font-serif text-2xl font-bold mb-2 text-center">Financiado — Kit desde</h3>
+                <p className="text-center text-muted-foreground mb-4">Total de referencia del kit: desde $1.800.000</p>
+                <div className="text-center text-3xl font-bold text-foreground mb-6">Desde $50.000/semana</div>
                 <ul className="space-y-3 mb-6">
                   {[
-                    "8 Cámaras HD + DVR de 8 canales + Disco Duro",
-                    "Cableado estructurado completo + Instalación Profesional",
-                    "BONUS GRATIS: Inducción de uso + Diagnóstico de Infraestructura para Analítica de Video"
+                    "Mismo alcance que el pago único",
+                    "Cuota semanal fija durante la instalación",
+                    "Equipo y mano de obra incluidos",
+                    "Acceso remoto desde el primer día",
+                    "Cronograma de pagos acordado por escrito"
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-foreground">
                       <CheckCircle2 size={18} className="text-accent flex-shrink-0" />
@@ -493,7 +387,7 @@ export function CamarasNegocio() {
                   rel="noopener noreferrer"
                   className="w-full border-2 border-accent text-accent py-3 rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-colors inline-flex items-center justify-center gap-2"
                 >
-                  Cotizar Kit 8 Cámaras
+                  Cotizar kit financiado
                   <ArrowRight size={16} />
                 </a>
               </div>
@@ -503,7 +397,7 @@ export function CamarasNegocio() {
             <div className="mt-12 max-w-2xl mx-auto">
               <div className="p-6 rounded-2xl border border-border bg-background/50 text-center">
                 <h3 className="font-serif text-xl font-bold mb-2">¿Ya tienes las cámaras? Solo necesitas la mano de obra</h3>
-                <p className="text-muted-foreground mb-4">Te cobramos entre $80.000 y $150.000 por punto según la altura y complejidad</p>
+                <p className="text-muted-foreground mb-4">El valor por punto se define en el estudio de instalación, según la altura y la complejidad.</p>
                 <a
                   href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
                   target="_blank"
@@ -525,7 +419,7 @@ export function CamarasNegocio() {
               ¿Ya tienes las cámaras y solo necesitas la mano de obra de instalación?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
-              Te cobramos entre $80.000 y $150.000 por punto según la altura y complejidad.
+              Mano de obra por punto con valor según la altura y la complejidad; se define en el estudio de instalación.
             </p>
             <a
               href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
