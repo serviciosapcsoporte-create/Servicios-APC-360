@@ -1592,6 +1592,8 @@ export default function App() {
                     <form
                       onSubmit={handleSubmit}
                       noValidate
+                      toolname="solicitar_diagnostico"
+                      tooldescription="Solicita un diagnostico gratuito de automatizacion de procesos a Servicios APC. Requiere nombre, correo electronico y un mensaje con la necesidad del negocio."
                       className="border border-border p-8 lg:p-10 space-y-6"
                     >
                       <div className="grid md:grid-cols-2 gap-6">
@@ -1605,6 +1607,7 @@ export default function App() {
                           <input
                             id="nombre"
                             type="text"
+                            toolparamdescription="Nombre completo de la persona de contacto"
                             value={form.nombre}
                             onChange={(e) => {
                               setForm({ ...form, nombre: e.target.value });
@@ -1631,6 +1634,7 @@ export default function App() {
                           <input
                             id="email"
                             type="email"
+                            toolparamdescription="Correo electronico para recibir la respuesta"
                             value={form.email}
                             onChange={(e) => {
                               setForm({ ...form, email: e.target.value });
@@ -1659,6 +1663,7 @@ export default function App() {
                         <input
                           id="telefono"
                           type="tel"
+                          toolparamdescription="Telefono o WhatsApp de contacto (opcional)"
                           value={form.telefono}
                           onChange={(e) =>
                             setForm({ ...form, telefono: e.target.value })
@@ -1678,6 +1683,7 @@ export default function App() {
                         <textarea
                           id="mensaje"
                           rows={5}
+                          toolparamdescription="Descripcion de la necesidad: procesos a automatizar, integraciones de sistemas o analitica de negocio"
                           value={form.mensaje}
                           onChange={(e) => {
                             setForm({ ...form, mensaje: e.target.value });

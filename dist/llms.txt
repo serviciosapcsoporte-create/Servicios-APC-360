@@ -1,8 +1,137 @@
-User-agent: *
-Allow: /
+# Servicios APC - Socio Tecnologico de Automatizacion
 
-# Contexto para LLMs sobre APC Automatización
-Sitio: https://apcautomatizacion.site/
-Tema: Automatización de procesos e integración de sistemas para pymes en Bogotá
-Servicios: Dashboard Ejecutivo, Integración Siigo/CRM/WhatsApp, n8n, Copiloto IA, IA offline-first
-Contacto: +57 333 745 0634 - serviciosapcsoporte@gmail.com
+> Fundador: Alejandro Piraquive | +57 333 745 0634 | serviciosapcsoporte@gmail.com
+> Direccion: Cra. 52c #39b-22, Bogota, Colombia
+> Web: https://serviciosapc.site
+>
+> **NO somos empresa de seguridad.** Somos socio tecnologico de automatizacion para pymes en Bogota.
+> La camara con IA es UNA herramienta dentro de un ecosistema de automatizacion, no el producto principal.
+> "No vendemos equipos. Instalamos orden."
+
+## Paginas Principales
+
+- [Inicio - Automatizacion e IA para Pymes en Bogota](https://serviciosapc.site/)
+- [Instalacion de camaras de seguridad Bogota](https://serviciosapc.site/instalacion-camaras-seguridad-bogota/)
+- [Precio instalacion de camaras Bogota 2026](https://serviciosapc.site/precio-instalacion-camaras-bogota/)
+- [Precio de instalacion](https://serviciosapc.site/precio-instalacion/)
+- [Precio de mantenimiento](https://serviciosapc.site/precio-mantenimiento/)
+- [Camaras de seguridad para empresas Bogota](https://serviciosapc.site/camaras-seguridad-empresas-bogota/)
+- [Instalacion de camaras](https://serviciosapc.site/instalacion-camaras/)
+- [Instalacion CCTV](https://serviciosapc.site/instalacion-cctv/)
+- [Venta e instalacion de camaras](https://serviciosapc.site/venta-instalacion-camaras/)
+- [Mantenimiento de camaras](https://serviciosapc.site/mantenimiento-camaras/)
+- [Automatizacion con camaras](https://serviciosapc.site/automatizacion-con-camaras/)
+- [Conteo de personas con IA](https://serviciosapc.site/conteo-personas/)
+- [Analisis de video para el negocio](https://serviciosapc.site/analisis-video-negocio/)
+- [Mapa de calor](https://serviciosapc.site/mapa-calor/)
+- [Arqueo de caja con IA](https://serviciosapc.site/arqueo-caja-camaras/)
+
+## Ubicaciones (SEO local Bogota)
+
+- [Instalacion de camaras - Chapinero Alto](https://serviciosapc.site/instalacion-camaras/bogota/chapinero-alto/)
+- [Instalacion de camaras - Cedritos](https://serviciosapc.site/instalacion-camaras/bogota/cedritos/)
+- [Instalacion de camaras - Chico](https://serviciosapc.site/instalacion-camaras/bogota/chico/)
+- [Instalacion de camaras - Niza](https://serviciosapc.site/instalacion-camaras/bogota/niza/)
+- [Instalacion de camaras - Modelia](https://serviciosapc.site/instalacion-camaras/bogota/modelia/)
+- [Instalacion de camaras - Castilla](https://serviciosapc.site/instalacion-camaras/bogota/castilla/)
+- [Instalacion de camaras - Hayuelos](https://serviciosapc.site/instalacion-camaras/bogota/hayuelos/)
+- [Instalacion de camaras - Prado Veraniego](https://serviciosapc.site/instalacion-camaras/bogota/prado-veraniego/)
+- [Instalacion de camaras - Santa Barbara](https://serviciosapc.site/instalacion-camaras/bogota/santa-barbara/)
+- [Instalacion de camaras - Timiza](https://serviciosapc.site/instalacion-camaras/bogota/timiza/)
+- [Servicio en Suba](https://serviciosapc.site/ubicacion/suba/)
+- [Servicio en Kennedy](https://serviciosapc.site/ubicacion/kennedy/)
+- [Servicio en Fontibon](https://serviciosapc.site/ubicacion/fontibon/)
+- [Servicio en Engativa](https://serviciosapc.site/ubicacion/engativa/)
+- [Servicio en Puente Aranda](https://serviciosapc.site/ubicacion/puente-aranda/)
+
+## Blog
+
+- [Guia de mantenimiento de camaras](https://serviciosapc.site/blog/guia-mantenimiento-camaras/)
+- [Como elegir camaras de seguridad](https://serviciosapc.site/blog/como-elegir-camaras-seguridad/)
+- [Camaras IA vs tradicionales](https://serviciosapc.site/blog/camaras-ia-vs-tradicionales/)
+- [Automatizacion de procesos con n8n + CCTV + WhatsApp](https://serviciosapc.site/blog/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard/)
+- [Que es analitica de video IA](https://serviciosapc.site/blog/que-es-analitica-video-ia-empresas-bogota/)
+- [Automatizacion de procesos en pymes](https://serviciosapc.site/blog/automatizacion-procesos-pymes/)
+- [Arqueo de caja automatico: guia](https://serviciosapc.site/blog/arqueo-caja-automatico-guia/)
+- [Conteo de personas en tu negocio](https://serviciosapc.site/blog/conteo-personas-negocio/)
+- [Normativa videovigilancia Colombia 2026 (Ley 1581)](https://serviciosapc.site/blog/normativa-videovigilancia-colombia-2026-ley-1581-habeas-data/)
+- [Hikvision ColorVu vs AcuSense vs DeepinView](https://serviciosapc.site/blog/hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026/)
+- [Hikvision vs Dahua vs Uniview](https://serviciosapc.site/blog/hikvision-vs-dahua-vs-uniview-comparativa-ia-2026/)
+- [Guia de camaras Hikvision con IA](https://serviciosapc.site/blog/guia-camaras-hikvision-ia-empresas-bogota-2026/)
+- [Instalacion CCTV: guia completa](https://serviciosapc.site/blog/instalacion-cctv-guia-completa/)
+- [Precio de camaras de seguridad en Bogota](https://serviciosapc.site/blog/precio-camaras-seguridad-bogota/)
+- [Cuanto cuesta instalar camaras en un negocio](https://serviciosapc.site/blog/cuanto-cuesta-camaras-seguridad-negocio-bogota-2026/)
+- [Costo de camaras 2026: hardware vs IA](https://serviciosapc.site/blog/costo-camaras-seguridad-empresas-2026-hardware-vs-ia/)
+- [5 senales de que las camaras no protegen tu empresa](https://serviciosapc.site/blog/5-senales-camaras-no-protegen-empresa-bogota/)
+- [Deteccion de PPE con IA en construccion y fabrica](https://serviciosapc.site/blog/deteccion-ppe-ia-construccion-fabrica-bogota-cumplimiento/)
+- [Bot de WhatsApp con IA para atencion al cliente](https://serviciosapc.site/blog/bot-whatsapp-ia-atencion-clientes-seguridad-bogota/)
+- [Analitica de video IA en clinicas](https://serviciosapc.site/blog/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad/)
+- [Analitica de video IA en ferreterias (caso real Suba)](https://serviciosapc.site/blog/analitica-video-ia-ferreterias-bogota-caso-real-suba/)
+- [Camaras de seguridad en bodegas](https://serviciosapc.site/blog/camaras-seguridad-bodega-bogota-monitoreo-inteligente/)
+- [Instalacion de camaras para negocio pequeno](https://serviciosapc.site/blog/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia/)
+- [Mejores camaras para local comercial](https://serviciosapc.site/blog/mejores-camaras-seguridad-local-comercial-bogota/)
+- [Negocio con camaras IA vs sin IA: antes y despues](https://serviciosapc.site/blog/negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues/)
+- [SEO local y Google Maps](https://serviciosapc.site/blog/seo-local-google-maps-empresas-seguridad-bogota/)
+- [Servidores edge GPU para IA y video analitica](https://serviciosapc.site/blog/servidores-edge-gpu-para-ia-video-analitica-bogota/)
+
+## Servicios y Planes
+
+### APC Automatizacion (apcautomatizacion.site)
+Automatizacion de procesos para empresas medianas en Bogota.
+- **Plan CORE** - $3.5M setup + $490k/mes: Dashboard Ejecutivo, Integracion de Sistemas, Onboarding Digital, Copiloto IA
+- **Plan PRO** - $6.9M setup + $890k/mes: todo lo del Core + flujos avanzados + CRM + n8n
+- **Plan VIP COPILOTO IA** - Setup premium + mensual: todo lo del Pro + IA personalizada completa
+- Servicios: Integracion de Sistemas, CRM post-venta, Dashboard Ejecutivo (Looker Studio), Onboarding Digital, WhatsApp Automatizado
+
+### APC CORE (apccore.site)
+Automatizacion WhatsApp + n8n + infraestructura.
+- **APC-SR01** Soporte Tecnico Remoto - $80k COP
+- **APC-SF02** Soporte Tecnico Fisico - $180k COP/visita
+- **APC-CTRL-03** Control de Acceso + Nomina - $450k/mes + $890k setup
+- **APC-GPS-04** GPS Flotas y Telemetria - $35k COP/veh/mes
+- **APC-AUTO-05** Automatizacion WhatsApp + Captacion - $590k setup + $290k/mes
+- **APC-DATA-06** Flujos de Datos / Integraciones - $250k COP/flujo
+
+### APC VisionIA (apcvisionai.site)
+Arqueo de caja con IA, CCTV-Vision IA, Sistema POS.
+- Mini PC configurada + checkpoint de red
+- Transcripcion automatica de audio/video
+- Reporte Excel automatico (conciliacion POS)
+- Sin camaras tradicionales, plug & play
+
+### Servicios APC (serviciosapc.site)
+Camaras IA Hikvision Bogota - videoanalytics como herramienta de datos, NO como "seguridad".
+- Camaras ColorVu, AcuSense, DeepinView
+- IA offline-first (funciona sin internet)
+- Analitica de video para conteo de personas, arqueo asistido, deteccion de anomalias operativas
+- Soporte tecnico <30 min
+
+### DogWeb (dogweb.lat)
+Agencia digital: paginas web, IA en WhatsApp, marketing digital LATAM.
+- Sprint AGOSTO 2026: $800.000 COP pago unico de desarrollo + $250.000 COP/mes optimizacion SEO+mantenimiento
+- IA en WhatsApp (bots + CRM)
+- Marketing digital y SEO
+
+## Diferenciadores Clave
+- IA offline-first (funciona sin internet)
+- Integracion n8n + WhatsApp + CRM + Dashboards
+- Soporte <30 min
+- Arquitectura edge GPU para videoanalitica local
+- NO somos empresa de seguridad, somos socio tecnologico de automatizacion
+
+## Publicos Objetivo
+- Pymes en Bogota: clinicas, consultorios, gimnasios, spas, salones de unas, talleres, flotas logisticas
+- Medianas empresas que necesitan integrar sistemas (Siigo, Sheets, WhatsApp, CRM)
+- Comercio retail con necesidad de datos en tiempo real
+
+## Contacto
+- WhatsApp / Telefono: +57 333 745 0634 (https://wa.me/57337450634)
+- Email: serviciosapcsoporte@gmail.com
+- Direccion: Cra. 52c #39b-22, Bogota, Colombia
+- Horario: Lunes a Domingo, 6:00 - 21:00
+
+## Keywords Transaccionales Objetivo
+automatizacion procesos Bogota, integracion sistemas Siigo WhatsApp, n8n WhatsApp CRM,
+camaras IA Hikvision Bogota (como herramienta de datos), arqueo caja IA,
+control acceso nomina GPS flotas, soporte tecnico empresas Bogota,
+consultoria tecnologica pymes Bogota, copiloto IA empresas Bogota

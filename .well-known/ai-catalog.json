@@ -1,0 +1,51 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Servicios APC",
+    "identifier": "did:web:serviciosapc.site",
+    "documentationUrl": "https://serviciosapc.site/",
+    "logoUrl": "https://serviciosapc.site/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:serviciosapc.site:site:home",
+      "displayName": "Servicios APC - Automatizacion e IA para Pymes en Bogota",
+      "type": "text/html",
+      "url": "https://serviciosapc.site/",
+      "description": "Socio tecnologico de automatizacion para pymes en Bogota. Integracion de sistemas (Siigo, WhatsApp, CRM, n8n), dashboards (Looker Studio), copiloto IA y camaras IA Hikvision offline-first como herramienta de datos. No es una empresa de seguridad.",
+      "tags": ["automatizacion", "ia", "pymes", "bogota", "integracion-de-sistemas", "whatsapp", "n8n", "camaras-ia"],
+      "capabilities": ["DiagnosticoGratuito", "AutomatizacionDeProcesos", "IntegracionDeSistemas", "VideoAnalitica"],
+      "representativeQueries": [
+        "empresas de automatizacion de procesos en Bogota",
+        "integrar Siigo con WhatsApp y CRM para pymes",
+        "camaras con IA para analitica de video de negocio en Bogota"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-15T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:serviciosapc.site:resource:llms",
+      "displayName": "Servicios APC - Indice para LLM (llms.txt)",
+      "type": "text/plain",
+      "url": "https://serviciosapc.site/llms.txt",
+      "description": "Resumen legible por modelos de lenguaje con las paginas, servicios, planes, ubicaciones y blog de Servicios APC.",
+      "tags": ["llms-txt", "indice", "servicios-apc"],
+      "representativeQueries": [
+        "informacion de servicios y precios de Servicios APC",
+        "paginas y servicios ofrecidos por Servicios APC"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-15T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:serviciosapc.site:resource:llms-full",
+      "displayName": "Servicios APC - Contenido completo para LLM (llms-full.txt)",
+      "type": "text/plain",
+      "url": "https://serviciosapc.site/llms-full.txt",
+      "description": "Version extendida del indice para LLM con contenido adicional de Servicios APC.",
+      "tags": ["llms-txt", "contenido", "servicios-apc"],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-15T00:00:00Z"
+    }
+  ]
+}

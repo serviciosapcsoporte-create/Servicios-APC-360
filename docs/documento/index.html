@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,15 +22,7 @@
     .error.show{display:block}
     .footer{margin-top:20px;text-align:center;font-size:12px;color:#999}
   </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EWFDLTCM8R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-EWFDLTCM8R');
-</script>
-<!-- Google tag (gtag.js) -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ES977W3VY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -44,10 +36,10 @@
     <div class="logo"><span>APC</span></div>
     <h1>Acceso a documento</h1>
     <p class="lead">Ingresa el c&#243;digo de acceso enviado a tu correo</p>
-    <form id="form">
+    <form id="form" toolname="acceder_documento" tooldescription="Accede a un documento protegido de Servicios APC usando el codigo de acceso enviado al correo. Requiere el codigo de acceso.">
       <div class="form-group">
         <label>C&#243;digo de acceso</label>
-        <input type="text" id="clave" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus>
+        <input type="text" id="clave" toolparamdescription="Codigo de acceso enviado por correo electronico" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus>
       </div>
       <button type="submit">Ver / Descargar</button>
       <div id="error" class="error">Clave incorrecta. Verifica el c&#243;digo de tu correo.</div>
