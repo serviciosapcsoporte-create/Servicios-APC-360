@@ -1593,7 +1593,7 @@ export default function App() {
                       onSubmit={handleSubmit}
                       noValidate
                       toolname="solicitar_diagnostico"
-                      tooldescription="Solicita un diagnostico gratuito de automatizacion de procesos a Servicios APC. Requiere nombre, correo electronico y un mensaje con la necesidad del negocio."
+                      tooldescription="Instalación de CCTV con inteligencia artificial en Bogotá. Solicita tu diagnóstico gratuito a Servicios APC; requiere nombre, correo electrónico y un mensaje con la necesidad del negocio."
                       className="border border-border p-8 lg:p-10 space-y-6"
                     >
                       <div className="grid md:grid-cols-2 gap-6">
