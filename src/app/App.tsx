@@ -1592,7 +1592,7 @@ export default function App() {
                     <form
                       onSubmit={handleSubmit}
                       noValidate
-                      toolname="solicitar_diagnostico"
+                      toolname="instalacion_cctv"
                       tooldescription="Instalación de CCTV con inteligencia artificial en Bogotá. Solicita tu diagnóstico gratuito a Servicios APC; requiere nombre, correo electrónico y un mensaje con la necesidad del negocio."
                       className="border border-border p-8 lg:p-10 space-y-6"
                     >
