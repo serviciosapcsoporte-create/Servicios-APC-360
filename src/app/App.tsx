@@ -664,7 +664,11 @@ export default function App() {
             <WhatsAppCTA href={WHATSAPP} label="Cotizar" size="sm" />
           </div>
         </nav>
-        <main id="contenido">{blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}</main>
+        <main id="contenido">
+          <Suspense fallback={<div className="min-h-[60vh]" />}>
+            {blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}
+          </Suspense>
+        </main>
         <ErrorBoundary fallback={null}>
           <CristalChat />
         </ErrorBoundary>
