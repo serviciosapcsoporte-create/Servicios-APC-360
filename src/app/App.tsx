@@ -2038,16 +2038,13 @@ export default function App() {
             target="_blank"
             rel="noopener noreferrer"
             whileTap={{ scale: 0.93 }}
+            whileHover={{ scale: 1.05 }}
             aria-label="Cotizar por WhatsApp"
-            className="relative w-14 h-14 rounded-full bg-[#25d366]/95 border border-white/20 shadow-[0_10px_40px_rgba(37,211,102,0.45)] flex items-center justify-center backdrop-blur-md"
+            style={{ "--brand": "#25D366" } as CSSProperties}
+            className="cta-chip relative w-14 h-14 rounded-full bg-white border-2 border-accent flex items-center justify-center shadow-[0_10px_40px_rgba(234,88,12,0.35)]"
           >
-            <motion.span
-              className="absolute inset-0 rounded-full bg-[#25d366]/45"
-              animate={{ scale: [1, 1.22, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <WhatsAppLogo size={24} fill="#ffffff" className="relative" />
-              <span className="hidden md:inline text-sm font-medium">Cotizar</span>
+            <WhatsAppLogo size={26} fill="#25D366" className="relative" />
+            <span className="sr-only">Cotizar por WhatsApp</span>
           </motion.a>
         </div>
 
