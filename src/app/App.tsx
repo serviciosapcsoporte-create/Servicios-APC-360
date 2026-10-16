@@ -179,6 +179,7 @@ const process = [
 const cases = [
   {
     icon: Building2,
+    image: "/casos-distribuidora-jone.webp",
     client: "Distribuidora JONE",
     sector: "Distribución · Bogotá",
     metric: "24/7",
@@ -187,6 +188,7 @@ const cases = [
   },
   {
     icon: Car,
+    image: "/casos-taller-excelencia.webp",
     client: "Taller Excelencia Automotriz",
     sector: "Automotriz · Bogotá",
     metric: "Top 3",
@@ -195,6 +197,7 @@ const cases = [
   },
   {
     icon: Globe,
+    image: "/casos-dogweb-agencia.webp",
     client: "DogWeb.lat",
     sector: "Agencia digital · LATAM",
     metric: "SEO",
@@ -228,6 +231,7 @@ const ecosystem = [
   {
     domain: "apccore.site",
     name: "APC Core",
+    image: "/ecosistema-apc-core.webp",
     description:
       "Sistemas de control, bases de datos operativas y tableros centralizados. El cerebro que une CCTV + IA + CRM.",
     icon: Server,
@@ -235,6 +239,7 @@ const ecosystem = [
   {
     domain: "apcautomatizacion.site",
     name: "APC Automatización",
+    image: "/ecosistema-apc-automatizacion.webp",
     description:
       "Flujos n8n que conectan su CCTV Hikvision + WhatsApp + CRM + ERP. Alerta de intrusión → WhatsApp al gerente → Ticket en CRM.",
     icon: Zap,
@@ -242,6 +247,7 @@ const ecosystem = [
   {
     domain: "apcvisionai.site",
     name: "APC Visión AI",
+    image: "/ecosistema-apc-vision-ia.webp",
     description:
       "Especialistas en analítica YOLO sobre Hikvision/Dahua: conteo, mapas de calor, arqueo de caja, detección de anomalías, perímetros.",
     icon: Camera,
@@ -249,6 +255,7 @@ const ecosystem = [
   {
     domain: "dogweb.lat",
     name: "DogWeb",
+    image: "/ecosistema-dogweb.webp",
     description:
       "Desarrollo web, SEO local / Google Maps y resiliencia de red. Su web posicionada en Bogotá + formularios → WhatsApp Bot → Venta.",
     icon: Globe,
@@ -1188,6 +1195,13 @@ export default function App() {
                 return (
                   <Reveal key={c.client} delay={i * 0.09} className="h-full">
                     <Tilt className="glass-card rounded-2xl p-8 h-full relative overflow-hidden">
+                      <ImageWithFallback
+                        src={c.image}
+                        alt={c.client}
+                        className="w-full h-40 object-cover rounded-xl mb-5"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="flex items-start justify-between mb-5">
                         <div className="w-12 h-12 rounded-xl border border-accent/30 bg-accent/10 flex items-center justify-center">
                           <Icon size={20} className="text-accent" />
@@ -1235,6 +1249,13 @@ export default function App() {
                       transition={SPRING}
                       className="group bg-secondary p-8 hover:bg-background transition-colors duration-200 block h-full"
                     >
+                      <ImageWithFallback
+                        src={e.image}
+                        alt={e.name}
+                        className="w-full h-32 object-cover rounded-lg mb-5"
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <Icon size={24} className="text-accent mb-5" />
                       <h3 className="font-serif text-lg font-bold mb-1 group-hover:text-accent transition-colors">
                         {e.name}
@@ -1269,10 +1290,10 @@ export default function App() {
                     aria-hidden="true"
                   />
                   <picture>
-                    <source srcSet="/servicios-apc.webp" type="image/webp" />
+                    <source srcSet="/fundador.webp" type="image/webp" />
                     <ImageWithFallback
-                      src="/servicios-apc.jpeg"
-                      alt="Tecnología — Servicios APC"
+                      src="/fundador.jpeg"
+                      alt="Alejandro Piraquive — Fundador de Servicios APC"
                       width={1600}
                       height={900}
                       className="w-full object-cover aspect-video relative z-10"
@@ -1282,7 +1303,7 @@ export default function App() {
                   </picture>
                   <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
                     <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
-                      Tecnología — Servicios APC
+                      Alejandro Piraquive — Fundador
                     </p>
                     <p className="text-accent-foreground text-xs mt-0.5 font-mono">
                       Bogotá, Colombia
