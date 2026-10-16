@@ -26,7 +26,7 @@ import {
   Headphones,
   ClipboardCheck,
 } from "lucide-react";
-import { WhatsAppCTA } from "../components/WhatsAppCTA";
+import { WhatsAppCTA, ChipCTA } from "../components/WhatsAppCTA";
 
 /* ─── CONFIG ──────────────────────────────────────────────── */
 
@@ -494,22 +494,8 @@ export function CamarasNegocio() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-              style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-            >
-              <Phone className="w-4 h-4" /> WhatsApp: 333 745 0634
-            </a>
-            <a
-              href="mailto:serviciosapcsoporte@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base border-2 transition-all hover:scale-105"
-              style={{ borderColor: "var(--color-border)", color: "var(--color-foreground)" }}
-            >
-              <Mail className="w-4 h-4" /> Email Directo
-            </a>
+            <WhatsAppCTA label="WhatsApp: 333 745 0634" href={WHATSAPP} size="lg" />
+            <ChipCTA label="Email Directo" href="mailto:serviciosapcsoporte@gmail.com" size="lg" brand="var(--color-accent)" logo={<Mail size={20} className="text-accent" />} />
           </div>
 
           {/* Ecosystem table */}

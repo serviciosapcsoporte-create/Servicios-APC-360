@@ -5,7 +5,7 @@ import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
 import { VideoHero } from "./components/VideoHero";
 import { SOCIALS, WhatsAppLogo } from "./components/SocialIcons";
-import { WhatsAppCTA } from "./components/WhatsAppCTA";
+import { WhatsAppCTA, ChipCTA } from "./components/WhatsAppCTA";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import {
   Menu,
@@ -17,7 +17,6 @@ import {
   ArrowRight,
   MapPin,
   Mail,
-  Phone,
   ChevronRight,
   CheckCircle2,
   Send,
@@ -966,18 +965,14 @@ export default function App() {
                                     </li>
                                   ))}
                                 </ul>
-                                <motion.a
+                                <WhatsAppCTA
+                                  label="Solicitar información"
                                   href={waLink(
                                     `Hola Servicios APC, quiero información sobre ${s.title}`
                                   )}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  whileTap={{ scale: 0.97 }}
-                                  className="flex items-center gap-2 font-medium text-sm px-6 py-3 border transition-colors hover:opacity-80 rounded-full"
-                                  style={{ borderColor: s.color, color: s.color }}
-                                >
-                                  Solicitar información <ArrowRight size={14} />
-                                </motion.a>
+                                  size="sm"
+                                  brand={s.color}
+                                />
                               </div>
                               <div className="relative order-first lg:order-last">
                                 <div
@@ -1457,42 +1452,20 @@ export default function App() {
 
                 <div className="space-y-5">
                   <Reveal delay={0.14}>
-                    <a
+                    <WhatsAppCTA
+                      label="WhatsApp: +57 333 7450634"
                       href={WHATSAPP}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-start gap-4 group"
-                    >
-                      <div className="w-10 h-10 border border-border flex items-center justify-center flex-shrink-0 group-hover:border-accent/40 transition-colors">
-                        <Phone size={15} className="text-accent" />
-                      </div>
-                      <div>
-                        <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-0.5">
-                          Teléfono / WhatsApp
-                        </p>
-                        <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
-                          +57 333 7450634
-                        </p>
-                      </div>
-                    </a>
+                      size="md"
+                    />
                   </Reveal>
                   <Reveal delay={0.17}>
-                    <a
+                    <ChipCTA
+                      label="serviciosapcsoporte@gmail.com"
                       href="mailto:serviciosapcsoporte@gmail.com"
-                      className="flex items-start gap-4 group"
-                    >
-                      <div className="w-10 h-10 border border-border flex items-center justify-center flex-shrink-0 group-hover:border-accent/40 transition-colors">
-                        <Mail size={15} className="text-accent" />
-                      </div>
-                      <div>
-                        <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-0.5">
-                          Correo electrónico
-                        </p>
-                        <p className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
-                          serviciosapcsoporte@gmail.com
-                        </p>
-                      </div>
-                    </a>
+                      size="md"
+                      brand="var(--color-accent)"
+                      logo={<Mail size={18} className="text-accent" />}
+                    />
                   </Reveal>
                   <Reveal delay={0.2}>
                     <div className="flex items-start gap-4">
@@ -1943,16 +1916,16 @@ export default function App() {
                     Cra. 52c #39b-22, Bogotá
                   </li>
                   <li>
-                    <a href="mailto:serviciosapcsoporte@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      <Mail size={13} className="text-accent flex-shrink-0" />
-                      serviciosapcsoporte@gmail.com
-                    </a>
+                    <ChipCTA
+                      label="serviciosapcsoporte@gmail.com"
+                      href="mailto:serviciosapcsoporte@gmail.com"
+                      size="sm"
+                      brand="var(--color-accent)"
+                      logo={<Mail size={16} className="text-accent" />}
+                    />
                   </li>
                   <li>
-                    <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      <Phone size={13} className="text-accent flex-shrink-0" />
-                      +57 333 7450634
-                    </a>
+                    <WhatsAppCTA label="+57 333 7450634" href={WHATSAPP} size="sm" />
                   </li>
                   <li>
                     <a
