@@ -1468,19 +1468,9 @@ export default function App() {
                     />
                   </Reveal>
                   <Reveal delay={0.2}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 border border-border flex items-center justify-center flex-shrink-0">
-                        <MapPin size={15} className="text-accent" />
-                      </div>
-                      <div>
-                        <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-0.5">
-                          Dirección
-                        </p>
-                        <p className="text-sm font-medium text-foreground">
-                          Cra. 52c #39b-22, Bogotá
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Cra. 52c #39b-22, Bogotá
+                    </p>
                   </Reveal>
                 </div>
 
