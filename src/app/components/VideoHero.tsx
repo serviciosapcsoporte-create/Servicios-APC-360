@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { WhatsAppCTA } from "./WhatsAppCTA";
 
 interface VideoHeroProps {
   title?: string;
@@ -101,17 +102,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
             </p>
           )}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {ctaLabel && (
-              <a
-                href={ctaHref || WA_HERO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-accent text-accent-foreground px-8 py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center gap-2"
-              >
-                {ctaLabel}
-                <MessageCircle size={18} />
-              </a>
-            )}
+            {ctaLabel && <WhatsAppCTA label={ctaLabel} href={ctaHref || WA_HERO} size="lg" />}
             {showSecondaryCta && secondaryCtaLabel && secondaryCtaHref && (
               <a
                 href={secondaryCtaHref}

@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { WhatsAppCTA } from "../components/WhatsAppCTA";
 import { VideoHero } from "../components/VideoHero"
 
 export function CamarasUsaquen() {
@@ -127,15 +128,7 @@ export function CamarasUsaquen() {
           en Usaquén. Analítica de aforo, control de acceso y protección premium con
           dashboard ejecutivo en tiempo real.
         </p>
-        <a
-          href="https://wa.me/573337450634?text=Hola,%20necesito%20información%20sobre%20cámaras%20de%20seguridad%20en%20Usaquén"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ background: "var(--color-accent)" }}
-        >
-          Cotizar por WhatsApp
-        </a>
+        <WhatsAppCTA label="Cotizar por WhatsApp" href="https://wa.me/573337450634?text=Hola,%20necesito%20información%20sobre%20cámaras%20de%20seguridad%20en%20Usaquén" size="lg" />
       </header>
 
       <section className="mb-12">
@@ -255,15 +248,7 @@ export function CamarasUsaquen() {
         <p className="mb-6" style={{ color: "var(--color-muted-foreground)" }}>
           Cotización premium sin compromiso en menos de 2 horas.
         </p>
-        <a
-          href="https://wa.me/573337450634?text=Hola,%20quiero%20cotizar%20cámaras%20en%20Usaquén"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ background: "var(--color-accent)" }}
-        >
-          Solicitar cotización ahora
-        </a>
+        <WhatsAppCTA label="Solicitar cotización ahora" href="https://wa.me/573337450634?text=Hola,%20quiero%20cotizar%20cámaras%20en%20Usaquén" size="lg" />
       </section>
 
       <section

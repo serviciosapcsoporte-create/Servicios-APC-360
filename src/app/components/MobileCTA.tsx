@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
+import { WhatsAppCTA } from "./WhatsAppCTA";
 
 interface MobileCTAProps {
   ctaHref?: string;
@@ -51,15 +52,7 @@ export const MobileCTA: React.FC<MobileCTAProps> = ({
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
       <div className="bg-[#0b0f19] border-t border-white/10 px-4 py-3">
         <div className="flex items-center justify-between gap-3 max-w-screen-xl mx-auto">
-          <a
-            href={ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-black font-semibold text-sm py-3 px-4 rounded-lg text-center transition-colors flex items-center justify-center gap-2"
-          >
-            <MessageCircle size={18} />
-            <span>{ctaLabel}</span>
-          </a>
+          <WhatsAppCTA href={ctaHref} label={ctaLabel} size="md" className="flex-1" />
           <button
             onClick={() => setIsVisible(false)}
             className="p-2 text-gray-400 hover:text-white transition-colors"

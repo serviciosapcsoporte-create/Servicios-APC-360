@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { WhatsAppCTA } from "../components/WhatsAppCTA";
 import { VideoHero } from "../components/VideoHero"
 
 export function CamarasSuba() {
@@ -132,15 +133,7 @@ export function CamarasSuba() {
           Desde La Florida hasta Salitre Oriental, protegemos tu negocio y tu hogar
           con tecnología Hikvision ColorVu y analítica de inteligencia artificial.
         </p>
-        <a
-          href="https://wa.me/573337450634?text=Hola,%20necesito%20información%20sobre%20cámaras%20de%20seguridad%20en%20Suba"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ background: "var(--color-accent)" }}
-        >
-          Cotizar por WhatsApp
-        </a>
+        <WhatsAppCTA label="Cotizar por WhatsApp" href="https://wa.me/573337450634?text=Hola,%20necesito%20información%20sobre%20cámaras%20de%20seguridad%20en%20Suba" size="lg" />
       </header>
 
       <section className="mb-12">
@@ -260,15 +253,7 @@ export function CamarasSuba() {
         <p className="mb-6" style={{ color: "var(--color-muted-foreground)" }}>
           Cotización sin compromiso en menos de 2 horas.
         </p>
-        <a
-          href="https://wa.me/573337450634?text=Hola,%20quiero%20cotizar%20cámaras%20en%20Suba"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block px-8 py-4 rounded-lg font-semibold text-white transition-opacity hover:opacity-90"
-          style={{ background: "var(--color-accent)" }}
-        >
-          Solicitar cotización ahora
-        </a>
+        <WhatsAppCTA label="Solicitar cotización ahora" href="https://wa.me/573337450634?text=Hola,%20quiero%20cotizar%20cámaras%20en%20Suba" size="lg" />
       </section>
 
       <section

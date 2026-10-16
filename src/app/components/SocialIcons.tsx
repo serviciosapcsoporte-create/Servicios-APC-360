@@ -5,6 +5,7 @@ import { useId } from "react";
 type LogoProps = {
   size?: number;
   className?: string;
+  fill?: string;
 };
 
 const D = {
@@ -67,10 +68,10 @@ export function LinkedInLogo({ size = 20, className }: LogoProps) {
   );
 }
 
-export function WhatsAppLogo({ size = 20, className }: LogoProps) {
+export function WhatsAppLogo({ size = 20, className, fill = "#25D366" }: LogoProps) {
   return (
     <svg {...base(size, className)}>
-      <path fill="#25D366" d={D.whatsapp} />
+      <path fill={fill} d={D.whatsapp} />
     </svg>
   );
 }

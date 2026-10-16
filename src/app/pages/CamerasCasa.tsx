@@ -1,5 +1,6 @@
 import { marked } from "marked";
 import { VideoHero } from "../components/VideoHero"
+import { WhatsAppCTA } from "../components/WhatsAppCTA";
 import {
   Shield,
   Camera,
@@ -291,19 +292,12 @@ export function CamerasCasa() {
                     </li>
                   ))}
                 </ul>
-                <a
+                <WhatsAppCTA
+                  label={`Cotizar ${plan.name}`}
                   href={WHATSAPP}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full text-center px-6 py-3 rounded-lg font-sans font-semibold text-sm transition-all hover:scale-105 block"
-                  style={{
-                    backgroundColor: plan.highlight ? "var(--color-background)" : "var(--color-accent)",
-                    color: plan.highlight ? "var(--color-accent)" : "var(--color-background)",
-                    border: plan.highlight ? "2px solid var(--color-background)" : "none",
-                  }}
-                >
-                  Cotizar {plan.name}
-                </a>
+                  size="md"
+                  fullWidth
+                />
               </div>
             ))}
           </div>

@@ -4,13 +4,13 @@ import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
 import { VideoHero } from "./components/VideoHero";
-import { SOCIALS } from "./components/SocialIcons";
+import { SOCIALS, WhatsAppLogo } from "./components/SocialIcons";
+import { WhatsAppCTA } from "./components/WhatsAppCTA";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import {
   Menu,
   X,
   Camera,
-  MessageCircle,
   Zap,
   Shield,
   Users,
@@ -434,21 +434,7 @@ function SectionHeader({
 }
 
 function WhatsAppChip({ label, href, small = false }: { label: string; href: string; small?: boolean }) {
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileTap={{ scale: 0.97 }}
-      className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full bg-[#25d366]/90 text-[#07331c] border border-white/20 backdrop-blur-md shadow-[0_8px_32px_rgba(37,211,102,0.35)] hover:bg-[#22c55e] transition-colors font-medium",
-        small ? "px-4 py-2 text-sm" : "px-6 py-3.5 text-[15px]"
-      )}
-    >
-      <MessageCircle size={small ? 15 : 17} />
-      {label}
-    </motion.a>
-  );
+  return <WhatsAppCTA label={label} href={href} size={small ? "sm" : "md"} />;
 }
 
 /* Acordeón sin layout jank: anima grid-template-rows 0fr→1fr
@@ -669,14 +655,7 @@ export default function App() {
                 Servicios APC
               </span>
             </button>
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="press bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
-            >
-              Cotizar
-            </a>
+            <WhatsAppCTA href={WHATSAPP} label="Cotizar" size="sm" />
           </div>
         </nav>
         <main id="contenido">{blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}</main>
@@ -751,15 +730,7 @@ export default function App() {
             </div>
 
             <div className="hidden md:flex items-center gap-3">
-              <motion.a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileTap={{ scale: 0.96 }}
-                className="press bg-accent text-accent-foreground px-5 py-2 text-sm font-medium hover:bg-accent/90 transition-colors flex items-center gap-2 rounded-full"
-              >
-                <MessageCircle size={14} /> WhatsApp
-              </motion.a>
+              <WhatsAppCTA href={WHATSAPP} label="WhatsApp" size="sm" />
             </div>
 
             <button
@@ -793,14 +764,7 @@ export default function App() {
               >
                 Blog
               </a>
-              <a
-                href={WA_HERO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-[#25d366] text-[#07331c] rounded-full px-5 py-2.5 text-sm font-medium"
-              >
-                Cotizar por WhatsApp
-              </a>
+              <WhatsAppCTA href={WA_HERO} label="Cotizar por WhatsApp" size="md" fullWidth />
             </div>
           </AccordionPanel>
         </nav>
@@ -2098,7 +2062,7 @@ export default function App() {
               animate={{ scale: [1, 1.22, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
             />
-            <MessageCircle size={22} className="relative text-white" />
+            <WhatsAppLogo size={24} fill="#ffffff" className="relative" />
               <span className="hidden md:inline text-sm font-medium">Cotizar</span>
           </motion.a>
         </div>

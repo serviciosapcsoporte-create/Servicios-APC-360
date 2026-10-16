@@ -1,5 +1,6 @@
 import { marked } from "marked";
 import { VideoHero } from "../components/VideoHero"
+import { WhatsAppCTA } from "../components/WhatsAppCTA";
 import {
   ShieldCheck,
   Camera,
@@ -406,15 +407,7 @@ export function MantenimientoCamaras() {
             * El valor final depende del número de puntos, distancia de cableado y el estado del sistema. Diagnóstico y cotización sin costo.
           </p>
 
-          <a
-            href={WHATSAPP}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-sans font-semibold text-base transition-all hover:scale-105"
-            style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)" }}
-          >
-            <Phone className="w-4 h-4" /> Cotizar ahora por WhatsApp
-          </a>
+          <WhatsAppCTA label="Cotizar ahora por WhatsApp" href={WHATSAPP} size="lg" />
         </div>
       </section>
 

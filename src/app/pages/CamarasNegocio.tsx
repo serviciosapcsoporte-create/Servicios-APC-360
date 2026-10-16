@@ -26,6 +26,7 @@ import {
   Headphones,
   ClipboardCheck,
 } from "lucide-react";
+import { WhatsAppCTA } from "../components/WhatsAppCTA";
 
 /* ─── CONFIG ──────────────────────────────────────────────── */
 
@@ -351,15 +352,7 @@ export function CamarasNegocio() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Plan%20Kit%204%20C%C3%A1maras%20HD"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-accent text-accent-foreground py-3 rounded-full font-medium hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-2"
-                >
-                  Cotizar con pago único
-                  <ArrowRight size={16} />
-                </a>
+                <WhatsAppCTA label="Cotizar con pago único" href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Plan%20Kit%204%20C%C3%A1maras%20HD" size="md" fullWidth />
               </div>
 
               {/* Kit 8 Cámaras HD */}
@@ -381,15 +374,7 @@ export function CamarasNegocio() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Kit%208%20C%C3%A1maras%20HD"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full border-2 border-accent text-accent py-3 rounded-full font-medium hover:bg-accent hover:text-accent-foreground transition-colors inline-flex items-center justify-center gap-2"
-                >
-                  Cotizar kit financiado
-                  <ArrowRight size={16} />
-                </a>
+                <WhatsAppCTA label="Cotizar kit financiado" href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20me%20interesa%20cotizar%20el%20Kit%208%20C%C3%A1maras%20HD" size="md" fullWidth />
               </div>
             </div>
 
@@ -398,15 +383,7 @@ export function CamarasNegocio() {
               <div className="p-6 rounded-2xl border border-border bg-background/50 text-center">
                 <h3 className="font-serif text-xl font-bold mb-2">¿Ya tienes las cámaras? Solo necesitas la mano de obra</h3>
                 <p className="text-muted-foreground mb-4">El valor por punto se define en el estudio de instalación, según la altura y la complejidad.</p>
-                <a
-                  href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-full font-medium hover:opacity-90 transition-opacity"
-                >
-                  <MessageCircle size={18} />
-                  Agenda la Visita del Técnico
-                </a>
+                <WhatsAppCTA label="Agenda la Visita del Técnico" href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n" size="md" />
               </div>
             </div>
           </div>
@@ -421,15 +398,7 @@ export function CamarasNegocio() {
             <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
               Mano de obra por punto con valor según la altura y la complejidad; se define en el estudio de instalación.
             </p>
-            <a
-              href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-full font-semibold text-base hover:opacity-90 transition-opacity"
-            >
-              <MessageCircle size={20} />
-              Agenda la Visita del Técnico
-            </a>
+            <WhatsAppCTA label="Agenda la Visita del Técnico" href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n" size="lg" />
           </div>
         </section>
 
