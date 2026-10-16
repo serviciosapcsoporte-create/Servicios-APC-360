@@ -1,9 +1,10 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
 import { VideoHero } from "./components/VideoHero";
+import { SOCIALS } from "./components/SocialIcons";
 import { ErrorBoundary } from "../components/ErrorBoundary";
 import {
   Menu,
@@ -26,9 +27,6 @@ import {
   Server,
   WifiOff,
   ExternalLink,
-  Facebook,
-  Instagram,
-  Linkedin,
   FileText,
   ClipboardCheck,
   Wrench,
@@ -2003,34 +2001,24 @@ export default function App() {
                     </a>
                   </li>
                 </ul>
-                <div className="flex items-center gap-3 mt-4">
-                  <a
-                    href="https://www.facebook.com/alejandropiraquiveapc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                    className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
-                  >
-                    <Facebook size={15} />
-                  </a>
-                  <a
-                    href="https://www.instagram.com/serviciosapc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram"
-                    className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
-                  >
-                    <Instagram size={15} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/alejandropiraquive/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn"
-                    className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors"
-                  >
-                    <Linkedin size={15} />
-                  </a>
+                <div className="flex flex-wrap items-center gap-2.5 mt-4">
+                  {SOCIALS.map(({ name, href, Logo, brand }) => (
+                    <a
+                      key={name}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={name}
+                      title={name}
+                      style={{ "--brand": brand } as CSSProperties}
+                      className="social-chip group flex h-9 w-9 items-center justify-center rounded-xl bg-white border border-black/5"
+                    >
+                      <Logo
+                        size={18}
+                        className="transition-transform duration-200 ease-out group-hover:scale-110"
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -2076,25 +2064,25 @@ export default function App() {
         {/* ── SOCIAL FLOAT ───────────────────────────────────── */}
         <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
           <div className="flex flex-col gap-2.5">
-            {[
-              ["https://www.facebook.com/alejandropiraquiveapc", Facebook, "Facebook"],
-              ["https://www.instagram.com/serviciosapc", Instagram, "Instagram"],
-              ["https://www.linkedin.com/in/alejandropiraquive/", Linkedin, "LinkedIn"],
-            ].map(([href, Icon, label]) => (
-              <a
-                key={label as string}
-                href={href as string}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label as string}
-                className="press w-10 h-10 rounded-full glass flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors"
-              >
-                {(() => {
-                  const I = Icon as typeof Facebook;
-                  return <I size={16} />;
-                })()}
-              </a>
-            ))}
+            {SOCIALS.filter((s) => s.name !== "WhatsApp").map(
+              ({ name, href, Logo, brand }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={name}
+                  title={name}
+                  style={{ "--brand": brand } as CSSProperties}
+                  className="social-chip group flex h-10 w-10 items-center justify-center rounded-xl bg-white border border-black/5"
+                >
+                  <Logo
+                    size={20}
+                    className="transition-transform duration-200 ease-out group-hover:scale-110"
+                  />
+                </a>
+              )
+            )}
           </div>
 
           <motion.a

@@ -236,6 +236,28 @@
   transform: scale(0.97);
 }
 
+/* Social brand chips — official logo inside a light container */
+.social-chip {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 200ms cubic-bezier(0.22, 1, 0.36, 1), border-color 200ms ease-out;
+  will-change: transform;
+}
+.social-chip:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand, transparent);
+  box-shadow: 0 12px 24px -10px var(--brand, rgba(0, 0, 0, 0.5));
+}
+.social-chip:active {
+  transform: translateY(-1px) scale(0.96);
+  transition-duration: 100ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .social-chip:hover {
+    transform: none;
+  }
+}
+
 /* ─── Reduced motion / transparency / contrast ─────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
