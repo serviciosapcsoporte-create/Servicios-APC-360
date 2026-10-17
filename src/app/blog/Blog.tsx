@@ -106,6 +106,112 @@ function getAllPosts(): BlogPost[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+/* ─── LEGACY ARTICLES (static SEO pages) ────────────────────
+ * Estos 8 artículos existen como páginas estáticas en /blog/<slug>/
+ * y se listan aquí para que su miniatura aparezca en #blog.
+ * Al hacer clic se abre la página estática completa.
+ * ───────────────────────────────────────────────────────────── */
+const LEGACY_POSTS: BlogPost[] = [
+  {
+    slug: "arqueo-caja-automatico-guia",
+    title: "Arqueo de Caja Automático con Cámaras: Guía Completa (2026)",
+    excerpt: "Cómo funciona el arqueo de caja automático con cámaras IA. Conciliación POS en tiempo real.",
+    date: "2025-10-01",
+    author: "Servicios APC",
+    category: "IA & Seguridad",
+    tags: ["arqueo", "pos", "ia"],
+    readTime: "6 min",
+    coverImage: "/blog-img/arqueo-caja-automatico-guia.webp",
+    content: "",
+  },
+  {
+    slug: "automatizacion-procesos-pymes",
+    title: "Automatización de Procesos para Pymes en Bogotá: Guía Completa",
+    excerpt: "Cómo automatizar procesos en tu pyme con IA, n8n, WhatsApp y dashboards.",
+    date: "2025-10-02",
+    author: "Servicios APC",
+    category: "Automatización",
+    tags: ["automatizacion", "pymes", "n8n"],
+    readTime: "6 min",
+    coverImage: "/blog-img/automatizacion-procesos-pymes.webp",
+    content: "",
+  },
+  {
+    slug: "camaras-ia-vs-tradicionales",
+    title: "Cámaras IA vs Cámaras Tradicionales: ¿Cuál Elegir en 2026?",
+    excerpt: "Comparación completa: cámaras con inteligencia artificial vs cámaras CCTV tradicionales.",
+    date: "2025-10-03",
+    author: "Servicios APC",
+    category: "Cámaras IA",
+    tags: ["camaras", "ia", "comparativa"],
+    readTime: "6 min",
+    coverImage: "/blog-img/camaras-ia-vs-tradicionales.webp",
+    content: "",
+  },
+  {
+    slug: "como-elegir-camaras-seguridad",
+    title: "Cómo Elegir Cámaras de Seguridad para tu Negocio en Bogotá",
+    excerpt: "Guía para elegir las cámaras de seguridad correctas para tu negocio. Rangos de precio y recomendaciones.",
+    date: "2025-10-04",
+    author: "Servicios APC",
+    category: "Cámaras IA",
+    tags: ["camaras", "guia", "bogota"],
+    readTime: "6 min",
+    coverImage: "/blog-img/como-elegir-camaras-seguridad.webp",
+    content: "",
+  },
+  {
+    slug: "conteo-personas-negocio",
+    title: "Conteo de Personas con Cámaras: Cómo Medir el Flujo de Clientes",
+    excerpt: "Cómo usar cámaras con IA para contar personas en tu negocio y medir el flujo de clientes.",
+    date: "2025-10-05",
+    author: "Servicios APC",
+    category: "Analítica",
+    tags: ["conteo", "aforo", "ia"],
+    readTime: "6 min",
+    coverImage: "/blog-img/conteo-personas-negocio.webp",
+    content: "",
+  },
+  {
+    slug: "guia-mantenimiento-camaras",
+    title: "Guía Completa de Mantenimiento de Cámaras de Seguridad en Bogotá",
+    excerpt: "Cómo mantener tus cámaras de seguridad CCTV funcionando al 100% con mantenimiento preventivo.",
+    date: "2025-10-06",
+    author: "Servicios APC",
+    category: "Mantenimiento",
+    tags: ["mantenimiento", "camaras", "cctv"],
+    readTime: "6 min",
+    coverImage: "/blog-img/guia-mantenimiento-camaras.webp",
+    content: "",
+  },
+  {
+    slug: "instalacion-cctv-guia-completa",
+    title: "Cómo Instalar Cámaras de Seguridad CCTV en tu Negocio (Guía Completa)",
+    excerpt: "Guía paso a paso para instalar cámaras de seguridad CCTV en tu negocio en Bogotá.",
+    date: "2025-10-07",
+    author: "Servicios APC",
+    category: "Instalación",
+    tags: ["instalacion", "cctv", "guia"],
+    readTime: "6 min",
+    coverImage: "/blog-img/instalacion-cctv-guia-completa.webp",
+    content: "",
+  },
+  {
+    slug: "precio-camaras-seguridad-bogota",
+    title: "Precio de Cámaras de Seguridad en Bogotá: Guía Actualizada 2026",
+    excerpt: "Precios reales de cámaras de seguridad CCTV en Bogotá 2026. Hikvision y más.",
+    date: "2025-10-08",
+    author: "Servicios APC",
+    category: "Precios",
+    tags: ["precio", "camaras", "bogota"],
+    readTime: "6 min",
+    coverImage: "/blog-img/precio-camaras-seguridad-bogota.webp",
+    content: "",
+  },
+];
+
+const LEGACY_SLUGS = new Set(LEGACY_POSTS.map((p) => p.slug));
+
 // Función para formatear fechas de forma segura
 const formatDate = (dateString: string) => {
   if (!dateString) return "Reciente";
@@ -198,10 +304,24 @@ function ArticleView({
           )}
 
           {/* Content */}
-          <div
-            className="blog-content max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          {post.content ? (
+            <div
+              className="blog-content max-w-none"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          ) : (
+            <div className="my-8 p-6 bg-[var(--color-secondary)] rounded-2xl text-center">
+              <p className="text-[var(--color-muted-foreground)] mb-4">
+                Este artículo está disponible en su versión completa.
+              </p>
+              <a
+                href={`/blog/${post.slug}/`}
+                className="inline-flex items-center gap-2 bg-[var(--color-accent)] text-white px-6 py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity"
+              >
+                Leer artículo completo
+              </a>
+            </div>
+          )}
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-12 mb-8">
@@ -320,7 +440,9 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
   const [selected, setSelected] = useState<string | null>(
     initialSlug !== null && initialSlug !== undefined ? initialSlug : slugFromHash()
   );
-  const posts = getAllPosts();
+  const posts = [...getAllPosts(), ...LEGACY_POSTS].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
   const activePost = posts.find((p) => p.slug === selected);
 
   useEffect(() => {
@@ -346,6 +468,10 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
   }, []);
 
   const openPost = useCallback((slug: string) => {
+    if (LEGACY_SLUGS.has(slug)) {
+      window.location.href = `/blog/${slug}/`;
+      return;
+    }
     setSelected(slug);
     window.location.hash = `blog/${slug}`;
     window.scrollTo({ top: 0, behavior: "smooth" });
