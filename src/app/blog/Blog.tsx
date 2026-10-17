@@ -331,10 +331,10 @@ function ArticleView({
 
           {/* Cover */}
           {post.coverImage && (
-            <figure className="mb-10">
+            <figure className="mb-10 rounded-xl overflow-hidden border border-[#1E2A4A]">
               <ImageWithFallback
                 src={post.coverImage}
-                alt={post.title}
+                alt={`${post.title} - Servicios APC`}
                 className="w-full aspect-[16/9] object-cover"
                 decoding="async"
               />
@@ -593,13 +593,17 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
               onClick={() => openPost(featured.slug)}
               className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
             >
-            {featured.coverImage && (
+            {featured.coverImage ? (
               <div className="overflow-hidden rounded-2xl">
                 <ImageWithFallback
                   src={featured.coverImage}
                   alt={featured.title}
                   className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
                 />
+              </div>
+            ) : (
+              <div className="w-full aspect-[16/10] rounded-2xl bg-[#111A2E] flex items-center justify-center border border-[var(--color-border)]">
+                <span className="text-sm font-bold text-[var(--color-accent)] uppercase tracking-widest">Servicios APC</span>
               </div>
             )}
             <div className="space-y-4 py-4">
@@ -644,7 +648,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
               onClick={() => openPost(post.slug)}
               className="group text-left rounded-xl border border-[var(--color-border)] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
             >
-              {post.coverImage && (
+              {post.coverImage ? (
                 <div className="overflow-hidden rounded-xl mb-4">
                   <ImageWithFallback
                     src={post.coverImage}
@@ -653,6 +657,10 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
                     loading="lazy"
                     decoding="async"
                   />
+                </div>
+              ) : (
+                <div className="w-full aspect-[16/10] rounded-xl mb-4 bg-[#111A2E] flex items-center justify-center border border-[var(--color-border)]">
+                  <span className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest">Servicios APC</span>
                 </div>
               )}
               <div className="space-y-2.5">
