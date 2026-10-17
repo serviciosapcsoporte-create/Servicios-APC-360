@@ -234,6 +234,43 @@ function ArticleView({
   onBack: () => void;
   onSelect: (slug: string) => void;
 }) {
+  useEffect(() => {
+    const canonicalUrl = `https://serviciosapc.site/blog/${post.slug}/`;
+    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      document.head.appendChild(link);
+    }
+    const prevCanonical = link.href;
+    link.href = canonicalUrl;
+
+    const scriptId = "blog-article-jsonld";
+    let script = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: post.title,
+      description: post.excerpt,
+      image: post.coverImage ? `https://serviciosapc.site${post.coverImage}` : undefined,
+      datePublished: post.date,
+      author: { "@type": "Organization", name: "Servicios APC", url: "https://serviciosapc.site" },
+      publisher: { "@type": "Organization", name: "Servicios APC", logo: { "@type": "ImageObject", url: "https://serviciosapc.site/logo.webp" } },
+      mainEntityOfPage: canonicalUrl,
+    });
+
+    return () => {
+      if (script && script.parentNode) script.parentNode.removeChild(script);
+      if (link) link.href = prevCanonical || "https://serviciosapc.site/";
+    };
+  }, [post.slug, post.title, post.excerpt, post.coverImage, post.date]);
+
   return (
     <div className="min-h-screen">
       <div className="max-w-[728px] mx-auto px-5">
