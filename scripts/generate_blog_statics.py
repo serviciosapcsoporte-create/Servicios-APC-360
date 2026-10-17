@@ -121,6 +121,12 @@ def body_to_html(body):
             if not in_list:
                 out.append("<ul>"); in_list = True
             out.append("<li>" + inline_md(re.sub(r"^\d+\.\s+", "", line)) + "</li>"); continue
+        m_img = re.match(r"^!\[([^\]]*)\]\(([^)]+)\)$", line)
+        if m_img:
+            alt = html.escape(m_img.group(1))
+            src = m_img.group(2)
+            out.append('<img src="' + src + '" alt="' + alt + '" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0" />')
+            continue
         if line.startswith("!["):
             continue
         close_list()
