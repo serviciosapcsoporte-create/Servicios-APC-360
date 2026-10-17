@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { ArrowLeft, Clock, ExternalLink, Bookmark, Share2, ChevronRight } from "lucide-react";
 import { marked } from "marked";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { cn } from "../components/ui/utils";
 
 /* ─── POST TYPES ──────────────────────────────────────────── */
 export interface BlogPost {
@@ -436,10 +437,22 @@ function slugFromHash(): string | null {
   return null;
 }
 
+const BLOG_TABS = ["Todos", "Cámaras & IA", "Automatización & n8n", "Normativa Colombia", "Precios"];
+
+function tabOf(post: BlogPost): string {
+  const slug = post.slug;
+  const cat = (post.category || "").toLowerCase();
+  if (slug.includes("normativa") || slug.includes("habeas") || slug.includes("ley-1581")) return "Normativa Colombia";
+  if (cat.includes("automatiz") || slug.includes("automatizacion") || slug.includes("n8n") || slug.includes("bot-whatsapp")) return "Automatización & n8n";
+  if (cat.includes("precio") || cat.includes("costo") || slug.includes("precio") || slug.includes("costo") || slug.includes("cuanto-cuesta")) return "Precios";
+  return "Cámaras & IA";
+}
+
 export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
   const [selected, setSelected] = useState<string | null>(
     initialSlug !== null && initialSlug !== undefined ? initialSlug : slugFromHash()
   );
+  const [filter, setFilter] = useState<string>("Todos");
   const posts = [...getAllPosts(), ...LEGACY_POSTS].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -499,32 +512,50 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
     );
   }
 
-  const featured = posts[0];
-  const rest = posts.slice(1);
+  const visible = filter === "Todos" ? posts : posts.filter((p) => tabOf(p) === filter);
+  const featured = visible[0];
+  const rest = visible.slice(1);
 
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <div className="max-w-[1200px] mx-auto px-5 pt-12 pb-16">
-        <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent)] font-medium mb-4">
+      <div className="max-w-[1200px] mx-auto px-5 pt-6 pb-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-accent)] font-medium mb-2">
           Blog · Servicios APC
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[var(--color-foreground)] leading-tight max-w-3xl">
+        <h2 className="font-serif text-3xl md:text-4xl font-bold text-[var(--color-foreground)] leading-tight max-w-3xl">
           Cámaras Hikvision + IA para empresas
         </h2>
-        <p className="text-lg text-[var(--color-muted-foreground)] mt-4 max-w-2xl leading-relaxed">
+        <p className="text-sm text-[var(--color-muted-foreground)] mt-2 max-w-2xl leading-relaxed">
           Guías técnicas, comparativas y casos reales sobre CCTV con inteligencia artificial,
           automatización y seguridad empresarial en Bogotá.
         </p>
+        {/* Filtros por categoría */}
+        <div className="flex flex-wrap gap-2 mt-5">
+          {BLOG_TABS.map((t) => (
+            <button
+              key={t}
+              onClick={() => setFilter(t)}
+              className={cn(
+                "px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200",
+                filter === t
+                  ? "bg-[var(--color-accent)] text-white border-[var(--color-accent)]"
+                  : "bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] border-[var(--color-border)] hover:text-[var(--color-foreground)] hover:border-[var(--color-accent)]/50"
+              )}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Featured post */}
       {featured && (
         <div className="max-w-[1200px] mx-auto px-5 mb-16">
-          <button
-            onClick={() => openPost(featured.slug)}
-            className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full"
-          >
+            <button
+              onClick={() => openPost(featured.slug)}
+              className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
+            >
             {featured.coverImage && (
               <div className="overflow-hidden rounded-2xl">
                 <ImageWithFallback
@@ -569,12 +600,12 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
 
       {/* Grid */}
       <div className="max-w-[1200px] mx-auto px-5 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
           {rest.map((post) => (
             <button
               key={post.slug}
               onClick={() => openPost(post.slug)}
-              className="group text-left"
+              className="group text-left rounded-xl border border-[var(--color-border)] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
             >
               {post.coverImage && (
                 <div className="overflow-hidden rounded-xl mb-4">

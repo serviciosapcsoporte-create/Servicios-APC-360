@@ -14,6 +14,7 @@ interface VideoHeroProps {
   overlayClassName?: string;
   videoClassName?: string;
   showSecondaryCta?: boolean;
+  minHeight?: string;
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
 }
@@ -32,6 +33,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
   overlayClassName = "",
   videoClassName = "",
   showSecondaryCta = false,
+  minHeight = "70vh",
   secondaryCtaLabel,
   secondaryCtaHref,
 }) => {
@@ -45,7 +47,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
   };
 
   return (
-    <section className={`relative min-h-[70vh] flex items-center overflow-hidden ${className}`}>
+    <section className={`relative min-h-[${minHeight}] flex items-center overflow-hidden ${className}`}>
       {/* Video de fondo �?" oscuro y sin protagonismo */}
       {!videoError && (
         <video

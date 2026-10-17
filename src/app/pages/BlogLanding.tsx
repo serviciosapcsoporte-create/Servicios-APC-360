@@ -14,6 +14,7 @@ export function BlogLanding({ slug }: { slug?: string | null }) {
         subtitle="Guías, casos reales y novedades sobre analítica de video con IA, CCTV Hikvision, bots WhatsApp y automatización de procesos para empresas en Bogotá."
         ctaLabel="Ver artículos"
         onCta={() => {}}
+        minHeight="42vh"
       />
       <BlogIndex initialSlug={slug} />
     </div>
