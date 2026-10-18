@@ -574,7 +574,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
               key={t}
               onClick={() => setFilter(t)}
               className={cn(
-                "px-4 py-1.5 rounded-full text-sm font-medium border transition-all duration-200",
+                "px-4 py-1.5 rounded-full text-sm font-medium border transition-[background-color,color,border-color] duration-200",
                 filter === t
                   ? "bg-[var(--color-accent)] text-white border-[var(--color-accent)]"
                   : "bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] border-[var(--color-border)] hover:text-[var(--color-foreground)] hover:border-[var(--color-accent)]/50"
@@ -591,14 +591,14 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
         <div className="max-w-[1200px] mx-auto px-5 mb-16">
             <button
               onClick={() => openPost(featured.slug)}
-              className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
+              className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
             >
             {featured.coverImage ? (
               <div className="overflow-hidden rounded-2xl">
                 <ImageWithFallback
                   src={featured.coverImage}
                   alt={featured.title}
-                  className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                  className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-300"
                 />
               </div>
             ) : (
@@ -646,14 +646,14 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
             <button
               key={post.slug}
               onClick={() => openPost(post.slug)}
-              className="group text-left rounded-xl border border-[var(--color-border)] p-3 transition-all duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
+              className="group text-left rounded-xl border border-[var(--color-border)] p-3 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
             >
               {post.coverImage ? (
                 <div className="overflow-hidden rounded-xl mb-4">
                   <ImageWithFallback
                     src={post.coverImage}
                     alt={post.title}
-                    className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-300"
                     loading="lazy"
                     decoding="async"
                   />

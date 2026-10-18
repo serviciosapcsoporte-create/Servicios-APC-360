@@ -700,7 +700,7 @@ export default function App() {
         {/* ── NAV ─────────────────────────────────────────── */}
         <nav
           aria-label="Navegación principal"
-          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 edge-fade ${
+          className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade ${
             scrolled ? "glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.35)]" : "bg-transparent border-b border-transparent"
           }`}
         >
