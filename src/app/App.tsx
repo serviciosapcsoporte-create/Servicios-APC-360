@@ -49,6 +49,10 @@ const WA_HERO = waLink(
   "Hola Servicios APC, quiero cotizar la instalación de cámaras de seguridad para mi negocio en Bogotá"
 );
 
+const WA_HERO_ESTUDIO = waLink(
+  "Hola Servicios APC, quiero agendar el estudio de seguridad gratis y cotizar la instalación de cámaras de seguridad e IA en Bogotá"
+);
+
 const fmtCOP = (n: number) =>
   new Intl.NumberFormat("es-CO", {
     style: "currency",
@@ -781,7 +785,11 @@ export default function App() {
 
         <main id="contenido">
         {/* ── HERO ─────────────────────────────────────────── */}
-        <section id="inicio" className="relative min-h-[92vh] flex items-center overflow-hidden vignette">
+        <section
+          id="inicio"
+          className="relative min-h-[92vh] flex items-center overflow-hidden"
+          style={{ backgroundColor: "#080C18" }}
+        >
           <video
             autoPlay
             muted
@@ -790,7 +798,7 @@ export default function App() {
             preload="metadata"
             poster="/videos/reels-poster.webp"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out"
-            style={{ filter: "brightness(0.78) contrast(1.06) saturate(1.12)", opacity: videoReady ? 1 : 0 }}
+            style={{ filter: "brightness(0.72) contrast(1.06) saturate(1.05)", opacity: videoReady ? 1 : 0 }}
             onLoadedData={() => setVideoReady(true)}
             onError={() => setVideoReady(true)}
             aria-hidden="true"
@@ -798,21 +806,40 @@ export default function App() {
             <source src="/videos/reels-10s.webm" type="video/webm" />
             <source src="/videos/reels-10s.mp4" type="video/mp4" />
           </video>
+
+          {/* Oscurecido base hacia #080C18 */}
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: "rgba(0,0,0,0.30)" }}
+            style={{ backgroundColor: "rgba(8,12,24,0.72)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080C18]/95 via-[#080C18]/70 to-[#080C18]/35" />
+
+          {/* Grilla técnica sutil */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.10]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #22d3ee 1px, transparent 1px), linear-gradient(to bottom, #22d3ee 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+              maskImage: "radial-gradient(ellipse at 30% 40%, black 20%, transparent 72%)",
+              WebkitMaskImage: "radial-gradient(ellipse at 30% 40%, black 20%, transparent 72%)",
+            }}
+          />
+
+          {/* Iluminación cian / verde */}
+          <div aria-hidden="true" className="pointer-events-none absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-[#22d3ee]/20 blur-[120px]" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 right-0 h-[460px] w-[460px] rounded-full bg-[#25d366]/15 blur-[130px]" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-20 w-full">
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="font-mono text-xs md:text-sm text-[#25d366] tracking-widest uppercase mb-6 inline-flex items-center gap-2 glass rounded-full px-4 py-1.5"
+              className="font-mono text-[10px] md:text-xs text-[#8ef2b8] tracking-[0.16em] uppercase mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#0B1220]/85 px-4 py-2 backdrop-blur-md"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#25d366]" />
-              Hikvision + IA en Bogotá · Respuesta &lt; 30 min
+              <span aria-hidden="true">📍</span>
+              Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
             </motion.p>
 
             <motion.h1
@@ -821,7 +848,10 @@ export default function App() {
               transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
               className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.05] text-[clamp(2.5rem,5vw,4.5rem)] mb-6"
             >
-              Instalación de Cámaras de Seguridad e IA en Bogotá
+              Instalación Profesional de Cámaras de Seguridad e IA{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#25d366]">
+                en Bogotá
+              </span>
             </motion.h1>
 
             <motion.p
@@ -830,23 +860,31 @@ export default function App() {
               transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
               className="text-foreground/85 text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
             >
-              Transformamos sistemas tradicionales en redes de monitoreo
-              inteligente con visión artificial y control en tiempo real desde
-              tu móvil.
+              Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
+              Estudio de seguridad sin costo en Bogotá e instalaciones a crédito desde
+              $1.500.000 con cuotas semanales desde $50.000.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.15 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             >
-              <WhatsAppChip label="Cotizar Instalación por WhatsApp" href={WA_HERO} />
+              <a
+                href={WA_HERO_ESTUDIO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-7 py-4 text-[15px] font-semibold text-[#062014] shadow-[0_14px_34px_-12px_rgba(37,211,102,0.75)] transition-colors hover:bg-[#20c05c]"
+              >
+                <WhatsAppLogo size={19} />
+                Cotizar con Estudio Gratis por WhatsApp
+              </a>
               <button
                 onClick={() => scrollTo("planes")}
-                className="press inline-flex items-center gap-2 text-foreground/90 font-medium px-6 py-3.5 rounded-full border border-foreground/20 backdrop-blur-md hover:border-foreground/40 hover:bg-foreground/5 transition-colors text-[15px]"
+                className="press inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-4 text-[15px] font-medium text-foreground backdrop-blur-md transition-colors hover:border-[#22d3ee]/60 hover:bg-white/10"
               >
-                Ver Planes y Precios 2026 <ArrowRight size={16} />
+                Ver Planes, Precios y Kits <ArrowRight size={16} />
               </button>
             </motion.div>
 
@@ -854,17 +892,19 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.35 }}
-              className="mt-14 flex items-center gap-5 flex-wrap"
+              className="mt-12"
             >
-              {[
-                "Monitoreo inteligente 24/7",
-                "Control desde tu móvil",
-                "IA offline-first",
-              ].map((t) => (
-                <span key={t} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <CheckCircle2 size={15} className="text-[#25d366]" /> {t}
-                </span>
-              ))}
+              <ul className="grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
+                {[
+                  "Estudio previo sin costo en Bogotá",
+                  "Cuotas semanales desde $50k o $75k",
+                  "Equipos originales con garantía",
+                ].map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-sm text-foreground/80">
+                    <CheckCircle2 size={16} className="text-[#25d366] shrink-0" /> {t}
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
 
