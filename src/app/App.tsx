@@ -1,4 +1,4 @@
-﻿import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
 import { motion, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
@@ -39,18 +39,18 @@ import {
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { cn } from "./components/ui/utils";
 
-/* â”€â”€â”€ CONSTANTES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── CONSTANTES ─────────────────────────────────────────── */
 
 const WHATSAPP = "https://wa.me/573337450634";
 
 const waLink = (msg: string) => `${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
 const WA_HERO = waLink(
-  "Hola Servicios APC, quiero cotizar la instalaciÃ³n de cÃ¡maras de seguridad para mi negocio en BogotÃ¡"
+  "Hola Servicios APC, quiero cotizar la instalación de cámaras de seguridad para mi negocio en Bogotá"
 );
 
 const WA_HERO_ESTUDIO = waLink(
-  "Hola Servicios APC, quiero agendar el estudio de seguridad gratis y cotizar la instalaciÃ³n de cÃ¡maras de seguridad e IA en BogotÃ¡"
+  "Hola Servicios APC, quiero agendar el estudio de seguridad gratis y cotizar la instalación de cámaras de seguridad e IA en Bogotá"
 );
 
 const fmtCOP = (n: number) =>
@@ -63,91 +63,91 @@ const fmtCOP = (n: number) =>
 const SPRING = { type: "spring", bounce: 0, duration: 0.45 } as const;
 const SPRING_SOFT = { type: "spring", bounce: 0.2, duration: 0.4 } as const;
 
-/* â”€â”€â”€ DATA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── DATA ────────────────────────────────────────────────── */
 
 const services = [
   {
     id: "camaras",
     icon: Camera,
     color: "#c94a0a",
-    title: "AnalÃ­tica de Video con IA para Hikvision/Dahua",
-    tagline: "Sus cÃ¡maras dejan de vigilar y empiezan a auditar.",
+    title: "Analítica de Video con IA para Hikvision/Dahua",
+    tagline: "Sus cámaras dejan de vigilar y empiezan a auditar.",
     description:
-      "Reprogramamos sus cÃ¡maras Hikvision/Dahua RTSP/ONVIF actuales con mÃ³dulos YOLO: conteo de personas, mapas de calor, arqueo de caja asistido, detecciÃ³n de anomalÃ­as operativas y reportes automÃ¡ticos. No necesita comprar hardware nuevo: su CCTV existente ya es compatible con la mayorÃ­a de modelos Hikvision 2018+. IntegraciÃ³n a n8n para alertas en Telegram/Email/WhatsApp.",
+      "Reprogramamos sus cámaras Hikvision/Dahua RTSP/ONVIF actuales con módulos YOLO: conteo de personas, mapas de calor, arqueo de caja asistido, detección de anomalías operativas y reportes automáticos. No necesita comprar hardware nuevo: su CCTV existente ya es compatible con la mayoría de modelos Hikvision 2018+. Integración a n8n para alertas en Telegram/Email/WhatsApp.",
     bullets: [
       "Conteo de personas y control de aforo en tiempo real",
-      "Mapas de calor y ocupaciÃ³n por zonas (heatmaps)",
-      "Arqueo de caja asistido por IA: video del cajÃ³n + monto",
-      "DetecciÃ³n de anomalÃ­as operativas y alertas 24/7",
+      "Mapas de calor y ocupación por zonas (heatmaps)",
+      "Arqueo de caja asistido por IA: video del cajón + monto",
+      "Detección de anomalías operativas y alertas 24/7",
       "Se integra a su CCTV actual Hikvision/Dahua sin comprar hardware nuevo",
-      "Alertas por Telegram, Email y WhatsApp vÃ­a n8n",
+      "Alertas por Telegram, Email y WhatsApp vía n8n",
     ],
     image: "/blog-img/dashboard-ejecutivo.webp",
-    imageAlt: "Dashboard analÃ­tica de video IA sobre cÃ¡maras Hikvision",
+    imageAlt: "Dashboard analítica de video IA sobre cámaras Hikvision",
   },
   {
     id: "cctv",
     icon: Video,
     color: "#0ea5e9",
-    title: "InstalaciÃ³n CCTV Inteligente Hikvision en BogotÃ¡",
+    title: "Instalación CCTV Inteligente Hikvision en Bogotá",
     tagline: "Cobertura total, sin puntos ciegos, lista para IA.",
     description:
-      "Planificamos e instalamos infraestructura CCTV profesional con cÃ¡maras Hikvision certificadas ya listas para analÃ­tica IA. Cableado estructurado, configuraciÃ³n RTSP/ONVIF, reprogramaciÃ³n de equipos existentes que cumplan estÃ¡ndar, cobertura 100% sin puntos ciegos. Soporte tÃ©cnico presencial en BogotÃ¡ y remoto en toda Colombia. Â¿Ya tiene Hikvision? Lo preparamos para IA sin cambiar cÃ¡maras.",
+      "Planificamos e instalamos infraestructura CCTV profesional con cámaras Hikvision certificadas ya listas para analítica IA. Cableado estructurado, configuración RTSP/ONVIF, reprogramación de equipos existentes que cumplan estándar, cobertura 100% sin puntos ciegos. Soporte técnico presencial en Bogotá y remoto en toda Colombia. ¿Ya tiene Hikvision? Lo preparamos para IA sin cambiar cámaras.",
     bullets: [
-      "PlanificaciÃ³n y tendido de cableado profesional estructurado",
-      "CÃ¡maras Hikvision compatibles IA (RTSP/ONVIF) instaladas y configuradas",
-      "ReprogramaciÃ³n de hardware existente Hikvision/Dahua que cumpla estÃ¡ndar",
+      "Planificación y tendido de cableado profesional estructurado",
+      "Cámaras Hikvision compatibles IA (RTSP/ONVIF) instaladas y configuradas",
+      "Reprogramación de hardware existente Hikvision/Dahua que cumpla estándar",
       "Cobertura del 100% de puntos ciegos con mapas de calor",
-      "Soporte tÃ©cnico remoto y presencial en BogotÃ¡",
-      "GarantÃ­a extendida Hikvision + capa IA incluida",
+      "Soporte técnico remoto y presencial en Bogotá",
+      "Garantía extendida Hikvision + capa IA incluida",
     ],
     image: "/blog-img/automatizacion-procesos.webp",
-    imageAlt: "InstalaciÃ³n profesional cÃ¡maras Hikvision con analÃ­tica IA",
+    imageAlt: "Instalación profesional cámaras Hikvision con analítica IA",
   },
 ];
 
 const plans = [
   {
     id: "unico",
-    name: "Pago Ãºnico",
-    cameras: "Kit instalado Â· todo incluido",
+    name: "Pago único",
+    cameras: "Kit instalado · todo incluido",
     price: 1500000,
     priceSuffix: " total",
     tagline:
-      "Un solo pago con instalaciÃ³n, cableado, configuraciÃ³n y entrega funcionando.",
+      "Un solo pago con instalación, cableado, configuración y entrega funcionando.",
     features: [
-      "Kit de cÃ¡maras y grabador definidos en el estudio",
-      "InstalaciÃ³n y cableado certificado incluidos",
-      "ConfiguraciÃ³n de app y acceso remoto",
+      "Kit de cámaras y grabador definidos en el estudio",
+      "Instalación y cableado certificado incluidos",
+      "Configuración de app y acceso remoto",
       "Prueba conjunta y entrega funcionando",
-      "GarantÃ­a de fÃ¡brica del equipo",
-      "Soporte post-instalaciÃ³n en BogotÃ¡",
+      "Garantía de fábrica del equipo",
+      "Soporte post-instalación en Bogotá",
     ],
-    ctaLabel: "Cotizar mi instalaciÃ³n",
+    ctaLabel: "Cotizar mi instalación",
     ctaMsg:
-      "Hola Servicios APC, quiero cotizar la instalaciÃ³n con pago Ãºnico para mi negocio en BogotÃ¡",
+      "Hola Servicios APC, quiero cotizar la instalación con pago único para mi negocio en Bogotá",
     icon: Package,
     highlight: true,
   },
   {
     id: "financiado",
     name: "Financiado",
-    cameras: "Mismo kit Â· pagos semanales",
+    cameras: "Mismo kit · pagos semanales",
     price: 50000,
     priceSuffix: "/semana",
     tagline:
-      "Sin pagar el kit de una sola vez: cuotas semanales acordadas segÃºn su instalaciÃ³n.",
+      "Sin pagar el kit de una sola vez: cuotas semanales acordadas según su instalación.",
     features: [
-      "Mismo kit y misma instalaciÃ³n del pago Ãºnico",
+      "Mismo kit y misma instalación del pago único",
       "Pagos semanales desde $50.000",
       "Total de referencia del kit: desde $1.800.000",
       "Cronograma de cuotas acordado por escrito",
       "Sin cuotas de tarjeta: pago directo a nosotros",
-      "El nÃºmero de cuotas lo define el estudio",
+      "El número de cuotas lo define el estudio",
     ],
     ctaLabel: "Cotizar mi kit financiado",
     ctaMsg:
-      "Hola Servicios APC, quiero cotizar el kit de cÃ¡maras financiado en cuotas semanales para mi negocio en BogotÃ¡",
+      "Hola Servicios APC, quiero cotizar el kit de cámaras financiado en cuotas semanales para mi negocio en Bogotá",
     icon: CreditCard,
     highlight: false,
   },
@@ -157,26 +157,26 @@ const process = [
   {
     icon: ClipboardCheck,
     step: "Paso 1",
-    title: "DiagnÃ³stico",
-    desc: "EvaluaciÃ³n de puntos ciegos y cableado en BogotÃ¡.",
+    title: "Diagnóstico",
+    desc: "Evaluación de puntos ciegos y cableado en Bogotá.",
   },
   {
     icon: FileText,
     step: "Paso 2",
     title: "Propuesta",
-    desc: "CotizaciÃ³n transparente a la medida en menos de 24 horas.",
+    desc: "Cotización transparente a la medida en menos de 24 horas.",
   },
   {
     icon: Wrench,
     step: "Paso 3",
-    title: "InstalaciÃ³n",
-    desc: "Montaje tÃ©cnico profesional con orden de cableado certificado.",
+    title: "Instalación",
+    desc: "Montaje técnico profesional con orden de cableado certificado.",
   },
   {
     icon: LayoutDashboard,
     step: "Paso 4",
     title: "Control Total",
-    desc: "ConfiguraciÃ³n de app y entrega del panel operativo.",
+    desc: "Configuración de app y entrega del panel operativo.",
   },
 ];
 
@@ -185,28 +185,28 @@ const cases = [
     icon: Building2,
     image: "/casos-distribuidora-jone.webp",
     client: "Distribuidora JONE",
-    sector: "DistribuciÃ³n Â· BogotÃ¡",
+    sector: "Distribución · Bogotá",
     metric: "24/7",
     result:
-      "Infraestructura de CCTV HD, control de perÃ­metros y mantenimiento preventivo continuo para una operaciÃ³n monitoreada sin interrupciones.",
+      "Infraestructura de CCTV HD, control de perímetros y mantenimiento preventivo continuo para una operación monitoreada sin interrupciones.",
   },
   {
     icon: Car,
     image: "/casos-taller-excelencia.webp",
     client: "Taller Excelencia Automotriz",
-    sector: "Automotriz Â· BogotÃ¡",
+    sector: "Automotriz · Bogotá",
     metric: "Top 3",
     result:
-      "CRM de atenciÃ³n B2B, panel de control operativo y financiero, y posicionamiento SEO orgÃ¡nico activo â€” Top 3 en â€œBaterÃ­as Willard a domicilioâ€.",
+      "CRM de atención B2B, panel de control operativo y financiero, y posicionamiento SEO orgánico activo — Top 3 en “Baterías Willard a domicilio”.",
   },
   {
     icon: Globe,
     image: "/casos-dogweb-agencia.webp",
     client: "DogWeb.lat",
-    sector: "Agencia digital Â· LATAM",
+    sector: "Agencia digital · LATAM",
     metric: "SEO",
     result:
-      "Despliegue de arquitectura web Ã¡gil y presencia digital B2B optimizada para motores de bÃºsqueda.",
+      "Despliegue de arquitectura web ágil y presencia digital B2B optimizada para motores de búsqueda.",
   },
 ];
 
@@ -215,13 +215,13 @@ const differentiators = [
     icon: WifiOff,
     title: "Arquitectura resiliente (Offline-First)",
     description:
-      "Si se corta el internet, su Hikvision + IA sigue grabando y analizando en local (conteo, intrusiÃ³n, arqueo). Sincroniza al volver la seÃ±al. Nada se pierde.",
+      "Si se corta el internet, su Hikvision + IA sigue grabando y analizando en local (conteo, intrusión, arqueo). Sincroniza al volver la señal. Nada se pierde.",
   },
   {
     icon: CheckCircle2,
     title: "Cero tecnicismos, solo datos accionables",
     description:
-      "Reportes diarios limpios vÃ­a Email/Telegram/WhatsApp. No necesita saber de IA ni YOLO; solo leer: 'Arqueo OK', 'Aforo 78%', 'IntrusiÃ³n 0'.",
+      "Reportes diarios limpios vía Email/Telegram/WhatsApp. No necesita saber de IA ni YOLO; solo leer: 'Arqueo OK', 'Aforo 78%', 'Intrusión 0'.",
   },
   {
     icon: Shield,
@@ -242,18 +242,18 @@ const ecosystem = [
   },
   {
     domain: "apcautomatizacion.site",
-    name: "APC AutomatizaciÃ³n",
+    name: "APC Automatización",
     image: "/ecosistema-apc-automatizacion.webp",
     description:
-      "Flujos n8n que conectan su CCTV Hikvision + WhatsApp + CRM + ERP. Alerta de intrusiÃ³n â†’ WhatsApp al gerente â†’ Ticket en CRM.",
+      "Flujos n8n que conectan su CCTV Hikvision + WhatsApp + CRM + ERP. Alerta de intrusión → WhatsApp al gerente → Ticket en CRM.",
     icon: Zap,
   },
   {
     domain: "apcvisionai.site",
-    name: "APC VisiÃ³n AI",
+    name: "APC Visión AI",
     image: "/ecosistema-apc-vision-ia.webp",
     description:
-      "Especialistas en analÃ­tica YOLO sobre Hikvision/Dahua: conteo, mapas de calor, arqueo de caja, detecciÃ³n de anomalÃ­as, perÃ­metros.",
+      "Especialistas en analítica YOLO sobre Hikvision/Dahua: conteo, mapas de calor, arqueo de caja, detección de anomalías, perímetros.",
     icon: Camera,
   },
   {
@@ -261,43 +261,43 @@ const ecosystem = [
     name: "DogWeb",
     image: "/ecosistema-dogweb.webp",
     description:
-      "Desarrollo web, SEO local / Google Maps y resiliencia de red. Su web posicionada en BogotÃ¡ + formularios â†’ WhatsApp Bot â†’ Venta.",
+      "Desarrollo web, SEO local / Google Maps y resiliencia de red. Su web posicionada en Bogotá + formularios → WhatsApp Bot → Venta.",
     icon: Globe,
   },
 ];
 
 const faqs = [
   {
-    q: "Â¿Tengo que cambiar todas las cÃ¡maras Hikvision de mi negocio para tener Inteligencia Artificial?",
-    a: "No. Si sus cÃ¡maras Hikvision/Dahua actuales admiten RTSP u ONVIF (la mayorÃ­a desde 2018), las reprogramamos para inyectarles mÃ³dulos YOLO sin gasto extra en hardware. Modelos Hikvision 2MP/4MP/4K ColorVu, AcuSense, DeepinView son 100% compatibles.",
+    q: "¿Tengo que cambiar todas las cámaras Hikvision de mi negocio para tener Inteligencia Artificial?",
+    a: "No. Si sus cámaras Hikvision/Dahua actuales admiten RTSP u ONVIF (la mayoría desde 2018), las reprogramamos para inyectarles módulos YOLO sin gasto extra en hardware. Modelos Hikvision 2MP/4MP/4K ColorVu, AcuSense, DeepinView son 100% compatibles.",
   },
   {
-    q: "Â¿QuÃ© pasa si en el local se corta el internet o la luz?",
-    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento IA ocurre en local (edge) en su red. Si el internet se va por horas, el sistema sigue grabando, contando personas, detectando anomalÃ­as y arqueando cajas, y sincroniza automÃ¡ticamente al recuperar la seÃ±al. Nada se pierde.",
+    q: "¿Qué pasa si en el local se corta el internet o la luz?",
+    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento IA ocurre en local (edge) en su red. Si el internet se va por horas, el sistema sigue grabando, contando personas, detectando anomalías y arqueando cajas, y sincroniza automáticamente al recuperar la señal. Nada se pierde.",
   },
   {
-    q: "Â¿La Inteligencia Artificial escucha conversaciones privadas de empleados o clientes?",
-    a: "No. La IA de audio se activa solo bajo disparador especÃ­fico (ej. sonido del cajÃ³n de la caja al abrirse) durante los segundos necesarios para documentar el monto. El resto de la jornada se protege la privacidad del equipo por diseÃ±o (privacy by design).",
+    q: "¿La Inteligencia Artificial escucha conversaciones privadas de empleados o clientes?",
+    a: "No. La IA de audio se activa solo bajo disparador específico (ej. sonido del cajón de la caja al abrirse) durante los segundos necesarios para documentar el monto. El resto de la jornada se protege la privacidad del equipo por diseño (privacy by design).",
   },
   {
-    q: "Â¿Ustedes venden cÃ¡maras Hikvision o solo el software de IA?",
-    a: "Ofrecemos ambas opciones: (1) Si ya tiene Hikvision/Dahua RTSP/ONVIF, solo instalamos la capa IA (analÃ­tica YOLO, alertas, dashboard). (2) Si necesita infraestructura nueva, instalamos CCTV Hikvision certificado IA-ready (ColorVu, AcuSense, DeepinView) + configuramos la analÃ­tica completa. Usted elige segÃºn su presupuesto.",
+    q: "¿Ustedes venden cámaras Hikvision o solo el software de IA?",
+    a: "Ofrecemos ambas opciones: (1) Si ya tiene Hikvision/Dahua RTSP/ONVIF, solo instalamos la capa IA (analítica YOLO, alertas, dashboard). (2) Si necesita infraestructura nueva, instalamos CCTV Hikvision certificado IA-ready (ColorVu, AcuSense, DeepinView) + configuramos la analítica completa. Usted elige según su presupuesto.",
   },
   {
-    q: "Â¿CÃ³mo se ve el anÃ¡lisis de video con IA en tiempo real en mi celular?",
-    a: "Recibe alertas por Telegram/Email/WhatsApp con clip de video del evento y accede a dashboard web con mapas de calor, conteo histÃ³rico, arqueos diarios y reportes automÃ¡ticos. Todo desde su celular, sin apps extra: usa Telegram o WhatsApp.",
+    q: "¿Cómo se ve el análisis de video con IA en tiempo real en mi celular?",
+    a: "Recibe alertas por Telegram/Email/WhatsApp con clip de video del evento y accede a dashboard web con mapas de calor, conteo histórico, arqueos diarios y reportes automáticos. Todo desde su celular, sin apps extra: usa Telegram o WhatsApp.",
   },
   {
-    q: "Â¿QuÃ© modelos Hikvision recomiendan para analÃ­tica de video con IA?",
-    a: "Para analÃ­tica YOLO recomendamos: (1) Hikvision ColorVu 4K/4MP â€” visiÃ³n nocturna a color real, ideal para placas y rostros. (2) Hikvision AcuSense 2MP/4MP â€” filtrado de falsos positivos (persona/vehÃ­culo), costo/beneficio Ã³ptimo. (3) Hikvision DeepinView â€” IA embebida en cÃ¡mara (conteo, cola), mÃ¡xima precisiÃ³n. Lo asesoramos segÃºn su caso y presupuesto.",
+    q: "¿Qué modelos Hikvision recomiendan para analítica de video con IA?",
+    a: "Para analítica YOLO recomendamos: (1) Hikvision ColorVu 4K/4MP — visión nocturna a color real, ideal para placas y rostros. (2) Hikvision AcuSense 2MP/4MP — filtrado de falsos positivos (persona/vehículo), costo/beneficio óptimo. (3) Hikvision DeepinView — IA embebida en cámara (conteo, cola), máxima precisión. Lo asesoramos según su caso y presupuesto.",
   },
   {
-    q: "Â¿La analÃ­tica de video funciona con Dahua u otras marcas?",
-    a: "SÃ­. Cualquier cÃ¡mara que exponga stream RTSP u ONVIF Profile S/T/G es compatible. Dahua, Uniview, Axis, Hanwha, TP-Link VIGI: si tiene stream estÃ¡ndar, le inyectamos YOLO. La diferencia es que Hikvision ColorVu/AcuSense nos da mejor calidad de imagen nocturna para IA.",
+    q: "¿La analítica de video funciona con Dahua u otras marcas?",
+    a: "Sí. Cualquier cámara que exponga stream RTSP u ONVIF Profile S/T/G es compatible. Dahua, Uniview, Axis, Hanwha, TP-Link VIGI: si tiene stream estándar, le inyectamos YOLO. La diferencia es que Hikvision ColorVu/AcuSense nos da mejor calidad de imagen nocturna para IA.",
   },
   {
-    q: "Â¿Ustedes administran mi negocio o mi personal?",
-    a: "No. DiseÃ±amos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular, con datos claros y decisiones respaldadas. No supervisamos personal ni tomamos decisiones gerenciales.",
+    q: "¿Ustedes administran mi negocio o mi personal?",
+    a: "No. Diseñamos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular, con datos claros y decisiones respaldadas. No supervisamos personal ni tomamos decisiones gerenciales.",
   },
 ];
 
@@ -306,41 +306,41 @@ const benefits = [
     icon: ClipboardCheck,
     title: "Estudio antes que precio",
     description:
-      "Vamos a ver su sitio antes de darle un nÃºmero: puntos, cableado y acceso definen el trabajo. Por eso el precio que le cotizamos es el que termina pagando, casi sin sorpresas en la factura.",
+      "Vamos a ver su sitio antes de darle un número: puntos, cableado y acceso definen el trabajo. Por eso el precio que le cotizamos es el que termina pagando, casi sin sorpresas en la factura.",
   },
   {
     icon: Users,
     title: "El que instala es el que responde",
     description:
-      "Un solo equipo de punta a punta en BogotÃ¡: diagnÃ³stico, instalaciÃ³n, configuraciÃ³n y soporte. Sin terceros de por medio y con un solo interlocutor cuando algo necesita ajuste.",
+      "Un solo equipo de punta a punta en Bogotá: diagnóstico, instalación, configuración y soporte. Sin terceros de por medio y con un solo interlocutor cuando algo necesita ajuste.",
   },
   {
     icon: Shield,
     title: "Cableado certificado y ordenado",
     description:
-      "Puntos elegidos con criterio, rutas marcadas y etiquetadas, canaletas y conexiones probadas. Nada de cables sueltos ni Ã¡ngulos ciegos dejados 'para despuÃ©s'.",
+      "Puntos elegidos con criterio, rutas marcadas y etiquetadas, canaletas y conexiones probadas. Nada de cables sueltos ni ángulos ciegos dejados 'para después'.",
   },
   {
     icon: Package,
     title: "Si su equipo sirve, lo reutilizamos",
     description:
-      "Antes de proponer hardware nuevo revisamos si sus cÃ¡maras actuales sirven. Si sirven, las aprovechamos: no le vendemos lo que no necesita.",
+      "Antes de proponer hardware nuevo revisamos si sus cámaras actuales sirven. Si sirven, las aprovechamos: no le vendemos lo que no necesita.",
   },
   {
     icon: CheckCircle2,
     title: "Entregamos el sistema funcionando",
     description:
-      "Instalamos, configuramos la app y el acceso remoto, probamos con usted y dejamos todo andando. No le dejamos la caja abierta ni una contraseÃ±a suelta.",
+      "Instalamos, configuramos la app y el acceso remoto, probamos con usted y dejamos todo andando. No le dejamos la caja abierta ni una contraseña suelta.",
   },
   {
     icon: Wrench,
     title: "Mantenimiento con visita programada",
     description:
-      "RevisiÃ³n, limpieza, firmware y soporte con agenda definida. Su sistema sigue grabando todo el aÃ±o, no solo el dÃ­a de la instalaciÃ³n.",
+      "Revisión, limpieza, firmware y soporte con agenda definida. Su sistema sigue grabando todo el año, no solo el día de la instalación.",
   },
 ];
 
-/* â”€â”€â”€ PRIMITIVAS DE MOTION (Apple-style) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── PRIMITIVAS DE MOTION (Apple-style) ──────────────────── */
 
 function Reveal({
   children,
@@ -447,7 +447,7 @@ function WhatsAppChip({ label, href, small = false }: { label: string; href: str
   return <WhatsAppCTA label={label} href={href} size={small ? "sm" : "md"} />;
 }
 
-/* AcordeÃ³n sin layout jank: anima grid-template-rows 0frâ†’1fr
+/* Acordeón sin layout jank: anima grid-template-rows 0fr→1fr
    (CSS nativo, sin medir altura ni reflujo por frame). */
 function AccordionPanel({
   open,
@@ -481,7 +481,7 @@ function AccordionPanel({
   );
 }
 
-/* â”€â”€â”€ APP â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─── APP ──────────────────────────────────────────────────── */
 
 export default function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -518,39 +518,39 @@ export default function App() {
 
   const seoMeta: Record<string, { title: string; description: string }> = {
     negocio: {
-      title: "CÃ¡maras de Seguridad para Negocio en BogotÃ¡ | 500+ instalaciones",
+      title: "Cámaras de Seguridad para Negocio en Bogotá | 500+ instalaciones",
       description:
-        "CÃ¡maras para negocio en BogotÃ¡: Hikvision, cableado certificado y acceso remoto. Desde $1.500.000 o $50.000 semanales. Cotiza gratis.",
+        "Cámaras para negocio en Bogotá: Hikvision, cableado certificado y acceso remoto. Desde $1.500.000 o $50.000 semanales. Cotiza gratis.",
     },
     instalacion: {
-      title: "InstalaciÃ³n de CÃ¡maras de Seguridad en BogotÃ¡ | Hikvision Certificado",
+      title: "Instalación de Cámaras de Seguridad en Bogotá | Hikvision Certificado",
       description:
-        "InstalaciÃ³n profesional de cÃ¡maras de seguridad en BogotÃ¡: cableado estructurado sin puntos ciegos, configuraciÃ³n remota y equipos IA-ready. CotizaciÃ³n con visita tÃ©cnica.",
+        "Instalación profesional de cámaras de seguridad en Bogotá: cableado estructurado sin puntos ciegos, configuración remota y equipos IA-ready. Cotización con visita técnica.",
     },
     casa: {
-      title: "CÃ¡maras para Instalar en Casa en BogotÃ¡ | InstalaciÃ³n el mismo dÃ­a",
+      title: "Cámaras para Instalar en Casa en Bogotá | Instalación el mismo día",
       description:
-        "CÃ¡maras para casa en BogotÃ¡ con visiÃ³n nocturna a color y acceso desde el celular. Kit desde $1.500.000 instalado el mismo dÃ­a en toda la ciudad.",
+        "Cámaras para casa en Bogotá con visión nocturna a color y acceso desde el celular. Kit desde $1.500.000 instalado el mismo día en toda la ciudad.",
     },
     "precios-camaras": {
-      title: "Precios de InstalaciÃ³n de CÃ¡maras de Seguridad en BogotÃ¡ 2026",
+      title: "Precios de Instalación de Cámaras de Seguridad en Bogotá 2026",
       description:
-        "CuÃ¡nto cuesta instalar cÃ¡maras de seguridad en BogotÃ¡: desde $1.500.000 todo incluido o desde $50.000 semanales. El precio final sale del estudio. Cotiza gratis.",
+        "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.500.000 todo incluido o desde $50.000 semanales. El precio final sale del estudio. Cotiza gratis.",
     },
     "mantenimiento-camaras": {
-      title: "Mantenimiento de CÃ¡maras de Seguridad en BogotÃ¡ | Preventivo y Correctivo",
+      title: "Mantenimiento de Cámaras de Seguridad en Bogotá | Preventivo y Correctivo",
       description:
-        "Mantenimiento de cÃ¡maras en BogotÃ¡: preventivo, correctivo y supervisiÃ³n remota para Hikvision/Dahua. Limpieza, firmware y cableado. DiagnÃ³stico gratis.",
+        "Mantenimiento de cámaras en Bogotá: preventivo, correctivo y supervisión remota para Hikvision/Dahua. Limpieza, firmware y cableado. Diagnóstico gratis.",
     },
     consultor: {
-      title: "Consultor TecnolÃ³gico para Empresas en BogotÃ¡ | DiagnÃ³stico con ROI",
+      title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
       description:
-        "Consultor tecnolÃ³gico en BogotÃ¡: auditorÃ­a de seguridad CCTV con IA, automatizaciÃ³n de procesos y dashboards. DiagnÃ³stico gratis con implementaciÃ³n.",
+        "Consultor tecnológico en Bogotá: auditoría de seguridad CCTV con IA, automatización de procesos y dashboards. Diagnóstico gratis con implementación.",
     },
     blog: {
-      title: "Blog de CÃ¡maras de Seguridad e IA | Servicios APC BogotÃ¡",
+      title: "Blog de Cámaras de Seguridad e IA | Servicios APC Bogotá",
       description:
-        "GuÃ­as, comparativas y casos reales sobre CCTV Hikvision con inteligencia artificial en BogotÃ¡: precios, instalaciÃ³n, analÃ­tica IA, automatizaciÃ³n y seguridad empresarial.",
+        "Guías, comparativas y casos reales sobre CCTV Hikvision con inteligencia artificial en Bogotá: precios, instalación, analítica IA, automatización y seguridad empresarial.",
     },
   };
 
@@ -590,9 +590,9 @@ export default function App() {
     if (form.nombre.trim().length < 3)
       e.nombre = "Escribe tu nombre completo.";
     if (!validEmail(form.email.trim()))
-      e.email = "El correo no parece vÃ¡lido.";
+      e.email = "El correo no parece válido.";
     if (form.mensaje.trim().length < 10)
-      e.mensaje = "CuÃ©ntanos un poco mÃ¡s (mÃ­nimo 10 caracteres).";
+      e.mensaje = "Cuéntanos un poco más (mínimo 10 caracteres).";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -625,12 +625,12 @@ export default function App() {
         setForm({ nombre: "", email: "", telefono: "", mensaje: "" });
       } else {
         setError(
-          "No pudimos enviar tu mensaje. EscrÃ­benos por WhatsApp o intÃ©ntalo de nuevo."
+          "No pudimos enviar tu mensaje. Escríbenos por WhatsApp o inténtalo de nuevo."
         );
       }
     } catch {
       setError(
-        "Error de conexiÃ³n. EscrÃ­benos por WhatsApp o intÃ©ntalo de nuevo."
+        "Error de conexión. Escríbenos por WhatsApp o inténtalo de nuevo."
       );
     } finally {
       setSending(false);
@@ -646,7 +646,7 @@ export default function App() {
         >
           Saltar al contenido principal
         </a>
-        <nav aria-label="NavegaciÃ³n principal" className="sticky top-0 z-50 glass-nav">
+        <nav aria-label="Navegación principal" className="sticky top-0 z-50 glass-nav">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button
               onClick={() => {
@@ -701,9 +701,9 @@ export default function App() {
         >
           Saltar al contenido principal
         </a>
-        {/* â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── NAV ─────────────────────────────────────────── */}
         <nav
-          aria-label="NavegaciÃ³n principal"
+          aria-label="Navegación principal"
           className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade ${
             scrolled ? "glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.35)]" : "bg-transparent border-b border-transparent"
           }`}
@@ -750,7 +750,7 @@ export default function App() {
             <button
               className="press md:hidden text-foreground p-1"
               onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label="Abrir menÃº"
+              aria-label="Abrir menú"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -784,7 +784,7 @@ export default function App() {
         </nav>
 
         <main id="contenido">
-        {/* â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── HERO ─────────────────────────────────────────── */}
         <section
           id="inicio"
           className="relative min-h-[92vh] flex items-center overflow-hidden"
@@ -814,7 +814,7 @@ export default function App() {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#080C18]/95 via-[#080C18]/70 to-[#080C18]/35" />
 
-          {/* Grilla tÃ©cnica sutil */}
+          {/* Grilla técnica sutil */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 opacity-[0.10]"
@@ -827,7 +827,7 @@ export default function App() {
             }}
           />
 
-          {/* IluminaciÃ³n cian / verde */}
+          {/* Iluminación cian / verde */}
           <div aria-hidden="true" className="pointer-events-none absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-[#22d3ee]/20 blur-[120px]" />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 right-0 h-[460px] w-[460px] rounded-full bg-[#25d366]/15 blur-[130px]" />
 
@@ -838,8 +838,8 @@ export default function App() {
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
               className="font-mono text-[9px] sm:text-xs text-[#8ef2b8] tracking-[0.12em] sm:tracking-[0.16em] uppercase mb-6 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-[#0B1220]/85 px-3.5 py-2 sm:px-4 text-center leading-snug backdrop-blur-md"
             >
-              <span aria-hidden="true">ðŸ“</span>
-              InstalaciÃ³n en BogotÃ¡ Â· CrÃ©dito directo Â· Hikvision &amp; Dahua
+              <span aria-hidden="true">📍</span>
+              Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
             </motion.p>
 
             <motion.h1
@@ -848,9 +848,9 @@ export default function App() {
               transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
               className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.05] text-[clamp(2.15rem,5vw,4.5rem)] mb-5 sm:mb-6"
             >
-              InstalaciÃ³n Profesional de CÃ¡maras de Seguridad e IA{" "}
+              Instalación Profesional de Cámaras de Seguridad e IA{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#25d366]">
-                en BogotÃ¡
+                en Bogotá
               </span>
             </motion.h1>
 
@@ -860,8 +860,8 @@ export default function App() {
               transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
               className="text-foreground/85 text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
             >
-              Protege tu negocio o hogar con tecnologÃ­a ColorVu y analÃ­tica inteligente.
-              Estudio de seguridad sin costo en BogotÃ¡ e instalaciones a crÃ©dito desde
+              Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
+              Estudio de seguridad sin costo en Bogotá e instalaciones a crédito desde
               $1.500.000 con cuotas semanales desde $50.000.
             </motion.p>
 
@@ -896,9 +896,9 @@ export default function App() {
             >
               <ul className="grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
                 {[
-                  "Estudio previo sin costo en BogotÃ¡",
+                  "Estudio previo sin costo en Bogotá",
                   "Cuotas semanales desde $50k o $75k",
-                  "Equipos originales con garantÃ­a",
+                  "Equipos originales con garantía",
                 ].map((t) => (
                   <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-foreground/80">
                     <CheckCircle2 size={16} className="text-[#25d366] shrink-0" /> {t}
@@ -948,14 +948,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ SERVICIOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── SERVICIOS ─────────────────────────────────────── */}
         <LazyMount id="servicios">
         <section id="servicios" className="py-24 border-t border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
               kicker="Nuestros Servicios"
-              title="InstalaciÃ³n de cÃ¡maras y analÃ­tica de video con IA"
-              desc="CÃ¡maras Hikvision certificadas, cableado profesional y analÃ­tica que convierte su video en datos: conteo, aforo, mapas de calor y arqueo de caja. Todo en BogotÃ¡."
+              title="Instalación de cámaras y analítica de video con IA"
+              desc="Cámaras Hikvision certificadas, cableado profesional y analítica que convierte su video en datos: conteo, aforo, mapas de calor y arqueo de caja. Todo en Bogotá."
             />
 
             <Reveal>
@@ -1017,9 +1017,9 @@ export default function App() {
                                   ))}
                                 </ul>
                                 <WhatsAppCTA
-                                  label="Solicitar informaciÃ³n"
+                                  label="Solicitar información"
                                   href={waLink(
-                                    `Hola Servicios APC, quiero informaciÃ³n sobre ${s.title}`
+                                    `Hola Servicios APC, quiero información sobre ${s.title}`
                                   )}
                                   size="sm"
                                   brand={s.color}
@@ -1050,15 +1050,15 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ BENEFICIOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── BENEFICIOS ─────────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="beneficios">
         <section id="beneficios" className="py-24 bg-secondary border-y border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
               kicker="Beneficios"
-              title="Por quÃ© instalar y contratar el mantenimiento con Servicios APC"
-              desc="No vendemos equipos sueltos: instalamos, configuramos y mantenemos su sistema de cÃ¡maras en BogotÃ¡. Estos son los motivos por los que nuestros clientes nos siguen llamando."
+              title="Por qué instalar y contratar el mantenimiento con Servicios APC"
+              desc="No vendemos equipos sueltos: instalamos, configuramos y mantenemos su sistema de cámaras en Bogotá. Estos son los motivos por los que nuestros clientes nos siguen llamando."
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
@@ -1080,23 +1080,23 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ PLANES & TRANSPARENCIA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── PLANES & TRANSPARENCIA ─────────────────────────── */}
         </LazyMount>
         <LazyMount id="planes">
         <section id="planes" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
               kicker="Precios"
-              title="Precios que se ajustan a su instalaciÃ³n, no al revÃ©s"
-              desc="Pago Ãºnico desde $1.500.000 con todo incluido, o financiado desde $50.000 semanales. Publicamos precios 'desde' a propÃ³sito: el valor final siempre sale de un estudio de instalaciÃ³n."
+              title="Precios que se ajustan a su instalación, no al revés"
+              desc="Pago único desde $1.500.000 con todo incluido, o financiado desde $50.000 semanales. Publicamos precios 'desde' a propósito: el valor final siempre sale de un estudio de instalación."
             />
 
             <Reveal className="mb-10">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
                   <BadgeCheck size={13} className="text-accent" /> Precios de
-                  referencia Â· el valor final se define en el estudio de
-                  instalaciÃ³n
+                  referencia · el valor final se define en el estudio de
+                  instalación
                 </span>
               </div>
             </Reveal>
@@ -1116,7 +1116,7 @@ export default function App() {
                     >
                       {p.highlight && (
                         <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-[#25d366]/15 border border-[#25d366]/30 px-3 py-1 text-[11px] font-semibold text-[#25d366]">
-                          <Sparkles size={11} /> MÃ¡s pedido
+                          <Sparkles size={11} /> Más pedido
                         </span>
                       )}
                       <Icon size={26} className="text-accent mb-4" />
@@ -1165,19 +1165,19 @@ export default function App() {
             <Reveal delay={0.15} className="mt-10 max-w-4xl">
               <p className="text-sm text-muted-foreground leading-relaxed bg-secondary border border-border rounded-xl px-5 py-4">
                 <strong className="text-foreground">
-                  Â¿Por quÃ© decimos "desde"?
+                  ¿Por qué decimos "desde"?
                 </strong>{" "}
-                El valor final depende del nÃºmero de puntos, la distancia del
-                cableado y las condiciones del sitio. Publicamos precios mÃ­nimos
-                de referencia a propÃ³sito: es la Ãºnica forma de que el nÃºmero
+                El valor final depende del número de puntos, la distancia del
+                cableado y las condiciones del sitio. Publicamos precios mínimos
+                de referencia a propósito: es la única forma de que el número
                 que reciba sea el que termina pagando. Lo concretamos en el
-                estudio de instalaciÃ³n, sin compromiso.
+                estudio de instalación, sin compromiso.
               </p>
             </Reveal>
           </div>
         </section>
 
-        {/* â”€â”€ PROCESO 4 PASOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── PROCESO 4 PASOS ────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="proceso">
         <section id="proceso" className="py-24 bg-secondary border-b border-border">
@@ -1185,7 +1185,7 @@ export default function App() {
             <SectionHeader
               kicker="Proceso"
               title="Su proyecto en 4 pasos"
-              desc="Un proceso claro y sin sorpresas, desde el primer diagnÃ³stico hasta el control total desde su celular."
+              desc="Un proceso claro y sin sorpresas, desde el primer diagnóstico hasta el control total desde su celular."
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1215,22 +1215,22 @@ export default function App() {
 
             <Reveal delay={0.15} className="mt-12 text-center">
               <p className="text-muted-foreground mb-5 text-sm">
-                Â¿Listo para empezar? DiagnÃ³stico en BogotÃ¡ sin costo.
+                ¿Listo para empezar? Diagnóstico en Bogotá sin costo.
               </p>
-              <WhatsAppChip label="Agendar diagnÃ³stico gratis" href={waLink("Hola Servicios APC, quiero agendar un diagnÃ³stico gratuito para mi negocio en BogotÃ¡")} />
+              <WhatsAppChip label="Agendar diagnóstico gratis" href={waLink("Hola Servicios APC, quiero agendar un diagnóstico gratuito para mi negocio en Bogotá")} />
             </Reveal>
           </div>
         </section>
 
-        {/* â”€â”€ CASOS DE Ã‰XITO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── CASOS DE ÉXITO ─────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="casos">
         <section id="casos" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
-              kicker="Casos de Ã©xito"
-              title="Resultados que se ven en el dÃ­a a dÃ­a"
-              desc="Clientes en BogotÃ¡ y LATAM que ya operan con mÃ¡s control, orden y datos gracias a la infraestructura de Servicios APC."
+              kicker="Casos de éxito"
+              title="Resultados que se ven en el día a día"
+              desc="Clientes en Bogotá y LATAM que ya operan con más control, orden y datos gracias a la infraestructura de Servicios APC."
             />
 
             <div className="grid md:grid-cols-3 gap-6">
@@ -1269,7 +1269,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ ECOSISTEMA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── ECOSISTEMA ─────────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="ecosistema">
         <section id="ecosistema" className="py-24 bg-secondary border-b border-border">
@@ -1277,7 +1277,7 @@ export default function App() {
             <SectionHeader
               kicker="Ecosistema APC"
               title="Un ecosistema, todo bajo control"
-              desc="Servicios APC integra cuatro lÃ­neas especializadas que se conectan entre sÃ­ para blindar cada frente de su operaciÃ³n."
+              desc="Servicios APC integra cuatro líneas especializadas que se conectan entre sí para blindar cada frente de su operación."
             />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
@@ -1321,7 +1321,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ NOSOTROS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── NOSOTROS ───────────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="nosotros">
         <section id="nosotros" className="py-24 border-b border-border">
@@ -1337,7 +1337,7 @@ export default function App() {
                     <source srcSet="/fundador.webp" type="image/webp" />
                     <ImageWithFallback
                       src="/fundador.jpeg"
-                      alt="Alejandro Piraquive â€” Fundador de Servicios APC"
+                      alt="Alejandro Piraquive — Fundador de Servicios APC"
                       width={1600}
                       height={900}
                       className="w-full object-cover aspect-video relative z-10"
@@ -1347,10 +1347,10 @@ export default function App() {
                   </picture>
                   <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
                     <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
-                      Alejandro Piraquive â€” Fundador
+                      Alejandro Piraquive — Fundador
                     </p>
                     <p className="text-accent-foreground text-xs mt-0.5 font-mono">
-                      BogotÃ¡, Colombia
+                      Bogotá, Colombia
                     </p>
                   </div>
                 </div>
@@ -1359,30 +1359,30 @@ export default function App() {
               <div className="lg:col-span-7">
                 <Reveal>
                   <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
-                    QuiÃ©nes somos
+                    Quiénes somos
                   </p>
                 </Reveal>
                 <Reveal delay={0.06}>
                   <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 leading-[1.05] tracking-[-0.02em]">
-                    Empresa de tecnologÃ­a con base en BogotÃ¡.
+                    Empresa de tecnología con base en Bogotá.
                   </h2>
                 </Reveal>
                 <Reveal delay={0.12}>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
                       <strong className="text-foreground">Servicios APC</strong>{" "}
-                      es una empresa de tecnologÃ­a con sede en BogotÃ¡ (Cra. 52c
-                      #39b-22). No vendemos tecnologÃ­a por moda: diseÃ±amos,
+                      es una empresa de tecnología con sede en Bogotá (Cra. 52c
+                      #39b-22). No vendemos tecnología por moda: diseñamos,
                       instalamos y mantenemos la infraestructura digital que le
                       devuelve el control de su dinero, su productividad y su
-                      operaciÃ³n.
+                      operación.
                     </p>
                     <p>
                       Nuestra presencia local nos permite ofrecer{" "}
                       <strong className="text-foreground">
-                        soporte tÃ©cnico presencial en BogotÃ¡
+                        soporte técnico presencial en Bogotá
                       </strong>{" "}
-                      con respuesta rÃ¡pida, y desplegar arquitectura y desarrollo
+                      con respuesta rápida, y desplegar arquitectura y desarrollo
                       de forma remota para clientes en el resto de Colombia.
                     </p>
                     <p>
@@ -1398,22 +1398,22 @@ export default function App() {
                   <div className="grid sm:grid-cols-2 gap-6 mt-8">
                     <div className="border border-border p-6">
                       <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
-                        MisiÃ³n
+                        Misión
                       </p>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        Poner la operaciÃ³n de cada negocio bajo control con
-                        infraestructura digital resiliente y automatizaciÃ³n,
-                        eliminando el desorden y las fugas de tiempo y dinero â€” sin
-                        exigir conocimientos tÃ©cnicos al empresario.
+                        Poner la operación de cada negocio bajo control con
+                        infraestructura digital resiliente y automatización,
+                        eliminando el desorden y las fugas de tiempo y dinero — sin
+                        exigir conocimientos técnicos al empresario.
                       </p>
                     </div>
                     <div className="border border-border p-6">
                       <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">
-                        VisiÃ³n
+                        Visión
                       </p>
                       <p className="text-sm text-muted-foreground leading-relaxed">
-                        Ser el estÃ¡ndar de infraestructura digital indestructible en
-                        Colombia y la regiÃ³n, donde cada cÃ¡mara, cada flujo y cada
+                        Ser el estándar de infraestructura digital indestructible en
+                        Colombia y la región, donde cada cámara, cada flujo y cada
                         dato trabajan para ordenar y hacer crecer el negocio.
                       </p>
                     </div>
@@ -1447,7 +1447,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ FAQ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── FAQ ────────────────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="faq">
         <section id="faq" className="py-24 bg-secondary border-b border-border">
@@ -1455,7 +1455,7 @@ export default function App() {
             <SectionHeader
               kicker="Preguntas frecuentes"
               title="Preguntas frecuentes"
-              desc="Resolvemos las dudas mÃ¡s comunes sobre nuestra infraestructura, privacidad y funcionamiento sin tecnicismos."
+              desc="Resolvemos las dudas más comunes sobre nuestra infraestructura, privacidad y funcionamiento sin tecnicismos."
             />
 
             <div className="max-w-3xl mx-auto border-t border-border">
@@ -1491,7 +1491,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ CONTACTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── CONTACTO ───────────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="contacto">
         <section id="contacto" className="py-24 border-b border-border">
@@ -1505,13 +1505,13 @@ export default function App() {
                 </Reveal>
                 <Reveal delay={0.06}>
                   <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 leading-[1.05] tracking-[-0.02em]">
-                    Contacte a Servicios APC en BogotÃ¡
+                    Contacte a Servicios APC en Bogotá
                   </h2>
                 </Reveal>
                 <Reveal delay={0.12}>
                   <p className="text-muted-foreground leading-relaxed mb-10">
-                    CuÃ©ntanos tu necesidad. Te respondemos en menos de 24 horas
-                    hÃ¡biles con una propuesta concreta para tu empresa.
+                    Cuéntanos tu necesidad. Te respondemos en menos de 24 horas
+                    hábiles con una propuesta concreta para tu empresa.
                   </p>
                 </Reveal>
 
@@ -1534,7 +1534,7 @@ export default function App() {
                   </Reveal>
                   <Reveal delay={0.2}>
                     <p className="text-sm text-muted-foreground">
-                      Cra. 52c #39b-22, BogotÃ¡
+                      Cra. 52c #39b-22, Bogotá
                     </p>
                   </Reveal>
                 </div>
@@ -1565,11 +1565,11 @@ export default function App() {
                         <CheckCircle2 size={48} className="text-accent mb-4" />
                       </motion.div>
                       <h3 className="font-serif text-2xl font-bold mb-3">
-                        Â¡Mensaje enviado!
+                        ¡Mensaje enviado!
                       </h3>
                       <p className="text-muted-foreground mb-6">
                         Gracias por contactarnos. Te responderemos en menos de 24
-                        horas hÃ¡biles.
+                        horas hábiles.
                       </p>
                       <button
                         onClick={() => setSent(false)}
@@ -1583,7 +1583,7 @@ export default function App() {
                       onSubmit={handleSubmit}
                       noValidate
                       toolname="instalacion_cctv"
-                      tooldescription="InstalaciÃ³n de CCTV con inteligencia artificial en BogotÃ¡. Solicita tu diagnÃ³stico gratuito a Servicios APC; requiere nombre, correo electrÃ³nico y un mensaje con la necesidad del negocio."
+                      tooldescription="Instalación de CCTV con inteligencia artificial en Bogotá. Solicita tu diagnóstico gratuito a Servicios APC; requiere nombre, correo electrónico y un mensaje con la necesidad del negocio."
                       className="border border-border p-8 lg:p-10 space-y-6"
                     >
                       <div className="grid md:grid-cols-2 gap-6">
@@ -1619,7 +1619,7 @@ export default function App() {
                             htmlFor="email"
                             className="block font-mono text-xs text-muted-foreground tracking-widest uppercase mb-2"
                           >
-                            Correo electrÃ³nico *
+                            Correo electrónico *
                           </label>
                           <input
                             id="email"
@@ -1648,7 +1648,7 @@ export default function App() {
                           htmlFor="telefono"
                           className="block font-mono text-xs text-muted-foreground tracking-widest uppercase mb-2"
                         >
-                          TelÃ©fono
+                          Teléfono
                         </label>
                         <input
                           id="telefono"
@@ -1679,7 +1679,7 @@ export default function App() {
                             setForm({ ...form, mensaje: e.target.value });
                             if (errors.mensaje) setErrors({ ...errors, mensaje: undefined });
                           }}
-                          placeholder="Â¿Tiene Hikvision? Â¿Necesita analÃ­tica? CuÃ©ntenos..."
+                          placeholder="¿Tiene Hikvision? ¿Necesita analítica? Cuéntenos..."
                           aria-invalid={!!errors.mensaje}
                           className={cn(
                             "w-full bg-background border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none",
@@ -1706,7 +1706,7 @@ export default function App() {
                       </motion.button>
 
                       <p className="text-xs text-muted-foreground text-center font-mono">
-                        Tu informaciÃ³n es confidencial y no serÃ¡ compartida con
+                        Tu información es confidencial y no será compartida con
                         terceros.
                       </p>
                     </form>
@@ -1717,14 +1717,14 @@ export default function App() {
           </div>
         </section>
 
-        {/* â”€â”€ BLOG EN LANDING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── BLOG EN LANDING ─────────────────────────────────── */}
         </LazyMount>
         <LazyMount id="blog">
         <section id="blog" className="relative py-24 overflow-hidden">
           <VideoHero
-            title="Blog de CÃ¡maras IA y AutomatizaciÃ³n"
-            subtitle="GuÃ­as, casos reales y novedades sobre analÃ­tica de video con IA, CCTV Hikvision, bots WhatsApp y automatizaciÃ³n de procesos para empresas en BogotÃ¡."
-            ctaLabel="Ver todos los artÃ­culos"
+            title="Blog de Cámaras IA y Automatización"
+            subtitle="Guías, casos reales y novedades sobre analítica de video con IA, CCTV Hikvision, bots WhatsApp y automatización de procesos para empresas en Bogotá."
+            ctaLabel="Ver todos los artículos"
             onCta={() => { window.location.hash = "blog"; }}
             className="absolute inset-0 z-0"
             overlayClassName="bg-black/80"
@@ -1733,60 +1733,60 @@ export default function App() {
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <Reveal>
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4 text-center">
-                ArtÃ­culos y Recursos
+                Artículos y Recursos
               </p>
             </Reveal>
             <Reveal delay={0.06}>
               <h2 className="font-serif text-4xl md:text-5xl font-bold text-center mb-4 leading-[1.05] tracking-[-0.02em]">
-                Lo Ãºltimo en IA, CCTV y AutomatizaciÃ³n
+                Lo último en IA, CCTV y Automatización
               </h2>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-16">
-                GuÃ­as tÃ©cnicas, casos reales y comparativas para que tus cÃ¡maras generen datos,
+                Guías técnicas, casos reales y comparativas para que tus cámaras generen datos,
                 no solo grabaciones.
               </p>
             </Reveal>
 
-            {/* â”€â”€ 4 CATEGORÃAS PRINCIPALES â”€â”€ */}
+            {/* ── 4 CATEGORÍAS PRINCIPALES ── */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
               <CategoryCard
                 image="/blog-img/cctv-ia-bogota.webp"
-                title="CCTV + IA BogotÃ¡"
-                desc="AnalÃ­tica de video con Hikvision DeepinView: conteo, PPE, calor, ANPR."
+                title="CCTV + IA Bogotá"
+                desc="Analítica de video con Hikvision DeepinView: conteo, PPE, calor, ANPR."
                 href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/automatizacion-n8n.webp"
-                title="AutomatizaciÃ³n n8n + IA"
-                desc="Flujos WhatsApp, CRM, dashboards y alertas sin cÃ³digo con n8n."
+                title="Automatización n8n + IA"
+                desc="Flujos WhatsApp, CRM, dashboards y alertas sin código con n8n."
                 href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/control-acceso.webp"
-                title="Control de Acceso + NÃ³mina"
-                desc="BiometrÃ­a, ANPR, torniquetes integrados a nÃ³mina y RRHH."
+                title="Control de Acceso + Nómina"
+                desc="Biometría, ANPR, torniquetes integrados a nómina y RRHH."
                 href="/#blog"
               />
               <CategoryCard
                 image="/blog-img/diagnostico-b2b.webp"
-                title="DiagnÃ³stico B2B Gratis"
-                desc="AuditorÃ­a de 1-2h sin costo si implementas. ROI medido en semanas."
+                title="Diagnóstico B2B Gratis"
+                desc="Auditoría de 1-2h sin costo si implementas. ROI medido en semanas."
                 href="/#blog"
               />
             </div>
 
-            {/* â”€â”€ 3 ARTÃCULOS RECIENTES â”€â”€ */}
+            {/* ── 3 ARTÍCULOS RECIENTES ── */}
             <Reveal>
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-center mb-10">
-                ArtÃ­culos recientes
+                Artículos recientes
               </h3>
             </Reveal>
             <RecentArticlesGrid />
           </div>
         </section>
 
-        {/* â”€â”€ CTA FINAL BANNER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── CTA FINAL BANNER ───────────────────────────────── */}
         </LazyMount>
         <LazyMount id="cta">
         <section className="py-20 relative overflow-hidden vignette">
@@ -1794,12 +1794,12 @@ export default function App() {
           <div className="relative max-w-4xl mx-auto px-6 text-center">
             <Reveal>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-[-0.02em] leading-[1.05] mb-5">
-                Â¿Listo para poner tus cÃ¡maras a trabajar con IA?
+                ¿Listo para poner tus cámaras a trabajar con IA?
               </h2>
             </Reveal>
             <Reveal delay={0.08}>
               <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-8">
-                DiagnÃ³stico gratuito en BogotÃ¡. CotizaciÃ³n a la medida en menos
+                Diagnóstico gratuito en Bogotá. Cotización a la medida en menos
                 de 24 horas.
               </p>
             </Reveal>
@@ -1820,7 +1820,7 @@ export default function App() {
 
         </main>
 
-        {/* â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── FOOTER ─────────────────────────────────────────── */}
         <footer className="py-10 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10 pb-10 border-b border-border">
@@ -1832,25 +1832,25 @@ export default function App() {
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  AutomatizaciÃ³n e IA para empresas en BogotÃ¡. InstalaciÃ³n de
-                  CCTV Hikvision, analÃ­tica de video con IA, bots WhatsApp 24/7,
+                  Automatización e IA para empresas en Bogotá. Instalación de
+                  CCTV Hikvision, analítica de video con IA, bots WhatsApp 24/7,
                   dashboards y SEO local. Soporte &lt;30 min.
                 </p>
                 <div className="flex flex-wrap gap-2 text-xs">
                   <a href="https://apcvisionai.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
-                    <Camera size={11} /> APC VisiÃ³n AI â€” AnalÃ­tica Hikvision
+                    <Camera size={11} /> APC Visión AI — Analítica Hikvision
                   </a>
-                  <span className="text-muted-foreground">Â·</span>
+                  <span className="text-muted-foreground">·</span>
                   <a href="https://apcautomatizacion.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
-                    <Zap size={11} /> APC AutomatizaciÃ³n â€” n8n + IA
+                    <Zap size={11} /> APC Automatización — n8n + IA
                   </a>
-                  <span className="text-muted-foreground">Â·</span>
+                  <span className="text-muted-foreground">·</span>
                   <a href="https://dogweb.lat" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
-                    <Globe size={11} /> DogWeb â€” Web + SEO Local
+                    <Globe size={11} /> DogWeb — Web + SEO Local
                   </a>
-                  <span className="text-muted-foreground">Â·</span>
+                  <span className="text-muted-foreground">·</span>
                   <a href="https://apccore.site" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline flex items-center gap-1">
-                    <Server size={11} /> APC Core â€” Infraestructura
+                    <Server size={11} /> APC Core — Infraestructura
                   </a>
                 </div>
               </div>
@@ -1862,22 +1862,22 @@ export default function App() {
                 <ul className="space-y-2">
                   <li>
                     <a href="#servicios" onClick={() => { setActiveService(services.findIndex((s) => s.id === "camaras")); scrollTo("servicios"); }} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> AnalÃ­tica YOLO para Hikvision
+                      <ChevronRight size={12} /> Analítica YOLO para Hikvision
                     </a>
                   </li>
                   <li>
                     <a href="#servicios" onClick={() => { setActiveService(services.findIndex((s) => s.id === "cctv")); scrollTo("servicios"); }} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> InstalaciÃ³n Hikvision IA-ready
+                      <ChevronRight size={12} /> Instalación Hikvision IA-ready
                     </a>
                   </li>
                   <li>
                     <a href="https://apcvisionai.site" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ExternalLink size={11} /> Ver APC VisiÃ³n AI
+                      <ExternalLink size={11} /> Ver APC Visión AI
                     </a>
                   </li>
                   <li>
                     <a href="https://www.hikvision.com/es/" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ExternalLink size={11} /> CatÃ¡logo oficial Hikvision
+                      <ExternalLink size={11} /> Catálogo oficial Hikvision
                     </a>
                   </li>
                   <li>
@@ -1912,44 +1912,44 @@ export default function App() {
 
               <div>
                 <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
-                  PÃ¡ginas SEO
+                  Páginas SEO
                 </p>
                 <ul className="space-y-2">
                   <li>
                     <a href="#negocio" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> CÃ¡maras para Negocio
+                      <ChevronRight size={12} /> Cámaras para Negocio
                     </a>
                   </li>
                   <li>
                     <a href="#instalacion" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> InstalaciÃ³n de CÃ¡maras
+                      <ChevronRight size={12} /> Instalación de Cámaras
                     </a>
                   </li>
                   <li>
                     <a href="#casa" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> CÃ¡maras para Casa
+                      <ChevronRight size={12} /> Cámaras para Casa
                     </a>
                   </li>
                   <li>
                     <a href="#precios-camaras" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> Precios InstalaciÃ³n
+                      <ChevronRight size={12} /> Precios Instalación
                     </a>
                   </li>
                   <li>
                     <a href="#consultor" className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                      <ChevronRight size={12} /> Consultor TecnolÃ³gico
+                      <ChevronRight size={12} /> Consultor Tecnológico
                     </a>
                   </li>
                   {[
                     ["Suba", "suba"],
                     ["Kennedy", "kennedy"],
                     ["Chapinero", "chapinero"],
-                    ["UsaquÃ©n", "usaquen"],
-                    ["FontibÃ³n", "fontibon"],
+                    ["Usaquén", "usaquen"],
+                    ["Fontibón", "fontibon"],
                   ].map(([label, h]) => (
                     <li key={h}>
                       <a href={`#${h}`} className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
-                        <ChevronRight size={12} /> CÃ¡maras {label}
+                        <ChevronRight size={12} /> Cámaras {label}
                       </a>
                     </li>
                   ))}
@@ -1968,7 +1968,7 @@ export default function App() {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm text-muted-foreground">
                     <MapPin size={13} className="text-accent mt-0.5 flex-shrink-0" />
-                    Cra. 52c #39b-22, BogotÃ¡
+                    Cra. 52c #39b-22, Bogotá
                   </li>
                   <li>
                     <ChipCTA
@@ -1989,7 +1989,7 @@ export default function App() {
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-accent hover:text-foreground transition-colors font-medium"
                     >
-                      â­ Dejar reseÃ±a en Google
+                      ⭐ Dejar reseña en Google
                     </a>
                   </li>
                 </ul>
@@ -2020,14 +2020,14 @@ export default function App() {
                 <strong className="text-foreground">Aviso de privacidad y tratamiento de datos.</strong>{" "}
                 En cumplimiento de la Ley 1581 de 2012 (Habeas Data), Servicios
                 APC declara que todo flujo de video y audio capturado en las sedes
-                de sus clientes tiene como Ãºnica finalidad la auditorÃ­a
-                transaccional de seguridad empresarial, excluyendo la difusiÃ³n
-                pÃºblica de material visual de terceros sin consentimiento.
+                de sus clientes tiene como única finalidad la auditoría
+                transaccional de seguridad empresarial, excluyendo la difusión
+                pública de material visual de terceros sin consentimiento.
               </p>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                <strong className="text-foreground">TÃ©rminos del servicio.</strong>{" "}
-                Los mÃ³dulos lÃ³gicos e integraciones en la nube operan bajo el
-                marco de Arrendamiento de Software e Infraestructura TecnolÃ³gica
+                <strong className="text-foreground">Términos del servicio.</strong>{" "}
+                Los módulos lógicos e integraciones en la nube operan bajo el
+                marco de Arrendamiento de Software e Infraestructura Tecnológica
                 como Servicio (SaaS). El control patrimonial, claves de seguridad
                 y marcas pertenecen exclusivamente a Servicios APC y al titular de
                 la infraestructura.
@@ -2038,22 +2038,22 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-accent hover:underline mt-1"
               >
-                Descargar PolÃ­tica de Tratamiento de Datos Personales (PDF)
+                Descargar Política de Tratamiento de Datos Personales (PDF)
               </a>
             </div>
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-xs text-muted-foreground font-mono">
-                Â© 2026 Servicios APC â€” Todos los derechos reservados
+                © 2026 Servicios APC — Todos los derechos reservados
               </p>
               <p className="text-xs text-muted-foreground font-mono">
-                serviciosapc.site Â· BogotÃ¡, Colombia
+                serviciosapc.site · Bogotá, Colombia
               </p>
             </div>
           </div>
         </footer>
 
-        {/* â”€â”€ SOCIAL FLOAT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── SOCIAL FLOAT ───────────────────────────────────── */}
         <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
           <div className="flex flex-col gap-2.5">
             {SOCIALS.filter((s) => s.name !== "WhatsApp").map(
@@ -2102,7 +2102,7 @@ export default function App() {
   );
 }
 
-/* â”€â”€â”€ Componentes de la secciÃ³n Blog en Landing â”€â”€â”€ */
+/* ─── Componentes de la sección Blog en Landing ─── */
 
 interface CategoryCardProps {
   image: string;
@@ -2137,12 +2137,12 @@ function CategoryCard({ image, title, desc, href }: CategoryCardProps) {
 }
 
 function RecentArticlesGrid() {
-  // 3 artÃ­culos mÃ¡s recientes (hardcoded para evitar bundle pesado)
+  // 3 artículos más recientes (hardcoded para evitar bundle pesado)
   const posts = [
     {
       slug: "guia-camaras-hikvision-ia-empresas-bogota-2026",
-      title: "GuÃ­a Hikvision IA 2026: ColorVu, AcuSense y DeepinView para empresas",
-      excerpt: "Comparativa completa de lÃ­neas Hikvision con IA integrada para empresas en BogotÃ¡: precios, analÃ­tica y casos de uso.",
+      title: "Guía Hikvision IA 2026: ColorVu, AcuSense y DeepinView para empresas",
+      excerpt: "Comparativa completa de líneas Hikvision con IA integrada para empresas en Bogotá: precios, analítica y casos de uso.",
       date: "2026-07-20",
       category: "CCTV + IA",
       readTime: "8 min",
@@ -2150,19 +2150,19 @@ function RecentArticlesGrid() {
     },
     {
       slug: "automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard",
-      title: "AutomatizaciÃ³n n8n + CCTV: alertas WhatsApp, CRM y dashboard en tiempo real",
-      excerpt: "CÃ³mo conectar tus cÃ¡maras Hikvision a n8n para disparar alertas, crear tickets y poblar dashboards sin programar.",
+      title: "Automatización n8n + CCTV: alertas WhatsApp, CRM y dashboard en tiempo real",
+      excerpt: "Cómo conectar tus cámaras Hikvision a n8n para disparar alertas, crear tickets y poblar dashboards sin programar.",
       date: "2026-07-15",
-      category: "AutomatizaciÃ³n",
+      category: "Automatización",
       readTime: "6 min",
       coverImage: "/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp",
     },
     {
       slug: "que-es-analitica-video-ia-empresas-bogota",
-      title: "Â¿QuÃ© es analÃ­tica de video con IA? GuÃ­a para empresas en BogotÃ¡",
-      excerpt: "DefiniciÃ³n, casos de uso (conteo, PPE, calor, ANPR) y cÃ³mo elegir proveedor Hikvision/Dahua/Uniview en Colombia.",
+      title: "¿Qué es analítica de video con IA? Guía para empresas en Bogotá",
+      excerpt: "Definición, casos de uso (conteo, PPE, calor, ANPR) y cómo elegir proveedor Hikvision/Dahua/Uniview en Colombia.",
       date: "2026-07-10",
-      category: "AnalÃ­tica IA",
+      category: "Analítica IA",
       readTime: "7 min",
       coverImage: "/blog-img/que-es-analitica-video-ia-empresas-bogota.webp",
     },
@@ -2194,7 +2194,7 @@ function RecentArticlesGrid() {
           <div className="p-5 space-y-3">
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" })}</time>
-              <span>Â·</span>
+              <span>·</span>
               <span>{post.readTime}</span>
             </div>
             <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors line-clamp-2">
@@ -2203,10 +2203,10 @@ function RecentArticlesGrid() {
             <p className="text-sm text-muted-foreground line-clamp-2">{post.excerpt}</p>
             <a
               href={`/blog/${post.slug}/`}
-              aria-label={`Leer artÃ­culo completo: ${post.title}`}
+              aria-label={`Leer artículo completo: ${post.title}`}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline mt-2"
             >
-              Leer artÃ­culo completo
+              Leer artículo completo
               <ChevronRight size={14} />
             </a>
           </div>
@@ -2216,7 +2216,7 @@ function RecentArticlesGrid() {
   );
 }
 
-/* â”€â”€â”€ Wrappers dinÃ¡micos (Carga diferida de pÃ¡ginas hash) â”€â”€â”€ */
+/* ─── Wrappers dinámicos (Carga diferida de páginas hash) ─── */
 
 function DynamicPage({ page }: { page: string }) {
   const map: Record<string, () => Promise<{ default: React.ComponentType }>> = {
@@ -2239,7 +2239,7 @@ function DynamicPage({ page }: { page: string }) {
       fallback={
         <div className="min-h-[60vh] flex items-center justify-center p-6">
           <div className="text-center text-muted-foreground">
-            <p className="text-lg font-medium mb-2">No se pudo cargar la pÃ¡gina</p>
+            <p className="text-lg font-medium mb-2">No se pudo cargar la página</p>
             <p className="text-sm">Intenta recargar o vuelve al <a href="/" className="text-accent underline">inicio</a>.</p>
           </div>
         </div>
