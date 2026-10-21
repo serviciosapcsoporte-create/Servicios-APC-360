@@ -702,9 +702,9 @@ export default function App() {
         {/* ── NAV ─────────────────────────────────────────── */}
         <nav
           aria-label="Navegación principal"
-          className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade ${
-            scrolled ? "glass-nav shadow-[0_6px_24px_-16px_rgba(15,23,42,0.25)]" : "bg-transparent border-b border-transparent"
-          }`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade glass-nav ${
+              scrolled ? "shadow-[0_6px_24px_-16px_rgba(15,23,42,0.25)]" : ""
+            }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
             <button
@@ -797,8 +797,8 @@ export default function App() {
             }}
           />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-20 lg:pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div>
+          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 pt-20 pb-14 lg:pt-28 lg:pb-24">
+            <div className="lg:max-w-[52%] xl:max-w-[50%]">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -813,7 +813,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
-                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.1rem,4.2vw,3.4rem)] mb-6"
+                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.05rem,3.6vw,3rem)] mb-6"
               >
                 Instalación Profesional de Cámaras de Seguridad e IA{" "}
                 <span className="text-[#2C5282]">en Bogotá</span>
@@ -872,32 +872,54 @@ export default function App() {
                 </ul>
               </motion.div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.5, delay: 0.12 }}
-              className="relative"
-            >
-              <div className="overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.25)]">
-                <ImageWithFallback
-                  src="/blog-img/equipo-apc.webp"
-                  alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
-                  width={1200}
-                  height={675}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-5 left-6 right-6 sm:left-8 sm:right-auto rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 shadow-[0_12px_30px_-16px_rgba(15,23,42,0.25)]">
-                <p className="text-[11px] font-mono uppercase tracking-widest text-[#64748B]">
-                  Instalación + IA
-                </p>
-                <p className="text-sm font-semibold text-[#0F172A]">
-                  Cuotas desde $50.000/semana
-                </p>
-              </div>
-            </motion.div>
           </div>
+
+          {/* Video de presentación: columna derecha a sangre en desktop, apilado en móvil */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="relative z-0 h-[300px] sm:h-[400px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[46%] xl:w-[45%]"
+          >
+            <ImageWithFallback
+              src="/blog-img/equipo-apc.webp"
+              alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
+              width={1200}
+              height={675}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <video
+              className="hero-video absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/videos/reels-poster.webp"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src="/videos/reels-10s.webm" type="video/webm" />
+              <source src="/videos/reels-10s.mp4" type="video/mp4" />
+            </video>
+            {/* Overlay oscuro: aísla el logotipo del video y da profundidad */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(8,12,24,0.72) 0%, rgba(8,12,24,0.55) 46%, rgba(8,12,24,0.65) 100%)",
+              }}
+            />
+            <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-10 rounded-xl border border-white/20 bg-white/95 px-4 py-3 shadow-[0_12px_30px_-16px_rgba(2,6,23,0.55)] backdrop-blur">
+              <p className="text-[11px] font-mono uppercase tracking-widest text-[#64748B]">
+                Instalación + IA
+              </p>
+              <p className="text-sm font-semibold text-[#0F172A]">
+                Cuotas desde $50.000/semana
+              </p>
+            </div>
+          </motion.div>
 
           <motion.button
             initial={{ opacity: 0 }}
@@ -905,7 +927,7 @@ export default function App() {
             transition={{ delay: 0.65, duration: 0.35 }}
             onClick={() => scrollTo("servicios")}
             aria-label="Bajar"
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-muted-foreground hover:text-foreground transition-colors"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
