@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppCTA } from "./WhatsAppCTA";
 
@@ -21,83 +21,38 @@ interface VideoHeroProps {
 
 const WA_HERO = "https://wa.me/573337450634?text=Hola%2C%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad%20para%20mi%20negocio%20en%20Bogot%C3%A1";
 
+/* Hero corporativo claro: sin video ni resplandores, fondo #F8FAFC con
+   lavados azul/verde muy sutiles y jerarquía tipográfica limpia. */
 export const VideoHero: React.FC<VideoHeroProps> = ({
   title,
   subtitle,
   ctaLabel,
   ctaHref,
-  onCta,
-  overlayOpacity = 0.82,
-  brightness = 0.45,
   className = "",
-  overlayClassName = "",
-  videoClassName = "",
-  showSecondaryCta = false,
-  minHeight = "70vh",
+  minHeight = "56vh",
   secondaryCtaLabel,
   secondaryCtaHref,
+  showSecondaryCta = false,
 }) => {
-  const [videoError, setVideoError] = useState(false);
-
-  const handleCta = (href?: string, onClick?: () => void) => {
-    if (href) {
-      window.open(href, "_blank", "noopener,noreferrer");
-    }
-    if (onClick) onClick();
-  };
-
   return (
-    <section className={`relative min-h-[${minHeight}] flex items-center overflow-hidden ${className}`}>
-      {/* Video de fondo �?" oscuro y sin protagonismo */}
-      {!videoError && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster="/videos/reels-poster.webp"
-          className={`absolute inset-0 w-full h-full object-cover ${videoClassName}`}
-          style={{ filter: `brightness(${brightness}) contrast(1) saturate(0.8)` }}
-          aria-hidden="true"
-          onError={() => setVideoError(true)}
-        >
-          <source src="/videos/reels-10s.webm" type="video/webm" />
-          <source src="/videos/reels-10s.mp4" type="video/mp4" />
-        </video>
-      )}
-
-      {/* Fallback: poster image when video fails or is blocked */}
-      {videoError && (
-        <div
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            backgroundImage: "url('/videos/reels-poster.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: `brightness(${brightness}) contrast(1) saturate(0.8)`,
-          }}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Capa de oscurecido */}
+    <section
+      className={`relative flex items-center overflow-hidden bg-background border-b border-border ${className}`}
+      style={{ minHeight }}
+    >
       <div
-        className={`absolute inset-0 ${overlayClassName}`}
-        style={{ backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})` }}
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(70% 60% at 15% 0%, #E8EEF8 0%, transparent 62%), radial-gradient(60% 50% at 100% 10%, #EAF7EF 0%, transparent 55%)",
+        }}
       />
 
-      {/* Gradiente marca para transici�n suave */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
-
-      {/* Contenido sobre video */}
       {title && (
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          {title && (
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-foreground">
-              {title}
-            </h1>
-          )}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-16 lg:py-20 text-center w-full">
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-foreground">
+            {title}
+          </h1>
           {subtitle && (
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
               {subtitle}
@@ -108,7 +63,7 @@ export const VideoHero: React.FC<VideoHeroProps> = ({
             {showSecondaryCta && secondaryCtaLabel && secondaryCtaHref && (
               <a
                 href={secondaryCtaHref}
-                className="inline-flex items-center justify-center gap-2 text-foreground/90 font-medium px-6 py-3.5 rounded-full border border-foreground/20 backdrop-blur-md hover:border-foreground/40 hover:bg-foreground/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 text-[#0F172A] font-medium px-6 py-3.5 rounded-full border border-[#CBD5E1] bg-white hover:border-[#1A365D] hover:bg-[#F1F5F9] transition-colors"
               >
                 {secondaryCtaLabel}
                 <ArrowRight size={15} />

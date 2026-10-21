@@ -331,7 +331,7 @@ function ArticleView({
 
           {/* Cover */}
           {post.coverImage && (
-            <figure className="mb-10 rounded-xl overflow-hidden border border-[#1E2A4A]">
+            <figure className="mb-10 rounded-xl overflow-hidden border border-[#E2E8F0]">
               <ImageWithFallback
                 src={post.coverImage}
                 alt={`${post.title} - Servicios APC`}
@@ -591,7 +591,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
         <div className="max-w-[1200px] mx-auto px-5 mb-16">
             <button
               onClick={() => openPost(featured.slug)}
-              className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-violet-500/50 hover:shadow-[0_8px_30px_rgba(139,92,246,0.2)]"
+              className="group grid md:grid-cols-[1fr_1fr] gap-8 items-center text-left w-full rounded-2xl border border-[var(--color-border)] p-4 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#1A365D]/50 hover:shadow-[0_8px_30px_-12px_rgba(26,54,93,0.25)]"
             >
             {featured.coverImage ? (
               <div className="overflow-hidden rounded-2xl">
@@ -602,7 +602,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
                 />
               </div>
             ) : (
-              <div className="w-full aspect-[16/10] rounded-2xl bg-[#111A2E] flex items-center justify-center border border-[var(--color-border)]">
+              <div className="w-full aspect-[16/10] rounded-2xl bg-[#F1F5F9] flex items-center justify-center border border-[var(--color-border)]">
                 <span className="text-sm font-bold text-[var(--color-accent)] uppercase tracking-widest">Servicios APC</span>
               </div>
             )}
@@ -659,7 +659,7 @@ export function BlogIndex({ initialSlug }: { initialSlug?: string | null }) {
                   />
                 </div>
               ) : (
-                <div className="w-full aspect-[16/10] rounded-xl mb-4 bg-[#111A2E] flex items-center justify-center border border-[var(--color-border)]">
+                <div className="w-full aspect-[16/10] rounded-xl mb-4 bg-[#F1F5F9] flex items-center justify-center border border-[var(--color-border)]">
                   <span className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-widest">Servicios APC</span>
                 </div>
               )}

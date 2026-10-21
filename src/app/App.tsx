@@ -1,9 +1,8 @@
-import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties, type ComponentType } from "react";
 import { motion, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
 import MobileCTA from "./components/MobileCTA";
-import { VideoHero } from "./components/VideoHero";
 import { SOCIALS, WhatsAppLogo } from "./components/SocialIcons";
 import { WhatsAppCTA, ChipCTA } from "./components/WhatsAppCTA";
 import { ErrorBoundary } from "../components/ErrorBoundary";
@@ -69,7 +68,7 @@ const services = [
   {
     id: "camaras",
     icon: Camera,
-    color: "#c94a0a",
+    color: "#1A365D",
     title: "Analítica de Video con IA para Hikvision/Dahua",
     tagline: "Sus cámaras dejan de vigilar y empiezan a auditar.",
     description:
@@ -88,7 +87,7 @@ const services = [
   {
     id: "cctv",
     icon: Video,
-    color: "#0ea5e9",
+    color: "#2C5282",
     title: "Instalación CCTV Inteligente Hikvision en Bogotá",
     tagline: "Cobertura total, sin puntos ciegos, lista para IA.",
     description:
@@ -502,7 +501,6 @@ export default function App() {
   const [error, setError] = useState("");
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
-  const [videoReady, setVideoReady] = useState(false);
   const [hash, setHash] = useState(window.location.hash.slice(1));
 
   useEffect(() => {
@@ -705,7 +703,7 @@ export default function App() {
         <nav
           aria-label="Navegación principal"
           className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade ${
-            scrolled ? "glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.35)]" : "bg-transparent border-b border-transparent"
+            scrolled ? "glass-nav shadow-[0_6px_24px_-16px_rgba(15,23,42,0.25)]" : "bg-transparent border-b border-transparent"
           }`}
         >
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16">
@@ -787,124 +785,117 @@ export default function App() {
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
           id="inicio"
-          className="relative min-h-[92vh] flex items-center overflow-hidden"
-          style={{ backgroundColor: "#080C18" }}
+          className="relative overflow-hidden bg-background border-b border-border"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/videos/reels-poster.webp"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out"
-            style={{ filter: "brightness(0.72) contrast(1.06) saturate(1.05)", opacity: videoReady ? 1 : 0 }}
-            onLoadedData={() => setVideoReady(true)}
-            onError={() => setVideoReady(true)}
-            aria-hidden="true"
-          >
-            <source src="/videos/reels-10s.webm" type="video/webm" />
-            <source src="/videos/reels-10s.mp4" type="video/mp4" />
-          </video>
-
-          {/* Oscurecido base hacia #080C18 */}
-          <div
-            className="absolute inset-0"
-            style={{ backgroundColor: "rgba(8,12,24,0.72)" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080C18]/95 via-[#080C18]/70 to-[#080C18]/35" />
-
-          {/* Grilla técnica sutil */}
+          {/* Lavado claro corporativo */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 opacity-[0.10]"
+            className="pointer-events-none absolute inset-0"
             style={{
-              backgroundImage:
-                "linear-gradient(to right, #22d3ee 1px, transparent 1px), linear-gradient(to bottom, #22d3ee 1px, transparent 1px)",
-              backgroundSize: "56px 56px",
-              maskImage: "radial-gradient(ellipse at 30% 40%, black 20%, transparent 72%)",
-              WebkitMaskImage: "radial-gradient(ellipse at 30% 40%, black 20%, transparent 72%)",
+              background:
+                "radial-gradient(70% 60% at 15% 0%, #E8EEF8 0%, transparent 62%), radial-gradient(60% 50% at 100% 10%, #EAF7EF 0%, transparent 55%)",
             }}
           />
 
-          {/* Iluminación cian / verde */}
-          <div aria-hidden="true" className="pointer-events-none absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-[#22d3ee]/20 blur-[120px]" />
-          <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 right-0 h-[460px] w-[460px] rounded-full bg-[#25d366]/15 blur-[130px]" />
+          <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-20 lg:pb-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <motion.p
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+                className="font-mono text-[10px] sm:text-xs text-[#1A365D] tracking-[0.08em] uppercase mb-6 inline-flex items-center gap-2 rounded-full border border-[#C7D6EC] bg-[#EAF1FA] px-4 py-1.5 text-center leading-snug"
+              >
+                <span aria-hidden="true">📍</span>
+                Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
+              </motion.p>
 
-          <div className="relative z-10 max-w-5xl mx-auto px-6 pt-28 pb-20 w-full">
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="font-mono text-[9px] sm:text-xs text-[#8ef2b8] tracking-[0.12em] sm:tracking-[0.16em] uppercase mb-6 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-[#0B1220]/85 px-3.5 py-2 sm:px-4 text-center leading-snug backdrop-blur-md"
-            >
-              <span aria-hidden="true">📍</span>
-              Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
-            </motion.p>
+              <motion.h1
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
+                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.1rem,4.2vw,3.4rem)] mb-6"
+              >
+                Instalación Profesional de Cámaras de Seguridad e IA{" "}
+                <span className="text-[#2C5282]">en Bogotá</span>
+              </motion.h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
-              className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.05] text-[clamp(2.15rem,5vw,4.5rem)] mb-5 sm:mb-6"
-            >
-              Instalación Profesional de Cámaras de Seguridad e IA{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22d3ee] to-[#25d366]">
-                en Bogotá
-              </span>
-            </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
+                className="text-[#475569] text-lg md:text-xl leading-relaxed max-w-xl mb-9"
+              >
+                Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
+                Estudio de seguridad sin costo en Bogotá e instalaciones a crédito desde
+                $1.500.000 con cuotas semanales desde $50.000.
+              </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
-              className="text-foreground/85 text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
-            >
-              Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
-              Estudio de seguridad sin costo en Bogotá e instalaciones a crédito desde
-              $1.500.000 con cuotas semanales desde $50.000.
-            </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 22 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.15 }}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
+              >
+                <a
+                  href={WA_HERO_ESTUDIO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-white shadow-[0_14px_34px_-12px_rgba(37,211,102,0.75)] transition-colors hover:bg-[#20c05c]"
+                >
+                  <WhatsAppLogo size={19} />
+                  Cotizar con Estudio Gratis por WhatsApp
+                </a>
+                <button
+                  onClick={() => scrollTo("planes")}
+                  className="press inline-flex items-center justify-center gap-2 rounded-full border border-[#CBD5E1] bg-white px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-medium text-[#0F172A] transition-colors hover:border-[#1A365D] hover:bg-[#F1F5F9]"
+                >
+                  Ver Planes, Precios y Kits <ArrowRight size={16} />
+                </button>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.35 }}
+                className="mt-10"
+              >
+                <ul className="grid gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6">
+                  {[
+                    "Estudio previo sin costo en Bogotá",
+                    "Cuotas semanales desde $50k o $75k",
+                    "Equipos originales con garantía",
+                  ].map((t) => (
+                    <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-[#334155]">
+                      <CheckCircle2 size={16} className="text-[#1A365D] shrink-0" /> {t}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 22 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.15 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
+              transition={{ type: "spring", bounce: 0, duration: 0.5, delay: 0.12 }}
+              className="relative"
             >
-              <a
-                href={WA_HERO_ESTUDIO}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-[#062014] shadow-[0_14px_34px_-12px_rgba(37,211,102,0.75)] transition-colors hover:bg-[#20c05c]"
-              >
-                <WhatsAppLogo size={19} />
-                Cotizar con Estudio Gratis por WhatsApp
-              </a>
-              <button
-                onClick={() => scrollTo("planes")}
-                className="press inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/5 px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-medium text-foreground backdrop-blur-md transition-colors hover:border-[#22d3ee]/60 hover:bg-white/10"
-              >
-                Ver Planes, Precios y Kits <ArrowRight size={16} />
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.35 }}
-              className="mt-12"
-            >
-              <ul className="grid gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6 sm:gap-y-3">
-                {[
-                  "Estudio previo sin costo en Bogotá",
-                  "Cuotas semanales desde $50k o $75k",
-                  "Equipos originales con garantía",
-                ].map((t) => (
-                  <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-foreground/80">
-                    <CheckCircle2 size={16} className="text-[#25d366] shrink-0" /> {t}
-                  </li>
-                ))}
-              </ul>
+              <div className="overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.25)]">
+                <ImageWithFallback
+                  src="/blog-img/equipo-apc.webp"
+                  alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
+                  width={1200}
+                  height={675}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-5 left-6 right-6 sm:left-8 sm:right-auto rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 shadow-[0_12px_30px_-16px_rgba(15,23,42,0.25)]">
+                <p className="text-[11px] font-mono uppercase tracking-widest text-[#64748B]">
+                  Instalación + IA
+                </p>
+                <p className="text-sm font-semibold text-[#0F172A]">
+                  Cuotas desde $50.000/semana
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -925,22 +916,22 @@ export default function App() {
           </motion.button>
         </section>
 
-        {/* Trust strip */}
-        <section className="py-8 bg-background border-b border-border">
+        {/* ── BENEFICIOS DIRECTOS ───────────────────────────── */}
+        <section className="py-14 bg-secondary/70 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                ["Tiempo de respuesta", "<30 min + soporte local"],
-                ["Offline-First", "Nunca se pierde nada"],
-                ["Sin tecnicismos", "Reportes claros"],
-              ].map(([label, sub]) => (
-                <Reveal key={label} y={10} delay={0.05}>
-                  <div className="flex items-center gap-2.5">
-                    <BadgeCheck size={16} className="text-accent flex-shrink-0" />
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">{label}</p>
-                      <p className="text-xs text-muted-foreground">{sub}</p>
+                { icon: Wrench, text: "Instalación profesional limpia y estética sin cables a la vista" },
+                { icon: ClipboardCheck, text: "Estudio técnico previo sin costo en Bogotá" },
+                { icon: CreditCard, text: "Financiación flexible a crédito: cuotas semanales desde $50.000 o $75.000" },
+                { icon: LayoutDashboard, text: "Visualización en tiempo real desde tu celular (iOS / Android)" },
+              ].map(({ icon: Icon, text }) => (
+                <Reveal key={text} y={12} delay={0.05}>
+                  <div className="h-full rounded-2xl border border-border bg-card p-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)]">
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[#C7D6EC] bg-[#EAF1FA]">
+                      <Icon size={20} className="text-accent" />
                     </div>
+                    <p className="text-sm font-semibold leading-relaxed text-foreground">{text}</p>
                   </div>
                 </Reveal>
               ))}
@@ -1061,12 +1052,12 @@ export default function App() {
               desc="No vendemos equipos sueltos: instalamos, configuramos y mantenemos su sistema de cámaras en Bogotá. Estos son los motivos por los que nuestros clientes nos siguen llamando."
             />
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((b, i) => {
                 const Icon = b.icon;
                 return (
-                  <Reveal key={b.title} delay={(i % 3) * 0.08} className="bg-secondary">
-                    <Tilt className="bg-secondary p-8 h-full hover:bg-background transition-colors duration-200">
+                  <Reveal key={b.title} delay={(i % 3) * 0.08} className="h-full">
+                    <Tilt className="bg-card border border-border rounded-2xl p-8 h-full shadow-[0_1px_2px_rgba(15,23,42,0.04)] hover:border-[#C7D6EC] hover:shadow-[0_16px_36px_-20px_rgba(15,23,42,0.18)] transition-[border-color,box-shadow] duration-200">
                       <Icon size={24} className="text-accent mb-5" />
                       <h3 className="font-serif text-lg font-bold mb-3">{b.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">
@@ -1111,11 +1102,11 @@ export default function App() {
                       className={cn(
                         "glass-card rounded-2xl p-8 h-full flex flex-col relative overflow-hidden",
                         p.highlight &&
-                          "ring-1 ring-[#25d366]/50 shadow-[0_20px_70px_rgba(37,211,102,0.15)]"
+                          "ring-1 ring-[#1A365D]/40 shadow-[0_20px_50px_-24px_rgba(26,54,93,0.35)]"
                       )}
                     >
                       {p.highlight && (
-                        <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-[#25d366]/15 border border-[#25d366]/30 px-3 py-1 text-[11px] font-semibold text-[#25d366]">
+                        <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-[#EAF1FA] border border-[#C7D6EC] px-3 py-1 text-[11px] font-semibold text-[#1A365D]">
                           <Sparkles size={11} /> Más pedido
                         </span>
                       )}
@@ -1145,7 +1136,7 @@ export default function App() {
                       <ul className="space-y-3 text-sm mb-8 flex-1">
                         {p.features.map((f) => (
                           <li key={f} className="flex items-start gap-2.5">
-                            <CheckCircle2 size={15} className="mt-0.5 text-[#25d366] flex-shrink-0" />
+                            <CheckCircle2 size={15} className="mt-0.5 text-[#1A365D] flex-shrink-0" />
                             <span className="text-foreground/85">{f}</span>
                           </li>
                         ))}
@@ -1197,10 +1188,10 @@ export default function App() {
                       <span className="absolute top-4 right-5 font-serif text-5xl font-bold text-foreground/5 select-none" aria-hidden="true">
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <div className="w-12 h-12 rounded-xl border border-[#25d366]/30 bg-[#25d366]/10 flex items-center justify-center mb-5">
-                        <Icon size={20} className="text-[#25d366]" />
+                      <div className="w-12 h-12 rounded-xl border border-[#C7D6EC] bg-[#EAF1FA] flex items-center justify-center mb-5">
+                        <Icon size={20} className="text-[#1A365D]" />
                       </div>
-                      <p className="font-mono text-xs text-[#25d366] tracking-widest uppercase mb-1.5">
+                      <p className="font-mono text-xs text-[#1A365D] tracking-widest uppercase mb-1.5">
                         {p.step}
                       </p>
                       <h3 className="font-serif text-xl font-bold mb-2">{p.title}</h3>
@@ -1326,32 +1317,36 @@ export default function App() {
         <LazyMount id="nosotros">
         <section id="nosotros" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="grid lg:grid-cols-12 gap-12 items-center">
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
               <Reveal className="lg:col-span-5">
                 <div className="relative">
                   <div
-                    className="absolute -top-4 -left-4 w-full h-full border border-accent/30"
+                    className="absolute -top-4 -left-4 w-full h-full border border-[#DCE7F5]"
                     aria-hidden="true"
                   />
-                  <picture>
-                    <source srcSet="/fundador.webp" type="image/webp" />
-                    <ImageWithFallback
-                      src="/fundador.jpeg"
-                      alt="Alejandro Piraquive — Fundador de Servicios APC"
-                      width={1600}
-                      height={900}
-                      className="w-full object-cover aspect-video relative z-10"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                  <div className="absolute bottom-0 left-0 right-0 z-20 bg-accent px-6 py-4">
-                    <p className="text-accent-foreground font-mono text-xs tracking-widest uppercase">
-                      Alejandro Piraquive — Fundador
-                    </p>
-                    <p className="text-accent-foreground text-xs mt-0.5 font-mono">
-                      Bogotá, Colombia
-                    </p>
+                  <div className="relative z-10 overflow-hidden border border-border bg-white">
+                    <div className="flex flex-col items-center justify-center bg-[#EAF1FA] px-6 py-14">
+                      <p className="font-serif text-5xl font-bold tracking-tight text-[#1A365D]">
+                        APC
+                      </p>
+                      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.3em] text-[#64748B]">
+                        Servicios APC
+                      </p>
+                    </div>
+                    <div className="px-6 py-6">
+                      <p className="font-mono text-[10px] tracking-widest uppercase text-[#64748B] mb-1">
+                        Fundador
+                      </p>
+                      <p className="font-serif text-2xl font-bold text-[#0F172A]">
+                        Alejandro Piraquive
+                      </p>
+                      <p className="text-sm text-[#475569] mb-5">
+                        Servicios APC · Bogotá, Colombia
+                      </p>
+                      <p className="font-serif text-lg leading-snug text-[#1A365D]">
+                        “No vendemos equipos. Instalamos orden.”
+                      </p>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -1538,14 +1533,6 @@ export default function App() {
                     </p>
                   </Reveal>
                 </div>
-
-                <Reveal delay={0.22}>
-                  <WhatsAppChip
-                    label="Escribir por WhatsApp ahora"
-                    href={WA_HERO}
-                    className="mt-10"
-                  />
-                </Reveal>
               </div>
 
               <div className="lg:col-span-7">
@@ -1555,7 +1542,7 @@ export default function App() {
                       initial={{ opacity: 0, scale: 0.96 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={SPRING}
-                      className="h-full flex flex-col items-center justify-center border border-border p-12 text-center"
+                      className="h-full flex flex-col items-center justify-center rounded-2xl border border-border bg-white p-12 text-center"
                     >
                       <motion.div
                         initial={{ scale: 0.6 }}
@@ -1584,7 +1571,7 @@ export default function App() {
                       noValidate
                       toolname="instalacion_cctv"
                       tooldescription="Instalación de CCTV con inteligencia artificial en Bogotá. Solicita tu diagnóstico gratuito a Servicios APC; requiere nombre, correo electrónico y un mensaje con la necesidad del negocio."
-                      className="border border-border p-8 lg:p-10 space-y-6"
+                      className="rounded-2xl border border-border bg-white p-8 lg:p-10 space-y-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
                     >
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
@@ -1606,7 +1593,7 @@ export default function App() {
                             placeholder="Tu nombre"
                             aria-invalid={!!errors.nombre}
                             className={cn(
-                              "w-full bg-background border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
+                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
                               errors.nombre ? "border-red-500" : "border-border"
                             )}
                           />
@@ -1633,7 +1620,7 @@ export default function App() {
                             placeholder="tu@empresa.com"
                             aria-invalid={!!errors.email}
                             className={cn(
-                              "w-full bg-background border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
+                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
                               errors.email ? "border-red-500" : "border-border"
                             )}
                           />
@@ -1659,7 +1646,7 @@ export default function App() {
                             setForm({ ...form, telefono: e.target.value })
                           }
                           placeholder="+57 333 745 0634"
-                          className="w-full bg-background border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
+                          className="w-full rounded-lg bg-white border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
                         />
                       </div>
 
@@ -1682,7 +1669,7 @@ export default function App() {
                           placeholder="¿Tiene Hikvision? ¿Necesita analítica? Cuéntenos..."
                           aria-invalid={!!errors.mensaje}
                           className={cn(
-                            "w-full bg-background border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none",
+                            "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none",
                             errors.mensaje ? "border-red-500" : "border-border"
                           )}
                         />
@@ -1721,14 +1708,13 @@ export default function App() {
         </LazyMount>
         <LazyMount id="blog">
         <section id="blog" className="relative py-24 overflow-hidden">
-          <VideoHero
-            title="Blog de Cámaras IA y Automatización"
-            subtitle="Guías, casos reales y novedades sobre analítica de video con IA, CCTV Hikvision, bots WhatsApp y automatización de procesos para empresas en Bogotá."
-            ctaLabel="Ver todos los artículos"
-            onCta={() => { window.location.hash = "blog"; }}
-            className="absolute inset-0 z-0"
-            overlayClassName="bg-black/80"
-            videoClassName="object-cover"
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(55% 45% at 85% 0%, #EAF1FA 0%, transparent 62%)",
+            }}
           />
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <Reveal>
@@ -1751,25 +1737,25 @@ export default function App() {
             {/* ── 4 CATEGORÍAS PRINCIPALES ── */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
               <CategoryCard
-                image="/blog-img/cctv-ia-bogota.webp"
+                icon={Camera}
                 title="CCTV + IA Bogotá"
                 desc="Analítica de video con Hikvision DeepinView: conteo, PPE, calor, ANPR."
                 href="/#blog"
               />
               <CategoryCard
-                image="/blog-img/automatizacion-n8n.webp"
+                icon={Zap}
                 title="Automatización n8n + IA"
                 desc="Flujos WhatsApp, CRM, dashboards y alertas sin código con n8n."
                 href="/#blog"
               />
               <CategoryCard
-                image="/blog-img/control-acceso.webp"
+                icon={BadgeCheck}
                 title="Control de Acceso + Nómina"
                 desc="Biometría, ANPR, torniquetes integrados a nómina y RRHH."
                 href="/#blog"
               />
               <CategoryCard
-                image="/blog-img/diagnostico-b2b.webp"
+                icon={ClipboardCheck}
                 title="Diagnóstico B2B Gratis"
                 desc="Auditoría de 1-2h sin costo si implementas. ROI medido en semanas."
                 href="/#blog"
@@ -1790,7 +1776,7 @@ export default function App() {
         </LazyMount>
         <LazyMount id="cta">
         <section className="py-20 relative overflow-hidden vignette">
-          <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-[#25d366]/10" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1A365D]/[0.06] via-transparent to-transparent" />
           <div className="relative max-w-4xl mx-auto px-6 text-center">
             <Reveal>
               <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-[-0.02em] leading-[1.05] mb-5">
@@ -1808,7 +1794,7 @@ export default function App() {
                 <WhatsAppChip label="Cotizar por WhatsApp" href={WA_HERO} />
                 <button
                   onClick={() => scrollTo("planes")}
-                  className="press inline-flex items-center gap-2 text-foreground/90 font-medium px-6 py-3.5 rounded-full border border-foreground/20 backdrop-blur-md hover:border-foreground/40 hover:bg-foreground/5 transition-colors"
+                  className="press inline-flex items-center gap-2 text-[#0F172A] font-medium px-6 py-3.5 rounded-full border border-[#CBD5E1] bg-white hover:border-[#1A365D] hover:bg-[#F1F5F9] transition-colors"
                 >
                   Ver planes <ArrowRight size={15} />
                 </button>
@@ -2105,28 +2091,20 @@ export default function App() {
 /* ─── Componentes de la sección Blog en Landing ─── */
 
 interface CategoryCardProps {
-  image: string;
+  icon: ComponentType<{ size?: number | string; strokeWidth?: number; className?: string }>;
   title: string;
   desc: string;
   href: string;
 }
 
-function CategoryCard({ image, title, desc, href }: CategoryCardProps) {
+function CategoryCard({ icon: Icon, title, desc, href }: CategoryCardProps) {
   return (
     <a
       href={href}
-      className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl p-6 hover:border-accent/30 hover:bg-background transition-all duration-300"
-      style={{ backdropFilter: "blur(20px)" }}
+      className="press group relative rounded-2xl overflow-hidden border border-border bg-white p-6 hover:border-accent/30 hover:shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)] transition-all duration-300"
     >
-      <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
-        <ImageWithFallback
-          src={image}
-          alt={title}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      <div className="relative aspect-video rounded-xl overflow-hidden mb-4 bg-[#EAF1FA] border border-[#DCE7F5] grid place-items-center">
+        <Icon size={34} strokeWidth={1.75} className="text-[#1A365D]" />
       </div>
       <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
         {title}
@@ -2184,9 +2162,8 @@ function RecentArticlesGrid() {
               decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
             <span
-              className="absolute top-3 left-3 text-xs font-medium text-accent px-2 py-1 rounded bg-black/80 backdrop-blur"
+              className="absolute top-3 left-3 text-xs font-medium text-[#0F172A] px-2 py-1 rounded bg-white/95 shadow-sm"
             >
               {post.category}
             </span>

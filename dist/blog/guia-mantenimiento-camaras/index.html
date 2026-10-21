@@ -15,49 +15,49 @@
   <meta property="og:image" content="https://serviciosapc.site/blog-img/guia-mantenimiento-camaras.webp" />
   <meta property="og:locale" content="es_CO" />
   <style>
-    :root{--bg:#080C18;--card:#111A2E;--accent:#ea580c;--green:#25D366;--fg:#f0ede6;--muted:#94a3b8;--border:#1e293b}
+    :root{--bg:#F8FAFC;--card:#FFFFFF;--accent:#1A365D;--green:#25D366;--fg:#0F172A;--muted:#64748B;--border:#E2E8F0}
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
     a{color:var(--accent);text-decoration:none}
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(8,12,24,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(248,250,252,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
     .site-header .inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-    .site-header .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+    .site-header .logo{display:flex;align-items:center;gap:10px;color:#0F172A;font-weight:700;font-size:14px;text-decoration:none}
     .site-header .logo img{height:32px;width:auto}
     .site-header nav{display:flex;align-items:center;gap:20px;font-size:13px}
-    .site-header nav a{color:#a0aec0;font-weight:500;transition:color .2s}
-    .site-header nav a:hover{color:#fff}
+    .site-header nav a{color:#475569;font-weight:500;transition:color .2s}
+    .site-header nav a:hover{color:#0F172A}
     .site-header .wa{background:var(--green);color:#fff;padding:8px 18px;border-radius:20px;font-weight:600;font-size:13px}
     .container{max-width:896px;margin:0 auto;padding:24px 24px 60px}
     .back{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);margin:16px 0 8px;transition:color .2s}
-    .back:hover{color:#fff}
+    .back:hover{color:#0F172A}
     .breadcrumb{font-size:13px;color:var(--muted);margin:8px 0 16px}
     .breadcrumb a{color:var(--muted)}
-    .breadcrumb a:hover{color:#fff}
-    .badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(234,88,12,.15);color:var(--accent);border:1px solid rgba(234,88,12,.3)}
+    .breadcrumb a:hover{color:#0F172A}
+    .badge{display:inline-block;padding:4px 12px;border-radius:999px;font-size:12px;font-weight:600;background:#EAF1FA;color:var(--accent);border:1px solid #C7D6EC}
     .meta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;color:var(--muted);font-size:13px;margin:12px 0 20px}
-    .cover{width:100%;border-radius:12px;margin:0 0 32px;aspect-ratio:16/9;object-fit:cover;border:1px solid #1E2A4A}
+    .cover{width:100%;border-radius:12px;margin:0 0 32px;aspect-ratio:16/9;object-fit:cover;border:1px solid #E2E8F0}
     h1{font-size:2rem;line-height:1.15;font-weight:700;margin:0 0 12px;color:var(--fg)}
     @media(min-width:768px){h1{font-size:2.5rem}}
     .lead{font-size:1.15rem;color:var(--muted);margin:0 0 24px;line-height:1.6}
     h2{color:var(--fg);font-size:1.4rem;margin:32px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
     h3{color:var(--fg);font-size:1.15rem;margin:24px 0 10px}
-    p{margin:0 0 14px;color:#cbd5e1}
+    p{margin:0 0 14px;color:#334155}
     ul,ol{padding-left:24px;margin:0 0 16px}
-    li{margin:6px 0;color:#cbd5e1}
+    li{margin:6px 0;color:#334155}
     strong{color:var(--fg)}
-    .tip{background:rgba(34,197,94,.08);border-left:4px solid #22c55e;padding:16px 18px;margin:16px 0;border-radius:0 10px 10px 0;color:#cbd5e1}
-    .tip strong{color:#4ade80}
+    .tip{background:rgba(37,211,102,.10);border-left:4px solid #25D366;padding:16px 18px;margin:16px 0;border-radius:0 10px 10px 0;color:#334155}
+    .tip strong{color:#15803D}
     .cta-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin:40px 0;text-align:center}
     .cta-card h3{margin:0 0 10px;font-size:1.25rem;color:var(--fg)}
     .cta-card p{margin:0 0 20px;color:var(--muted)}
     .wa-btn{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:14px 28px;border-radius:12px;font-weight:700;font-size:1rem;text-decoration:none;transition:opacity .2s}
     .wa-btn:hover{opacity:.9}
-    footer{background:#050810;color:var(--muted);padding:40px 24px;border-top:1px solid var(--border);margin-top:40px}
+    footer{background:#F1F5F9;color:var(--muted);padding:40px 24px;border-top:1px solid var(--border);margin-top:40px}
     footer .inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
     footer h4{color:var(--fg);font-size:14px;font-weight:700;margin:0 0 12px}
     footer p{font-size:13px;line-height:1.7;margin:0;color:var(--muted)}
     footer a{color:var(--muted);text-decoration:none}
-    footer a:hover{color:#fff}
+    footer a:hover{color:#0F172A}
     footer .copy{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:#64748b}
   </style>
 <!-- Google tag (gtag.js) -->

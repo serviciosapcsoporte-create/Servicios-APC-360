@@ -26,14 +26,14 @@ export class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
       return (
-        <div className="min-h-screen bg-[#0b0f19] text-white flex flex-col items-center justify-center p-6 text-center">
+        <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] flex flex-col items-center justify-center p-6 text-center">
           <h1 className="text-2xl font-bold mb-2">Servicios APC</h1>
-          <p className="text-gray-400 mb-6 max-w-md">
+          <p className="text-[#64748B] mb-6 max-w-md">
             Se detectó una interrupción en la carga de recursos de la página.
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-black font-medium rounded-lg transition-all"
+            className="px-6 py-3 bg-[#25D366] hover:bg-[#20c05c] text-white font-medium rounded-lg transition-colors"
           >
             Reintentar / Recargar
           </button>

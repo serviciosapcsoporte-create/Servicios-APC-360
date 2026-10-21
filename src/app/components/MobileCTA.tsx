@@ -50,12 +50,12 @@ export const MobileCTA: React.FC<MobileCTAProps> = ({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      <div className="bg-[#0b0f19] border-t border-white/10 px-4 py-3">
+      <div className="bg-white border-t border-[#E2E8F0] px-4 py-3 shadow-[0_-8px_24px_-18px_rgba(15,23,42,0.3)]">
         <div className="flex items-center justify-between gap-3 max-w-screen-xl mx-auto">
           <WhatsAppCTA href={ctaHref} label={ctaLabel} size="md" className="flex-1" />
           <button
             onClick={() => setIsVisible(false)}
-            className="p-2 text-gray-400 hover:text-white transition-colors"
+            className="p-2 text-[#64748B] hover:text-[#0F172A] transition-colors"
             aria-label="Cerrar"
           >
             <X size={20} />

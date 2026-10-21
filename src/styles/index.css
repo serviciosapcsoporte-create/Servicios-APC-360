@@ -33,7 +33,7 @@
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 1px;
-  text-decoration-color: rgba(201, 74, 10, 0.3);
+  text-decoration-color: rgba(26, 54, 93, 0.3);
   transition: text-decoration-color 0.2s;
 }
 
@@ -163,24 +163,24 @@
 /* ─── Apple-style materials & motion utilities ─────────────── */
 
 .glass {
-  background: rgba(19, 23, 32, 0.55);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid #E2E8F0;
 }
 
 .glass-card {
-  background: rgba(19, 23, 32, 0.9);
+  background: #FFFFFF;
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #E2E8F0;
 }
 
 .glass-nav {
-  background: rgba(11, 14, 23, 0.9);
+  background: rgba(248, 250, 252, 0.94);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   backdrop-filter: blur(20px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #E2E8F0;
 }
 
 /* Soft vignette at screen edges (Apple-like depth) */
@@ -195,7 +195,7 @@
   background: radial-gradient(
     120% 85% at 50% 42%,
     transparent 58%,
-    rgba(0, 0, 0, 0.34) 100%
+    rgba(15, 23, 42, 0.04) 100%
   );
 }
 
@@ -210,7 +210,7 @@
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3),
+    rgba(15, 23, 42, 0.06),
     transparent
   );
 }
@@ -223,7 +223,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 /* Press feedback (instant on pointer-down) */
@@ -303,8 +303,8 @@
   .glass,
   .glass-card,
   .glass-nav {
-    background: rgba(11, 14, 23, 0.94) !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
+    background: #FFFFFF !important;
+    border-color: #E2E8F0 !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
   }
@@ -314,7 +314,7 @@
   .glass,
   .glass-card,
   .glass-nav {
-    background: var(--color-background) !important;
-    border-color: rgba(255, 255, 255, 0.45) !important;
+    background: #FFFFFF !important;
+    border-color: #94A3B8 !important;
   }
 }

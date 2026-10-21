@@ -170,7 +170,7 @@ export function CamarasNegocio() {
               <div
                 key={item.title}
                 className="flex flex-col md:flex-row gap-6 p-6 md:p-8 rounded-xl border"
-                style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-background)" }}
+                style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-card)" }}
               >
                 <div className="flex-shrink-0">
                   <div
@@ -201,7 +201,7 @@ export function CamarasNegocio() {
       </section>
 
       {/* ═══════════ SOLUCIONES POR NEGOCIO ═══════════ */}
-      <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
+      <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-card)" }}>
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-center">
             Soluciones para cada tipo de negocio
@@ -266,7 +266,7 @@ export function CamarasNegocio() {
                 <div className="flex flex-wrap gap-2">
                   <span
                     className="text-xs font-sans px-3 py-1 rounded-full"
-                    style={{ backgroundColor: "var(--color-accent)", color: "var(--color-background)", opacity: 0.9 }}
+                    style={{ backgroundColor: "var(--color-accent)", color: "var(--color-card)", opacity: 0.9 }}
                   >
                     {item.cameras}
                   </span>
@@ -295,21 +295,21 @@ export function CamarasNegocio() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+              <div className="p-6 rounded-xl border border-border bg-white hover:border-accent/30 transition-all">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
                   <UtensilsCrossed className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Estética y Limpieza</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Cableado estructurado oculto, sin cables colgados ni instalaciones ordinarias. Dejamos tu espacio impecable.</p>
               </div>
-              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+              <div className="p-6 rounded-xl border border-border bg-white hover:border-accent/30 transition-all">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
                   <Eye className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">Ángulo de Visión Estratégico</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">Estudio previo del espacio para evitar puntos ciegos. Cobertura total sin zonas muertas.</p>
               </div>
-              <div className="p-6 rounded-xl border border-border bg-background/50 hover:border-accent/30 transition-all">
+              <div className="p-6 rounded-xl border border-border bg-white hover:border-accent/30 transition-all">
                 <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--color-accent)", opacity: 0.1 }}>
                   <Brain className="w-6 h-6" style={{ color: "var(--color-accent)" }} />
                 </div>
@@ -332,7 +332,7 @@ export function CamarasNegocio() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Kit 4 Cámaras HD */}
-              <div className="relative flex flex-col p-6 rounded-2xl border-2 transition-all" style={{ borderColor: "var(--color-accent)", backgroundColor: "var(--color-background)" }}>
+              <div className="relative flex flex-col p-6 rounded-2xl border-2 transition-all" style={{ borderColor: "var(--color-accent)", backgroundColor: "var(--color-card)" }}>
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full">
                   El más vendido
                 </div>
@@ -356,7 +356,7 @@ export function CamarasNegocio() {
               </div>
 
               {/* Kit 8 Cámaras HD */}
-              <div className="relative flex flex-col p-6 rounded-2xl border-2 border-border transition-all hover:border-accent/50" style={{ backgroundColor: "var(--color-background)" }}>
+              <div className="relative flex flex-col p-6 rounded-2xl border-2 border-border transition-all hover:border-accent/50" style={{ backgroundColor: "var(--color-card)" }}>
                 <h3 className="font-serif text-2xl font-bold mb-2 text-center">Financiado — Kit desde</h3>
                 <p className="text-center text-muted-foreground mb-4">Total de referencia del kit: desde $1.800.000</p>
                 <div className="text-center text-3xl font-bold text-foreground mb-6">Desde $50.000/semana</div>
@@ -380,7 +380,7 @@ export function CamarasNegocio() {
 
             {/* Mano de obra por punto */}
             <div className="mt-12 max-w-2xl mx-auto">
-              <div className="p-6 rounded-2xl border border-border bg-background/50 text-center">
+              <div className="p-6 rounded-2xl border border-border bg-white text-center">
                 <h3 className="font-serif text-xl font-bold mb-2">¿Ya tienes las cámaras? Solo necesitas la mano de obra</h3>
                 <p className="text-muted-foreground mb-4">El valor por punto se define en el estudio de instalación, según la altura y la complejidad.</p>
                 <WhatsAppCTA label="Agenda la Visita del Técnico" href="https://wa.me/573337450634?text=Hola%20Servicios%20APC,%20ya%20tengo%20las%20c%C3%A1maras%20y%20necesito%20solo%20la%20mano%20de%20obra%20de%20instalaci%C3%B3n" size="md" />
@@ -390,7 +390,7 @@ export function CamarasNegocio() {
         </section>
 
         {/* BLOQUE 4: PRIMER LLAMADO A LA ACCIÓN */}
-        <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-background)" }}>
+        <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)", backgroundColor: "var(--color-card)" }}>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
               ¿Ya tienes las cámaras y solo necesitas la mano de obra de instalación?
@@ -415,13 +415,13 @@ export function CamarasNegocio() {
             <div className="grid md:grid-cols-3 gap-6">
               <a
                 href="/analitica-video-ia-empresas-bogota"
-                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl p-6 hover:border-accent/30 hover:bg-background transition-all"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-white shadow-sm p-6 hover:border-accent/30 hover:bg-white transition-all"
                 style={{ backdropFilter: "blur(20px)" }}
               >
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#EAF1FA] to-[#DCE7F5]" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Users className="w-12 h-12 text-white/20" />
+                    <Users className="w-12 h-12 text-[#1A365D]/30" />
                   </div>
                 </div>
                 <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
@@ -438,13 +438,13 @@ export function CamarasNegocio() {
 
               <a
                 href="/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard"
-                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl hover:border-accent/30 hover:bg-background transition-all"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-white shadow-sm hover:border-accent/30 hover:bg-white transition-all"
                 style={{ backdropFilter: "blur(20px)" }}
               >
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#EAF1FA] to-[#DCE7F5]" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Zap className="w-12 h-12 text-white/20" />
+                    <Zap className="w-12 h-12 text-[#1A365D]/30" />
                   </div>
                 </div>
                 <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
@@ -461,13 +461,13 @@ export function CamarasNegocio() {
 
               <a
                 href="/seo-local-google-maps-empresas-seguridad-bogota"
-                className="press group relative rounded-2xl overflow-hidden border border-border bg-background/50 backdrop-blur-xl hover:border-accent/30 hover:bg-background transition-all"
+                className="press group relative rounded-2xl overflow-hidden border border-border bg-white shadow-sm hover:border-accent/30 hover:bg-white transition-all"
                 style={{ backdropFilter: "blur(20px)" }}
               >
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#001135] to-[#0a1c3f]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#EAF1FA] to-[#DCE7F5]" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <Globe className="w-12 h-12 text-white/20" />
+                    <Globe className="w-12 h-12 text-[#1A365D]/30" />
                   </div>
                 </div>
                 <h3 className="text-base font-semibold text-foreground mb-1 group-hover:text-accent transition-colors">
@@ -483,7 +483,9 @@ export function CamarasNegocio() {
               </a>
             </div>
           </div>
-        </section>CTA FINAL ═══════════ */
+        </section>
+
+        {/* ═══════════ CTA FINAL ═══════════ */}
       <section className="py-16 md:py-24 px-6" style={{ borderTop: "1px solid var(--color-border)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
