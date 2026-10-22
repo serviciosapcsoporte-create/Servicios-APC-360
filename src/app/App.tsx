@@ -412,11 +412,35 @@ function SectionHeader({
   kicker,
   title,
   desc,
+  stacked = false,
 }: {
   kicker: string;
   title: string;
   desc: string;
+  stacked?: boolean;
 }) {
+  if (stacked) {
+    return (
+      <div className="mb-12 max-w-4xl">
+        <Reveal>
+          <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
+            {kicker}
+          </p>
+        </Reveal>
+        <Reveal delay={0.06}>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 tracking-[-0.02em] leading-[1.05] text-foreground">
+            {title}
+          </h2>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <p className="text-muted-foreground max-w-2xl leading-relaxed">
+            {desc}
+          </p>
+        </Reveal>
+      </div>
+    );
+  }
+
   return (
     <div className="grid lg:grid-cols-12 gap-8 mb-16">
       <div className="lg:col-span-3">
@@ -942,25 +966,29 @@ export default function App() {
 
         {/* ── SERVICIOS ─────────────────────────────────────── */}
         <LazyMount id="servicios">
-        <section id="servicios" className="py-24 border-t border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <section id="servicios" className="py-24 border-t border-border overflow-x-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full overflow-hidden">
             <SectionHeader
+              stacked
               kicker="Nuestros Servicios"
               title="Instalación de cámaras y analítica de video con IA"
-              desc="Cámaras Hikvision certificadas, cableado profesional y analítica que convierte su video en datos: conteo, aforo, mapas de calor y arqueo de caja. Todo en Bogotá."
+              desc="Cámaras Hikvision/Dahua certificadas, cableado profesional y analítica que convierte su video en datos. Todo en Bogotá."
             />
 
             <Reveal>
-              <div className="border-t border-border">
+              <div className="space-y-4">
                 {services.map((s, i) => {
                   const Icon = s.icon;
                   const open = activeService === i;
                   return (
-                    <div key={s.id} className="border-b border-border">
+                    <div
+                      key={s.id}
+                      className="rounded-2xl border border-[#E2E8F0] bg-white shadow-sm overflow-hidden"
+                    >
                       <button
                         onClick={() => setActiveService(open ? -1 : i)}
                         aria-expanded={open}
-                        className="press w-full flex items-center gap-4 py-6 text-left group"
+                        className="press w-full flex items-center gap-4 px-5 sm:px-6 py-5 text-left group"
                       >
                         <Icon
                           size={22}
@@ -988,8 +1016,8 @@ export default function App() {
                       </button>
 
                       <AccordionPanel open={open} durationMs={320}>
-                            <div className="pb-10 grid lg:grid-cols-2 gap-10 items-center">
-                              <div>
+                            <div className="px-5 sm:px-6 pb-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                              <div className="min-w-0">
                                 <p className="text-muted-foreground leading-relaxed mb-6">
                                   {s.description}
                                 </p>
@@ -1017,20 +1045,18 @@ export default function App() {
                                   brand={s.color}
                                 />
                               </div>
-                              <div className="relative order-first lg:order-last">
-                                <div
-                                  className="bg-secondary h-2 w-full absolute -top-2 left-0"
-                                  style={{ backgroundColor: s.color, opacity: 0.3 }}
-                                />
-                                <ImageWithFallback
-                                  src={s.image}
-                                  alt={s.imageAlt}
-                                  className="w-full aspect-[4/3] object-cover"
-                                  width={800}
-                                  height={560}
-                                  loading="lazy"
-                                  decoding="async"
-                                />
+                              <div className="relative order-first w-full max-w-full min-w-0 lg:order-last">
+                                <div className="w-full max-w-full overflow-hidden rounded-xl border border-[#E2E8F0] bg-secondary">
+                                  <ImageWithFallback
+                                    src={s.image}
+                                    alt={s.imageAlt}
+                                    className="block w-full max-w-full h-auto object-contain rounded-xl"
+                                    width={800}
+                                    height={560}
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </AccordionPanel>
