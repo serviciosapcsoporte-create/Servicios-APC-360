@@ -29,7 +29,6 @@ import {
   ClipboardCheck,
   Wrench,
   Package,
-  Sparkles,
   Building2,
   Car,
   CreditCard,
@@ -51,13 +50,6 @@ const WA_HERO = waLink(
 const WA_HERO_ESTUDIO = waLink(
   "Hola Servicios APC, quiero agendar el estudio de seguridad gratis y cotizar la instalación de cámaras de seguridad e IA en Bogotá"
 );
-
-const fmtCOP = (n: number) =>
-  new Intl.NumberFormat("es-CO", {
-    style: "currency",
-    currency: "COP",
-    maximumFractionDigits: 0,
-  }).format(n);
 
 const SPRING = { type: "spring", bounce: 0, duration: 0.45 } as const;
 const SPRING_SOFT = { type: "spring", bounce: 0.2, duration: 0.4 } as const;
@@ -105,49 +97,63 @@ const services = [
   },
 ];
 
-const plans = [
+const kits = [
   {
-    id: "unico",
-    name: "Pago único",
-    cameras: "Kit instalado · todo incluido",
-    price: 1500000,
-    priceSuffix: " total",
-    tagline:
-      "Un solo pago con instalación, cableado, configuración y entrega funcionando.",
+    id: "kit-4",
+    badge: "⭐ Más Solicitado",
+    title: "Kit 4 Cámaras (3 HD + 1 ColorVu)",
+    price: "Desde $1.700.000 COP",
+    average: "Promedio en Bogotá: $1.7M – $1.9M",
+    financing: "💳 Cuotas semanales desde $50.000",
     features: [
-      "Kit de cámaras y grabador definidos en el estudio",
-      "Instalación y cableado certificado incluidos",
-      "Configuración de app y acceso remoto",
-      "Prueba conjunta y entrega funcionando",
-      "Garantía de fábrica del equipo",
-      "Soporte post-instalación en Bogotá",
+      "1 Cámara Hikvision / Dahua ColorVu (Color 24/7)",
+      "3 Cámaras HD de 3 Megapíxeles",
+      "1 DVR Grabador Profesional",
+      "1 Disco Duro de 1 Tera",
+      "Cable UTP, conectores, fuentes y cajas de paso",
+      "Estudio de seguridad sin costo en Bogotá",
+      "Configuración e instalación profesional en smartphone",
     ],
-    ctaLabel: "Cotizar mi instalación",
+    ctaLabel: "Cotizar Kit 4 Cámaras",
     ctaMsg:
-      "Hola Servicios APC, quiero cotizar la instalación con pago único para mi negocio en Bogotá",
-    icon: Package,
+      "Hola Servicios APC, quiero cotizar el Kit 4 Cámaras (3 HD + 1 ColorVu) para mi negocio en Bogotá",
     highlight: true,
   },
   {
-    id: "financiado",
-    name: "Financiado",
-    cameras: "Mismo kit · pagos semanales",
-    price: 50000,
-    priceSuffix: "/semana",
-    tagline:
-      "Sin pagar el kit de una sola vez: cuotas semanales acordadas según su instalación.",
+    id: "kit-8",
+    badge: "🏢 Ideal Comercio y Bodegas",
+    title: "Kit 8 Cámaras HD / ColorVu",
+    price: "Desde $2.800.000 COP",
+    financing: "💳 Cuotas semanales desde $75.000",
     features: [
-      "Mismo kit y misma instalación del pago único",
-      "Pagos semanales desde $50.000",
-      "Total de referencia del kit: desde $1.800.000",
-      "Cronograma de cuotas acordado por escrito",
-      "Sin cuotas de tarjeta: pago directo a nosotros",
-      "El número de cuotas lo define el estudio",
+      "2 Cámaras ColorVu + 6 Cámaras HD",
+      "1 DVR Grabador de 8 Canales",
+      "1 Disco Duro de 2 Teras",
+      "Accesorios completos, cajas de paso y cableado UTP",
+      "Estudio previo de seguridad sin costo en Bogotá",
+      "Configuración multidispositivo",
     ],
-    ctaLabel: "Cotizar mi kit financiado",
+    ctaLabel: "Cotizar Kit 8 Cámaras",
     ctaMsg:
-      "Hola Servicios APC, quiero cotizar el kit de cámaras financiado en cuotas semanales para mi negocio en Bogotá",
-    icon: CreditCard,
+      "Hola Servicios APC, quiero cotizar el Kit 8 Cámaras HD / ColorVu para mi negocio en Bogotá",
+    highlight: false,
+  },
+  {
+    id: "kit-16",
+    badge: "🏭 Cobertura Total",
+    title: "Kit 16 Cámaras Empresarial / NVR",
+    price: "Desde $4.900.000 COP",
+    financing: "💳 Financiación a la medida",
+    features: [
+      "4 Cámaras ColorVu + 12 Cámaras HD / 5MP",
+      "1 NVR / DVR de 16 Canales",
+      "1 Disco Duro de 4 Teras",
+      "Cableado estructurado e integración a red local",
+      "Visita e inspección técnica presencial en Bogotá",
+    ],
+    ctaLabel: "Solicitar Visita Técnica 16C",
+    ctaMsg:
+      "Hola Servicios APC, quiero solicitar la visita técnica para el Kit 16 Cámaras Empresarial / NVR en Bogotá",
     highlight: false,
   },
 ];
@@ -1103,95 +1109,88 @@ export default function App() {
         <LazyMount id="planes">
         <section id="planes" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <SectionHeader
-              kicker="Precios"
-              title="Precios que se ajustan a su instalación, no al revés"
-              desc="Pago único desde $1.500.000 con todo incluido, o financiado desde $50.000 semanales. Publicamos precios 'desde' a propósito: el valor final siempre sale de un estudio de instalación."
-            />
-
-            <Reveal className="mb-10">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
-                  <BadgeCheck size={13} className="text-accent" /> Precios de
-                  referencia · el valor final se define en el estudio de
-                  instalación
+            <div className="mb-12 max-w-3xl">
+              <Reveal>
+                <span className="inline-flex items-center rounded-full border border-[#C7D6EC] bg-[#EAF1FA] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1A365D]">
+                  📍 Tarifas de referencia en Bogotá · Estudio gratis
                 </span>
-              </div>
-            </Reveal>
-
-            <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-4xl">
-              {plans.map((p, i) => {
-                const Icon = p.icon;
-                return (
-                  <Reveal key={p.id} delay={i * 0.08} className="h-full">
-                    <Tilt
-                      max={1.5}
-                      className={cn(
-                        "glass-card rounded-2xl p-8 h-full flex flex-col relative overflow-hidden",
-                        p.highlight &&
-                          "ring-1 ring-[#1A365D]/40 shadow-[0_20px_50px_-24px_rgba(26,54,93,0.35)]"
-                      )}
-                    >
-                      {p.highlight && (
-                        <span className="absolute top-4 right-4 inline-flex items-center gap-1 rounded-full bg-[#EAF1FA] border border-[#C7D6EC] px-3 py-1 text-[11px] font-semibold text-[#1A365D]">
-                          <Sparkles size={11} /> Más pedido
-                        </span>
-                      )}
-                      <Icon size={26} className="text-accent mb-4" />
-                      <h3 className="font-serif text-2xl font-bold tracking-[-0.01em]">
-                        {p.name}
-                      </h3>
-                      <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest mt-1 mb-4">
-                        {p.cameras}
-                      </p>
-                      <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                        {p.tagline}
-                      </p>
-
-                      <div className="mb-6">
-                        <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
-                          Desde
-                        </p>
-                        <p className="font-serif text-4xl font-bold tracking-[-0.02em]">
-                          {fmtCOP(p.price)}
-                          <span className="text-lg text-muted-foreground font-normal">
-                            {p.priceSuffix}
-                          </span>
-                        </p>
-                      </div>
-
-                      <ul className="space-y-3 text-sm mb-8 flex-1">
-                        {p.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5">
-                            <CheckCircle2 size={15} className="mt-0.5 text-[#1A365D] flex-shrink-0" />
-                            <span className="text-foreground/85">{f}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <WhatsAppChip
-                        small
-                        label={p.ctaLabel}
-                        href={waLink(p.ctaMsg)}
-                      />
-                    </Tilt>
-                  </Reveal>
-                );
-              })}
+              </Reveal>
+              <Reveal delay={0.06}>
+                <h2 className="font-serif text-4xl md:text-5xl font-bold mt-5 mb-4 tracking-[-0.02em] leading-[1.05] text-foreground">
+                  Precios que se ajustan a su instalación, no al revés
+                </h2>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="text-muted-foreground max-w-2xl leading-relaxed">
+                  Publicamos precios de referencia "Desde" porque el valor final
+                  exacto se define en el estudio técnico previo sin costo en
+                  Bogotá. Paga de contado o financia con cuotas semanales
+                  flexibles.
+                </p>
+              </Reveal>
             </div>
 
-            <Reveal delay={0.15} className="mt-10 max-w-4xl">
-              <p className="text-sm text-muted-foreground leading-relaxed bg-secondary border border-border rounded-xl px-5 py-4">
-                <strong className="text-foreground">
-                  ¿Por qué decimos "desde"?
-                </strong>{" "}
-                El valor final depende del número de puntos, la distancia del
-                cableado y las condiciones del sitio. Publicamos precios mínimos
-                de referencia a propósito: es la única forma de que el número
-                que reciba sea el que termina pagando. Lo concretamos en el
-                estudio de instalación, sin compromiso.
-              </p>
-            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+              {kits.map((k, i) => (
+                <Reveal key={k.id} delay={i * 0.08} className="h-full">
+                  <div
+                    className={cn(
+                      "flex h-full flex-col rounded-2xl bg-white p-7 sm:p-8 border shadow-sm",
+                      k.highlight
+                        ? "border-[#1A365D] shadow-[0_18px_44px_-28px_rgba(26,54,93,0.45)]"
+                        : "border-[#E2E8F0]"
+                    )}
+                  >
+                    <span
+                      className={cn(
+                        "inline-flex self-start items-center rounded-full px-3 py-1 text-[11px] font-semibold",
+                        k.highlight
+                          ? "bg-[#1A365D] text-white"
+                          : "border border-[#E2E8F0] bg-secondary text-[#1A365D]"
+                      )}
+                    >
+                      {k.badge}
+                    </span>
+
+                    <h3 className="font-serif text-2xl font-bold tracking-[-0.01em] mt-5 leading-snug">
+                      {k.title}
+                    </h3>
+
+                    <p className="font-serif text-2xl font-bold tracking-[-0.02em] mt-4 text-foreground sm:whitespace-nowrap">
+                      {k.price}
+                    </p>
+                    {k.average && (
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {k.average}
+                      </p>
+                    )}
+
+                    <p className="mt-3 text-sm font-semibold text-[#1A365D]">
+                      {k.financing}
+                    </p>
+
+                    <ul className="mt-6 mb-8 space-y-2.5 text-sm flex-1">
+                      {k.features.map((f) => (
+                        <li key={f} className="flex items-start gap-2.5">
+                          <CheckCircle2
+                            size={15}
+                            className="mt-0.5 flex-shrink-0 text-[#1A365D]"
+                          />
+                          <span className="text-foreground/85">{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <WhatsAppCTA
+                      label={k.ctaLabel}
+                      href={waLink(k.ctaMsg)}
+                      size="md"
+                      fullWidth
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
