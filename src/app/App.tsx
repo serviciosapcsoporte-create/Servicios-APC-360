@@ -813,10 +813,10 @@ export default function App() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
-                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.05rem,3.6vw,3rem)] mb-6 [text-wrap:balance]"
+                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.05rem,3.6vw,3rem)] mb-6 lg:[text-wrap:balance]"
               >
                 Instalación Profesional de Cámaras de Seguridad e IA{" "}
-                <span className="text-[#2C5282]">en Bogotá</span>
+                <span className="text-[#2C5282] whitespace-nowrap">en Bogotá</span>
               </motion.h1>
 
               <motion.p
