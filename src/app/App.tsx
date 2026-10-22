@@ -156,6 +156,21 @@ const kits = [
   },
 ];
 
+const integrationSteps = [
+  {
+    title: "Estudio e Instalación Física",
+    desc: "Inspección sin costo en Bogotá y montaje profesional de equipos Hikvision/Dahua con cableado estructurado.",
+  },
+  {
+    title: "Centralización y Analítica",
+    desc: "Conexión del CCTV a paneles inteligentes, control de acceso y conteo de personas.",
+  },
+  {
+    title: "Automatización y Control Total",
+    desc: "Derivación automática de datos hacia software operativo, CRM y alertas en tiempo real.",
+  },
+];
+
 const process = [
   {
     icon: ClipboardCheck,
@@ -1295,10 +1310,37 @@ export default function App() {
         <section id="ecosistema" className="py-24 bg-secondary border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
             <SectionHeader
+              stacked
               kicker="Ecosistema APC"
-              title="Un ecosistema, todo bajo control"
-              desc="Servicios APC integra cuatro líneas especializadas que se conectan entre sí para blindar cada frente de su operación."
+              title="Un ecosistema tecnológico completo: Desde la instalación física hasta el control digital"
+              desc="No solo instalamos cámaras de seguridad en Bogotá con financiación a crédito y estudio previo gratuito. Integramos cada dispositivo directamente a nuestro ecosistema de software y automatización para que administres tu negocio sin fricciones."
             />
+
+            <Reveal className="mb-14">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {integrationSteps.map((step, i) => (
+                  <div
+                    key={step.title}
+                    className="h-full rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-[#C7D6EC] bg-[#EAF1FA] font-serif text-sm font-bold text-[#1A365D]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#64748B]">
+                        Paso {i + 1}
+                      </p>
+                    </div>
+                    <h3 className="font-serif text-lg font-bold mb-2 leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
               {ecosystem.map((e, i) => {
