@@ -785,25 +785,51 @@ export default function App() {
         {/* ── HERO ─────────────────────────────────────────── */}
         <section
           id="inicio"
-          className="relative overflow-hidden bg-background border-b border-border"
+          className="relative isolate overflow-hidden bg-[#0F172A] border-b border-white/10"
         >
-          {/* Lavado claro corporativo */}
+          {/* Fondo full-width: ilustración de respaldo + video corporativo */}
+          <div aria-hidden="true" className="absolute inset-0">
+            <ImageWithFallback
+              src="/blog-img/equipo-apc.webp"
+              alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
+              width={1200}
+              height={675}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <video
+              className="hero-video absolute inset-0 h-full w-full object-cover lg:translate-x-[10%] lg:scale-125"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              poster="/videos/reels-poster.webp"
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src="/videos/reels-10s.webm" type="video/webm" />
+              <source src="/videos/reels-10s.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          {/* Overlay de contraste sobre el fondo */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0"
+            className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(70% 60% at 15% 0%, #E8EEF8 0%, transparent 62%), radial-gradient(60% 50% at 100% 10%, #EAF7EF 0%, transparent 55%)",
+                "linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.70) 50%, rgba(15,23,42,0.40) 100%)",
             }}
           />
+          <div aria-hidden="true" className="absolute inset-0 bg-[#0F172A]/55 lg:hidden" />
 
-          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 pt-20 pb-14 lg:pt-28 lg:pb-24">
-            <div className="lg:max-w-[52%] xl:max-w-[50%]">
+          <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-20 lg:min-h-[740px] lg:px-12 lg:py-28">
+            <div className="w-full max-w-4xl">
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                className="font-mono text-[10px] sm:text-xs text-[#1A365D] tracking-[0.08em] uppercase mb-6 inline-flex items-center gap-2 rounded-full border border-[#C7D6EC] bg-[#EAF1FA] px-4 py-1.5 text-center leading-snug"
+                className="font-mono text-[10px] sm:text-xs text-white/90 tracking-[0.08em] uppercase mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-center leading-snug backdrop-blur"
               >
                 <span aria-hidden="true">📍</span>
                 Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
@@ -813,20 +839,20 @@ export default function App() {
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
-                className="font-serif font-bold text-foreground tracking-[-0.02em] leading-[1.06] text-[clamp(2.05rem,3.6vw,3rem)] mb-6 lg:[text-wrap:balance]"
+                className="font-serif font-bold text-white tracking-[-0.02em] leading-[1.06] text-[clamp(2.3rem,4.2vw,3.75rem)] mb-6 lg:[text-wrap:balance]"
               >
                 Instalación Profesional de Cámaras de Seguridad e IA{" "}
-                <span className="text-[#2C5282] whitespace-nowrap">en Bogotá</span>
+                <span className="text-[#A9C7EC] whitespace-nowrap">en Bogotá</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 22 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
-                className="text-[#475569] text-lg md:text-xl leading-relaxed max-w-xl mb-9"
+                className="text-[#D5E0EE] text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
               >
                 Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
-                Estudio de seguridad sin costo en Bogotá e instalaciones a crédito desde
+                Estudio técnico sin costo en Bogotá e instalaciones a crédito desde
                 $1.500.000 con cuotas semanales desde $50.000.
               </motion.p>
 
@@ -840,14 +866,14 @@ export default function App() {
                   href={WA_HERO_ESTUDIO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-white shadow-[0_14px_34px_-12px_rgba(37,211,102,0.75)] transition-colors hover:bg-[#20c05c]"
+                  className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-white shadow-[0_14px_34px_-12px_rgba(37,211,102,0.55)] transition-colors hover:bg-[#20c05c]"
                 >
                   <WhatsAppLogo size={19} />
                   Cotizar con Estudio Gratis por WhatsApp
                 </a>
                 <button
                   onClick={() => scrollTo("planes")}
-                  className="press inline-flex items-center justify-center gap-2 rounded-full border border-[#CBD5E1] bg-white px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-medium text-[#0F172A] transition-colors hover:border-[#1A365D] hover:bg-[#F1F5F9]"
+                  className="press inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-medium text-white backdrop-blur-sm transition-colors hover:border-white/60 hover:bg-white/20"
                 >
                   Ver Planes, Precios y Kits <ArrowRight size={16} />
                 </button>
@@ -859,14 +885,14 @@ export default function App() {
                 transition={{ delay: 0.4, duration: 0.35 }}
                 className="mt-10"
               >
-                <ul className="grid gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:gap-x-6">
+                <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
                   {[
                     "Estudio previo sin costo en Bogotá",
                     "Cuotas semanales desde $50k o $75k",
                     "Equipos originales con garantía",
                   ].map((t) => (
-                    <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-[#334155]">
-                      <CheckCircle2 size={16} className="text-[#1A365D] shrink-0" /> {t}
+                    <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-[#E2E8F0]">
+                      <CheckCircle2 size={16} className="text-[#8FB8E8] shrink-0" /> {t}
                     </li>
                   ))}
                 </ul>
@@ -874,60 +900,13 @@ export default function App() {
             </div>
           </div>
 
-          {/* Video de presentación: columna derecha a sangre en desktop, apilado en móvil */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            className="relative z-0 h-[300px] sm:h-[400px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[46%] xl:w-[45%]"
-          >
-            <ImageWithFallback
-              src="/blog-img/equipo-apc.webp"
-              alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
-              width={1200}
-              height={675}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <video
-              className="hero-video absolute inset-0 h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/videos/reels-poster.webp"
-              aria-hidden="true"
-              tabIndex={-1}
-            >
-              <source src="/videos/reels-10s.webm" type="video/webm" />
-              <source src="/videos/reels-10s.mp4" type="video/mp4" />
-            </video>
-            {/* Overlay oscuro: aísla el logotipo del video y da profundidad */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, rgba(8,12,24,0.72) 0%, rgba(8,12,24,0.55) 46%, rgba(8,12,24,0.65) 100%)",
-              }}
-            />
-            <div className="absolute bottom-5 left-5 sm:bottom-6 sm:left-6 z-10 rounded-xl border border-white/20 bg-white/95 px-4 py-3 shadow-[0_12px_30px_-16px_rgba(2,6,23,0.55)] backdrop-blur">
-              <p className="text-[11px] font-mono uppercase tracking-widest text-[#64748B]">
-                Instalación + IA
-              </p>
-              <p className="text-sm font-semibold text-[#0F172A]">
-                Cuotas desde $50.000/semana
-              </p>
-            </div>
-          </motion.div>
-
           <motion.button
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.65, duration: 0.35 }}
             onClick={() => scrollTo("servicios")}
             aria-label="Bajar"
-            className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-muted-foreground hover:text-foreground transition-colors"
+            className="hidden lg:block absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/60 hover:text-white transition-colors"
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
