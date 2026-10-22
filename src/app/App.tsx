@@ -100,40 +100,38 @@ const services = [
 const kits = [
   {
     id: "kit-4",
-    badge: "⭐ Más Solicitado",
+    badge: "⭐ Más Solicitado en Bogotá",
     title: "Kit 4 Cámaras (3 HD + 1 ColorVu)",
     price: "Desde $1.700.000 COP",
     average: "Promedio en Bogotá: $1.7M – $1.9M",
     financing: "💳 Cuotas semanales desde $50.000",
     features: [
-      "1 Cámara Hikvision / Dahua ColorVu (Color 24/7)",
-      "3 Cámaras HD de 3 Megapíxeles",
-      "1 DVR Grabador Profesional",
-      "1 Disco Duro de 1 Tera",
-      "Cable UTP, conectores, fuentes y cajas de paso",
-      "Estudio de seguridad sin costo en Bogotá",
-      "Configuración e instalación profesional en smartphone",
+      "1 Cámara ColorVu 24/7",
+      "3 Cámaras HD de 3MP",
+      "DVR grabador profesional",
+      "Disco duro de 1TB",
+      "Cableado UTP, conectores, fuentes y cajas de paso",
+      "Estudio técnico sin costo en Bogotá",
     ],
-    ctaLabel: "Cotizar Kit 4 Cámaras",
+    ctaLabel: "Cotizar Kit 4 Cámaras por WhatsApp",
     ctaMsg:
       "Hola Servicios APC, quiero cotizar el Kit 4 Cámaras (3 HD + 1 ColorVu) para mi negocio en Bogotá",
     highlight: true,
   },
   {
     id: "kit-8",
-    badge: "🏢 Ideal Comercio y Bodegas",
+    badge: "🏢 Ideal Comercio y Locales",
     title: "Kit 8 Cámaras HD / ColorVu",
     price: "Desde $2.800.000 COP",
     financing: "💳 Cuotas semanales desde $75.000",
     features: [
       "2 Cámaras ColorVu + 6 Cámaras HD",
-      "1 DVR Grabador de 8 Canales",
-      "1 Disco Duro de 2 Teras",
+      "DVR de 8 Canales",
+      "Disco duro de 2TB",
       "Accesorios completos, cajas de paso y cableado UTP",
-      "Estudio previo de seguridad sin costo en Bogotá",
-      "Configuración multidispositivo",
+      "Estudio previo sin costo en Bogotá",
     ],
-    ctaLabel: "Cotizar Kit 8 Cámaras",
+    ctaLabel: "Cotizar Kit 8 Cámaras por WhatsApp",
     ctaMsg:
       "Hola Servicios APC, quiero cotizar el Kit 8 Cámaras HD / ColorVu para mi negocio en Bogotá",
     highlight: false,
@@ -143,13 +141,13 @@ const kits = [
     badge: "🏭 Cobertura Total",
     title: "Kit 16 Cámaras Empresarial / NVR",
     price: "Desde $4.900.000 COP",
-    financing: "💳 Financiación a la medida",
+    financing: "💳 Financiación directa a la medida",
     features: [
       "4 Cámaras ColorVu + 12 Cámaras HD / 5MP",
-      "1 NVR / DVR de 16 Canales",
-      "1 Disco Duro de 4 Teras",
+      "NVR de 16 Canales",
+      "Disco duro de 4TB",
       "Cableado estructurado e integración a red local",
-      "Visita e inspección técnica presencial en Bogotá",
+      "Inspección técnica presencial en Bogotá",
     ],
     ctaLabel: "Solicitar Visita Técnica 16C",
     ctaMsg:
@@ -1109,7 +1107,7 @@ export default function App() {
         <LazyMount id="planes">
         <section id="planes" className="py-24 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="mb-12 max-w-3xl">
+            <div className="mb-12 max-w-4xl">
               <Reveal>
                 <span className="inline-flex items-center rounded-full border border-[#C7D6EC] bg-[#EAF1FA] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1A365D]">
                   📍 Tarifas de referencia en Bogotá · Estudio gratis
@@ -1117,15 +1115,16 @@ export default function App() {
               </Reveal>
               <Reveal delay={0.06}>
                 <h2 className="font-serif text-4xl md:text-5xl font-bold mt-5 mb-4 tracking-[-0.02em] leading-[1.05] text-foreground">
-                  Precios que se ajustan a su instalación, no al revés
+                  Precio de Instalación de Cámaras de Seguridad en Bogotá
+                  adaptado a su presupuesto
                 </h2>
               </Reveal>
               <Reveal delay={0.12}>
-                <p className="text-muted-foreground max-w-2xl leading-relaxed">
-                  Publicamos precios de referencia "Desde" porque el valor final
-                  exacto se define en el estudio técnico previo sin costo en
-                  Bogotá. Paga de contado o financia con cuotas semanales
-                  flexibles.
+                <p className="text-muted-foreground max-w-3xl leading-relaxed">
+                  Conozca los valores de referencia con todo incluido (equipos,
+                  cableado y configuración). Realizamos un estudio técnico
+                  previo sin costo en Bogotá para definir el valor exacto según
+                  su espacio, con opciones de pago de contado o crédito semanal.
                 </p>
               </Reveal>
             </div>
@@ -1156,7 +1155,10 @@ export default function App() {
                       {k.title}
                     </h3>
 
-                    <p className="font-serif text-2xl font-bold tracking-[-0.02em] mt-4 text-foreground sm:whitespace-nowrap">
+                    <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                      Precio de instalación
+                    </p>
+                    <p className="font-serif text-2xl font-bold tracking-[-0.02em] mt-1 text-foreground sm:whitespace-nowrap">
                       {k.price}
                     </p>
                     {k.average && (
@@ -1186,6 +1188,7 @@ export default function App() {
                       href={waLink(k.ctaMsg)}
                       size="md"
                       fullWidth
+                      className="text-sm"
                     />
                   </div>
                 </Reveal>
