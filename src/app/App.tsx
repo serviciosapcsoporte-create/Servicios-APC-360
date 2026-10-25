@@ -1594,7 +1594,7 @@ export default function App() {
                 <Reveal delay={0.12}>
                   <p className="text-muted-foreground leading-relaxed mb-10">
                     Cuéntanos tu necesidad. Te respondemos en menos de 24 horas
-                    hábiles con una propuesta concreta para tu empresa.
+                    hábiles con una propuesta concreta para tu empresa o hogar.
                   </p>
                 </Reveal>
 
@@ -1607,18 +1607,19 @@ export default function App() {
                     />
                   </Reveal>
                   <Reveal delay={0.17}>
-                    <ChipCTA
-                      label="serviciosapcsoporte@gmail.com"
-                      href="mailto:serviciosapcsoporte@gmail.com"
-                      size="md"
-                      brand="var(--color-accent)"
-                      logo={<Mail size={18} className="text-accent" />}
-                    />
-                  </Reveal>
-                  <Reveal delay={0.2}>
-                    <p className="text-sm text-muted-foreground">
-                      Cra. 52c #39b-22, Bogotá
-                    </p>
+                    <div className="space-y-2">
+                      <ChipCTA
+                        label="serviciosapcsoporte@gmail.com"
+                        href="mailto:serviciosapcsoporte@gmail.com"
+                        size="md"
+                        brand="var(--color-accent)"
+                        logo={<Mail size={18} className="text-accent" />}
+                      />
+                      <p className="flex items-center gap-2 pl-1 text-sm text-muted-foreground">
+                        <MapPin size={15} className="shrink-0 text-accent" />
+                        Cra. 52c #39b-22, Bogotá
+                      </p>
+                    </div>
                   </Reveal>
                 </div>
               </div>
@@ -1659,7 +1660,7 @@ export default function App() {
                       noValidate
                       toolname="instalacion_cctv"
                       tooldescription="Instalación de CCTV con inteligencia artificial en Bogotá. Solicita tu diagnóstico gratuito a Servicios APC; requiere nombre, correo electrónico y un mensaje con la necesidad del negocio."
-                      className="rounded-2xl border border-border bg-white p-8 lg:p-10 space-y-6 shadow-[0_1px_2px_rgba(15,23,42,0.04)]"
+                      className="rounded-2xl border border-[#E2E8F0] bg-white p-8 lg:p-10 space-y-6 shadow-sm"
                     >
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
@@ -1681,7 +1682,7 @@ export default function App() {
                             placeholder="Tu nombre"
                             aria-invalid={!!errors.nombre}
                             className={cn(
-                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
+                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-[#1A365D]/10 transition-colors",
                               errors.nombre ? "border-red-500" : "border-border"
                             )}
                           />
@@ -1708,7 +1709,7 @@ export default function App() {
                             placeholder="tu@empresa.com"
                             aria-invalid={!!errors.email}
                             className={cn(
-                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors",
+                              "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-[#1A365D]/10 transition-colors",
                               errors.email ? "border-red-500" : "border-border"
                             )}
                           />
@@ -1734,7 +1735,7 @@ export default function App() {
                             setForm({ ...form, telefono: e.target.value })
                           }
                           placeholder="+57 333 745 0634"
-                          className="w-full rounded-lg bg-white border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors"
+                          className="w-full rounded-lg bg-white border border-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-[#1A365D]/10 transition-colors"
                         />
                       </div>
 
@@ -1754,10 +1755,10 @@ export default function App() {
                             setForm({ ...form, mensaje: e.target.value });
                             if (errors.mensaje) setErrors({ ...errors, mensaje: undefined });
                           }}
-                          placeholder="¿Tiene Hikvision? ¿Necesita analítica? Cuéntenos..."
+                          placeholder="¿Tiene cámaras Hikvision o Dahua? ¿Necesita crédito o analítica? Cuéntenos..."
                           aria-invalid={!!errors.mensaje}
                           className={cn(
-                            "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent transition-colors resize-none",
+                            "w-full rounded-lg bg-white border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-[#1A365D]/10 transition-colors resize-none",
                             errors.mensaje ? "border-red-500" : "border-border"
                           )}
                         />
@@ -1770,15 +1771,15 @@ export default function App() {
                         <p className="text-sm text-red-500 text-center">{error}</p>
                       )}
 
-                      <motion.button
-                        type="submit"
-                        disabled={sending}
-                        whileTap={{ scale: 0.98 }}
-                        className="w-full bg-accent text-accent-foreground py-4 font-semibold hover:bg-accent/90 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed rounded-xl"
-                      >
-                        <Send size={15} />
-                        {sending ? "Enviando..." : "Enviar mensaje"}
-                      </motion.button>
+<motion.button
+                         type="submit"
+                         disabled={sending}
+                         whileTap={{ scale: 0.98 }}
+                         className="w-full bg-[#0F172A] text-white py-4 font-semibold rounded-xl shadow-sm hover:bg-[#1A365D] hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-sm"
+                       >
+                         <Send size={15} />
+                         {sending ? "Enviando..." : "Enviar mensaje"}
+                       </motion.button>
 
                       <p className="text-xs text-muted-foreground text-center font-mono">
                         Tu información es confidencial y no será compartida con
@@ -1807,7 +1808,7 @@ export default function App() {
           <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
             <Reveal>
               <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4 text-center">
-                Artículos y Recursos
+                Artículos y recursos
               </p>
             </Reveal>
             <Reveal delay={0.06}>
@@ -1817,8 +1818,8 @@ export default function App() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="text-muted-foreground text-lg text-center max-w-2xl mx-auto mb-16">
-                Guías técnicas, casos reales y comparativas para que tus cámaras generen datos,
-                no solo grabaciones.
+                Guías técnicas, casos reales y comparativas sobre CCTV, IA y
+                automatización para empresas en Bogotá.
               </p>
             </Reveal>
 
