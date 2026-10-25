@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties, type ComponentType } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type CSSProperties, type ComponentType, type ReactNode } from "react";
 import { motion, MotionConfig, useMotionValue, useSpring } from "motion/react";
 import CristalChat from "./components/CristalChat";
 import LazyMount from "./components/LazyMount";
@@ -284,38 +284,38 @@ const ecosystem = [
   },
 ];
 
-const faqs = [
+const faqs: { q: string; a: ReactNode }[] = [
   {
-    q: "¿Tengo que cambiar todas las cámaras Hikvision de mi negocio para tener Inteligencia Artificial?",
-    a: "No. Si sus cámaras Hikvision/Dahua actuales admiten RTSP u ONVIF (la mayoría desde 2018), las reprogramamos para inyectarles módulos YOLO sin gasto extra en hardware. Modelos Hikvision 2MP/4MP/4K ColorVu, AcuSense, DeepinView son 100% compatibles.",
+    q: "¿Cómo funciona el estudio previo sin costo en Bogotá?",
+    a: "Un técnico especializado visita tu local, oficina u hogar en Bogotá sin ningún costo de desplazamiento ni evaluación. Analizamos los puntos críticos, los ángulos de visión y los metros de cableado necesarios para entregarte una cotización exacta y a la medida antes de iniciar cualquier trabajo.",
   },
   {
-    q: "¿Qué pasa si en el local se corta el internet o la luz?",
-    a: "Nuestro ecosistema cuenta con arquitectura Offline-First: el procesamiento IA ocurre en local (edge) en su red. Si el internet se va por horas, el sistema sigue grabando, contando personas, detectando anomalías y arqueando cajas, y sincroniza automáticamente al recuperar la señal. Nada se pierde.",
+    q: "¿Cómo aplica la financiación a crédito y de cuánto son las cuotas?",
+    a: "No necesitas endeudarte con tarjetas de crédito tradicionales. Hacemos financiación directa con cuotas semanales accesibles (desde $50.000 o $75.000 COP según el kit seleccionado), acordadas por escrito tras el estudio de instalación.",
   },
   {
-    q: "¿La Inteligencia Artificial escucha conversaciones privadas de empleados o clientes?",
-    a: "No. La IA de audio se activa solo bajo disparador específico (ej. sonido del cajón de la caja al abrirse) durante los segundos necesarios para documentar el monto. El resto de la jornada se protege la privacidad del equipo por diseño (privacy by design).",
+    q: "¿Qué incluye exactamente el kit de instalación de cámaras?",
+    a: "Nuestros kits más populares (como el de 4 cámaras) incluyen: 1 cámara ColorVu (visión a color 24/7), 3 cámaras HD de alta definición, 1 DVR grabador profesional, 1 disco duro de 1 Tera, cable UTP certificado, conectores, fuentes y cajas de paso. Todo instalado y configurado funcionando.",
   },
   {
-    q: "¿Ustedes venden cámaras Hikvision o solo el software de IA?",
-    a: "Ofrecemos ambas opciones: (1) Si ya tiene Hikvision/Dahua RTSP/ONVIF, solo instalamos la capa IA (analítica YOLO, alertas, dashboard). (2) Si necesita infraestructura nueva, instalamos CCTV Hikvision certificado IA-ready (ColorVu, AcuSense, DeepinView) + configuramos la analítica completa. Usted elige según su presupuesto.",
+    q: "¿Puedo ver las cámaras de mi negocio en tiempo real desde el celular?",
+    a: "Sí. Configuramos la aplicación oficial en tu teléfono (Android o iOS) para que puedas monitorear en vivo, revisar grabaciones pasadas y recibir alertas de movimiento estés donde estés.",
   },
   {
-    q: "¿Cómo se ve el análisis de video con IA en tiempo real en mi celular?",
-    a: "Recibe alertas por Telegram/Email/WhatsApp con clip de video del evento y accede a dashboard web con mapas de calor, conteo histórico, arqueos diarios y reportes automáticos. Todo desde su celular, sin apps extra: usa Telegram o WhatsApp.",
+    q: "¿Qué marcas de equipos instalan y qué garantía tienen?",
+    a: (
+      <>
+        Trabajamos exclusivamente con marcas líderes en el mercado mundial como{" "}
+        <strong className="font-semibold text-[#1A365D]">Hikvision</strong> y{" "}
+        <strong className="font-semibold text-[#1A365D]">Dahua</strong>,
+        garantizando equipos originales de fábrica, alta durabilidad y soporte
+        técnico local directo en Bogotá.
+      </>
+    ),
   },
   {
-    q: "¿Qué modelos Hikvision recomiendan para analítica de video con IA?",
-    a: "Para analítica YOLO recomendamos: (1) Hikvision ColorVu 4K/4MP — visión nocturna a color real, ideal para placas y rostros. (2) Hikvision AcuSense 2MP/4MP — filtrado de falsos positivos (persona/vehículo), costo/beneficio óptimo. (3) Hikvision DeepinView — IA embebida en cámara (conteo, cola), máxima precisión. Lo asesoramos según su caso y presupuesto.",
-  },
-  {
-    q: "¿La analítica de video funciona con Dahua u otras marcas?",
-    a: "Sí. Cualquier cámara que exponga stream RTSP u ONVIF Profile S/T/G es compatible. Dahua, Uniview, Axis, Hanwha, TP-Link VIGI: si tiene stream estándar, le inyectamos YOLO. La diferencia es que Hikvision ColorVu/AcuSense nos da mejor calidad de imagen nocturna para IA.",
-  },
-  {
-    q: "¿Ustedes administran mi negocio o mi personal?",
-    a: "No. Diseñamos, instalamos y mantenemos la infraestructura digital que automatiza su control. Le entregamos las herramientas exactas para que usted administre su empresa en minutos desde su celular, con datos claros y decisiones respaldadas. No supervisamos personal ni tomamos decisiones gerenciales.",
+    q: "¿Cómo se conecta este servicio con el resto del Ecosistema APC?",
+    a: "Una vez instalada tu infraestructura física de seguridad con nosotros en serviciosapc.site, puedes conectar opcionalmente tus cámaras y datos a nuestras soluciones avanzadas de automatización, tableros de control y analítica de IA en nuestras páginas asociadas del ecosistema.",
   },
 ];
 
@@ -1518,38 +1518,55 @@ export default function App() {
         <LazyMount id="faq">
         <section id="faq" className="py-24 bg-secondary border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <SectionHeader
-              kicker="Preguntas frecuentes"
-              title="Preguntas frecuentes"
-              desc="Resolvemos las dudas más comunes sobre nuestra infraestructura, privacidad y funcionamiento sin tecnicismos."
-            />
+            <div className="mb-12 max-w-4xl">
+              <Reveal>
+                <span className="inline-flex items-center rounded-full border border-[#C7D6EC] bg-[#EAF1FA] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1A365D]">
+                  📍 Soporte y aclaraciones · Bogotá
+                </span>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <h2 className="font-serif text-4xl md:text-5xl font-bold mt-5 mb-4 tracking-[-0.02em] leading-[1.05] text-foreground">
+                  Preguntas Frecuentes sobre la Instalación de Cámaras y Crédito
+                </h2>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="text-muted-foreground max-w-3xl leading-relaxed">
+                  Resolvemos las dudas más comunes sobre nuestros kits de
+                  seguridad, el estudio técnico sin costo y las facilidades de
+                  pago semanal.
+                </p>
+              </Reveal>
+            </div>
 
-            <div className="max-w-3xl mx-auto border-t border-border">
+            <div className="max-w-3xl space-y-3">
               {faqs.map((f, i) => {
                 const open = openFaq === i;
                 return (
-                  <div key={i} className="border-b border-border">
+                  <div
+                    key={f.q}
+                    className="rounded-xl border border-[#E2E8F0] bg-white shadow-sm overflow-hidden"
+                  >
                     <button
                       onClick={() => setOpenFaq(open ? -1 : i)}
                       aria-expanded={open}
-                      className="press w-full flex items-center justify-between gap-4 py-6 text-left group"
+                      className="press w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-5 text-left group"
                     >
-                      <span className="font-serif text-lg font-bold group-hover:text-accent transition-colors">
+                      <span className="font-serif text-base sm:text-lg font-bold text-[#1A365D] group-hover:text-accent transition-colors">
                         {f.q}
                       </span>
                       <motion.span
                         animate={{ rotate: open ? 90 : 0 }}
                         transition={SPRING_SOFT}
-                        className="text-muted-foreground flex-shrink-0"
+                        className="text-[#1A365D] flex-shrink-0"
                       >
                         <ChevronRight size={20} />
                       </motion.span>
                     </button>
                     <AccordionPanel open={open} durationMs={280}>
-                          <p className="text-muted-foreground leading-relaxed pb-6 -mt-1">
-                            {f.a}
-                          </p>
-                        </AccordionPanel>
+                      <div className="px-5 sm:px-6 pb-5 -mt-1 text-[15px] leading-relaxed text-[#475569]">
+                        {f.a}
+                      </div>
+                    </AccordionPanel>
                   </div>
                 );
               })}
