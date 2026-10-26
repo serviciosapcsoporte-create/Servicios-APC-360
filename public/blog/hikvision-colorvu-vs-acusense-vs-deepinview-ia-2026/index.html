@@ -47,8 +47,8 @@
     .hero{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;padding:60px 20px 40px;text-align:center}
     .hero h1{font-size:2rem;margin:0 auto 10px;font-weight:800;max-width:800px}
     .hero .meta{font-size:.85rem;opacity:.85}
-    .container{max-width:820px;margin:0 auto;padding:20px}
-    .cover{width:100%;border-radius:12px;margin:24px 0}
+    .container{max-width:768px;margin:0 auto;padding:20px}
+    .cover{width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:24px 0}
     h2{color:#1a365d;font-size:1.5rem;margin:40px 0 12px;font-weight:700}
     h3{color:#2d3748;font-size:1.2rem;margin:30px 0 10px}
     p{color:#2d3748;margin:12px 0}
@@ -59,7 +59,7 @@
     a{color:#1a365d}
     .answer{background:#fff;border-left:4px solid #1a365d;border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
     .answer p{margin:0;color:#1a365d}
-    .cta-box{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
+    .cta-box{background:rgba(17,26,46,0.92);backdrop-filter:blur(8px);border:1px solid rgba(26,54,93,0.55);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
     .cta-box p{color:#fff;margin:0 0 18px}
     .whatsapp{background:#25d366;color:#fff !important;padding:14px 28px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:bold;margin:8px}
     .hub{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:30px 0}
@@ -68,13 +68,13 @@
     .hub li{padding:4px 0}
     .nav{display:flex;justify-content:space-between;margin:30px 0}
     .footer{margin-top:40px;color:#718096;font-size:.85rem;text-align:center}
-    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#64748B;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
+    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#94a3b8;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
     .breadcrumb a{color:#64748b;text-decoration:none;transition:color .2s}
     .breadcrumb a:hover{color:#25d366}
     .breadcrumb span{color:#64748b}
-    .breadcrumb .current{color:#0F172A}
-    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
-    .btn-volver:hover{background:#F1F5F9;color:#1A365D;border-color:#1A365D}
+    .breadcrumb .current{color:#e2e8f0}
+    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-volver:hover{background:#0f172a;color:#25d366;border-color:#25d366}
     .btn-volver svg{width:1rem;height:1rem}
     @media(max-width:768px){.hero h1{font-size:1.4rem}}
   </style>
@@ -97,23 +97,26 @@
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li><a href="/#blog" style="color:#64748b;text-decoration:none">Comparativa Hardware</a></li>
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
-        <li class="current" style="color:#0F172A;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026</li>
+        <li class="current" style="color:#e2e8f0;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026</li>
       </ol>
     </nav>
     <div style="margin-bottom:1rem">
-      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
+      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
         <span>Volver al blog</span>
       </a>
     </div>
     <div class="hero">
       <h1>Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026</h1>
-      <div class="meta">Comparativa Hardware · 2026-07-26 · 8 min de lectura · Servicios APC Bogotá</div>
+      <div class="meta">Comparativa Hardware Â· 2026-07-26 Â· 8 min de lectura Â· Servicios APC BogotÃ¡</div>
     </div>
+    <img class="cover" src="/blog-img/hikvision-colorvu-vs-acusense-vs-deepinview-ia-2026.webp" alt="Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026" loading="lazy" />
     <div class="answer"><p><strong>En resumen:</strong> ColorVu da color nocturno real, AcuSense filtra las falsas alarmas y DeepinView trae la IA dentro de la cámara. Aquí va cuál conviene según lo que necesites: placas, interiores o analítica avanzada sin servidor adicional, con criterio probado.</p></div>
-    <img src="/blog-img/reels-poster.webp" alt="Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0" />
+    <img src="/blog-img/reels-poster.webp" alt="Ilustraci?n del art?culo" loading="lazy" style="width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:16px 0" />
+<p># Hikvision ColorVu vs AcuSense vs DeepinView: cuál elegir para IA en 2026</p>
 <p><strong>Tres gamas, tres filosofías. Una decisión: ¿qué necesita SU negocio?</strong></p>
 <p>Comparativa técnica 2026 con casos reales Bogotá: visión nocturna real (ColorVu), mejor ROI filtro falsos positivos (AcuSense), IA en cámara (DeepinView).</p>
+<p>---</p>
 <h2>Tabla rápida: ¿Cuál necesito?</h2>
 <table><tr><th>Si su prioridad es...</th><th>Elija</th><th>Por qué</th></tr>
 <tr><td><strong>Ver placas/rostros color real a las 2am</strong></td><td><strong>ColorVu 4K / 4MP</strong></td><td>Sensor 1/1.2&quot;, F1.0, LED cálida → color real 0 lux</td></tr>
@@ -121,6 +124,7 @@
 <tr><td><strong>IA en cámara (sin servidor edge)</strong></td><td><strong>DeepinView</strong></td><td>Conteo, PPE, cola, ANPR, heatmap <strong>dentro de la cámara</strong></td></tr>
 <tr><td><strong>Presupuesto ajustado + IA en edge server</strong></td><td><strong>AcuSense + Edge YOLO</strong></td><td>Cámara barata + servidor GPU = IA completa</td></tr>
 </table>
+<p>---</p>
 <h2>1. Hikvision ColorVu 4K / 4MP — Visión nocturna COLOR REAL</h2>
 <h3>Especificaciones clave (2026)</h3>
 <table><tr><th>Espec</th><th>ColorVu 4K (DS-2CD2387G2-LU)</th><th>ColorVu 4MP (DS-2CD2347G2-LU)</th></tr>
@@ -146,6 +150,7 @@
 <li>LED cálida visible (puede ser visible para intrusos) → opción &quot;sin LED&quot; en algunos modelos</li>
 <li>Precio premium vs AcuSense</li>
 </ul>
+<p>---</p>
 <h2>2. Hikvision AcuSense 2MP / 4MP — Mejor ROI: Filtro falsos positivos en cámara</h2>
 <h3>Especificaciones clave (2026)</h3>
 <table><tr><th>Espec</th><th>AcuSense 4MP (DS-2CD2347G2-LSU)</th><th>AcuSense 2MP (DS-2CD2147G2-LSU)</th></tr>
@@ -171,6 +176,7 @@
 <p>✅ Presupuesto ajustado: <strong>$130-250/cámara</strong> vs $350-450 ColorVu / $500+ DeepinView</p>
 <p>✅ Instalación masiva (10-50 cámaras): ahorro $2,000-10,000 USD vs ColorVu</p>
 <p>&gt; <strong>Estrategia recomendada 2026:</strong> <strong>AcuSense 4MP interior/exterior + 2-3 ColorVu 4K en entradas críticas + Servidor Edge YOLO</strong> = Mejor cobertura + IA completa + menor costo.</p>
+<p>---</p>
 <h2>3. DeepinView — IA embebida en la cámara (sin servidor edge)</h2>
 <h3>Modelos DeepinView 2026</h3>
 <table><tr><th>Modelo</th><th>IA Embebida</th><th>Caso ideal</th></tr>
@@ -195,6 +201,7 @@
 <p>❌ <strong>No escala bien:</strong> &gt; 5 DeepinView = gestión fragmentada, costos altos</p>
 <p>❌ <strong>No flexibles:</strong> IA fija en firmware → actualizaciones dependen fabricante</p>
 <p>❌ <strong>Costo unitario alto:</strong> $500-800 vs $180 AcuSense + edge compartido</p>
+<p>---</p>
 <h2>Comparativa técnica completa (2026)</h2>
 <table><tr><th>Característica</th><th>ColorVu 4K</th><th>AcuSense 4MP</th><th>DeepinView 4K</th></tr>
 <tr><td><strong>Visión nocturna</strong></td><td>✅ <strong>Color real 0 lux</strong></td><td>IR B/N (30m)</td><td>IR B/N (30m) / ColorVu opcional</td></tr>
@@ -209,6 +216,7 @@
 <tr><td><strong>Precio unidad (USD)</strong></td><td><strong>$350-450</strong></td><td><strong>$180-250</strong></td><td><strong>$500-800</strong></td></tr>
 <tr><td><strong>Costo total 20 cámaras + IA</strong></td><td>~$9,000 HW + $2,500 Edge = <strong>$11,500</strong></td><td>~$4,500 HW + $2,500 Edge = <strong>$7,000</strong></td><td>~$12,000 HW + $0 Edge = <strong>$12,000</strong></td></tr>
 </table>
+<p>---</p>
 <h2>Estrategia recomendada 2026 (Servicios APC)</h2>
 <h3>🎯 <strong>Configuración ganadora para 90% de empresas Bogotá:</strong></h3>
 <table><tr><th>Cantidad</th><th>Modelo</th><th>Ubicación</th><th>Función</th></tr>
@@ -220,6 +228,7 @@
 <p><strong>vs 100% DeepinView:</strong> ~$12,000-15,000 USD (sin servidor)</p>
 <p><strong>vs 100% ColorVu:</strong> ~$8,000 + $2,500 Edge = <strong>$10,500</strong></p>
 <p>&gt; <strong>Ahorro vs DeepinView:</strong> <strong>$3,500-7,000 USD</strong> en hardware + IA más flexible/actualizable</p>
+<p>---</p>
 <h2>Preguntas frecuentes (FAQ)</h2>
 <h3>¿Puedo mezclar ColorVu + AcuSense + DeepinView en mismo sistema?</h3>
 <p><strong>Sí.</strong> Todas hablan RTSP/ONVIF. El servidor edge YOLO ingiere streams RTSP de cualquier marca/modelo ONVIF Profile S/G/T.</p>
@@ -231,6 +240,7 @@
 <p><strong>Sí.</strong> Cualquier cámara con <strong>RTSP + ONVIF Profile S/G/T</strong> → stream entra al edge server → YOLO procesa. Hikvision recomendado por calidad/precio/RTSP estable.</p>
 <h3>¿Puedo actualizar IA sin cambiar cámaras?</h3>
 <p><strong>Sí.</strong> Servidor edge = YOLO actualizable (v8 → v10 → v11). DeepinView = depende firmware fabricante (más lento, menos control).</p>
+<p>---</p>
 <h2>Resumen decisión rápida</h2>
 <table><tr><th>Su situación</th><th>Recomendación APC</th></tr>
 <tr><td><strong>Presupuesto ajustado, quiere IA completa</strong></td><td><strong>AcuSense 4MP masivo + 2 ColorVu 4K entradas + Edge Server</strong></td></tr>
@@ -239,27 +249,29 @@
 <tr><td><strong>Ya tiene cámaras RTSP/ONVIF</strong></td><td><strong>Solo Edge Server + YOLO</strong> (aprovecha inversión actual)</td></tr>
 <tr><td><strong>Clínica / Obra / Manufactura con PPE obligatorio</strong></td><td><strong>DeepinView PPE dedicado</strong> en zona + AcuSense resto + Edge</td></tr>
 </table>
+<p>---</p>
 <h2>¿Qué problema necesita resolver hoy?</h2>
 <p>&gt; 1. <a href="https://apcvisionai.site">No sé qué modelo Hikvision necesito para IA → Asesoría gratis sin compromiso</a></p>
 <p>&gt; 2. <a href="https://apccore.site">Mis cámaras actuales fallan / no son compatibles → Soporte técnico &lt;30 min</a></p>
 <p>&gt; 3. <a href="https://apcautomatizacion.site">Quiero automatizar alertas y conectar a mis sistemas → n8n + Dashboard unificado</a></p>
+<p>---</p>
 <p><strong>Servicios APC</strong> — Bogotá, Cra. 52c #39b-22</p>
 <p>📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com</p>
 <p>🌐 <a href="https://apcvisionai.site">apcvisionai.site</a> · <a href="https://apcautomatizacion.site">apcautomatizacion.site</a> · <a href="https://dogweb.lat">dogweb.lat</a> · <a href="https://apccore.site">apccore.site</a></p>
     <div class="cta-box">
-      <p>Diagnóstico gratuito: revisamos tu operación y te dejamos la recomendación entre ColorVu, AcuSense y DeepinView. Escríbenos y agendamos.</p>
-      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20quiero%20comparar%20ColorVu%20vs%20AcuSense%20vs%20DeepinView" class="whatsapp">Agendar diagnóstico gratis</a>
+      <p>¿Necesitas asesoría o instalación de cámaras de seguridad en tu empresa en Bogotá?</p>
+      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20quiero%20comparar%20ColorVu%20vs%20AcuSense%20vs%20DeepinView" class="whatsapp">Cotizar con Estudio Gratis por WhatsApp</a>
     </div>
     <div class="hub">
       <h3>Servicios relacionados</h3>
       <ul>
-        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">Instalación de cámaras de seguridad en Bogotá</a></li>
-        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">Cámaras de seguridad para empresas</a></li>
-        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalación 2026</a></li>
+        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">InstalaciÃ³n de cÃ¡maras de seguridad en BogotÃ¡</a></li>
+        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">CÃ¡maras de seguridad para empresas</a></li>
+        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalaciÃ³n 2026</a></li>
       </ul>
     </div>
     <div class="nav"><span><a href="https://serviciosapc.site/blog/guia-camaras-hikvision-ia-empresas-bogota-2026/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/hikvision-vs-dahua-vs-uniview-comparativa-ia-2026/">Siguiente &raquo;</a></span></div>
-    <p class="footer">Servicios APC — Socio tecnológico para empresas en Bogotá. Cra. 52c #39b-22 · +57 333 745 0634 · serviciosapcsoporte@gmail.com<br/>Tags: Hikvision, ColorVu, AcuSense, DeepinView, IA, YOLO, CCTV, visión nocturna</p>
+    <p class="footer">Servicios APC â€” Socio tecnolÃ³gico para empresas en BogotÃ¡. Cra. 52c #39b-22 Â· +57 333 745 0634 Â· serviciosapcsoporte@gmail.com<br/>Tags: Hikvision, ColorVu, AcuSense, DeepinView, IA, YOLO, CCTV, visión nocturna</p>
   </div>
 </body>
 </html>

@@ -47,8 +47,8 @@
     .hero{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;padding:60px 20px 40px;text-align:center}
     .hero h1{font-size:2rem;margin:0 auto 10px;font-weight:800;max-width:800px}
     .hero .meta{font-size:.85rem;opacity:.85}
-    .container{max-width:820px;margin:0 auto;padding:20px}
-    .cover{width:100%;border-radius:12px;margin:24px 0}
+    .container{max-width:768px;margin:0 auto;padding:20px}
+    .cover{width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:24px 0}
     h2{color:#1a365d;font-size:1.5rem;margin:40px 0 12px;font-weight:700}
     h3{color:#2d3748;font-size:1.2rem;margin:30px 0 10px}
     p{color:#2d3748;margin:12px 0}
@@ -59,7 +59,7 @@
     a{color:#1a365d}
     .answer{background:#fff;border-left:4px solid #1a365d;border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
     .answer p{margin:0;color:#1a365d}
-    .cta-box{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
+    .cta-box{background:rgba(17,26,46,0.92);backdrop-filter:blur(8px);border:1px solid rgba(26,54,93,0.55);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
     .cta-box p{color:#fff;margin:0 0 18px}
     .whatsapp{background:#25d366;color:#fff !important;padding:14px 28px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:bold;margin:8px}
     .hub{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:30px 0}
@@ -68,13 +68,13 @@
     .hub li{padding:4px 0}
     .nav{display:flex;justify-content:space-between;margin:30px 0}
     .footer{margin-top:40px;color:#718096;font-size:.85rem;text-align:center}
-    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#64748B;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
+    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#94a3b8;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
     .breadcrumb a{color:#64748b;text-decoration:none;transition:color .2s}
     .breadcrumb a:hover{color:#25d366}
     .breadcrumb span{color:#64748b}
-    .breadcrumb .current{color:#0F172A}
-    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
-    .btn-volver:hover{background:#F1F5F9;color:#1A365D;border-color:#1A365D}
+    .breadcrumb .current{color:#e2e8f0}
+    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-volver:hover{background:#0f172a;color:#25d366;border-color:#25d366}
     .btn-volver svg{width:1rem;height:1rem}
     @media(max-width:768px){.hero h1{font-size:1.4rem}}
   </style>
@@ -97,23 +97,26 @@
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li><a href="/#blog" style="color:#64748b;text-decoration:none">Guía Sectorial</a></li>
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
-        <li class="current" style="color:#0F172A;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real</li>
+        <li class="current" style="color:#e2e8f0;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real</li>
       </ol>
     </nav>
     <div style="margin-bottom:1rem">
-      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
+      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
         <span>Volver al blog</span>
       </a>
     </div>
     <div class="hero">
       <h1>Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real</h1>
-      <div class="meta">Guía Sectorial · 2026-07-25 · 8 min de lectura · Servicios APC Bogotá</div>
+      <div class="meta">Guía Sectorial Â· 2026-07-25 Â· 8 min de lectura Â· Servicios APC BogotÃ¡</div>
     </div>
+    <img class="cover" src="/blog-img/analitica-video-ia-ferreterias-bogota-caso-real-suba.webp" alt="Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real" loading="lazy" />
     <div class="answer"><p><strong>En resumen:</strong> Una ferretería de Suba ordenó sus accesos, automatizó el arqueo y empezó a usar mapas de calor para reacomodar el piso con ColorVu 4K e IA YOLO. Este es el caso completo, con las decisiones que tomaron y los resultados que obtuvieron.</p></div>
-    <img src="/blog-img/cctv-ia-bogota.webp" alt="Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0" />
+    <img src="/blog-img/cctv-ia-bogota.webp" alt="Ilustraci?n del art?culo" loading="lazy" style="width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:16px 0" />
+<p># Analítica de video con IA para ferreterías en Bogotá: orden, arqueo y datos en tiempo real</p>
 <p><strong>Ejemplo operativo típico en ferretería bogotana.</strong> Las cámaras IR tradicionales entregan imagen gris de noche y el arqueo manual toma 45 minutos.</p>
 <p><strong>Con Hikvision ColorVu 4K + IA YOLO:</strong> accesos con trazabilidad, arqueo asistido en 2 minutos y mapas de calor para ordenar el layout y las ventas por zona.</p>
+<p>---</p>
 <h2>El problema: ferretería sin datos pierde orden cada noche</h2>
 <table><tr><th>Factor operativo</th><th>Realidad típica en ferretería</th></tr>
 <tr><td><strong>Inventario alto valor</strong></td><td>Tornillos especializados, herramientas eléctricas, cerraduras → fácil reventa</td></tr>
@@ -123,6 +126,7 @@
 <tr><td><strong>Layout zona tornillos</strong></td><td>Rincón de baja rotación sin medición de flujo</td></tr>
 </table>
 <p>&gt; <strong>Dato operativo:</strong> el horario 22:00-05:00 concentra la mayoría de eventos sin trazabilidad cuando no hay medición automática.</p>
+<p>---</p>
 <h2>La solución: Hikvision ColorVu 4K + IA YOLO (sin cambiar todas las cámaras)</h2>
 <h3>Hardware de referencia (configuración tipo)</h3>
 <table><tr><th>Item</th><th>Especificación</th><th>Ubicación</th></tr>
@@ -135,6 +139,7 @@
 <p><strong>Costo hardware + instalación:</strong> $4,200 USD</p>
 <p><strong>Mensualidad IA (YOLO + Dashboard + Alertas + Soporte):</strong> $250/mes</p>
 <p>&gt; <strong>Clave:</strong> 6 de 8 cámaras <strong>ya existían</strong>. Solo se agregaron 2 ColorVu 4K en puntos críticos (entradas). El resto se reprogramó RTSP → inyectó YOLO.</p>
+<p>---</p>
 <h2>Qué detecta la IA (YOLOv10) en esta ferretería</h2>
 <table><tr><th>Modelo YOLO</th><th>Qué detecta</th><th>Alerta / Acción</th></tr>
 <tr><td><strong>Person Detection</strong></td><td>Personas entrando/saliendo, aforo por zona</td><td>Alerta si aforo &gt; límite legal</td></tr>
@@ -143,6 +148,7 @@
 <tr><td><strong>Cash Register (Arqueo)</strong></td><td>Apertura cajón + monto visible (billetes)</td><td>Cuadre automático POS vs Video</td></tr>
 <tr><td><strong>Heatmap / Dwell</strong></td><td>Mapas calor por zona + tiempo permanencia</td><td>Reporte semanal → reubicación productos</td></tr>
 </table>
+<p>---</p>
 <h2>Resultado 1: accesos con trazabilidad en segundos (flujo tipo)</h2>
 <p><strong>Flujo tipo en rampa trasera (zona restringida)</strong></p>
 <ul>
@@ -159,6 +165,7 @@
 </ul>
 <p><strong>Acción del responsable:</strong> ve el clip en el celular, verifica hora y zona, y deja el evento registrado para revisión y reporte del día</p>
 <p>&gt; <strong>Sin IA + ColorVu 4K:</strong> cámaras IR tradicionales → imagen gris de noche → sin trazabilidad → revisión manual de horas sin evidencia ordenada.</p>
+<p>---</p>
 <h2>Resultado 2: arqueo asistido en 2 minutos (flujo tipo)</h2>
 <table><tr><th>Métrica</th><th>Antes (manual)</th><th>Después (con IA)</th></tr>
 <tr><td><strong>Tiempo de cuadre</strong></td><td>45 min manual</td><td><strong>2 min automático</strong></td></tr>
@@ -176,6 +183,7 @@
 <li>Reporte diario PDF/Excel + Clips 10s validación → Telegram/Email gerente</li>
 </ul>
 <p>```</p>
+<p>---</p>
 <h2>Resultado 3: mapa de calor para ordenar el layout (flujo tipo)</h2>
 <p><strong>Mapa de calor IA (primeras semanas, ejemplo ilustrativo):</strong></p>
 <p>```</p>
@@ -197,6 +205,7 @@
 <li><strong>Rotación inventario:</strong> sube al acercar el producto al pasillo principal</li>
 <li><strong>Diferencias en zona:</strong> bajan con medición y orden del layout</li>
 </ul>
+<p>---</p>
 <h2>Resumen ROI ilustrativo (flujo tipo)</h2>
 <table><tr><th>Métrica</th><th>Valor</th></tr>
 <tr><td><strong>Inversión de referencia</strong></td><td>Hardware + instalación + mensualidad IA con dashboard y alertas</td></tr>
@@ -209,27 +218,29 @@
 <tr><td><strong>Puesta en marcha</strong></td><td>Por fases: puntos críticos primero, luego el resto</td></tr>
 </table>
 <p>&gt; <strong>Mensualidad IA se compensa con menos tiempo manual de arqueo y trazabilidad por turno.</strong></p>
+<p>---</p>
 <h2>¿Qué problema necesita resolver hoy?</h2>
 <p>&gt; 1. <a href="https://apcvisionai.site">Tengo ferretería y quiero ordenar arqueo y accesos → Demo IA ferretería</a></p>
 <p>&gt; 2. <a href="https://apccore.site">Mis cámaras fallan de noche / no graban bien → Soporte técnico &lt;30 min Bogotá</a></p>
 <p>&gt; 3. <a href="https://apcautomatizacion.site">Quiero automatizar arqueo y alertas a WhatsApp → n8n flujos CCTV + POS</a></p>
+<p>---</p>
 <p><strong>Servicios APC</strong> — Bogotá, Cra. 52c #39b-22</p>
 <p>📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com</p>
 <p>🌐 <a href="https://apcvisionai.site">apcvisionai.site</a> · <a href="https://apcautomatizacion.site">apcautomatizacion.site</a> · <a href="https://dogweb.lat">dogweb.lat</a> · <a href="https://apccore.site">apccore.site</a></p>
     <div class="cta-box">
-      <p>Diagnóstico gratuito: revisamos tu ferretería y te dejamos el plan de arqueo y datos, como el caso de Suba. Escríbenos y agendamos.</p>
-      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20vi%20el%20caso%20de%20ferreter%C3%ADa%20en%20Suba%20y%20quiero%20replicarlo" class="whatsapp">Agendar diagnóstico gratis</a>
+      <p>¿Necesitas asesoría o instalación de cámaras de seguridad en tu empresa en Bogotá?</p>
+      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20vi%20el%20caso%20de%20ferreter%C3%ADa%20en%20Suba%20y%20quiero%20replicarlo" class="whatsapp">Cotizar con Estudio Gratis por WhatsApp</a>
     </div>
     <div class="hub">
       <h3>Servicios relacionados</h3>
       <ul>
-        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">Instalación de cámaras de seguridad en Bogotá</a></li>
-        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">Cámaras de seguridad para empresas</a></li>
-        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalación 2026</a></li>
+        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">InstalaciÃ³n de cÃ¡maras de seguridad en BogotÃ¡</a></li>
+        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">CÃ¡maras de seguridad para empresas</a></li>
+        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalaciÃ³n 2026</a></li>
       </ul>
     </div>
     <div class="nav"><span><a href="https://serviciosapc.site/blog/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard/">Siguiente &raquo;</a></span></div>
-    <p class="footer">Servicios APC — Socio tecnológico para empresas en Bogotá. Cra. 52c #39b-22 · +57 333 745 0634 · serviciosapcsoporte@gmail.com<br/>Tags: [&quot;ferretería&quot;, &quot;Bogotá&quot;, &quot;Hikvision ColorVu&quot;, &quot;arqueo caja&quot;, &quot;mapas de calor&quot;, &quot;YOLO&quot;]</p>
+    <p class="footer">Servicios APC â€” Socio tecnolÃ³gico para empresas en BogotÃ¡. Cra. 52c #39b-22 Â· +57 333 745 0634 Â· serviciosapcsoporte@gmail.com<br/>Tags: [&quot;ferretería&quot;, &quot;Bogotá&quot;, &quot;Hikvision ColorVu&quot;, &quot;arqueo caja&quot;, &quot;mapas de calor&quot;, &quot;YOLO&quot;]</p>
   </div>
 </body>
 </html>

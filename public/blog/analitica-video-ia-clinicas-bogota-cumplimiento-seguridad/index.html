@@ -47,8 +47,8 @@
     .hero{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;padding:60px 20px 40px;text-align:center}
     .hero h1{font-size:2rem;margin:0 auto 10px;font-weight:800;max-width:800px}
     .hero .meta{font-size:.85rem;opacity:.85}
-    .container{max-width:820px;margin:0 auto;padding:20px}
-    .cover{width:100%;border-radius:12px;margin:24px 0}
+    .container{max-width:768px;margin:0 auto;padding:20px}
+    .cover{width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:24px 0}
     h2{color:#1a365d;font-size:1.5rem;margin:40px 0 12px;font-weight:700}
     h3{color:#2d3748;font-size:1.2rem;margin:30px 0 10px}
     p{color:#2d3748;margin:12px 0}
@@ -59,7 +59,7 @@
     a{color:#1a365d}
     .answer{background:#fff;border-left:4px solid #1a365d;border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0;box-shadow:0 1px 3px rgba(0,0,0,.08)}
     .answer p{margin:0;color:#1a365d}
-    .cta-box{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
+    .cta-box{background:rgba(17,26,46,0.92);backdrop-filter:blur(8px);border:1px solid rgba(26,54,93,0.55);color:#fff;border-radius:12px;padding:30px;text-align:center;margin:40px 0}
     .cta-box p{color:#fff;margin:0 0 18px}
     .whatsapp{background:#25d366;color:#fff !important;padding:14px 28px;border-radius:8px;text-decoration:none;display:inline-block;font-weight:bold;margin:8px}
     .hub{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:20px;margin:30px 0}
@@ -68,13 +68,13 @@
     .hub li{padding:4px 0}
     .nav{display:flex;justify-content:space-between;margin:30px 0}
     .footer{margin-top:40px;color:#718096;font-size:.85rem;text-align:center}
-    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#64748B;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
+    .breadcrumb{display:flex;flex-wrap:wrap;gap:.5rem;font-size:.875rem;color:#94a3b8;margin-bottom:1.5rem;font-family:system-ui,-apple-system,sans-serif}
     .breadcrumb a{color:#64748b;text-decoration:none;transition:color .2s}
     .breadcrumb a:hover{color:#25d366}
     .breadcrumb span{color:#64748b}
-    .breadcrumb .current{color:#0F172A}
-    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
-    .btn-volver:hover{background:#F1F5F9;color:#1A365D;border-color:#1A365D}
+    .breadcrumb .current{color:#e2e8f0}
+    .btn-volver{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none}
+    .btn-volver:hover{background:#0f172a;color:#25d366;border-color:#25d366}
     .btn-volver svg{width:1rem;height:1rem}
     @media(max-width:768px){.hero h1{font-size:1.4rem}}
   </style>
@@ -97,22 +97,25 @@
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
         <li><a href="/#blog" style="color:#64748b;text-decoration:none">Caso Sectorial</a></li>
         <li aria-hidden="true"><span style="color:#64748b">/</span></li>
-        <li class="current" style="color:#0F172A;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care</li>
+        <li class="current" style="color:#e2e8f0;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" aria-current="page">Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care</li>
       </ol>
     </nav>
     <div style="margin-bottom:1rem">
-      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#FFFFFF;border:1px solid #E2E8F0;border-radius:8px;color:#1A365D;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
+      <a href="/#blog" class="btn-volver" style="display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#94a3b8;font-size:.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-decoration:none">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1rem;height:1rem"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
         <span>Volver al blog</span>
       </a>
     </div>
     <div class="hero">
       <h1>Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care</h1>
-      <div class="meta">Caso Sectorial · 2026-07-26 · 10 min de lectura · Servicios APC Bogotá</div>
+      <div class="meta">Caso Sectorial Â· 2026-07-26 Â· 10 min de lectura Â· Servicios APC BogotÃ¡</div>
     </div>
+    <img class="cover" src="/blog-img/analitica-video-ia-clinicas-bogota-cumplimiento-seguridad.webp" alt="Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care" loading="lazy" />
     <div class="answer"><p><strong>En resumen:</strong> Una caída detectada en menos de 30 segundos, accesos verificados a farmacia y esterilización, EPP controlado y todo en red local: así una clínica en Bogotá convierte su video en cumplimiento trazable.</p></div>
-    <img src="/blog-img/automatizacion-procesos.webp" alt="Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0" />
+    <img src="/blog-img/automatizacion-procesos.webp" alt="Ilustraci?n del art?culo" loading="lazy" style="width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:16px 0" />
+<p># Analítica de video con IA para clínicas en Bogotá: cumplimiento, seguridad y Duty of Care</p>
 <p><strong>Clínicas y centros médicos en Bogotá enfrentan retos únicos: cumplimiento HIPAA/Ley 1581, seguridad pacientes (caídas), PPE en zonas críticas, control acceso áreas restringidas (RX, esterilización, farmacia). La analítica de video IA (YOLO + Hikvision DeepinView) resuelve todo en una sola plataforma Offline-First.</strong></p>
+<p>---</p>
 <h2>El reto único de clínicas en Bogotá</h2>
 <table><tr><th>Riesgo</th><th>Norma/Exigencia</th><th>Consecuencia si falla</th></tr>
 <tr><td><strong>Caída paciente no detectada</strong></td><td>Duty of Care / Deber de cuidado</td><td>Demanda, multa, daño reputacional</td></tr>
@@ -122,6 +125,7 @@
 <tr><td><strong>Aforo salas espera &gt; límite</strong></td><td>Resolución 666/2021 COVID + normas vigentes</td><td>Cierre preventivo, multa</td></tr>
 </table>
 <p><strong>La IA de video resuelve TODOS estos riesgos en una sola plataforma.</strong></p>
+<p>---</p>
 <h2>Arquitectura IA para Clínicas (Offline-First + Cumplimiento)</h2>
 <p>```</p>
 <p>┌─────────────────────────────────────────────────────────────────┐</p>
@@ -154,6 +158,7 @@
 <p>│  • Backup cifrado AWS S3 / Azure Blob (solo metadatos + clips)  │</p>
 <p>└─────────────────────────────────────────────────────────────────┘</p>
 <p>```</p>
+<p>---</p>
 <h2>5 Casos de uso críticos resueltos con IA</h2>
 <h3>1. Detección de caídas pacientes &lt; 30 segundos</h3>
 <p><strong>Problema:</strong> Paciente mayor cae en baño/sala espera → nadie ve → 20-40 min hasta que alguien lo encuentra → empeoramiento, demanda.</p>
@@ -202,6 +207,7 @@
 <tr><td><strong>Transferencia internacional</strong></td><td><strong>No hay.</strong> Procesamiento 100% edge en Colombia. Nube solo metadatos anonimizados si cliente autoriza.</td></tr>
 </table>
 <p>&gt; <strong>Auditoría SIC / Minsalud:</strong> Entregamos reporte completo + logs inmutables + política privacidad en &lt; 24h.</p>
+<p>---</p>
 <h2>Comparativa: CCTV Tradicional vs IA Clínica</h2>
 <table><tr><th>Capacidad</th><th>CCTV Tradicional</th><th>IA Clínica (DeepinView + Edge YOLO)</th></tr>
 <tr><td><strong>Detección caídas</strong></td><td>❌ No</td><td>✅ &lt; 30 seg alerta enfermería</td></tr>
@@ -213,6 +219,7 @@
 <tr><td><strong>Soporte 24/7 Bogotá</strong></td><td>❌ &quot;Mañana paso&quot;</td><td>✅ SLA &lt;4h presencial + Offline-First</td></tr>
 <tr><td><strong>Costo total 3 años</strong></td><td>$15-25K USD (solo hardware)</td><td>$25-40K USD (hardware + IA + Soporte + Cumplimiento)</td></tr>
 </table>
+<p>---</p>
 <h2>Ejemplo operativo tipo: clínica con 10 a 20 consultorios (flujo tipo)</h2>
 <p><strong>Perfil tipo:</strong> consultorios, RX digital, esterilización y farmacia, con flujo diario de pacientes y personal por turnos.</p>
 <p><strong>Configuración tipo:</strong></p>
@@ -234,6 +241,7 @@
 <tr><td><strong>Satisfacción pacientes (encuesta)</strong></td><td>4.1/5</td><td><strong>4.8/5</strong></td><td>+17%</td></tr>
 </table>
 <p>&gt; <strong>Resultado operativo tipo:</strong> enfermería recibe la alerta con clip y ubicación en segundos, y la auditoría se atiende con logs ordenados y reportes del periodo.</p>
+<p>---</p>
 <h2>Inversión típica Clínica 10-20 consultorios (Bogotá 2026)</h2>
 <table><tr><th>Ítem</th><th>Costo USD</th><th>Detalle</th></tr>
 <tr><td><strong>Cámaras DeepinView 4MP</strong> (12-16 uds)</td><td>$8,000-12,000</td><td>PPE, caídas, colas, ANPR, intrusión</td></tr>
@@ -247,27 +255,29 @@
 <tr><td><strong>AÑOS 2-3</strong></td><td><strong>$3,600-7,200 USD/año</strong></td><td>Solo mensualidad IA + Soporte + Actualizaciones</td></tr>
 </table>
 <p>&gt; <strong>ROI típico clínica Bogotá:</strong> <strong>Payback 6-10 meses</strong> (evita 1 multa Minsalud/SIC + 1 demanda caída + eficiencia operativa).</p>
+<p>---</p>
 <h2>¿Qué problema necesita resolver hoy?</h2>
 <p>&gt; 1. <a href="https://apcvisionai.site">Tengo clínica y necesito cumplimiento + detección caídas &lt;30s → Demo IA clínica</a></p>
 <p>&gt; 2. <a href="https://apccore.site">Mis cámaras fallan / no graban bien en áreas críticas → Soporte técnico &lt;30 min Bogotá</a></p>
 <p>&gt; 3. <a href="https://apcautomatizacion.site">Quiero integrar alertas caídas/PPE a HIS/Enfermería → n8n flujos CCTV → HIS</a></p>
+<p>---</p>
 <p><strong>Servicios APC</strong> — Bogotá, Cra. 52c #39b-22</p>
 <p>📞 +57 333 745 0634 | ✉️ serviciosapcsoporte@gmail.com</p>
 <p>🌐 <a href="https://apcvisionai.site">apcvisionai.site</a> · <a href="https://apcautomatizacion.site">apcautomatizacion.site</a> · <a href="https://dogweb.lat">dogweb.lat</a> · <a href="https://apccore.site">apccore.site</a></p>
     <div class="cta-box">
-      <p>Diagnóstico gratuito: revisamos tu clínica y te dejamos el plan de cumplimiento y control de accesos con IA. Escríbenos y agendamos.</p>
-      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20le%C3%AD%20el%20caso%20de%20cl%C3%ADnicas%20con%20IA%20y%20quiero%20asesor%C3%ADa%20para%20mi%20cl%C3%ADnica" class="whatsapp">Agendar diagnóstico gratis</a>
+      <p>¿Necesitas asesoría o instalación de cámaras de seguridad en tu empresa en Bogotá?</p>
+      <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20le%C3%AD%20el%20caso%20de%20cl%C3%ADnicas%20con%20IA%20y%20quiero%20asesor%C3%ADa%20para%20mi%20cl%C3%ADnica" class="whatsapp">Cotizar con Estudio Gratis por WhatsApp</a>
     </div>
     <div class="hub">
       <h3>Servicios relacionados</h3>
       <ul>
-        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">Instalación de cámaras de seguridad en Bogotá</a></li>
-        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">Cámaras de seguridad para empresas</a></li>
-        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalación 2026</a></li>
+        <li><a href="https://serviciosapc.site/instalacion-camaras-seguridad-bogota/">InstalaciÃ³n de cÃ¡maras de seguridad en BogotÃ¡</a></li>
+        <li><a href="https://serviciosapc.site/camaras-seguridad-empresas-bogota/">CÃ¡maras de seguridad para empresas</a></li>
+        <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalaciÃ³n 2026</a></li>
       </ul>
     </div>
     <div class="nav"><span><a href="https://serviciosapc.site/blog/5-senales-camaras-no-protegen-empresa-bogota/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/analitica-video-ia-ferreterias-bogota-caso-real-suba/">Siguiente &raquo;</a></span></div>
-    <p class="footer">Servicios APC — Socio tecnológico para empresas en Bogotá. Cra. 52c #39b-22 · +57 333 745 0634 · serviciosapcsoporte@gmail.com<br/>Tags: clínicas Bogotá, IA salud, PPE detection, caídas pacientes, HIPAA, Ley 1581, Duty of Care, Hikvision DeepinView</p>
+    <p class="footer">Servicios APC â€” Socio tecnolÃ³gico para empresas en BogotÃ¡. Cra. 52c #39b-22 Â· +57 333 745 0634 Â· serviciosapcsoporte@gmail.com<br/>Tags: clínicas Bogotá, IA salud, PPE detection, caídas pacientes, HIPAA, Ley 1581, Duty of Care, Hikvision DeepinView</p>
   </div>
 </body>
 </html>

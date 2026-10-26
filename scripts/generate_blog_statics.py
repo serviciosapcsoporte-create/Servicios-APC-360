@@ -125,7 +125,7 @@ def body_to_html(body):
         if m_img:
             alt = html.escape(m_img.group(1))
             src = m_img.group(2)
-            out.append('<img src="' + src + '" alt="' + alt + '" loading="lazy" style="width:100%;border-radius:12px;margin:16px 0" />')
+            out.append('<img src="' + src + '" alt="' + alt + '" loading="lazy" style="width:100%;border:1px solid #1E2A4A;border-radius:12px;margin:16px 0" />')
             continue
         if line.startswith("!["):
             continue
@@ -165,7 +165,7 @@ def get_contextual_cta(slug, category):
         "servidores-edge-gpu-para-ia-video-analitica-bogota": "Hola Servicios APC, necesito servidor edge GPU para videoanalítica IA",
     }
     if slug in cta_map:
-        return base + quote(fix_mojibake(cta_map[slug]), safe=""), "Agendar diagnóstico gratis"
+        return base + quote(fix_mojibake(cta_map[slug]), safe=""), "Cotizar con Estudio Gratis por WhatsApp"
     cat_defaults = {
         "Diagnóstico": "Hola Servicios APC, leí su diagnóstico y quiero auditoría gratis",
         "Caso Sectorial": "Hola Servicios APC, vi su caso sectorial y quiero replicarlo",
@@ -184,7 +184,7 @@ def get_contextual_cta(slug, category):
         "Infraestructura": "Hola Servicios APC, necesito servidor edge GPU para IA",
     }
     msg = cat_defaults.get(category, "Hola Servicios APC, leí su artículo y quiero asesoría")
-    return base + quote(fix_mojibake(msg), safe=""), "Agendar diagnóstico gratis"
+    return base + quote(fix_mojibake(msg), safe=""), "Cotizar con Estudio Gratis por WhatsApp"
 
 
 
@@ -244,7 +244,7 @@ def build(slug, fm, body_html, cover, meta, intro40, cta, prev_link, next_link, 
     h = h.replace("%%TAGS%%", html.escape(tags))
     h = h.replace("%%READ%%", html.escape(read))
     h = h.replace("%%INTRO40%%", html.escape(fix_mojibake(intro40)))
-    h = h.replace("%%CTA%%", html.escape(fix_mojibake(cta)))
+    h = h.replace("%%CTA%%", html.escape("¿Necesitas asesoría o instalación de cámaras de seguridad en tu empresa en Bogotá?"))
     h = h.replace("%%CTA_HREF%%", html.escape(cta_href))
     h = h.replace("%%CTA_LABEL%%", html.escape(cta_label))
     h = h.replace("%%BODY%%", body_html)
