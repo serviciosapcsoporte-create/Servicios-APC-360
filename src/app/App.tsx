@@ -545,6 +545,7 @@ export default function App() {
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
   const [hash, setHash] = useState(window.location.hash.slice(1));
+  const [showHeroVideo, setShowHeroVideo] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -555,6 +556,23 @@ export default function App() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("hashchange", onHashChange);
     };
+  }, []);
+
+  // Hero video: diferir hasta after load+idle y solo desktop.
+  // En móvil el video (335–425 KB) compite con el critical path y hunde el LCP.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    if (!mq.matches || navigator.connection?.saveData) return;
+    const start = () => {
+      const go = () => setShowHeroVideo(true);
+      if ("requestIdleCallback" in window) {
+        (window as Window & { requestIdleCallback: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback(go, { timeout: 2500 });
+      } else {
+        setTimeout(go, 1800);
+      }
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
   }, []);
 
   const seoMeta: Record<string, { title: string; description: string }> = {
@@ -830,29 +848,32 @@ export default function App() {
           id="inicio"
           className="relative isolate overflow-hidden bg-[#0F172A] border-b border-white/10"
         >
-          {/* Fondo full-width: ilustración de respaldo + video corporativo */}
+          {/* Fondo full-width: ilustración de respaldo + video corporativo (desktop, diferido) */}
           <div aria-hidden="true" className="absolute inset-0">
             <ImageWithFallback
               src="/blog-img/equipo-apc.webp"
               alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
               width={1200}
               height={675}
+              decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <video
-              className="hero-video absolute inset-0 h-full w-full object-cover lg:translate-x-[10%] lg:scale-125"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/videos/reels-poster.webp"
-              aria-hidden="true"
-              tabIndex={-1}
-            >
-              <source src="/videos/reels-10s.webm" type="video/webm" />
-              <source src="/videos/reels-10s.mp4" type="video/mp4" />
-            </video>
+            {showHeroVideo && (
+              <video
+                className="hero-video absolute inset-0 h-full w-full object-cover lg:translate-x-[10%] lg:scale-125"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                poster="/videos/reels-poster.webp"
+                aria-hidden="true"
+                tabIndex={-1}
+              >
+                <source src="/videos/reels-10s.webm" type="video/webm" />
+                <source src="/videos/reels-10s.mp4" type="video/mp4" />
+              </video>
+            )}
           </div>
 
           {/* Overlay de contraste sobre el fondo */}
@@ -868,41 +889,34 @@ export default function App() {
 
           <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-20 lg:min-h-[740px] lg:px-12 lg:py-28">
             <div className="w-full max-w-4xl">
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+              {/* Texto del hero SIEMPRE visible en el primer paint (LCP).
+                  Sin opacity:0 ni animaciones de entrada que dependan de JS. */}
+              <p
                 className="font-mono text-[10px] sm:text-xs text-white/90 tracking-[0.08em] uppercase mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-center leading-snug backdrop-blur"
               >
                 <span aria-hidden="true">📍</span>
                 Instalación en Bogotá · Crédito directo · Hikvision &amp; Dahua
-              </motion.p>
+              </p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.05 }}
+              <h1
                 className="font-serif font-bold text-white tracking-[-0.02em] leading-[1.06] text-[clamp(2.3rem,4.2vw,3.75rem)] mb-6 lg:[text-wrap:balance]"
               >
                 Instalación Profesional de Cámaras de Seguridad e IA{" "}
                 <span className="text-[#A9C7EC] whitespace-nowrap">en Bogotá</span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 22 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.1 }}
+              <p
                 className="text-[#D5E0EE] text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
               >
                 Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
                 Estudio técnico sin costo en Bogotá e instalaciones a crédito desde
                 $1.500.000 con cuotas semanales desde $50.000.
-              </motion.p>
+              </p>
 
               <motion.div
-                initial={{ opacity: 0, y: 22 }}
+                initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.15 }}
+                transition={{ type: "spring", bounce: 0, duration: 0.4, delay: 0.12 }}
                 className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
               >
                 <a
