@@ -284,6 +284,59 @@
   }
 }
 
+/* ─── Hero: video de fondo (perros ASCII → árbol) ───────────────
+   Solo entra con opacity: el poster ya está pintado debajo, así que
+   el primer frame no provoca salto ni cambio de layout.            */
+
+.hero-bg {
+  /* Mismo azul medianoche del video: en móvil la banda 16:9 se funde
+     con el fondo en lugar de dejar barras visibles. */
+  background: radial-gradient(circle at 50% 44%, #0f233c 0%, #071120 48%, #030711 100%);
+}
+
+.hero-video {
+  opacity: 0;
+  animation: hero-video-in 620ms ease-out forwards;
+}
+
+@keyframes hero-video-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* En móvil el área del hero es vertical y un 16:9 no puede cubrirla
+   sin recortar la escena: se muestra completo (banda) y el degradado
+   baja de intensidad justo donde cae la banda. */
+@media (max-width: 767px) {
+  .hero-bg img,
+  .hero-bg video {
+    object-fit: contain;
+  }
+  .hero-overlay {
+    display: none;
+  }
+  .hero-overlay-mobile {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 13, 26, 0.88) 0%,
+      rgba(8, 16, 31, 0.6) 34%,
+      rgba(9, 18, 35, 0.42) 50%,
+      rgba(9, 18, 35, 0.18) 66%,
+      rgba(9, 18, 35, 0.5) 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none !important;
+  }
+}
+
 /* ─── Reduced motion / transparency / contrast ─────────────── */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -296,9 +349,6 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .hero-video {
-    display: none !important;
   }
 }
 

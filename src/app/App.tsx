@@ -545,7 +545,8 @@ export default function App() {
   const [activeService, setActiveService] = useState(0);
   const [openFaq, setOpenFaq] = useState(-1);
   const [hash, setHash] = useState(window.location.hash.slice(1));
-  const [showHeroVideo, setShowHeroVideo] = useState(false);
+  const [heroVideo, setHeroVideo] = useState(false);
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -558,22 +559,45 @@ export default function App() {
     };
   }, []);
 
-  // Hero video: diferir hasta after load+idle y solo desktop.
-  // En móvil el video (335–425 KB) compite con el critical path y hunde el LCP.
+  /* Video de fondo del hero (perros ASCII → árbol encendido).
+     No entra en el primer paint: el poster WebP es el que pinta y hace de
+     LCP. El video se monta después de `load` + idle, nunca con
+     `prefers-reduced-motion` ni con ahorro de datos. */
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
-    if (!mq.matches || navigator.connection?.saveData) return;
+    const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mqMotion.matches || navigator.connection?.saveData) return;
+    let cancelled = false;
     const start = () => {
-      const go = () => setShowHeroVideo(true);
-      if ("requestIdleCallback" in window) {
-        (window as Window & { requestIdleCallback: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback(go, { timeout: 2500 });
-      } else {
-        setTimeout(go, 1800);
-      }
+      const go = () => {
+        if (!cancelled && !mqMotion.matches) setHeroVideo(true);
+      };
+      const idle = (window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+      if (idle) idle(go, { timeout: 2000 });
+      else window.setTimeout(go, 1200);
     };
     if (document.readyState === "complete") start();
     else window.addEventListener("load", start, { once: true });
+    return () => {
+      cancelled = true;
+      window.removeEventListener("load", start);
+    };
   }, []);
+
+  useEffect(() => {
+    const v = heroVideoRef.current;
+    if (!heroVideo || !v) return;
+    const play = () => {
+      v.play().catch(() => {});
+    };
+    play();
+    /* Fuera de pantalla se pausa: no gasta CPU ni batería al bajar. */
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => (e.isIntersecting ? play() : v.pause())),
+      { threshold: 0.05 }
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, [heroVideo]);
 
   const seoMeta: Record<string, { title: string; description: string }> = {
     negocio: {
@@ -848,30 +872,33 @@ export default function App() {
           id="inicio"
           className="relative isolate overflow-hidden bg-[#0F172A] border-b border-white/10"
         >
-          {/* Fondo full-width: ilustración de respaldo + video corporativo (desktop, diferido) */}
-          <div aria-hidden="true" className="absolute inset-0">
-            <ImageWithFallback
-              src="/blog-img/equipo-apc.webp"
-              alt="Equipo de Servicios APC en Bogotá, especialistas en instalación de cámaras de seguridad e IA"
-              width={1200}
-              height={675}
+          {/* Fondo full-width: video de perros ASCII → árbol encendido sobre
+              azul medianoche. El poster (WebP, ~53 KB) pinta de inmediato y
+              el video entra después, fundido con opacity. */}
+          <div aria-hidden="true" className="hero-bg absolute inset-0 overflow-hidden">
+            <img
+              src="/videos/perros-arbol-poster.webp"
+              alt=""
+              width={1280}
+              height={720}
               decoding="async"
+              fetchPriority="high"
               className="absolute inset-0 h-full w-full object-cover"
             />
-            {showHeroVideo && (
+            {heroVideo && (
               <video
-                className="hero-video absolute inset-0 h-full w-full object-cover lg:translate-x-[10%] lg:scale-125"
+                ref={heroVideoRef}
+                className="hero-video absolute inset-0 h-full w-full object-cover"
+                poster="/videos/perros-arbol-poster.webp"
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="metadata"
-                poster="/videos/reels-poster.webp"
                 aria-hidden="true"
                 tabIndex={-1}
               >
-                <source src="/videos/reels-10s.webm" type="video/webm" />
-                <source src="/videos/reels-10s.mp4" type="video/mp4" />
+                <source src="/videos/perros-arbol.mp4" type="video/mp4" />
               </video>
             )}
           </div>
@@ -879,13 +906,13 @@ export default function App() {
           {/* Overlay de contraste sobre el fondo */}
           <div
             aria-hidden="true"
-            className="absolute inset-0"
+            className="hero-overlay absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.70) 50%, rgba(15,23,42,0.40) 100%)",
+                "linear-gradient(90deg, rgba(7,13,26,0.90) 0%, rgba(8,16,31,0.70) 46%, rgba(9,18,35,0.34) 100%)",
             }}
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-[#0F172A]/55 lg:hidden" />
+          <div aria-hidden="true" className="hero-overlay-mobile absolute inset-0 bg-[#0F172A]/60 lg:hidden" />
 
           <div className="relative z-10 mx-auto flex min-h-[620px] max-w-7xl items-center px-6 py-20 lg:min-h-[740px] lg:px-12 lg:py-28">
             <div className="w-full max-w-4xl">
@@ -901,16 +928,16 @@ export default function App() {
               <h1
                 className="font-serif font-bold text-white tracking-[-0.02em] leading-[1.06] text-[clamp(2.3rem,4.2vw,3.75rem)] mb-6 lg:[text-wrap:balance]"
               >
-                Instalación Profesional de Cámaras de Seguridad e IA{" "}
+                Instalación de Cámaras de Seguridad{" "}
                 <span className="text-[#A9C7EC] whitespace-nowrap">en Bogotá</span>
               </h1>
 
               <p
                 className="text-[#D5E0EE] text-lg md:text-xl leading-relaxed max-w-2xl mb-9"
               >
-                Protege tu negocio o hogar con tecnología ColorVu y analítica inteligente.
-                Estudio técnico sin costo en Bogotá e instalaciones a crédito desde
-                $1.500.000 con cuotas semanales desde $50.000.
+                Estudio técnico sin costo en Bogotá. Equipos Hikvision con garantía y
+                pago a crédito: desde $1.500.000, cuotas semanales desde $50.000 o
+                quincenales desde $75.000.
               </p>
 
               <motion.div
@@ -945,7 +972,7 @@ export default function App() {
                 <ul className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-8">
                   {[
                     "Estudio previo sin costo en Bogotá",
-                    "Cuotas semanales desde $50k o $75k",
+                    "Cuotas semanales desde $50k o quincenales desde $75k",
                     "Equipos originales con garantía",
                   ].map((t) => (
                     <li key={t} className="flex items-center gap-2 text-[13px] sm:text-sm text-[#E2E8F0]">
