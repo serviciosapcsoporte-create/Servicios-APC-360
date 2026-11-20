@@ -609,44 +609,6 @@ export default function App() {
     };
   }, [heroVideo]);
 
-  const seoMeta: Record<string, { title: string; description: string }> = {
-    negocio: {
-      title: "Cámaras de Seguridad para Negocio en Bogotá | 500+ instalaciones",
-      description:
-        "Cámaras para negocio en Bogotá: Hikvision, cableado certificado y acceso remoto. Desde $1.500.000 o $50.000 semanales. Cotiza gratis.",
-    },
-    instalacion: {
-      title: "Instalación de Cámaras de Seguridad en Bogotá | Hikvision Certificado",
-      description:
-        "Instalación profesional de cámaras de seguridad en Bogotá: cableado estructurado sin puntos ciegos, configuración remota y equipos IA-ready. Cotización con visita técnica.",
-    },
-    casa: {
-      title: "Cámaras para Instalar en Casa en Bogotá | Instalación el mismo día",
-      description:
-        "Cámaras para casa en Bogotá con visión nocturna a color y acceso desde el celular. Kit desde $1.500.000 instalado el mismo día en toda la ciudad.",
-    },
-    "precios-camaras": {
-      title: "Precios de Instalación de Cámaras de Seguridad en Bogotá 2026",
-      description:
-        "Cuánto cuesta instalar cámaras de seguridad en Bogotá: desde $1.500.000 todo incluido o desde $50.000 semanales. El precio final sale del estudio. Cotiza gratis.",
-    },
-    "mantenimiento-camaras": {
-      title: "Mantenimiento de Cámaras de Seguridad en Bogotá | Preventivo y Correctivo",
-      description:
-        "Mantenimiento de cámaras en Bogotá: preventivo, correctivo y supervisión remota para Hikvision/Dahua. Limpieza, firmware y cableado. Diagnóstico gratis.",
-    },
-    consultor: {
-      title: "Consultor Tecnológico para Empresas en Bogotá | Diagnóstico con ROI",
-      description:
-        "Consultor tecnológico en Bogotá: auditoría de seguridad CCTV con IA, automatización de procesos y dashboards. Diagnóstico gratis con implementación.",
-    },
-    blog: {
-      title: "Blog de Cámaras de Seguridad e IA | Servicios APC Bogotá",
-      description:
-        "Guías, comparativas y casos reales sobre CCTV Hikvision con inteligencia artificial en Bogotá: precios, instalación, analítica IA, automatización y seguridad empresarial.",
-    },
-  };
-
   const landingPages: Record<string, () => React.ReactElement> = {
     negocio: () => <DynamicPage page="negocio" />,
     suba: () => <DynamicPage page="suba" />,
