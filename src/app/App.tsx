@@ -586,17 +586,27 @@ export default function App() {
   useEffect(() => {
     const v = heroVideoRef.current;
     if (!heroVideo || !v) return;
+    const posterDesktop = "/videos/perros-arbol-poster.webp";
+    const posterMobile = "/videos/perros-arbol-poster-mobile.webp";
+    const syncPoster = () => {
+      v.poster = window.matchMedia("(max-width: 767px)").matches ? posterMobile : posterDesktop;
+    };
+    syncPoster();
     const play = () => {
       v.play().catch(() => {});
     };
     play();
-    /* Fuera de pantalla se pausa: no gasta CPU ni batería al bajar. */
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => (e.isIntersecting ? play() : v.pause())),
       { threshold: 0.05 }
     );
     io.observe(v);
-    return () => io.disconnect();
+    const onResize = () => syncPoster();
+    window.addEventListener("resize", onResize);
+    return () => {
+      io.disconnect();
+      window.removeEventListener("resize", onResize);
+    };
   }, [heroVideo]);
 
   const seoMeta: Record<string, { title: string; description: string }> = {
