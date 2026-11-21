@@ -212,4 +212,10 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
   3. (Opcional) Crear una API key con PageSpeed Insights + CrUX y ponerla en `api_key`; y el ID de propiedad GA4 en `ga4_property_id`.
 - Con eso se puede correr `gsc_query.py` (queries, páginas, países), `gsc_inspect.py` (cobertura por URL) y `pagespeed_check.py`, y recién ahí armar el dashboard con línea base real. **No se inventan métricas ni baselines.**
 
+### Nota: insight "JavaScript antiguo" de Lighthouse (21/11/2026) — DECIDIDO CONSERVAR
+- PageSpeed reportó "JavaScript antiguo, ahorro estimado 10 KiB" por polyfills de `Array.prototype.at` / `Array.prototype.findLast`. El 100% del hallazgo apunta a `https://static.cloudflareinsights.com/beacon.min.js/vce70...`.
+- No es código nuestro: no está en `src/` ni en el bundle Vite; Cloudflare lo inyecta en el edge al tener Web Analytics activo. El consejo de "no transpilar Baseline" no aplica a un script de terceros ya minificado. El insight además figura como **"Sin puntuar"** (no afecta al score).
+- En `serviciosapc.site` el CSP sí permite el envío (`connect-src ... cloudflareinsights.com`), así que el beacon reporta datos y es **la única analítica disponible** mientras GSC/GA4/PSI estén bloqueados. Quitarlo del CSP no ahorraría bytes (el script se descarga igual), solo cortaría el envío.
+- **Decisión del usuario: conservarlo.** Sin cambios en el repo ni en el dashboard. (En `dogweb.lat` el CSP bloquea el envío, así que ahí serían 10 KiB sin beneficio; queda como observación separada, no se tocó ese proyecto.)
+
 ---
