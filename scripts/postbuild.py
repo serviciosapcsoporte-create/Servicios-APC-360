@@ -10,6 +10,13 @@
    noindex, metas propias) y SOLO actualiza sus referencias a los hashes
    actuales. Si no existe, cae a copia del shell.
 
+3) Cache-bust del entry JS: se anade `?v=<CACHE_BUST>` a TODAS las referencias
+   del bundle entry. Motivo (21/11/2026): durante el deploy b81fda3 el HTML
+   nuevo referenciaba index-BDEstDqd.js mientras docs/assets aun no lo tenia;
+   el 404 resultante quedo cacheado en el edge y sobrevivia a los rebuilds.
+   Con el query el CDN usa otra clave de cache y sirve el archivo real (200).
+   Las regex toleran el query para que el script sea idempotente.
+
 Idempotente. Uso:
     python scripts/postbuild.py <ruta_dist>
 """
@@ -21,14 +28,23 @@ import shutil
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
+CACHE_BUST = "20261121"
+
 CSS_RE = re.compile(r'<link rel="stylesheet"[^>]*href="/assets/(index-[A-Za-z0-9_-]+\.css)"[^>]*>')
-JS_RE = re.compile(r'<script type="module" crossorigin src="/assets/(index-[A-Za-z0-9_-]+\.js)"')
+# El JS puede venir ya con ?v=... de una pasada anterior: tolerarlo.
+JS_RE = re.compile(r'<script type="module"[^>]*src="/assets/(index-[A-Za-z0-9_-]+\.js)(?:\?[^"]*)?"')
+JS_REF_RE = re.compile(r'/assets/(index-[A-Za-z0-9_-]+\.js)(?:\?[A-Za-z0-9_.=-]+)?')
 
 
 def current_hashes(html: str):
     css = CSS_RE.search(html)
     js = JS_RE.search(html)
     return (css.group(1) if css else None, js.group(1) if js else None)
+
+
+def add_cache_bust(html: str) -> str:
+    """Normaliza los refs del entry JS a /assets/index-XXX.js?v=CACHE_BUST."""
+    return JS_REF_RE.sub(lambda m: "/assets/" + m.group(1) + "?v=" + CACHE_BUST, html)
 
 
 def process(dist: str) -> None:
@@ -42,15 +58,13 @@ def process(dist: str) -> None:
     if mcss and 'media="print"' not in mcss.group(0):
         lines = []
         if js:
-            lines.append(f'<link rel="modulepreload" crossorigin href="/assets/{js}">')
+            lines.append(f'<link rel="modulepreload" crossorigin href="/assets/{js}?v={CACHE_BUST}">')
         lines.append(
             f'<link rel="stylesheet" href="/assets/{css}" '
             f'media="print" onload="this.media=\'all\'" crossorigin>'
         )
         lines.append(f'<noscript><link rel="stylesheet" href="/assets/{css}" crossorigin></noscript>')
         html = html.replace(mcss.group(0), "\n  ".join(lines), 1)
-        with open(idx, "w", encoding="utf-8", newline="") as f:
-            f.write(html)
         print(f"OK index.html: css={css}" + (f" js={js}" if js else ""))
     elif mcss:
         print("OK index.html: ya transformado (media=print presente)")
@@ -60,6 +74,16 @@ def process(dist: str) -> None:
     if not css or not js:
         sys.exit("ERROR: no se pudieron determinar los hashes actuales")
 
+    # Cache-bust del entry (script + modulepreload).
+    antes = html
+    html = add_cache_bust(html)
+    if html != antes:
+        with open(idx, "w", encoding="utf-8", newline="") as f:
+            f.write(html)
+        print(f"OK index.html: cache-bust JS -> ?v={CACHE_BUST}")
+    else:
+        print(f"OK index.html: cache-bust JS ya aplicado (?v={CACHE_BUST})")
+
     p404 = os.path.join(dist, "404.html")
     if os.path.exists(p404):
         with open(p404, "rb") as f:
@@ -67,12 +91,12 @@ def process(dist: str) -> None:
         before = raw
         raw = re.sub(rb"/assets/index-[A-Za-z0-9_-]+\.css",
                      ("/assets/" + css).encode(), raw)
-        raw = re.sub(rb"/assets/index-[A-Za-z0-9_-]+\.js",
-                     ("/assets/" + js).encode(), raw)
+        raw = re.sub(rb"/assets/index-[A-Za-z0-9_-]+\.js(?:\?[A-Za-z0-9_.=-]+)?",
+                     ("/assets/" + js + "?v=" + CACHE_BUST).encode(), raw)
         if raw != before:
             with open(p404, "wb") as f:
                 f.write(raw)
-            print(f"OK 404.html: refs actualizadas -> css={css} js={js}")
+            print(f"OK 404.html: refs actualizadas -> css={css} js={js}?v={CACHE_BUST}")
         else:
             print("OK 404.html: refs ya correctas")
     else:
