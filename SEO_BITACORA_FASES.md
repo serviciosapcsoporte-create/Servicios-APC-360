@@ -192,3 +192,24 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - **HARO**: responder solicitudes de periodistas (0-1/mes), requiere cuenta y seguimiento.
 
 ---
+
+## FASE 9 — Monitoreo y KPIs 🔴 BLOQUEADA (requiere acceso externo) — revisada 21/11/2026
+
+### Cómo lo encontré
+- El plan pide un dashboard semanal/mensual con 14 KPIs y 8 "Falsification Gates". Casi todos dependen de datos que **no están disponibles en este entorno**: GSC, GA4, GBP Insights, PageSpeed Insights, CrUX y Ahrefs/Moz.
+- Intenté desbloquearlo: el config `C:\Users\pc\.config\claude-seo\google-api.json` apuntaba al service account del NAS caído (`\\DESKTOP-BB2QBQ3\...`). Lo redirigí a la copia local `D:\APC\ARICK_COMANDO\config\credentials.json` (mismo SA `analista-apc@servicios-apc-pyton.iam.gserviceaccount.com`) y reescribí el JSON sin BOM (PowerShell 5.1 añadía BOM y Python lo rechazaba). Resultado: `google_auth.py --check` pasó a **Credential Tier 1**, con GSC e Indexing API marcados `[OK]`.
+- **Pero la autorización real falla**, con dos causas distintas y verificadas:
+  1. `gsc_query.py sites` → **HTTP 403 `accessNotConfigured`**: la Search Console API no está habilitada en el proyecto de Google Cloud `160252449744`. Requiere activarla en `console.developers.google.com/apis/api/searchconsole.googleapis.com`.
+  2. `gsc_query.py query` → **Permission denied para `sc-domain:serviciosapc.site`**: el service account no está agregado como usuario en GSC → Config → Usuarios y permisos.
+- Sin esos dos pasos (que solo se pueden hacer en la consola de Google con la cuenta del usuario), **no hay datos de impresiones, clicks, posiciones ni cobertura de indexación**. GA4 tampoco tiene `ga4_property_id` configurado. PSI/CrUX siguen sin `api_key`.
+
+### Cómo lo entrego
+- **No se ejecuta ninguna acción de Fase 9 sobre el sitio**: no hay nada que medir con las credenciales actuales y el plan no autoriza cambios de contenido en esta fase. Queda documentada como bloqueada, con la causa exacta, para no repetir el intento a ciegas.
+- Verificación local que sí se pudo hacer: build/deploy estable (`3038befd`, `built`, 21/11/2026 07:17:38Z), sin regresiones de Fases 0-8.
+- Lo que se necesita del usuario para desbloquear:
+  1. Habilitar **Search Console API** en el proyecto GCP `160252449744`.
+  2. Agregar `analista-apc@servicios-apc-pyton.iam.gserviceaccount.com` como usuario en GSC (`sc-domain:serviciosapc.site`).
+  3. (Opcional) Crear una API key con PageSpeed Insights + CrUX y ponerla en `api_key`; y el ID de propiedad GA4 en `ga4_property_id`.
+- Con eso se puede correr `gsc_query.py` (queries, páginas, países), `gsc_inspect.py` (cobertura por URL) y `pagespeed_check.py`, y recién ahí armar el dashboard con línea base real. **No se inventan métricas ni baselines.**
+
+---
