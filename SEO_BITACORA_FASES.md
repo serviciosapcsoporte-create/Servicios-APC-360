@@ -233,4 +233,9 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Rebuild real de Vite en copia local `sapc-build` (npm ci + vite build + postbuild.py): entry `index-BDEstDqd.js` → `index-DQTczrbI.js`, CSS sin cambios, cache-bust `?v=20261121`. Assets sincronizados a `public/`, `docs/` y `dist/`; solo 5 shells referenciaban el entry y se les cambió el hash con regex (bloques inyectados `style`/`IntersectionObserver`/`noscript` conservados).
 - Verificación local: bundles con `390w` y `767px`, 0 hashes viejos, NAP 300/300, Fase 7 5/5 y 0 lenguaje, Fase 8 0 objetos sin `sameAs`. Deploy pendiente.
 
+### Corrección del fix (mismo día, tras verificación en vivo)
+- El primer deploy (`199c5520`, `srcSet` + `sizes="390w"`) **no funcionó en móvil**: con DPR 2 el navegador calcula 390×2=780 px y seguía eligiendo el candidato 1280w (54 KB). En vivo: `perros-arbol-poster.webp` descargado por `initiator: img` en 390 px.
+- Causa: `srcset`/`sizes` no puede forzar el archivo pequeño en pantallas de alta densidad. Poster móvil real = 480×270 (10 KB), desktop = 1280×720 (54 KB).
+- Fix definitivo: `<picture>` con `<source media="(max-width: 767px)" srcSet="...-mobile.webp">` en `App.tsx`, que ignora el DPR. Segundo rebuild: entry `index-DQTczrbI.js` → `index-DNLN2JqK.js`, mismos pasos de assets/shells. Deploy pendiente de verificación en vivo.
+
 ---
