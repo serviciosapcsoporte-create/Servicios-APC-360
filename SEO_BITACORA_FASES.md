@@ -182,7 +182,7 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Conservé los `sameAs` no sociales preexistentes (`apccore.site`, `apcautomatizacion.site`, `apcvisionai.site`, `dogweb.lat`, Wikipedia Bogotá).
 - Complemento tras la verificación en vivo: había objetos de negocio sin `sameAs` (principalmente `author`/`publisher` de los 27 posts y entidades `LocalBusiness` de páginas de ubicación). Agregué los 6 perfiles a **291 objetos** más. Resultado: **0 objetos de negocio sin `sameAs`** en todo el sitio.
 - Verificación: **0 JSON inválidos**, NAP 300/300 consistente, cache-bust y `WebSite` intactos, 5/5 landings de Fase 7 siguen ≥1500 palabras, 0 lenguaje prohibido.
-- Deploy: pendiente de push/verificación en vivo.
+- Deploy ✅ `3038befd` (`built`, 21/11/2026 07:17:38Z), tras `73ceefa9` del primer bloque. Verificado en vivo: 6/7 páginas con 6/6 perfiles oficiales y 0 enlaces muertos. El `/blog/` queda fuera: solo tiene `CollectionPage` + `BreadcrumbList`, sin entidad de negocio, por lo que `sameAs` no aplica. Sin regresiones de NAP ni de Fase 7.
 
 ### Externo pendiente (requiere tu acción / acceso, NO ejecutable desde el repo)
 - **Directorios locales**: dar de alta o reclamar Páginas Amarillas, Cylex, Empresite, InfoStock, directorioempresarial.co con el NAP canónico (5-10 enlaces/mes).
