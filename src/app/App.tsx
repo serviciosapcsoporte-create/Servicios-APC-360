@@ -853,6 +853,7 @@ export default function App() {
               alt=""
               width={1280}
               height={720}
+              loading="eager"
               decoding="async"
               fetchPriority="high"
               className="absolute inset-0 h-full w-full object-cover"
