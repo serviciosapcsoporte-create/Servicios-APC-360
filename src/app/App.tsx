@@ -868,7 +868,6 @@ export default function App() {
               <video
                 ref={heroVideoRef}
                 className="hero-video absolute inset-0 h-full w-full object-cover"
-                poster="/videos/perros-arbol-poster.webp"
                 autoPlay
                 loop
                 muted

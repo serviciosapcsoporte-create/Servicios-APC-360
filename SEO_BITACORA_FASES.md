@@ -231,11 +231,16 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - `src/app/App.tsx`: `<img>` del hero con `srcSet="...-mobile.webp 390w, ....webp 1280w"` y `sizes="(max-width: 767px) 390w, 1280w"`. En móvil pinta el poster de 10 KB; en desktop el de 54 KB.
 - `index.html` + shells `docs/` y `dist/`: preload desktop con `media="(min-width: 768px)"`, para que el móvil no descargue ambos.
 - Rebuild real de Vite en copia local `sapc-build` (npm ci + vite build + postbuild.py): entry `index-BDEstDqd.js` → `index-DQTczrbI.js`, CSS sin cambios, cache-bust `?v=20261121`. Assets sincronizados a `public/`, `docs/` y `dist/`; solo 5 shells referenciaban el entry y se les cambió el hash con regex (bloques inyectados `style`/`IntersectionObserver`/`noscript` conservados).
-- Verificación local: bundles con `390w` y `767px`, 0 hashes viejos, NAP 300/300, Fase 7 5/5 y 0 lenguaje, Fase 8 0 objetos sin `sameAs`. Deploy pendiente.
+- Verificación local: bundles con `390w` y `767px`, 0 hashes viejos, NAP 300/300, Fase 7 5/5 y 0 lenguaje, Fase 8 0 objetos sin `sameAs`. Deploy `199c5520` verificado en vivo: **falló en móvil** (ver corrección abajo).
 
 ### Corrección del fix (mismo día, tras verificación en vivo)
 - El primer deploy (`199c5520`, `srcSet` + `sizes="390w"`) **no funcionó en móvil**: con DPR 2 el navegador calcula 390×2=780 px y seguía eligiendo el candidato 1280w (54 KB). En vivo: `perros-arbol-poster.webp` descargado por `initiator: img` en 390 px.
 - Causa: `srcset`/`sizes` no puede forzar el archivo pequeño en pantallas de alta densidad. Poster móvil real = 480×270 (10 KB), desktop = 1280×720 (54 KB).
-- Fix definitivo: `<picture>` con `<source media="(max-width: 767px)" srcSet="...-mobile.webp">` en `App.tsx`, que ignora el DPR. Segundo rebuild: entry `index-DQTczrbI.js` → `index-DNLN2JqK.js`, mismos pasos de assets/shells. Deploy pendiente de verificación en vivo.
+- Fix definitivo: `<picture>` con `<source media="(max-width: 767px)" srcSet="...-mobile.webp">` en `App.tsx`, que ignora el DPR. Segundo rebuild: entry `index-DQTczrbI.js` → `index-DNLN2JqK.js`, mismos pasos de assets/shells.
+- Deploy `239076d4` verificado en vivo (390 px): `<img>` ya pinta el poster móvil de 10 KB (`initiator: link`, 328 ms) ✅. **Pero** apareció el `<video>` descargando el poster desktop de 54 KB a los 11,5 s (`initiator: video`) — el `syncPoster()` de JS llega tarde porque depende de `heroVideo`. El ahorro neto en móvil era cero (solo retrasado).
+
+### Extensión al `<video>` (aprobada por el usuario, mismo día)
+- `src/app/App.tsx`: se quitó el atributo `poster="/videos/perros-arbol-poster.webp"` fijo del `<video>`. El `<picture>/<img>` ya cubre el fondo mientras tanto, y `syncPoster()` (useEffect) asigna el poster correcto al montar el video. En móvil ya no se descarga el desktop de 54 KB.
+- Tercer rebuild: entry `index-DNLN2JqK.js` → `index-CWN_K5cc.js`, mismos pasos (assets a 3 árboles, hash solo en 5 shells, bloques inyectados conservados). Verificación local: 0 hashes viejos, NAP 300/300, Fase 8 0 objetos sin `sameAs`, bundle con `source media` y sin `390w`. Deploy en curso.
 
 ---
