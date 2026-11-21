@@ -262,3 +262,18 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Cero cambios de código, cero builds, cero deploys. Commit solo de documentación.
 
 ---
+
+## INSIGHT — Long tasks del hilo principal (22/11/2026) ✅ (sin cambios de código)
+
+### Cómo lo encontré
+- Usuario pegó el insight de PSI: "Evita tareas largas del hilo principal — 2 tareas largas encontradas", **Sin puntuar** (TBT). Dos tareas de **51 ms** a 3494 ms y 3545 ms, atribuidas a `gtag/js?id=G-7ES977W3VY`.
+- Verificado en vivo con `PerformanceObserver({type:'longtask'})` vía CDP (escritorio, sin throttling): 6 long tasks entre **536 ms y 1219 ms** (52/203/80/185/83/56 ms), todas con `attribution.name = "unknown"` — es decir, **no identifican a gtag.js**, y **ninguna aparece a los 3,5 s** del insight. `gtag.js` termina de descargarse a ~840 ms. Sin errores JS.
+- El TBT local suma 359 ms y coincide con el tramo de montaje de React (deuda Fase 6), no con GA4. La atribución de Lighthouse a `gtag.js` es heurística (asigna la tarea al script con más tiempo dentro de ella), no una prueba de causalidad.
+- Cada tarea del insight dura 51 ms: apenas **1 ms por encima del umbral de 50 ms**, así que su aporte real a TBT es ~2 ms.
+
+### Cómo lo entrego
+- **Aplica la decisión anterior del usuario: conservar GA4.** No se retira el script por un insight "Sin puntuar" ni por tareas de 51 ms cuya atribución no se reproduce localmente.
+- **Sin cambios de código, builds ni deploys.** Se documenta que el TBT medible del home viene del montaje de React (ya registrado como deuda técnica en Fase 6), no de GA4.
+- Si en el futuro se quiere atacar el TBT de verdad, el punto de intervención es el montaje de React (prerender/SSR), no `gtag.js` — requiere aprobación de cambio arquitectural.
+
+---
