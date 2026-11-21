@@ -215,7 +215,8 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 ### Nota: insight "JavaScript antiguo" de Lighthouse (21/11/2026) — DECIDIDO CONSERVAR
 - PageSpeed reportó "JavaScript antiguo, ahorro estimado 10 KiB" por polyfills de `Array.prototype.at` / `Array.prototype.findLast`. El 100% del hallazgo apunta a `https://static.cloudflareinsights.com/beacon.min.js/vce70...`.
 - No es código nuestro: no está en `src/` ni en el bundle Vite; Cloudflare lo inyecta en el edge al tener Web Analytics activo. El consejo de "no transpilar Baseline" no aplica a un script de terceros ya minificado. El insight además figura como **"Sin puntuar"** (no afecta al score).
-- En `serviciosapc.site` el CSP sí permite el envío (`connect-src ... cloudflareinsights.com`), así que el beacon reporta datos y es **la única analítica disponible** mientras GSC/GA4/PSI estén bloqueados. Quitarlo del CSP no ahorraría bytes (el script se descarga igual), solo cortaría el envío.
+- En `serviciosapc.site` el CSP sí permite el envío (`connect-src ... cloudflareinsights.com`), así que el beacon reporta datos. Quitarlo del CSP no ahorraría bytes (el script se descarga igual), solo cortaría el envío.
+- **Aclaración (22/11/2026)**: se verificó en vivo que **GA4 también reporta** (`gtag.js` con `G-7ES977W3VY` + beacon `google-analytics.com/g/collect` a 1,25 s), así que el beacon no es "la única analítica". Lo bloqueado es el **acceso por API** (sin `ga4_property_id`), no el tracking. Ver sección "JS no usado" al final.
 - **Decisión del usuario: conservarlo.** Sin cambios en el repo ni en el dashboard. (En `dogweb.lat` el CSP bloquea el envío, así que ahí serían 10 KiB sin beneficio; queda como observación separada, no se tocó ese proyecto.)
 
 ---
@@ -243,5 +244,21 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - `src/app/App.tsx`: se quitó el atributo `poster="/videos/perros-arbol-poster.webp"` fijo del `<video>`. El `<picture>/<img>` ya cubre el fondo mientras tanto, y `syncPoster()` (useEffect) asigna el poster correcto al montar el video. En móvil ya no se descarga el desktop de 54 KB.
 - Tercer rebuild: entry `index-DNLN2JqK.js` → `index-CWN_K5cc.js`, mismos pasos (assets a 3 árboles, hash solo en 5 shells, bloques inyectados conservados). Verificación local: 0 hashes viejos, NAP 300/300, Fase 8 0 objetos sin `sameAs`, bundle con `source media` y sin `390w`.
 - Deploy `4aa0603a` verificado en vivo (390 px): **solo** `perros-arbol-poster-mobile.webp` (10 KB, `initiator: link`, 343 ms). Ya no hay descarga del poster desktop de 54 KB por `img` ni por `video`. `load` pasó de 11,5 s → 1,5 s. HTML servido con entry `CWN_K5cc`, preloads con `media`, sin hash viejo. Ahorro neto en móvil: ~44 KB. ✅ CIERRE.
+
+---
+
+## INSIGHT — JS no usado (22/11/2026) ✅ (sin cambios de código)
+
+### Cómo lo encontré
+- Usuario pegó el insight de PSI: "Reduce el contenido JavaScript que no se use — ahorro estimado 113 KiB", marcado **Sin puntuar** (LCP/FCP). Fuentes: `gtag.js` 178,6 KiB → 74,3 KiB, y `/assets/index-DFQE9AyK.js` 120,0 KiB → 38,4 KiB.
+- **El hash `DFQE9AyK` no existe** en el repo ni en vivo (medición de un build anterior). El entry actual es `index-CWN_K5cc.js`; su tamaño real es prácticamente idéntico (123.205 B transferidos / 389.149 B sin comprimir), así que el insight sigue siendo representativo.
+- Medido con CDP (red sin caché) y `curl --compressed`: `gtag.js` = 545.666 B sin comprimir → **183.080 B gzip** (= 178,6 KiB del insight). Confirmado beacon `https://www.google-analytics.com/g/collect?...tid=G-7ES977W3VY...` a los 1,25 s: **GA4 sí está reportando**, no es peso muerto.
+- Composición del entry (búsqueda de marcas en el bundle): React + react-dom + `motion` + `lucide` + `App.tsx`. **No** contiene MUI, recharts, Radix, d3, lodash ni date-fns: esos ya están separados en chunks lazy (BlogLanding, MantenimientoCamaras, etc.). Ya existe code-splitting por página.
+- El "ahorro estimado" de Lighthouse es heurístico sobre cobertura; no identifica líneas eliminables. `gtag.js` es código de Google no editable.
+
+### Cómo lo entrego
+- **Decisión del usuario: conservar GA4 y documentar.** La única forma de materializar los 74 KiB sería retirar GA4 (Cloudflare Web Analytics ya está activo, 10 KiB), pero se perdería el dashboard. Coherent con la decisión previa de conservar el beacon de Cloudflare. El insight es "Sin puntuar": no afecta al score.
+- **Decisión del usuario: entry como deuda técnica, no tocar.** Coherente con Fase 0 (no migrar a Astro) y con el LCP del home por montaje de React ya documentado. Quitar `motion` del critical path o dividir `App.tsx` implicaría riesgo visual y otro ciclo de build/deploy sin beneficio en el score.
+- Cero cambios de código, cero builds, cero deploys. Commit solo de documentación.
 
 ---
