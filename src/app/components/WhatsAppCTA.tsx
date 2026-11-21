@@ -45,7 +45,7 @@ export function ChipCTA({
       className={cn(
         "cta-chip inline-flex items-center justify-center rounded-full font-semibold",
         isWhatsApp
-          ? "bg-[#25D366] text-white border-2 border-[#25D366] shadow-[0_10px_28px_-12px_rgba(37,211,102,0.65)] hover:bg-[#20c05c]"
+          ? "bg-[#075E54] text-white border-2 border-[#25D366] shadow-[0_10px_28px_-12px_rgba(37,211,102,0.65)] hover:bg-[#0B6E5F]"
           : "bg-white text-[#0F172A] border-2 border-[#1A365D] hover:bg-[#F1F5F9]",
         s.pad,
         fullWidth && "w-full",
@@ -53,7 +53,7 @@ export function ChipCTA({
         className
       )}
     >
-      {logo ?? <WhatsAppLogo size={s.logo} />}
+      {logo ?? <WhatsAppLogo size={s.logo} fill="#FFFFFF" />}
       {label}
     </a>
   );

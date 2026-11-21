@@ -277,3 +277,19 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Si en el futuro se quiere atacar el TBT de verdad, el punto de intervención es el montaje de React (prerender/SSR), no `gtag.js` — requiere aprobación de cambio arquitectural.
 
 ---
+
+## FIX ACCESIBILIDAD — Contraste de CTAs WhatsApp (22/11/2026) ✅
+
+### Cómo lo encontré
+- Usuario pegó el hallazgo de PSI: "Los colores de fondo y de primer plano no tienen una relación de contraste adecuada" sobre 3 enlaces: `Cotizar con Estudio Gratis por WhatsApp`, `+57 333 7450634` y `Cotizar por WhatsApp`.
+- Medido en vivo con CDP (`getComputedStyle` + cálculo WCAG): los 3 tenían `color: rgb(255,255,255)` sobre `background: rgb(37,211,102)` → **ratio 1,98:1** (AA exige 4,5:1). El logo oficial (`D.whatsapp`) tenía `fill="#25D366"`, invisible sobre ese mismo verde.
+- Inventario: además del SPA, **56 HTML estáticos** por árbol (`public/`, `docs/`, `dist/`) usaban `.whatsapp{background:#25d366;color:#fff}` (143 reglas + 15 estilos inline = 158 ocurrencias). El insight solo mostró 3 elementos porque auditó la home.
+- **Decisión del usuario: usar los colores originales de WhatsApp y el logo original.** De las combinaciones válidas eligió fondo `#075E54` (verde oscuro oficial) + texto y logo en blanco, con borde y glow en `#25D366`. Ratio **7,67:1** (AA ✅); hover `#0B6E5F` + blanco = 6,16:1.
+
+### Cómo lo entrego
+- SPA: `src/app/App.tsx` (botón "Cotizar con Estudio Gratis"), `src/app/components/WhatsAppCTA.tsx` (chip compartido, usado en home y landings) y `src/components/ErrorBoundary.tsx` (mismo patrón, para consistencia): `bg-[#25D366]` → `bg-[#075E54]`, `hover:bg-[#20c05c]` → `hover:bg-[#0B6E5F]`; borde y shadow siguen en `#25D366`. Logo del chip con `fill="#FFFFFF"` (mismo path oficial).
+- HTML estáticos: solo `background:#25d366` → `background:#075e54` en 143 archivos (158 ocurrencias). **No** se tocaron los 228 usos de verde como `color:`, `border-color:`, `--green:` ni `border-left` (logo y acentos conservan el verde oficial).
+- Rebuild Vite en copia local + postbuild: entry `index-CWN_K5cc.js` → `index-Cgif1_O5.js`; CSS `index-DlP7LrLc.css` → `index-CiqIJQzD.css` (cambió porque la utilidad `bg-[#25D366]` desapareció y entró `bg-[#075E54]`; mismo tamaño). Assets a 3 árboles y hashes solo en 5 shells (bloques inyectados conservados).
+- Verificación local 14/14: 0 fondos verdes en 178 HTML, borde y glow verde conservados, logo blanco en bundle, 0 hashes viejos. Sin regresiones: NAP 300/300, Fase 7 0 hallazgos, Fase 8 0 objetos sin `sameAs`. Deploy pendiente de verificación en vivo.
+
+---

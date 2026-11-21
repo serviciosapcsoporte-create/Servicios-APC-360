@@ -928,7 +928,7 @@ export default function App() {
                   href={WA_HERO_ESTUDIO}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-white shadow-[0_14px_34px_-12px_rgba(37,211,102,0.55)] transition-colors hover:bg-[#20c05c]"
+                  className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-[#075E54] px-6 py-4 text-sm sm:px-7 sm:text-[15px] font-semibold leading-tight text-white shadow-[0_14px_34px_-12px_rgba(37,211,102,0.55)] transition-colors hover:bg-[#0B6E5F]"
                 >
                   <WhatsAppLogo size={19} />
                   Cotizar con Estudio Gratis por WhatsApp
