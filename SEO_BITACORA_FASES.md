@@ -25,3 +25,36 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Sin cambios de código en esta fase. Sin deploy.
 
 ---
+
+## FASE 1 — Keywords ✅ CERRADA (alcance: cluster cámaras)
+
+### Cómo lo encontré
+- Sitemap en vivo: 56 URLs. Cobertura por cluster:
+  - **Cámaras** (2.400/mes): 21 URLs → bien cubierto.
+  - Instalación / Hikvision / precio: 14 / 3 / 4 URLs → cubierto.
+  - Automatización (procesos, whatsapp, n8n, CRM, dashboard): solo 1-2 posts de blog cada uno, sin landing propia.
+  - Siigo, copiloto IA, soporte técnico, control de acceso, GPS flotas: **0 URLs**.
+- Decisión previa del usuario: `camaras de seguridad en Bogotá` es la keyword con más tiempo de ranking; **home title/meta se dejan en automatización** ("deja así").
+
+### Cómo lo entrego
+- Mantengo la asignación acordada: home = captura amplia vía H1 de cámaras; títulos/meta = automatización.
+- **Los clusters 2-4 quedan como backlog**, no como bloqueador: crear landings nuevas quedó explícitamente fuera de alcance en la sesión anterior. No se crean páginas nuevas.
+- Sin cambios de código. Sin deploy.
+
+---
+
+## FASE 2 — Arquitectura y enlazado ✅ CERRADA (commit `c563d71`)
+
+### Cómo lo encontré
+- `/blog/` → **404** (27 posts existían, pero no había hub). No estaba como URL exacta en el sitemap (solo aparecía como prefijo de los posts).
+- `mantenimiento-camaras/` → sin BreadcrumbList, sin breadcrumb visible y solo 2 enlaces internos (por debajo del mínimo de 3 del plan).
+- 3 landings clave sí tenían breadcrumb + 3 enlaces internos; home y posts OK.
+
+### Cómo lo entrego
+- `public/blog/index.html` + `docs/blog/index.html`: hub con los **27 posts agrupados en 4 clústeres**, H1, breadcrumb, CollectionPage schema, CTA WhatsApp y mismo estilo visual que los posts.
+- `sitemap.xml` (public + docs): agregada URL exacta `/blog/` → 57 URLs.
+- `mantenimiento-camaras/` (public + docs): BreadcrumbList JSON-LD + breadcrumb visible + bloque "Contenido relacionado" con 4 enlaces internos → 5 enlaces totales.
+- **Verificado en vivo** tras build `c563d71f`: `/blog/` 200 con 27 posts y canonical propio; breadcrumb schema y visible OK; 5 links internos; sitemap 57 URLs en origen.
+- Nota transitoria: el edge de Cloudflare sirvió el sitemap viejo (56 URLs, `CF-Cache-Status: HIT`) durante unos minutos; con cache-bust dio 57. No requiere acción, se propaga al expirar el TTL.
+
+---
