@@ -143,3 +143,26 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - **Limitación estructural (home)**: `/` es SPA React; bajo la misma throttling FCP/LCP oscila 3.6–7.2 s con `lcpEl=IMG` (`perros-arbol-poster.webp`, ya preload+fetchpriority=high). El cuello es el montaje de React (bundle 121 KB transferidos) bajo CPU 4x, no la imagen ni el CSS (GA4 ya es `async` + preconnect). Corregirlo exige prerender/SSR o migración de arquitectura — **fuera de alcance** según la decisión de Fase 0 (no migrar a Astro). Queda documentado como deuda técnica, no se intenta sin aprobación.
 
 ---
+
+## FASE 7 — Content Strategy ✅ CERRADA — ampliación de landings + limpieza de contenido (30 archivos)
+
+### Cómo lo encontré
+- El plan pedía 14 landings nuevas (`/servicios/...`) y 18 posts. Según la decisión de Fase 1, **no se crean landings nuevas**: se amplían las existentes. Clusters 2-4 (automatización, soporte, control/GPS) siguen en backlog.
+- Posts: **27 publicados**, por encima del objetivo de 24 ✅.
+- Landings delgadas medidas con `fase7_review.py`: `precio-instalacion-camaras-bogota` 662, `mantenimiento-camaras` 544, `automatizacion-con-camaras` 514, `camaras-seguridad-empresas-bogota` 1103 palabras (objetivo del plan: 1500). `instalacion-camaras-seguridad-bogota` ya estaba en 1513 ✅.
+- **Hallazgo de marca grave**: `camaras-seguridad-empresas-bogota` tenía una sección `Casos reales en Bogota` con cifras atribuidas a clientes ("mermas reducidas 68%", "ROI en 5 semanas", "cero multas en 12 meses", "prima de seguro reducida 40%") y lenguaje de siniestros/aseguradora. Escaneo posterior encontró el mismo patrón en 5 posts de blog: testimonios con nombre y cargo ("Carlos Jaramillo", "Ing. Roberto Mejía") y métricas fabricadas (61%→97% EPP, 92% falsas alarmas, 0 robos en 6 meses, payback 5 meses), además de una cifra con fuente no verificable ("ARL Colmena 2025"). Esto viola la regla de marca: **no inventar testimonios ni casos de clientes reales**.
+- `dist/automatizacion-con-camaras/index.html` estaba desactualizado (versión vieja, sin el FAQ de Fase 3); se sincronizó desde `docs/`.
+
+### Cómo lo entrego
+- Ampliación de las 4 landings a **1500+ palabras** con bloques marcados `<!-- idempotente-fase7 -->` y `<!-- idempotente-fase7b -->`:
+  - `precio-instalacion-camaras-bogota`: 662 → **1633** (variables del precio, rangos por tamaño de negocio, qué no se cobra aparte, cómo ahorrar, pago único vs financiado, checklist).
+  - `mantenimiento-camaras`: 544 → **1630** (por qué el preventivo, checklist punto por punto, señales de atención, frecuencias por entorno, firmware, reporte, cómo elegir proveedor, cuándo dar el salto a analítica, cómo se arma un plan).
+  - `automatizacion-con-camaras`: 514 → **1669** (de grabar a medir, procesos automatizables, pasos del proyecto, integraciones, IA offline, métricas de retorno, errores frecuentes, señales de madurez).
+  - `camaras-seguridad-empresas-bogota`: 1103 → **1541**, reemplazando `Casos reales` por `Escenarios de uso` (3 escenarios educativos sin nombres ni cifras), más criterios para evaluar propuestas y preguntas previas a la inversión.
+- Limpieza de marca en la landing de empresas: se eliminaron el "68% reducción reportada por clientes" y el bloque de siniestros/aseguradora, reemplazados por trazabilidad, registro de eventos y retención configurable. Enlace de `instalacion-camaras-seguridad-bogota`: "casos reales" → "escenarios de uso".
+- Limpieza en 5 posts de blog: testimonios con nombre → notas editoriales; "Casos reales" → "Escenarios ilustrativos"; resultados numerados → "Indicadores a medir"; métricas fabricadas → valores a validar en piloto; cifra con fuente no verificable → explicación de medición propia. Marcador `<!-- f7-clean-testimonios -->` ubicado dentro del `<body>` (no antes del DOCTYPE, para evitar quirks mode).
+- Todo replicado en `public/`, `docs/` y `dist/` (30 archivos, +1020/−132 líneas). El archivo `correcciones_bitacora_2026-11-20.txt` del supervisor queda intacto y untracked.
+- Verificación local: **5/5 landings ≥1500 palabras**, **0 hallazgos** de lenguaje prohibido (Mermas reducidas, ROI en 5 semanas, Cero multas, prima de seguro, Casos reales, aseguradora, incidentes, sanciones), marcadores idempotentes presentes.
+- Deploy: pendiente de push/verificación en vivo (este registro se escribe antes del deploy, igual que fases previas).
+
+---
