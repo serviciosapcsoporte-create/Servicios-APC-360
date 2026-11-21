@@ -241,6 +241,7 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 
 ### Extensión al `<video>` (aprobada por el usuario, mismo día)
 - `src/app/App.tsx`: se quitó el atributo `poster="/videos/perros-arbol-poster.webp"` fijo del `<video>`. El `<picture>/<img>` ya cubre el fondo mientras tanto, y `syncPoster()` (useEffect) asigna el poster correcto al montar el video. En móvil ya no se descarga el desktop de 54 KB.
-- Tercer rebuild: entry `index-DNLN2JqK.js` → `index-CWN_K5cc.js`, mismos pasos (assets a 3 árboles, hash solo en 5 shells, bloques inyectados conservados). Verificación local: 0 hashes viejos, NAP 300/300, Fase 8 0 objetos sin `sameAs`, bundle con `source media` y sin `390w`. Deploy en curso.
+- Tercer rebuild: entry `index-DNLN2JqK.js` → `index-CWN_K5cc.js`, mismos pasos (assets a 3 árboles, hash solo en 5 shells, bloques inyectados conservados). Verificación local: 0 hashes viejos, NAP 300/300, Fase 8 0 objetos sin `sameAs`, bundle con `source media` y sin `390w`.
+- Deploy `4aa0603a` verificado en vivo (390 px): **solo** `perros-arbol-poster-mobile.webp` (10 KB, `initiator: link`, 343 ms). Ya no hay descarga del poster desktop de 54 KB por `img` ni por `video`. `load` pasó de 11,5 s → 1,5 s. HTML servido con entry `CWN_K5cc`, preloads con `media`, sin hash viejo. Ahorro neto en móvil: ~44 KB. ✅ CIERRE.
 
 ---
