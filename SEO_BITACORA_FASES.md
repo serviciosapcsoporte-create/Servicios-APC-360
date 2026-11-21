@@ -166,3 +166,28 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Deploy ✅ `e471169b` (`built`, 21/11/2026 07:05:17Z). Verificado en vivo: 5/5 landings ≥1500 palabras (1634 / 1631 / 1669 / 1542 / 1515), 0 lenguaje prohibido, NAP canónico intacto en todas, escenarios educativos visibles en `camaras-seguridad-empresas-bogota`. Posts limpios: sin testimonios con nombre, notas editoriales presentes, marcadores dentro del `<body>`.
 
 ---
+
+## FASE 8 — Link Building ✅ CERRADA (parte repo) — trabajo externo pendiente
+
+### Cómo lo encontré
+- El plan es casi todo externo: directorios locales (5-10 enlaces/mes), GBP + perfiles sociales (3-5), guest posts (2-4), colaboraciones con aliados (1-2), contenido viral y HARO. Nada de eso se puede ejecutar desde este repo sin cuentas, accesos y outreach.
+- Lo sí auditable aquí: **`sameAs` del schema**. Antes del fix había 6 variantes incompatibles:
+  - Facebook: `facebook.com/ServiciosAPC` (10) y `www.facebook.com/ServiciosAPC` (9) — ninguna coincide con el perfil oficial `www.facebook.com/alejandropiraquiveapc` que usa el componente React (`SocialIcons.tsx`).
+  - LinkedIn: `linkedin.com/company/servicios-apc` (10) → **HTTP 404**, más `es.linkedin.com/in/alejandropiraquive` (5). El oficial es `www.linkedin.com/in/alejandropiraquive/` (HTTP 999 por bloqueo a bots, pero es el que usa el sitio).
+  - Faltaban TikTok y YouTube en el schema, aunque ambos respondedieron **HTTP 200** y ya están en `SocialIcons.tsx`.
+- Verificación de URLs: Instagram `serviciosapc` 200 ✅, TikTok `@serviciosapc.site` 200 ✅, YouTube `@ServiciosAPC` 200 ✅, LinkedIn `/company/servicios-apc` **404 ❌**, Facebook bloquea bots con 400 (se toma el perfil oficial de la memoria de marca/React como fuente de verdad).
+
+### Cómo lo entrego (parte repo)
+- Canonicé `sameAs` a **6 perfiles oficiales** (Facebook, Instagram, LinkedIn personal, WhatsApp, TikTok, YouTube) en **29 bloques JSON-LD / 15 archivos** (`index.html`, `public/`, `docs/`, `dist/`): mismas URLs exactas que `SocialIcons.tsx`, sin variantes `www`/sin `www`, sin el LinkedIn muerto.
+- Conservé los `sameAs` no sociales preexistentes (`apccore.site`, `apcautomatizacion.site`, `apcvisionai.site`, `dogweb.lat`, Wikipedia Bogotá).
+- Verificación: **0 JSON inválidos**, NAP 300/300 consistente, cache-bust y `WebSite` intactos, 5/5 landings de Fase 7 siguen ≥1500 palabras, 0 lenguaje prohibido.
+- Deploy: pendiente de push/verificación en vivo.
+
+### Externo pendiente (requiere tu acción / acceso, NO ejecutable desde el repo)
+- **Directorios locales**: dar de alta o reclamar Páginas Amarillas, Cylex, Empresite, InfoStock, directorioempresarial.co con el NAP canónico (5-10 enlaces/mes).
+- **GBP**: reclamar/verificar el perfil, categorías, descripción, servicios, fotos y posts (bloqueado desde Fase 5 por falta de acceso al dashboard).
+- **Guest posts / colaboraciones**: blogs de tecnología Colombia y aliados (contadores → Siigo, etc.). Requiere outreach y aprobación de textos.
+- **Contenido viral (P3)**: infografías/calculadoras; esfuerzo alto, queda en backlog.
+- **HARO**: responder solicitudes de periodistas (0-1/mes), requiere cuenta y seguimiento.
+
+---
