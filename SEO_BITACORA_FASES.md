@@ -219,3 +219,18 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - **Decisión del usuario: conservarlo.** Sin cambios en el repo ni en el dashboard. (En `dogweb.lat` el CSP bloquea el envío, así que ahí serían 10 KiB sin beneficio; queda como observación separada, no se tocó ese proyecto.)
 
 ---
+
+## FIX LCP — Poster responsive del hero (22/11/2026) ✅
+
+### Cómo lo encontré
+- Usuario pegó el desglose de LCP de PSI: TTFB 0 ms, **retraso de carga de recursos 450 ms**, carga 140 ms, retraso de render 40 ms; elemento = `<img src="/videos/perros-arbol-poster.webp">` del hero.
+- Verificado: el preload `fetchpriority="high"` ya está en el HTML inicial y **sí se consume** (resource timing `initiator: link`, arranca 17 ms después del TTFB, sin doble descarga ni warnings). Los 450 ms del desglose son de campo / sin estrangulamiento; bajo CPU 4x el LCP real es 4520 ms, dominado por el montaje de React (deuda Fase 6).
+- **Bug real detectado**: en móvil (390 px) descargaban **dos posters** — el desktop de 54 KB (el `<img>` lo pintaba) y el móvil de 10 KB (solo lo usaba el `<video>` vía `syncPoster`). El `<img>` tenía `src` fijo desktop y el preload desktop no tenía `media`.
+
+### Cómo lo entrego
+- `src/app/App.tsx`: `<img>` del hero con `srcSet="...-mobile.webp 390w, ....webp 1280w"` y `sizes="(max-width: 767px) 390w, 1280w"`. En móvil pinta el poster de 10 KB; en desktop el de 54 KB.
+- `index.html` + shells `docs/` y `dist/`: preload desktop con `media="(min-width: 768px)"`, para que el móvil no descargue ambos.
+- Rebuild real de Vite en copia local `sapc-build` (npm ci + vite build + postbuild.py): entry `index-BDEstDqd.js` → `index-DQTczrbI.js`, CSS sin cambios, cache-bust `?v=20261121`. Assets sincronizados a `public/`, `docs/` y `dist/`; solo 5 shells referenciaban el entry y se les cambió el hash con regex (bloques inyectados `style`/`IntersectionObserver`/`noscript` conservados).
+- Verificación local: bundles con `390w` y `767px`, 0 hashes viejos, NAP 300/300, Fase 7 5/5 y 0 lenguaje, Fase 8 0 objetos sin `sameAs`. Deploy pendiente.
+
+---

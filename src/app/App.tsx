@@ -850,6 +850,8 @@ export default function App() {
           <div aria-hidden="true" className="hero-bg absolute inset-0 overflow-hidden">
             <img
               src="/videos/perros-arbol-poster.webp"
+              srcSet="/videos/perros-arbol-poster-mobile.webp 390w, /videos/perros-arbol-poster.webp 1280w"
+              sizes="(max-width: 767px) 390w, 1280w"
               alt=""
               width={1280}
               height={720}
