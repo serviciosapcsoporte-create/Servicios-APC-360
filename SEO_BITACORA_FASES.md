@@ -180,6 +180,7 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 ### Cómo lo entrego (parte repo)
 - Canonicé `sameAs` a **6 perfiles oficiales** (Facebook, Instagram, LinkedIn personal, WhatsApp, TikTok, YouTube) en **29 bloques JSON-LD / 15 archivos** (`index.html`, `public/`, `docs/`, `dist/`): mismas URLs exactas que `SocialIcons.tsx`, sin variantes `www`/sin `www`, sin el LinkedIn muerto.
 - Conservé los `sameAs` no sociales preexistentes (`apccore.site`, `apcautomatizacion.site`, `apcvisionai.site`, `dogweb.lat`, Wikipedia Bogotá).
+- Complemento tras la verificación en vivo: había objetos de negocio sin `sameAs` (principalmente `author`/`publisher` de los 27 posts y entidades `LocalBusiness` de páginas de ubicación). Agregué los 6 perfiles a **291 objetos** más. Resultado: **0 objetos de negocio sin `sameAs`** en todo el sitio.
 - Verificación: **0 JSON inválidos**, NAP 300/300 consistente, cache-bust y `WebSite` intactos, 5/5 landings de Fase 7 siguen ≥1500 palabras, 0 lenguaje prohibido.
 - Deploy: pendiente de push/verificación en vivo.
 
