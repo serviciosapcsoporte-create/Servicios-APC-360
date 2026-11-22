@@ -311,3 +311,25 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Deploy `a3b7048c` verificado en vivo: los 4 enlaces «Cotizar por WhatsApp» de la home tienen **4 → 1 href único** (`Hola%20Servicios%20APC%2C%20quiero%20cotizar...`). El contraste sigue en 7,67:1 (landing estática incluida) y el logo del chip en blanco. ✅ CIERRE.
 
 ---
+
+## FIX ACCESIBILIDAD — 10 checks manuales «Sin puntuar» (21/11/2026) ✅
+
+### Cómo lo encontré
+- El usuario pegó los 10 checks manuales de PageSpeed Insights (todos «Sin puntuar»): foco por teclado, propósito/estado, orden de Tab, orden visual vs DOM, trampas de foco, foco llevado al contenido nuevo, landmarks HTML5, offscreen oculto, etiquetas y roles ARIA.
+- Auditoría con CDP en vivo (`a11y_audit.js`, 1440×900 y 390×844, 55 pasos de Tab) más revisión de código:
+  - `header:0`, `nav:1`, `main:1`, `footer:1`, `h1:1`, `sections:13`, `namedSections:[]` → el `<nav>` no estaba dentro de `<header>` (falta landmark `banner`).
+  - 55 pasos de Tab: 0 enfocables ocultos/fuera de pantalla, 0 sin indicador; el único salto «atrás» es artefacto del CTA fijo.
+  - Panel móvil con `aria-hidden="true"` + `inert=""` y panel de Cristal con `aria-hidden` + `display:none`: no hay focus trap.
+  - FAQ y servicios sí exponen `aria-expanded`; el launcher de Cristal era `<div onclick>` sin rol, sin foco y sin estado; enfocaba `#cr-text` al abrir pero no devolvía el foco al cerrar.
+  - `motion-dom` inyecta `tabindex="0"` por la gesture `press`: `whileTap` en `Tilt` (2 usos decorativos, beneficios y casos) dejaba **9 `<div>` enfocables sin rol**.
+  - El indicador de foco global computaba `oklab(... / 0.18)` (~19 % de opacidad): la regla base `*{outline-color:color-mix(in oklab,var(--ring)50%,transparent)}` de Tailwind diluía el anillo. CSP bloquea inyectar `<style>` en vivo, así que el arreglo tuvo que ir en la fuente.
+- Decisión del usuario: aplicar los 4 fixes (landmark, chat, `Tilt` y anillo de foco).
+
+### Cómo lo entrego
+- `src/app/App.tsx`: `<nav>` envuelto en `<header>` en las dos ramas (home y landing/blog), sin mover `fixed`/`sticky`/`glass-nav` para no alterar el layout; `whileTap={{ scale: 0.98 }}` eliminado de `Tilt` (conserva `whileHover`).
+- `public/chat/cristal.js`: launcher convertido a `<button type="button">` con `aria-label`, `aria-controls="cr-panel"` y `aria-expanded` alternado en `openPanel`/`closePanel`; panel con `role="dialog"` y `aria-label`; al cerrar, el foco vuelve al launcher solo si estaba dentro del panel.
+- `public/chat/cristal.css`: reset de botón nativo (`border:0`, `padding:0`, `font:inherit`, `color:inherit`) y anillo `:focus-visible`.
+- `src/styles/index.css`: `:focus-visible` con `outline:2px solid #1A365D` y `outline-color:#1A365D !important` para ganar a la regla base con `color-mix`. El verde `#25D366` sobre blanco da 1,98:1 y no sirve como indicador de foco: se conserva el azul corporativo sólido (3 px en el launcher, 2 px en el resto).
+- Rebuild Vite en copia local (`sapc-build`) + `postbuild.py`: entry `index-Z_hkDGpR.js` → `index-AqweREdY.js`; CSS `index-CiqIJQzD.css` → `index-D7xfTjLS.css`; 23 assets sincronizados a `public/`, `docs/` y `dist/`; hashes reemplazados por nombre literal en los 6 shells (incluido el `404.html` legacy, que tenía hashes de builds anteriores). Bloques inyectados de `docs/index.html` (`--font-sans`, `fade-in-up`, `card-glow`, `IntersectionObserver`, `<noscript>`) conservados.
+- Verificación local 26/26 de build + 16/16 de CDP: 0 `div[tabindex="0"]`, `nav` dentro de `header`, launcher nativo enfocable con Tab, `aria-expanded` false→true→false, foco al input al abrir y de vuelta al launcher al cerrar, 0 enfocables visibles en `aria-hidden`, anillo `rgb(26,54,93) solid 3px`, contraste de los CTAs 7,67:1 intacto. Sin regresiones: NAP 20/20 variante única, Fase 8 0 objetos sin `sameAs`, JSON-LD 0 inválidos.
+- PENDIENTE: deploy y verificación en vivo (se cierra en el próximo apunte).

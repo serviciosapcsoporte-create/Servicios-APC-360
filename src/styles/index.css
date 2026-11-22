@@ -215,9 +215,10 @@
   );
 }
 
-/* Global focus ring */
+/* Global focus ring — color sólido: la regla base * de Tailwind lo diluye con color-mix */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid #1A365D;
+  outline-color: #1A365D !important;
   outline-offset: 3px;
   border-radius: 2px;
 }

@@ -374,11 +374,11 @@
     document.body.appendChild(mount);
   }
   mount.innerHTML =
-    '<div class="cr-launcher" id="cr-launcher" aria-label="Abrir asistente Cristal">' +
+    '<button type="button" class="cr-launcher" id="cr-launcher" aria-label="Abrir asistente Cristal" aria-controls="cr-panel" aria-expanded="false">' +
       '<span class="cr-avatar">C</span>' +
       '<span class="cr-launcher-dot"></span>' +
-    '</div>' +
-    '<div class="cr-panel" id="cr-panel" aria-hidden="true">' +
+    '</button>' +
+    '<div class="cr-panel" id="cr-panel" role="dialog" aria-label="Asistente Cristal" aria-hidden="true">' +
       '<div class="cr-header">' +
         '<div class="cr-header-info"><span class="cr-avatar sm">C</span>' +
           '<div><div class="cr-name">Cristal</div><div class="cr-role">' + C.brand + ' · Asesora virtual</div></div></div>' +
@@ -404,6 +404,7 @@
     panel.classList.add("open");
     panel.setAttribute("aria-hidden", "false");
     launcher.classList.add("hidden");
+    launcher.setAttribute("aria-expanded", "true");
     // ocultar redes flotantes para que el panel no las tape
     document.querySelectorAll(".social-float").forEach(function (n) {
       n.style.transition = "opacity .2s ease";
@@ -419,10 +420,14 @@
     panel.classList.remove("open");
     panel.setAttribute("aria-hidden", "true");
     launcher.classList.remove("hidden");
+    launcher.setAttribute("aria-expanded", "false");
     document.querySelectorAll(".social-float").forEach(function (n) {
       n.style.opacity = "1";
       n.style.pointerEvents = "auto";
     });
+    if (panel.contains(document.activeElement)) {
+      launcher.focus();
+    }
   }
 
   launcher.onclick = openPanel;

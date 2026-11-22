@@ -410,7 +410,6 @@ function Tilt({
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       whileHover={{ y: -4 }}
-      whileTap={{ scale: 0.98 }}
       transition={SPRING}
       className={className}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 900 }}
@@ -694,6 +693,7 @@ export default function App() {
         >
           Saltar al contenido principal
         </a>
+        <header>
         <nav aria-label="Navegación principal" className="sticky top-0 z-50 glass-nav">
           <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-14">
             <button
@@ -716,6 +716,7 @@ export default function App() {
             <WhatsAppCTA href={WHATSAPP} label="Cotizar" size="sm" />
           </div>
         </nav>
+        </header>
         <main id="contenido">
           <Suspense fallback={<div className="min-h-[60vh]" />}>
             {blogSlug ? <DynamicBlog slug={blogSlug} /> : <LandingPage />}
@@ -750,6 +751,7 @@ export default function App() {
           Saltar al contenido principal
         </a>
         {/* ── NAV ─────────────────────────────────────────── */}
+        <header>
         <nav
           aria-label="Navegación principal"
             className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,border-color] duration-200 edge-fade glass-nav ${
@@ -830,6 +832,7 @@ export default function App() {
             </div>
           </AccordionPanel>
         </nav>
+        </header>
 
         <main id="contenido">
         {/* ── HERO ─────────────────────────────────────────── */}
