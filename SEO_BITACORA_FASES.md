@@ -307,6 +307,7 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Nuevo módulo `src/app/components/wa.ts`: única fuente de verdad con `WHATSAPP`, `waLink(msg)` y `WA_HERO` canónico. `App.tsx`, `MobileCTA.tsx` y `VideoHero.tsx` importan de ahí; se eliminaron las 3 definiciones duplicadas (ya no existe el mensaje corto en el bundle).
 - `WA_HERO_ESTUDIO` sigue en `App.tsx` porque tiene otra etiqueta ("Cotizar con Estudio Gratis por WhatsApp") y otra intención; no es un enlace idéntico.
 - Rebuild Vite en copia local + postbuild: entry `index-Cgif1_O5.js` → `index-Z_hkDGpR.js`; CSS sin cambios (`index-CiqIJQzD.css`). Assets a 3 árboles y hash solo en 5 shells (bloques inyectados conservados).
-- Verificación local 16/16: 0 mensajes cortos en 23 assets, mensaje canónico presente en el bundle, 0 hashes viejos, contraste intacto (0 fondos verdes en 178 HTML). Sin regresiones: NAP 300/300, Fase 7 0 hallazgos, Fase 8 0 objetos sin `sameAs`. Deploy pendiente de verificación en vivo.
+- Verificación local 16/16: 0 mensajes cortos en 23 assets, mensaje canónico presente en el bundle, 0 hashes viejos, contraste intacto (0 fondos verdes en 178 HTML). Sin regresiones: NAP 300/300, Fase 7 0 hallazgos, Fase 8 0 objetos sin `sameAs`.
+- Deploy `a3b7048c` verificado en vivo: los 4 enlaces «Cotizar por WhatsApp» de la home tienen **4 → 1 href único** (`Hola%20Servicios%20APC%2C%20quiero%20cotizar...`). El contraste sigue en 7,67:1 (landing estática incluida) y el logo del chip en blanco. ✅ CIERRE.
 
 ---
