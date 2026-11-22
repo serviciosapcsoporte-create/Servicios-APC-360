@@ -1688,7 +1688,9 @@ export default function App() {
                           </label>
                           <input
                             id="nombre"
+                            name="nombre"
                             type="text"
+                            required
                             toolparamdescription="Nombre completo de la persona de contacto"
                             value={form.nombre}
                             onChange={(e) => {
@@ -1715,8 +1717,10 @@ export default function App() {
                           </label>
                           <input
                             id="email"
+                            name="email"
                             type="email"
-                            toolparamdescription="Correo electronico para recibir la respuesta"
+                            required
+                            toolparamdescription="Correo electrónico para recibir la respuesta"
                             value={form.email}
                             onChange={(e) => {
                               setForm({ ...form, email: e.target.value });
@@ -1744,8 +1748,9 @@ export default function App() {
                         </label>
                         <input
                           id="telefono"
+                          name="telefono"
                           type="tel"
-                          toolparamdescription="Telefono o WhatsApp de contacto (opcional)"
+                          toolparamdescription="Teléfono o WhatsApp de contacto (opcional)"
                           value={form.telefono}
                           onChange={(e) =>
                             setForm({ ...form, telefono: e.target.value })
@@ -1764,8 +1769,10 @@ export default function App() {
                         </label>
                         <textarea
                           id="mensaje"
+                          name="mensaje"
                           rows={5}
-                          toolparamdescription="Descripcion de la necesidad: procesos a automatizar, integraciones de sistemas o analitica de negocio"
+                          required
+                          toolparamdescription="Descripción de la necesidad: procesos a automatizar, integraciones de sistemas o analítica de negocio"
                           value={form.mensaje}
                           onChange={(e) => {
                             setForm({ ...form, mensaje: e.target.value });

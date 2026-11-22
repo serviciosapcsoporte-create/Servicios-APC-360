@@ -46,10 +46,10 @@ input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:f
     <div class="logo"><span>APC</span></div>
     <h1>Acceso a documento</h1>
     <p class="lead">Ingresa el c&#243;digo de acceso enviado a tu correo</p>
-    <form id="form" toolname="acceder_documento" tooldescription="Accede a un documento protegido de Servicios APC usando el codigo de acceso enviado al correo. Requiere el codigo de acceso.">
+    <form id="form" toolname="acceder_documento" tooldescription="Accede a un documento protegido de Servicios APC usando el c&#243;digo de acceso enviado al correo. Requiere el c&#243;digo de acceso.">
       <div class="form-group">
-        <label>C&#243;digo de acceso</label>
-        <input type="text" id="clave" toolparamdescription="Codigo de acceso enviado por correo electronico" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus aria-label="Código de acceso">
+        <label for="clave">C&#243;digo de acceso</label>
+        <input type="text" id="clave" name="clave" toolparamdescription="C&#243;digo de acceso enviado por correo electr&#243;nico" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus aria-label="Código de acceso">
       </div>
       <button type="submit">Ver / Descargar</button>
       <div id="error" class="error">Clave incorrecta. Verifica el c&#243;digo de tu correo.</div>
