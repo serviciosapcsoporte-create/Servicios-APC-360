@@ -371,3 +371,16 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Verificación de otras 4 rutas (`csp_verify_pages.js`): `/Auditoria-Minutos-Serviciosapc.html`, `/documento/index.html`, un 404 y `/instalacion-camaras-seguridad-bogota/` → **0 violaciones enforce en todas**, con sus scripts inline funcionando (gtag, `form.onsubmit`, CSS del 404).
 - Sin cambios en fuente, assets ni builds: solo configuración de Cloudflare + esta bitácora. No se publicó contenido. ✅ CIERRE FASE 1.
 - Pendiente para fase 2 (no ejecutada): subir HSTS a `max-age=31536000` tras 24-48 h; evaluar `'strict-dynamic'` + nonce (hoy se conservan hosts porque el beacon inyectado por Cloudflare no tendría nonce); pasar Trusted Types a `enforce` tras revisar los 3 `innerHTML`; validar parámetros de `/documento/index.html?tipo=&id=`.
+
+## BASELINE — Funciones web (22/11/2026) — diagnóstico, sin cambios ✅
+
+### Cómo lo encontré
+- El usuario pegó el hallazgo «Funciones de Baseline — Sin puntuar» con estado a fecha 2026-10-22 y un listado de ~40 funciones con su disponibilidad (Limited / Newly / Widely).
+- **El reporte está desactualizado**: cita `/assets/index-DFQE9AyK.js`, pero `curl` a `https://serviciosapc.site/?baseline=20261122` devuelve `index-C02dIHlR.js` + `index-D7xfTjLS.css` (los bundles actuales). El bundle citado ya no se sirve.
+- Escaneo con `baseline_scan.py` sobre `src/`, `docs/` (60 HTML + assets) y `public/chat/` para cada función listada, separando código propio de terceros.
+
+### Cómo lo entrego (sin cambios de código)
+- **Limited Availability propias (3)**: `prefers-reduced-transparency` (media query en `src/styles/index.css`: si el navegador no la entiende, ignora la regla y conserva el glass normal), `marker` (solo `::marker` para colorear viñetas en `blog-content`; sin soporte queda el marcador por defecto) y `field-sizing` (clase Tailwind `.field-sizing-content` en el CSS; **no hay ni un `<textarea>` en los 60 HTML ni la clase en el bundle actual**: `textarea.tsx` no se usa en producción). Ninguna causa pérdida funcional.
+- **Limited de terceros (no controlables)**: `ua-client-hints` de `gtag/js`; `interaction-contentful-paint`, `soft-navigations`, `long-animation-frames` y `layout-instability` del `beacon.min.js` de Cloudflare; `requestidlecallback` aparece como «No atribuible» porque lo reporta `_lighthouse-eval.js` (el propio Lighthouse). En nuestro código `requestIdleCallback` sí tiene fallback explícito a `setTimeout` (`App.tsx` y `CristalChat.tsx`).
+- **Newly Available propias**: `fetch-priority` (`fetchpriority="high"` en preloads y hero; si se ignora, carga normal), `text-wrap` (`text-wrap:balance`, degrada a wrap normal), `relative-color` (solo dentro de un `@supports` del reset de Tailwind), `backdrop-filter` (con `-webkit-` y fallback `background:#fff` en `prefers-contrast`/`prefers-reduced-transparency`), `registered-custom-properties`/`gradient-interpolation` (`@property` y `color-mix(in oklab…)` generados por Tailwind, tras `@supports`). Todas con degradación natural.
+- Conclusión: es un insight informativo sin impacto en ranking ni en la experiencia; **no se aplica ningún cambio**. Si se quiere un listado fresco, hay que volver a correr PSI (el actual mezcla un bundle antiguo). ✅ CIERRE.
