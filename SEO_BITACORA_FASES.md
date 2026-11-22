@@ -384,3 +384,26 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - **Limited de terceros (no controlables)**: `ua-client-hints` de `gtag/js`; `interaction-contentful-paint`, `soft-navigations`, `long-animation-frames` y `layout-instability` del `beacon.min.js` de Cloudflare; `requestidlecallback` aparece como «No atribuible» porque lo reporta `_lighthouse-eval.js` (el propio Lighthouse). En nuestro código `requestIdleCallback` sí tiene fallback explícito a `setTimeout` (`App.tsx` y `CristalChat.tsx`).
 - **Newly Available propias**: `fetch-priority` (`fetchpriority="high"` en preloads y hero; si se ignora, carga normal), `text-wrap` (`text-wrap:balance`, degrada a wrap normal), `relative-color` (solo dentro de un `@supports` del reset de Tailwind), `backdrop-filter` (con `-webkit-` y fallback `background:#fff` en `prefers-contrast`/`prefers-reduced-transparency`), `registered-custom-properties`/`gradient-interpolation` (`@property` y `color-mix(in oklab…)` generados por Tailwind, tras `@supports`). Todas con degradación natural.
 - Conclusión: es un insight informativo sin impacto en ranking ni en la experiencia; **no se aplica ningún cambio**. Si se quiere un listado fresco, hay que volver a correr PSI (el actual mezcla un bundle antiguo). ✅ CIERRE.
+
+## HTTPS — forzar redirección HTTP→HTTPS (22/11/2026) ✅
+
+### Cómo lo encontré
+- El usuario pegó el hallazgo «Redirige el tráfico HTTP a HTTPS — Sin puntuar»: «Asegúrate de redirigir todo el tráfico HTTP a HTTPS para habilitar funciones web seguras para todos los usuarios».
+- `curl -I http://serviciosapc.site/?http=1` devolvía **HTTP/1.1 200 OK** sin `Location`; tampoco redirigía una ruta interna. Cloudflare tenía `always_use_https = off` y `pageRules_list` estaba vacío (no había regla de redirect que lo cubriera).
+- Inventario DNS de la zone `1deb5017f160f3be043ebd97651575aa`: 9 registros; hostnames proxied `serviciosapc.site`, `www.serviciosapc.site` (CNAME a GitHub Pages) y `bot.serviciosapc.site` (CNAME a Cloudflare Tunnel). Sin registros HTTP-only.
+
+### Cómo lo entrego
+- `zones_settings_edit` con `setting_id=always_use_https`, `value=on` (aplicado por Cloudflare a todos los hostnames de la zone). No se crearon Page Rules ni Redirect Rules nuevas.
+- Verificado en vivo: `http://serviciosapc.site/?https_check=1` → **301** `Location: https://serviciosapc.site/?https_check=1`; ruta `/instalacion-camaras-seguridad-bogota/` → 301 al mismo path en HTTPS; `http://www.serviciosapc.site/` → 301 a `https://www.serviciosapc.site/`; `https://serviciosapc.site/` sigue **200** con HSTS y la CSP v2 intactas.
+- Sin cambios en código ni assets; re-verificación CDP de la home 12/12 (0 violaciones enforce, GA4, beacon, chat, CSS y CTAs intactos). ✅ CIERRE.
+
+## DIAGNÓSTICO — Bibliotecas de JavaScript detectadas (22/11/2026) ✅
+
+### Cómo lo encontré
+- El usuario pegó el hallazgo «Bibliotecas de JavaScript detectadas — Sin puntuar» (auditoría diagnóstica, sin impacto en puntuación).
+- Escaneo del bundle real `index-C02dIHlR.js` (389.077 B sin comprimir) con `libs_scan.py` más lectura de `package.json`.
+
+### Cómo lo entrego
+- Librerías detectables en producción: **React 18.3.1 / React DOM 18.3.1** (11 y 2 huellas), **lucide-react 0.487.0** (33 iconos) y una huella de Emotion; el resto de dependencias de `package.json` (recharts, marked, Radix, motion, date-fns, MUI, etc.) no terminan en el bundle servido.
+- **No** hay jQuery, Bootstrap, Lodash, Moment ni MUI en producción: no hay librerías antiguas con advisories conocidos que mitigar. React 18.3.1 es la última versión 18.x (React 19 queda como deuda opcional, no like-for-like: exigiría build y regresiones).
+- Conclusión: auditoría informativa, **sin cambios**. ✅ CIERRE.
