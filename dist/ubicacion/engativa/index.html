@@ -86,8 +86,17 @@
   gtag('js', new Date());
   gtag('config', 'G-7ES977W3VY');
 </script>
+<style>
+/* APC-A11Y-2026: foco visible, skip link y landmarks de apoyo */
+:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:focus-visible{outline:3px solid #1A365D;outline-offset:2px}
+.a11y-skip{position:absolute;left:12px;top:-80px;z-index:2147483647;background:#0A2540;color:#fff!important;padding:10px 16px;border-radius:8px;text-decoration:none}
+.a11y-skip:focus{top:12px}
+</style>
 </head>
 <body>
+<a class="a11y-skip" href="#main-content">Saltar al contenido principal</a>
   <nav style="position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #E2E8F0">
     <div style="max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px">
       <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
@@ -105,7 +114,7 @@
     </div>
   </nav>
   <div style='padding-top:56px'>
-  <div class="container">
+  <div class="container" role="main" id="main-content">
     <img src="/ubicacion-engativa.webp" alt="Control Acceso, GPS y Automatización en Engativá | Servicios APC" loading="lazy" style="width:100%;border-radius:12px;margin:0 0 20px" />
     <h1>Control Acceso, GPS Flotas y Automatización en Engativá, Bogotá</h1>
     <p><strong>Servicios APC</strong> — Soluciones para fábricas, bodegas y flotas en Engativá. Control de acceso + nómina, GPS flotas, automatización WhatsApp, soporte técnico.</p>
@@ -146,7 +155,7 @@
 
     <h2>Preguntas Frecuentes</h2>
     <div class="faq">
-      <h4>¿Cuánto cuesta control de acceso con nómina?</h4>
+      <h4 role="heading" aria-level="3">¿Cuánto cuesta control de acceso con nómina?</h4>
       <p>CTRL-03: $450k/mes + $890k setup. Incluye hardware (lectores, tarjetas) + software + integración nómina.</p>
     </div>
     <div class="faq">

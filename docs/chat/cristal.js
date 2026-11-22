@@ -387,7 +387,7 @@
       '<div class="cr-log" id="cr-log"></div>' +
       '<div class="cr-quick" id="cr-quick"></div>' +
       '<div class="cr-inputbar">' +
-        '<input class="cr-text" id="cr-text" placeholder="Escribe tu respuesta…" autocomplete="off">' +
+        '<input class="cr-text" id="cr-text" placeholder="Escribe tu respuesta…" aria-label="Escribe tu respuesta" autocomplete="off">' +
         '<button class="cr-sendbtn" id="cr-sendbtn" aria-label="Enviar">➤</button>' +
       '</div>' +
       '<div class="cr-foot"><a href="' + C.policyUrl + '" target="_blank" rel="noopener noreferrer">Tus datos · Ley 1581</a></div>' +

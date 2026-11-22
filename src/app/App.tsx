@@ -1072,6 +1072,7 @@ export default function App() {
                                 </ul>
                                 <WhatsAppCTA
                                   label="Solicitar información"
+                                  ariaLabel={`Solicitar información sobre ${s.title}`}
                                   href={waLink(
                                     `Hola Servicios APC, quiero información sobre ${s.title}`
                                   )}

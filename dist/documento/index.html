@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="/logo.webp" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>Acceso a documento | Servicios APC</title>
@@ -30,6 +31,14 @@
   gtag('js', new Date());
   gtag('config', 'G-7ES977W3VY');
 </script>
+<style>
+/* APC-A11Y-2026: foco visible, skip link y landmarks de apoyo */
+:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:focus-visible{outline:3px solid #1A365D;outline-offset:2px}
+.a11y-skip{position:absolute;left:12px;top:-80px;z-index:2147483647;background:#0A2540;color:#fff!important;padding:10px 16px;border-radius:8px;text-decoration:none}
+.a11y-skip:focus{top:12px}
+</style>
 </head>
 <body>
   <div class="card">
@@ -39,7 +48,7 @@
     <form id="form" toolname="acceder_documento" tooldescription="Accede a un documento protegido de Servicios APC usando el codigo de acceso enviado al correo. Requiere el codigo de acceso.">
       <div class="form-group">
         <label>C&#243;digo de acceso</label>
-        <input type="text" id="clave" toolparamdescription="Codigo de acceso enviado por correo electronico" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus>
+        <input type="text" id="clave" toolparamdescription="Codigo de acceso enviado por correo electronico" placeholder="Ej: X7kP9mQ2" required autocomplete="off" autofocus aria-label="Código de acceso">
       </div>
       <button type="submit">Ver / Descargar</button>
       <div id="error" class="error">Clave incorrecta. Verifica el c&#243;digo de tu correo.</div>

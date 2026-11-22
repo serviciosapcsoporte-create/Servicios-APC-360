@@ -144,9 +144,18 @@
   gtag('js', new Date());
   gtag('config', 'G-7ES977W3VY');
 </script>
+<style>
+/* APC-A11Y-2026: foco visible, skip link y landmarks de apoyo */
+:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:focus-visible{outline:3px solid #1A365D;outline-offset:2px}
+.a11y-skip{position:absolute;left:12px;top:-80px;z-index:2147483647;background:#0A2540;color:#fff!important;padding:10px 16px;border-radius:8px;text-decoration:none}
+.a11y-skip:focus{top:12px}
+</style>
 </head>
 <body>
-  <div class="container">
+<a class="a11y-skip" href="#main-content">Saltar al contenido principal</a>
+  <div class="container" role="main" id="main-content">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <ol style="display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:0 0 1.5rem">
         <li><a href="/" style="color:#64748b;text-decoration:none">Inicio</a></li>
@@ -164,7 +173,7 @@
         <span>Volver al blog</span>
       </a>
     </div>
-    <div class="hero">
+    <div class="hero" role="banner">
       <h1>Las mejores cámaras de seguridad para local comercial en Bogotá 2026</h1>
       <div class="meta">Guía de Compra Â· 2026-07-25 Â· 9 min de lectura Â· Servicios APC BogotÃ¡</div>
     </div>
@@ -406,7 +415,7 @@
         <li><a href="https://serviciosapc.site/precio-instalacion-camaras-bogota/">Precios de instalaciÃ³n 2026</a></li>
       </ul>
     </div>
-    <div class="nav"><span><a href="https://serviciosapc.site/blog/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues/">Siguiente &raquo;</a></span></div>
+    <div class="nav" role="navigation"><span><a href="https://serviciosapc.site/blog/instalacion-camaras-seguridad-negocio-pequeno-bogota-guia/">&laquo; Anterior</a></span><span><a href="https://serviciosapc.site/blog/negocio-camaras-ia-vs-sin-ia-caso-visual-antes-despues/">Siguiente &raquo;</a></span></div>
     <p class="footer">Servicios APC â€” Socio tecnolÃ³gico para empresas en BogotÃ¡. Cra. 52c #39b-22 Â· +57 333 745 0634 Â· serviciosapcsoporte@gmail.com<br/>Tags: cámaras local comercial, mejores cámaras negocio, Hikvision local, CCTV tienda Bogotá</p>
   </div>
 </body>

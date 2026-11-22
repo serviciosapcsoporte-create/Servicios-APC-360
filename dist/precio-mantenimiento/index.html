@@ -83,9 +83,18 @@
   gtag('js', new Date());
   gtag('config', 'G-7ES977W3VY');
 </script>
+<style>
+/* APC-A11Y-2026: foco visible, skip link y landmarks de apoyo */
+:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:focus-visible{outline:3px solid #1A365D;outline-offset:2px}
+.a11y-skip{position:absolute;left:12px;top:-80px;z-index:2147483647;background:#0A2540;color:#fff!important;padding:10px 16px;border-radius:8px;text-decoration:none}
+.a11y-skip:focus{top:12px}
+</style>
 </head>
 <body>
-  <div class="hero">
+<a class="a11y-skip" href="#main-content">Saltar al contenido principal</a>
+  <div class="hero" role="banner">
     <h1>Precio Mantenimiento de Cámaras de Seguridad en Bogotá</h1>
     <p>Planes de mantenimiento preventivo y correctivo. Soporte técnico incluido. Diagnóstico gratuito.</p>
     <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20quiero%20cotizacion%20mantenimiento" class="whatsapp">WhatsApp: 333 745 0634</a>
@@ -94,7 +103,7 @@
 
   
   <div style="max-width:900px;margin:20px auto 0;padding:0 20px"><img src="/mantenimiento-preventivo-checklist.webp" alt="Precio Mantenimiento Cámaras de Seguridad Bogotá | Servicios APC" loading="lazy" style="display:block;width:100%;border-radius:12px" /></div>
-<div class="container">
+<div class="container" role="main" id="main-content">
     <h2>Planes de Mantenimiento CCTV</h2>
     <p>Tu sistema de cámaras necesita mantenimiento para seguir funcionando bien. Un DVR sin limpiar se sobrecalienta. Una cámara sucia no graba bien. Un firmware desactualizado es vulnerable.</p>
 
@@ -149,7 +158,7 @@
 
     <h2>Preguntas Frecuentes</h2>
     <div class="faq">
-      <h4>¿Cuánto cuesta el mantenimiento de cámaras de seguridad?</h4>
+      <h4 role="heading" aria-level="3">¿Cuánto cuesta el mantenimiento de cámaras de seguridad?</h4>
       <p>El plan se cotiza segun el sistema (numero de camaras, alcance y frecuencia). Incluye revision, limpieza, actualizacion de firmware y soporte remoto.</p>
     </div>
     <div class="faq">

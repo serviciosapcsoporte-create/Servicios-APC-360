@@ -141,9 +141,18 @@
     }
   ]
 }</script>
+<style>
+/* APC-A11Y-2026: foco visible, skip link y landmarks de apoyo */
+:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid #1A365D;outline-offset:3px}
+input[type=text]:focus-visible,input[type=email]:focus-visible,input[type=tel]:focus-visible{outline:3px solid #1A365D;outline-offset:2px}
+.a11y-skip{position:absolute;left:12px;top:-80px;z-index:2147483647;background:#0A2540;color:#fff!important;padding:10px 16px;border-radius:8px;text-decoration:none}
+.a11y-skip:focus{top:12px}
+</style>
 </head>
 <body>
-  <div class="hero">
+<a class="a11y-skip" href="#main-content">Saltar al contenido principal</a>
+  <div class="hero" role="banner">
     <h1>Automatización con Cámaras IA para Pymes en Bogotá</h1>
     <p>No vendemos cámaras. Instalamos orden. Cámaras que generan datos, dashboards, alertas automáticas. Todo conectado. Todo en tiempo real.</p>
     <a href="https://wa.me/573337450634?text=Hola%20Servicios%20APC%2C%20quiero%20automatizar%20mi%20negocio" class="whatsapp">WhatsApp: 333 745 0634</a>
@@ -152,7 +161,7 @@
 
   
   <div style="max-width:900px;margin:20px auto 0;padding:0 20px"><img src="/blog-img/automatizacion-n8n-cctv-alerta-whatsapp-crm-dashboard.webp" alt="Automatización con Cámaras IA para Pymes Bogotá | Servicios APC" loading="lazy" style="display:block;width:100%;border-radius:12px" /></div>
-<div class="container">
+<div class="container" role="main" id="main-content">
     <h2>El verdadero potencial de tus cámaras</h2>
     <p>La mayoría de negocios en Bogotá tienen cámaras que <strong>solo graban</strong>. Un 80% del espacio en disco se desperdicia en horas de nadie. Tus cámaras pueden hacer mucho más.</p>
 
@@ -319,7 +328,7 @@
     <p>Si reconoces tres o más, el siguiente paso no es comprar tecnología: es sentarnos a definir una sola pregunta de negocio y medirla durante dos semanas. Ese piloto pequeño es la forma más barata y honesta de saber si la automatización aporta en tu caso. Agenda un diagnóstico gratuito y lo definimos juntos.</p>
 
     <h2>Preguntas frecuentes</h2>
-    <div class="faq"><h4>¿Qué es la automatización con cámaras con IA?</h4>
+    <div class="faq"><h4 role="heading" aria-level="3">¿Qué es la automatización con cámaras con IA?</h4>
       <p>Uso de analítica de video para generar datos automáticos: conteo de personas, arqueo asistido y detección de anomalías operativas, integrados con WhatsApp, CRM o dashboards. No es vigilancia: es orden y medición de la operación.</p></div>
     <div class="faq"><h4>¿Tengo que reemplazar mis cámaras actuales?</h4>
       <p>No necesariamente. Evaluamos el equipamiento existente y, si hace falta, proponemos un esquema plug &amp; play con mini PC e IA offline, sin obras mayores.</p></div>

@@ -7,6 +7,7 @@ type Size = "sm" | "md" | "lg";
 interface ChipCTAProps {
   label: string;
   href: string;
+  ariaLabel?: string;
   size?: Size;
   fullWidth?: boolean;
   align?: "center" | "start";
@@ -27,6 +28,7 @@ const SIZES: Record<Size, { pad: string; logo: number }> = {
 export function ChipCTA({
   label,
   href,
+  ariaLabel,
   size = "md",
   fullWidth = false,
   align = "center",
@@ -39,6 +41,7 @@ export function ChipCTA({
   return (
     <a
       href={href}
+      aria-label={ariaLabel}
       target="_blank"
       rel="noopener noreferrer"
       style={{ "--brand": isWhatsApp ? "#25D366" : brand } as CSSProperties}

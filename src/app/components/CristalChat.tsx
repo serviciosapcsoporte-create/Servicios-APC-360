@@ -3,7 +3,7 @@ import { useEffect } from "react";
 // Bot de ventas "Cristal" (scriptado, sin LLM). Reutiliza chat/cristal.js del public.
 // Se arranca POST-LOAD + idle para sacar chat/cristal.css|js de la cadena crítica.
 // Cache-bust: Cloudflare guarda estos archivos estáticos en borde con la misma URL.
-const CHAT_CACHE_BUST = "?v=20261122";
+const CHAT_CACHE_BUST = "?v=20261122a11y";
 
 export default function CristalChat() {
   useEffect(() => {
