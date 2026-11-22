@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { WhatsAppCTA } from "./WhatsAppCTA";
+import { WA_HERO } from "./wa";
 
 interface MobileCTAProps {
   ctaHref?: string;
@@ -8,8 +9,6 @@ interface MobileCTAProps {
   triggerAfterSeconds?: number;
   triggerAtScrollPercent?: number;
 }
-
-const WA_HERO = "https://wa.me/573337450634?text=Hola%2C%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad%20para%20mi%20negocio%20en%20Bogot%C3%A1";
 
 export const MobileCTA: React.FC<MobileCTAProps> = ({
   ctaHref = WA_HERO,

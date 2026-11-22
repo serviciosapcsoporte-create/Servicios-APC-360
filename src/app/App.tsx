@@ -36,16 +36,9 @@ import {
 } from "lucide-react";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { cn } from "./components/ui/utils";
+import { WHATSAPP, waLink, WA_HERO } from "./components/wa";
 
 /* ─── CONSTANTES ─────────────────────────────────────────── */
-
-const WHATSAPP = "https://wa.me/573337450634";
-
-const waLink = (msg: string) => `${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-
-const WA_HERO = waLink(
-  "Hola Servicios APC, quiero cotizar la instalación de cámaras de seguridad para mi negocio en Bogotá"
-);
 
 const WA_HERO_ESTUDIO = waLink(
   "Hola Servicios APC, quiero agendar el estudio de seguridad gratis y cotizar la instalación de cámaras de seguridad e IA en Bogotá"

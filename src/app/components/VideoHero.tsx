@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { WhatsAppCTA } from "./WhatsAppCTA";
+import { WA_HERO } from "./wa";
 
 interface VideoHeroProps {
   title?: string;
@@ -18,8 +19,6 @@ interface VideoHeroProps {
   secondaryCtaLabel?: string;
   secondaryCtaHref?: string;
 }
-
-const WA_HERO = "https://wa.me/573337450634?text=Hola%2C%20quiero%20cotizar%20la%20instalaci%C3%B3n%20de%20c%C3%A1maras%20de%20seguridad%20para%20mi%20negocio%20en%20Bogot%C3%A1";
 
 /* Hero corporativo claro: sin video ni resplandores, fondo #F8FAFC con
    lavados azul/verde muy sutiles y jerarquía tipográfica limpia. */

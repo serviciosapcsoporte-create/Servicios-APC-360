@@ -294,3 +294,19 @@ Fuente del plan: `C:\Users\pc\.opencode\skills\seo\PLAN_SEO_SERVICIOSAPC.md` (30
 - Deploy `af48fc19` verificado en vivo: los 3 CTAs del insight (y los demás chips) pasan de **1,98:1 → 7,67:1** (`rgb(255,255,255)` sobre `rgb(7,94,84)`); el botón flotante sigue en 17,85:1; el logo del chip computa `rgb(255,255,255)`. Una landing estática (`instalacion-camaras-seguridad-bogota`) también sirve `.whatsapp` con fondo `rgb(7,94,84)` y texto blanco. ✅ CIERRE.
 
 ---
+
+## FIX ACCESIBILIDAD — Enlaces idénticos «Cotizar por WhatsApp» (22/11/2026) ✅
+
+### Cómo lo encontré
+- Usuario pegó el insight de PSI: "Los enlaces idénticos tienen la misma finalidad... Sin puntuar" sobre dos `<a>` con nombre accesible `Cotizar por WhatsApp`.
+- Enumerado en vivo con CDP: la home tiene **4** enlaces con ese mismo nombre accesible. Tres apuntaban a `Hola Servicios APC, quiero cotizar la instalación de cámaras de seguridad para mi negocio en Bogotá`; el cuarto (CTA flotante de `MobileCTA`) apuntaba a `Hola, quiero cotizar la instalación...`. Distinto `href` con la misma etiqueta → el usuario no puede inferir la finalidad.
+- Causa raíz: **tres constantes duplicadas** con el mismo nombre (`WA_HERO`) en `src/app/App.tsx`, `src/app/components/MobileCTA.tsx` y `src/app/components/VideoHero.tsx`. Las landings revisadas no devuelven enlaces con esa etiqueta.
+- **Decisión del usuario: unificar al mensaje de App y centralizar** la constante compartida.
+
+### Cómo lo entrego
+- Nuevo módulo `src/app/components/wa.ts`: única fuente de verdad con `WHATSAPP`, `waLink(msg)` y `WA_HERO` canónico. `App.tsx`, `MobileCTA.tsx` y `VideoHero.tsx` importan de ahí; se eliminaron las 3 definiciones duplicadas (ya no existe el mensaje corto en el bundle).
+- `WA_HERO_ESTUDIO` sigue en `App.tsx` porque tiene otra etiqueta ("Cotizar con Estudio Gratis por WhatsApp") y otra intención; no es un enlace idéntico.
+- Rebuild Vite en copia local + postbuild: entry `index-Cgif1_O5.js` → `index-Z_hkDGpR.js`; CSS sin cambios (`index-CiqIJQzD.css`). Assets a 3 árboles y hash solo en 5 shells (bloques inyectados conservados).
+- Verificación local 16/16: 0 mensajes cortos en 23 assets, mensaje canónico presente en el bundle, 0 hashes viejos, contraste intacto (0 fondos verdes en 178 HTML). Sin regresiones: NAP 300/300, Fase 7 0 hallazgos, Fase 8 0 objetos sin `sameAs`. Deploy pendiente de verificación en vivo.
+
+---
